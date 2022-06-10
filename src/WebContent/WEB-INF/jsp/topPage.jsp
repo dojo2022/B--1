@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Forza｜TopPage</title>
+<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 </head>
 <body>
 <div class="wrapper">
@@ -28,9 +29,18 @@
         <div class="task">
             タスクリスト
         </div>
+
         <div class="memo">
-            メモ
+			<form id ="topMemoForm" method="POST" action="/Folza/topMemoServlet">
+				<table align="center">
+					<tr><td><label for="topMemo">Memo</label></td><td><input type="submit" class="submit" value="更新"></td></tr>
+					<tr><td colspan =2><textarea id="topMemo" name="topMemo" rows="20" cols="40"></textarea></td></tr>
+				</table>
+
+			</form>
+
         </div>
+
         <div class="trophy">
             トロフィー
         </div>
