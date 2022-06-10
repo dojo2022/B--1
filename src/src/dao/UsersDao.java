@@ -1,6 +1,5 @@
 package dao;
 
-import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -10,19 +9,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import model.Idpw;
-import model.Users
+import model.Users;
 /**
  * Servlet implementation class UsersDao
  */
 @WebServlet("/UsersDao")
-public class UsersDAO {
+public class UsersDao {
 	// ログインできるならtrueを返す
 	public boolean isLoginOK(Users users) {
 		Connection conn = null;
@@ -175,7 +169,7 @@ String sql = "insert into USERS (id, pw) values (?, ?)";
 		pStmt.setString(1, null);
 	}
 	if (Users.getPw() != null && !Users.getPw().equals("")) {
-		pStmt.setString(2, Idpw.getPw());
+		pStmt.setString(2, Users.getPw());
 	}
 	else {
 		pStmt.setString(2, null);
