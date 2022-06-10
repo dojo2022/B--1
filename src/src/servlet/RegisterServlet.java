@@ -8,13 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponse;
 
-import dao.IdpwDAO;
-import dao.UsersDAO;
+import dao.UsersDao;
 import model.Users;
-import model.Idpw;
-import model.Result;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -53,7 +49,7 @@ public class RegisterServlet extends HttpServlet {
 				String password = request.getParameter("password");
 
 				// 登録処理を行う
-				UsersDAO bDao = new UsersDAO();
+				UsersDao bDao = new UsersDao();
 				if (bDao.insert(new Users(id, password))) {	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/Forza/TopServlet"));
