@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDao;
+import model.Login;
+import model.Result;
 import model.Users;
 
 /**
@@ -41,6 +43,27 @@ public class LoginServlet extends HttpServlet {
 				// ログイン処理を行う
 				UsersDao iDao = new UsersDao();
 				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
+
+					// セッションスコープにIDを格納する
+					HttpSession session = request.getSession();
+					session.setAttribute("id", new Login(id));
+
+					// セッションスコープにIDを格納する
+					HttpSession session = request.getSession();
+					session.setAttribute("id", new Login(id));
+
+					// メニューサーブレットにリダイレクトする
+					response.sendRedirect("/Forza/TopServlet");
+				}
+				else {									// ログイン失敗
+					// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+					request.setAttribute("result",
+					new Result("ログイン失敗！", "ID(メールアドレス)またはPWに間違いがあります。", "/Forza/LoginServlet"));
+
+
+				// ログイン処理を行う
+				UsersDao iDao = new UsersDao();
+				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
 					// セッションスコープにIDを格納する
 					HttpSession session = request.getSession();
 					session.setAttribute("id", new Users(id));
@@ -59,3 +82,4 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
        }
+    }

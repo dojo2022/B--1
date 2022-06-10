@@ -14,7 +14,6 @@ public class Login implements Serializable {
 		this.id = "";
 		this.pw = "";
 	}
-
 	public String getId() {
 		return id;
 	}
@@ -23,11 +22,15 @@ public class Login implements Serializable {
 		this.id = id;
 	}
 
+
 	public String getPw() {
 		return pw;
 	}
 
 	public void setPw(String pw) {
 		this.pw = pw;
-	}
+
+
 }
+}
+

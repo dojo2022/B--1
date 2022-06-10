@@ -1,5 +1,4 @@
 package model;
-
 import java.io.Serializable;
 
 public class Users implements Serializable {
@@ -21,3 +20,5 @@ public class Users implements Serializable {
 		this.id = id;
 	}
 }
+
+
