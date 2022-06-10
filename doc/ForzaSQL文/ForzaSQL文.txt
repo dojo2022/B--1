@@ -1,0 +1,134 @@
+
+【ユーザーテーブルを作成するSQL文】
+CREATE TABLE USERS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  user_password VARCHAR(40) NOT NULL
+);
+【ユーザーテーブルにサンプルデータを登録するSQL文】
+INSERT INTO USERS (user_id,user_password) 
+VALUES ('DOJO', 'password');
+
+
+
+
+
+【タスクリストテーブルを作成するSQL文】
+CREATE TABLE TASK_LISTS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  task_id INT AUTO_INCREMENT,
+  customset_id INT AUTO_INCREMENT,
+  task_name VARCHAR(40) NOT NULL,
+  task_memo VARCHAR(100) ,
+  task_date DATE,
+  priority INT,
+  task_judge BOOLEAN
+);
+【タスクリストテーブルにサンプルデータを登録するSQL文】
+INSERT INTO TASK_LISTS (user_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO', '腹筋', '15回', now(),1,0);
+
+
+
+
+
+【カスタムセットテーブルを作成するSQL文】
+CREATE TABLE CUSTOMSET_LISTS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  customset_id INT AUTO_INCREMENT,
+  customset_name VARCHAR(20) NOT NULL
+);
+【カスタムセットテーブルにサンプルデータを登録するSQL文】
+INSERT INTO CUSTOMSET_LISTS (user_id,customset_name) 
+VALUES ('DOJO', '筋トレ');
+
+
+【応援画像メッセージテーブルを作成するSQL文】
+CREATE TABLE CHEER_LISTS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  customset_id INT AUTO_INCREMENT,
+  cheer_image VARCHAR(50),
+  cheer_message VARCHAR(100)
+);
+【応援画像メッセージテーブルにサンプルデータを登録するSQL文】
+
+
+【背景テーブルを作成するSQL文】
+CREATE TABLE BACKGROUND_IMAGES (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  background_image VARCHAR(50)
+);
+【背景テーブルにサンプルデータを登録するSQL文】
+
+【アイコンテーブルを作成するSQL文】
+CREATE TABLE ICON_IMAGES (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  icon_image VARCHAR(50)
+);
+【アイコンテーブルにサンプルデータを登録するSQL文】
+
+
+
+【ご褒美デーテーブルを作成するSQL文】
+CREATE TABLE REMIND_DAYS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+　remind_name VARCHAR(100),
+  remind_date DATE
+);
+【ご褒美デーテーブルにサンプルデータを登録するSQL文】
+INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
+VALUES ('DOJO', '給料日',20220620);
+
+
+
+
+【TOPメモテーブルを作成するSQL文】
+CREATE TABLE TOP_MEMO (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  top_memo VARCHAR(200)
+);
+
+【TOPメモテーブルにサンプルデータを登録するSQL文】
+
+INSERT INTO TOP_MEMO (user_id,top_memo) 
+VALUES ('DOJO', '空のメモ');
+
+
+
+【ログイン日数テーブルを作成するSQL文】
+CREATE TABLE LOGIN_DAYS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  login_day INT
+);
+【ログイン日数テーブルにサンプルデータを登録するSQL文】
+
+INSERT INTO LOGIN_DAYS (user_id,login_day) 
+VALUES ('DOJO', 0);
+
+
+
+【タスク達成数テーブルを作成するSQL文】
+CREATE TABLE TASK_ACHIEVEMENT (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  task_achievement INT
+);
+【タスク達成数テーブルにサンプルデータを登録するSQL文】
+
+INSERT INTO TASK_ACHIEVEMENT (user_id,task_achievement) 
+VALUES ('DOJO', 0);
+
+
+
+
+
+
