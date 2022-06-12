@@ -48,10 +48,6 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("id", new Login(id));
 
-					// セッションスコープにIDを格納する
-					HttpSession session = request.getSession();
-					session.setAttribute("id", new Login(id));
-
 					// メニューサーブレットにリダイレクトする
 					response.sendRedirect("/Forza/TopServlet");
 				}
@@ -60,26 +56,10 @@ public class LoginServlet extends HttpServlet {
 					request.setAttribute("result",
 					new Result("ログイン失敗！", "ID(メールアドレス)またはPWに間違いがあります。", "/Forza/LoginServlet"));
 
-
-				// ログイン処理を行う
-				UsersDao iDao = new UsersDao();
-				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
-					// セッションスコープにIDを格納する
-					HttpSession session = request.getSession();
-					session.setAttribute("id", new Users(id));
-
-					// メニューサーブレットにリダイレクトする
-					response.sendRedirect("/Forza/TopServlet");
-				}
-				else {									// ログイン失敗
-					// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-					request.setAttribute("result",
-					new Result("ログイン失敗！", "ID(メールアドレス)またはPWに間違いがあります。", "/Forza/LoginServlet"));
 
 					// 結果ページにフォワードする
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 					dispatcher.forward(request, response);
-				}
 			}
        }
     }
