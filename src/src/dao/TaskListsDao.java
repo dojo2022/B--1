@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Task;
+
 
 public class TaskListsDao {
     	public List<Task> show() {
@@ -22,7 +24,7 @@ public class TaskListsDao {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
 
     			// SQL文を準備する
-    			String sql = "select id,user_id,task_id,customset_id,task_title,task_memo,task_date,priority,task_judge from task_lists";
+    			String sql = "select task_name from task_lists";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を実行し、結果表を取得する
@@ -31,15 +33,7 @@ public class TaskListsDao {
     			// 結果表をコレクションにコピーする
     			while (rs.next()) {
     				Task card = new Task(
-    				rs.getString("id"),
-    				rs.getString("user_id"),
-    				rs.getString("task_id"),
-    				rs.getString("customset_id"),
-    				rs.getString("task_title"),
-    				rs.getString("task_memo"),
-    				rs.getString("task_date"),
-                    rs.getString("priority"),
-                    rs.getString("task_judge")
+    				rs.getString("task_name")
     				);
     				list.add(card);
     				System.out.println(rs.getString("id"));
@@ -69,4 +63,9 @@ public class TaskListsDao {
     		// 結果を返す
     		return list;
     	}
+
+		public boolean insert(Task task) {
+			// TODO 自動生成されたメソッド・スタブ
+			return false;
+		}
 }
