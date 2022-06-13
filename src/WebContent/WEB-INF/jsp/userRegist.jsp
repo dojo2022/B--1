@@ -44,7 +44,7 @@
      <input type="reset" name="reset" value="リセット">
 
 </form>
-<a href="/Forza/TopServlet">メニューへ戻る</a>
+<a href="/Forza/LoginServlet">メニューへ戻る</a>
 <!-- フッター（ここから） -->
 <!-- フッター（ここまで） -->
 </body>
