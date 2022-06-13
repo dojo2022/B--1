@@ -1,41 +1,72 @@
 package model;
+import java.io.Serializable;
+import java.util.Date;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+public class Remind implements Serializable {
+	private Integer id; 	// id
+	private String user_id; 	// user_id
+	private String remind_name; 	// name
+	private Date remind_date; 	// date
 
-/**
- * Servlet implementation class Remind
- */
-@WebServlet("/Remind")
-public class Remind extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Remind() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public Remind(int id, String user_id, String remind_name, java.sql.Date remind_date) {
+		this.id = id;
+		this.user_id = user_id;
+		this.remind_name = remind_name;
+		this.remind_date = remind_date;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	public Remind( String user_id, String remind_name, java.sql.Date remind_date) {
+		this.user_id = user_id;
+		this.remind_name = remind_name;
+		this.remind_date = remind_date;
 	}
+
+	public Remind(String user_id) {
+		this.id = null;
+		this.user_id = user_id;
+		this.remind_name = null;
+		this.remind_date = null;
+	}
+
+
+	public Remind() {
+		this.id = 0;
+		this.user_id = "";
+		this.remind_name = "";
+		this.remind_date = null;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getRemind_name() {
+		return remind_name;
+	}
+
+	public void setRemind_name(String remind_name) {
+		this.remind_name = remind_name;
+	}
+
+	public Date getRemind_date() {
+		return remind_date;
+	}
+
+	public void setRemind_date(Date remind_date) {
+		this.remind_date = remind_date;
+	}
+
 
 }
