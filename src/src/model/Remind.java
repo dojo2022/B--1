@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Remind implements Serializable {
-	private Integer id; 	// id
+	private int id; 	// id
 	private String user_id; 	// user_id
 	private String remind_name; 	// name
 	private Date remind_date; 	// date
