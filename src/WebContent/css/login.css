@@ -1,1 +1,87 @@
 @charset "UTF-8";
+/*ログイン画面*/
+.titlegazou {
+    text-align: center;
+    margin: 100px 25px 0 0;
+}
+
+.bg {
+    padding:30px;
+    background-color:#555555;
+}
+
+.rogin {
+    width: 470px;
+    height: 500px;
+    border : 1px solid #000;
+    position: relative;
+    margin: 50px 400px 50px 400px;
+    background-color:#DDDDDD;
+    opacity:30;
+}
+
+.table-center {
+    text-align: center;
+    margin: auto;
+}
+
+.ID {
+    text-align: center;
+    margin: 30px 80px 0 0;
+}
+input[name="ID"] {
+    outline:solid 2px #038003;
+    border-radius: 0.55em;
+
+}
+
+.PW {
+    text-align: center;
+    margin: 20px 27px 40px 0;
+    font-family:"YuMincho";
+}
+input[name="PW"] {
+    outline:solid 2px #038003;
+    border-radius: 0.55em;
+}
+.new {
+    margin: 40px 0;
+}
+.new:hover {
+        font-size: 23px;
+        font-weight: bold;
+}
+
+input[name="LOGIN"] {
+    display: inline-block;
+  padding: 0.8em 1.5em;
+  background-color: #e3364a; /* 背景色 */
+  box-shadow: 0 5px 0 #ca1c30; /* 影の太さ・色 */
+  border-radius: 60px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
+
+input[name="LOGIN"]:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+
+  /*新規登録画面*/
+
+  input[name="REGIST"] {
+    display: inline-block;
+  padding: 0.8em 3em;
+  background-color: #4689FF; /* 背景色 */
+  box-shadow: 0 5px 0 #005FFF; /* 影の太さ・色 */
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+  margin: 30px;
+}
+input[name="REGIST"]:active {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+
