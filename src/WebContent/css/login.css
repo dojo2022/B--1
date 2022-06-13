@@ -85,3 +85,20 @@ input[name="REGIST"]:active {
     transform: translateY(5px);
   }
 
+.ID1 {
+    text-align: center;
+    margin: 30px 80px 0 0;
+}
+  input[name="ID1"] {
+    outline:solid 2px #800080;
+    border-radius: 0.55em;
+  }
+.PW1 {
+    text-align: center;
+    margin: 20px 27px 40px 0;
+  }
+input[name="PW1"] {
+    outline:solid 2px #800080;
+    border-radius: 0.55em;
+}
+

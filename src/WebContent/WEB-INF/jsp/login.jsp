@@ -8,32 +8,33 @@
   <link rel="stylesheet" type="text/css" href="/Forza/css/login.css">
 </head>
 <body>
-<div class="bg">
-<div class="rogin">
+ <div class="bg">
+    <div class="rogin">
 
-   <div class="titlegazou">
-     <img src="/Forza/images/Forza_trans.png" alt="home">
-   </div>
-<div class="table-center">
-<form method="POST" action="/Forza/LoginServlet" id="login_form'">
+    <div class="titlegazou">
+        <img src="/Forza/images/Forza_trans.png" alt="home">
+    </div>
+    <div class="table-center">
+        <form method="POST" action="/Forza/LoginServlet" id="login_form'">
 
-   <div class="ID">
-         ID(メール)
-      <label><input type="text" name="ID"><br></label>
-   </div>
-   <div class="PW">
-         PW
-      <label><input type="password" name="PW"><br></label>
-   </div>
-   <div>
-      <input type="submit" name="LOGIN" value="ログイン">
-   </div>
-</form>
-<div class="new">
-<a href="/Forza/RegisterServlet">新規登録はこちら</a>
-</div>
-</div>
-</div>
-</div>
+           <div class="ID1">
+                 ID(メール)
+              <label><input type="text" name="ID"><br></label>
+           </div>
+           <div class="PW1">
+                 PW
+              <label><input type="password" name="PW"><br></label>
+           </div>
+           <div>
+              <input type="submit" name="LOGIN" value="ログイン">
+           </div>
+        </form>
+           <div class="new">
+              <a href="/Forza/RegisterServlet">新規登録はこちら</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
 </body>
 </html>

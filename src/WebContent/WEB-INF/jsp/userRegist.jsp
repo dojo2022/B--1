@@ -16,11 +16,11 @@
     <div class="table-center">
         <form method="POST" action="/Forza/LoginServlet" id="login_form'">
 
-           <div class="ID">
+           <div class="ID1">
                  ID(メール)
               <label><input type="text" name="ID"><br></label>
            </div>
-           <div class="PW">
+           <div class="PW1">
                  PW
               <label><input type="password" name="PW"><br></label>
            </div>
