@@ -107,9 +107,9 @@ textarea {
     resize: none;                      /* テキストエリアの大きさを固定(なくても行数に合わせて可変になるわけではない) */
   	border: solid 2px black;         /* 枠の太さと色 */
   	border-radius: 6px;                /* 枠の丸みの度合いを指定 */
-  	outline: 0;                        /* これが何かは不明　不要なら削除 */
-  	transition: 0.3s;                  /* これが何かは不明　不要なら削除 */
-  	-webkit-appearance: none;          /* これが何かは不明　不要なら削除 */
+  	outline: 0;                        /* これが何かは忘れた　不要なら削除 */
+  	transition: 0.3s;                  /* これが何かは忘れた　不要なら削除 */
+  	-webkit-appearance: none;          /* これが何かは忘れた　不要なら削除 */
 }
 
 textarea:focus{border:2px solid blue;}  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
@@ -128,7 +128,7 @@ textarea:focus{border:2px solid blue;}  /* 入力時に枠の色が変わる。�
 	    width: 5em;
 		font-size:19px;
 		position:relative;
-		left:95px;                         /* 更新ボタンの位置を調整しています。右過ぎたら数字を減らしてください。 */
+		left:63px;                         /* 更新ボタンの位置を調整しています。右過ぎたら数字を減らしてください。 */
     }
 	.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
 	    border:1px solid #777;

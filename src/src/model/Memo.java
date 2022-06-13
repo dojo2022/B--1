@@ -1,41 +1,69 @@
 package model;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
 
-/**
- * Servlet implementation class Memo
- */
-@WebServlet("/Memo")
-public class Memo extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Memo() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+public class Memo implements Serializable {
+	private int id; // id インクリメント
+	private String user_id; // user_id
+	private String top_memo; // memoの内容
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	/*	引数3つのコンストラクタ*/
+
+		public Memo(int id, String user_id, String top_memo) {
+			super();
+			this.id = id;
+			this.user_id = user_id;
+			this.top_memo= top_memo;
+
+
+		}
+
+		/*引数1つのコンストラクタ*/
+	public Memo(String user_id) {
+		super();
+		this.user_id = user_id;
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	/*	引数２つのコンストラクタ*/
+	public Memo(String user_id, String top_memo) {
+		super();
+		this.user_id = user_id;
+		this.top_memo = top_memo;
+
+	}
+
+	//引数がないコンストラクタ（デフォルトコンストラクタ）
+	public Memo() {
+		super();
+		this.id = 0;
+		this.user_id = "";
+		this.top_memo = "";
+
+	}
+
+	public int getid() {
+		return id;
+	}
+
+	public void setid(int id) {
+		this.id = id;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getTop_memo() {
+		return top_memo;
+	}
+
+	public void setTop_memo(String top_memo) {
+		this.top_memo = top_memo;
 	}
 
 }
