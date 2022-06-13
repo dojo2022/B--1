@@ -63,4 +63,9 @@ public class TaskListsDao {
     		// 結果を返す
     		return list;
     	}
+
+		public boolean insert(Task task) {
+			// TODO 自動生成されたメソッド・スタブ
+			return false;
+		}
 }
