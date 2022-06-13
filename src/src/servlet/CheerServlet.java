@@ -16,14 +16,14 @@ import model.Task;
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet("/RegisterServlet")
-public class CeerServlet extends HttpServlet {
+@WebServlet("/CheerServlet")
+public class CheerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CeerServlet() {
+    public CheerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
