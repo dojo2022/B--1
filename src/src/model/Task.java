@@ -4,11 +4,11 @@ import java.io.Serializable;
     //Java Beans
 
 public class Task implements Serializable {
-	private String id;
+	private int id;
     private String user_id;
     private String task_id;
     private String customset_id;
-    private String task_title;
+    private String task_name;
     private String task_memo;
     private String task_date;
     private String priority;
@@ -17,32 +17,28 @@ public class Task implements Serializable {
 
 
 	//引数があるコンストラクタを作成
-	public Task(String id, String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
+	public Task(int id, String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
 		String priority, String task_judge) {
 	super();
 	this.id = id;
 	this.user_id = user_id;
 	this.task_id = task_id;
 	this.customset_id = customset_id;
-	this.task_title = task_name;
+	this.task_name = task_name;
 	this.task_memo = task_memo;
 	this.task_date = task_date;
 	this.priority = priority;
 	this.task_judge = task_judge;
 	}
-	public Task(String task_name) {
-		super();
-		this.task_title = task_name;
 
-		}
 	//引数がないコンストラクタを作成
 	public Task() {
 	super();
-	this.id = "0";
+	this.id = 0;
 	this.user_id = "0";
 	this.task_id = "0";
 	this.customset_id = "0";
-	this.task_title = "0";
+	this.task_name = "0";
 	this.task_memo = "0";
 	this.task_date = "0";
 	this.priority = "0";
@@ -50,11 +46,11 @@ public class Task implements Serializable {
 	}
 
 	//ゲッタとセッタ
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -82,12 +78,12 @@ public class Task implements Serializable {
 		this.customset_id = customset_id;
 	}
 
-	public String getTask_title () {
-		return task_title;
+	public String getTask_name () {
+		return task_name;
 	}
 
-	public void setTask_title(String task_title) {
-		this.task_title = task_title;
+	public void setTask_title(String task_name) {
+		this.task_name = task_name;
 	}
 
 	public String getTask_memo() {
