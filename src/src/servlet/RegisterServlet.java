@@ -53,11 +53,11 @@ public class RegisterServlet extends HttpServlet {
 				UsersDao bDao = new UsersDao();
 				if (bDao.insert(new Users(id, password))) {	// 登録成功
 					request.setAttribute("result",
-					new Result("登録成功！", "レコードを登録しました。", "/Forza/TopServlet"));
+					new Result("登録成功！", "レコードを登録しました。", "/Forza/LoginServlet"));
 				}
 				else {												// 登録失敗
 					request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/Forza/TopServlet"));
+					new Result("登録失敗！", "レコードを登録できませんでした。", "/Forza/RegisterServlet"));
 				}
 
 				// 結果ページにフォワードする

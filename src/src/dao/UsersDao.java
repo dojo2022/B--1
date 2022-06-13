@@ -30,7 +30,7 @@ public class UsersDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SELECT文を準備する
-			String sql = "select count(*) from Users where ID = ? and PW = ?";
+			String sql = "select count(*) from Users where USER_ID = ? and USER_PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, users.getId());
 			pStmt.setString(2, users.getPw());
@@ -158,7 +158,7 @@ try {
 	conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 	// Idpwの新規登録
-String sql = "insert into USERS (id, pw) values (?, ?)";
+String sql = "insert into USERS (USER_id, USER_password) values (?, ?)";
 	PreparedStatement pStmt = conn.prepareStatement(sql);
 
 	// SQL文を完成させる

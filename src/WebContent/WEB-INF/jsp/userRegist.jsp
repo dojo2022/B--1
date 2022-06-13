@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Forza</title>
-<link rel="stylesheet" type="text/css" href="/Forza/css/style.css">
+<link rel="stylesheet" type="text/css" href="/Forza/css/login.css">
 </head>
 <body>
     <div class="bg">
@@ -15,15 +14,15 @@
         <img src="/Forza/images/Forza_trans.png" alt="home">
     </div>
     <div class="table-center">
-        <form method="POST" action="/Forza/LoginServlet" id="login_form'">
+        <form method="POST" action="/Forza/RegisterServlet" id="login_form'">
 
            <div class="ID1">
                  ID(メール)
-              <label><input type="text" name="ID"><br></label>
+              <label><input type="text" name="id"><br></label>
            </div>
            <div class="PW1">
                  PW
-              <label><input type="password" name="PW"><br></label>
+              <label><input type="password" name="password"><br></label>
            </div>
            <div>
               <input type="submit" name="REGIST" value="新規登録">
