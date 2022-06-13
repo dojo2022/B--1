@@ -46,6 +46,7 @@ public class CeerServlet extends HttpServlet {
 
 				// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("ID");
 		String user_id = request.getParameter("USER_ID");
 		String task_id = request.getParameter("TASK_ID");
 		String customset_id = request.getParameter("CUSTOMSET_ID");
@@ -57,7 +58,7 @@ public class CeerServlet extends HttpServlet {
 
 				// 登録処理を行う
 				TaskListsDao TDao = new TaskListsDao();
-				if (TDao.insert(new Task(user_id,task_id,customset_id,task_title,task_memo,task_date,priority,task_judge))) {	// 登録成功
+				if ((TDao).insert(new Task(id,user_id,task_id,customset_id,task_title,task_memo,task_date,priority,task_judge))) {	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/Forza/TopServlet"));
 				}
