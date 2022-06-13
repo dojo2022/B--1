@@ -22,7 +22,7 @@ public class TaskListsDao {
     			Class.forName("org.h2.Driver");
 
     			// データベースに接続する
-    			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
+    			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
     			// SQL文を準備する
     			String sql = "select id,user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge from task_lists";
@@ -72,7 +72,7 @@ public class TaskListsDao {
     		// 結果を返す
     		return list;
     	}
-
+/*
 	//新しくタスクを追加する際に使うSQL文
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 	public boolean insert(Task card) {
@@ -260,10 +260,10 @@ public class TaskListsDao {
 		// 結果を返す
 		return result;
 	}
-
+*/
 	//タスクリストからタスクを削除する際のSQL文
 	// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-	public boolean delete(int number) {
+	public boolean delete(int id) {
 		Connection conn = null;
 		boolean result = false;
 
@@ -275,11 +275,11 @@ public class TaskListsDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "delete from Task_Lists where ID=?";
+			String sql = "delete from Task_Lists where id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			Integer i = Integer.valueOf(number);
+			Integer i = Integer.valueOf(id);
 			pStmt.setString(1, i.toString());
 
 			// SQL文を実行する
