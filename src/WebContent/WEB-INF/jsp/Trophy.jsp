@@ -4,9 +4,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>実績画面</title>
 </head>
 <body>
+
+<!-- ヘッダーやフッターはトップページのものが完成次第コピペしてくる -->
+
+<h1>実績</h1>
+
+
 
 </body>
 </html>

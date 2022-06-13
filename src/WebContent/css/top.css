@@ -127,8 +127,6 @@ textarea:focus{border:2px solid blue;}  /* 入力時に枠の色が変わる。�
 	    height: 2em;
 	    width: 5em;
 		font-size:19px;
-		position:relative;
-		left:63px;                         /* 更新ボタンの位置を調整しています。右過ぎたら数字を減らしてください。 */
     }
 	.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
 	    border:1px solid #777;

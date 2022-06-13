@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,21 +34,21 @@ public class TopServlet extends HttpServlet {
 
 
 
-		/*トップメモ関連*/
+		/*トップメモ関連(46行目のエラーにより一旦コメントアウトしています)*/
 
-		// スコープでデータの取得
-				request.setCharacterEncoding("UTF-8");
-				String number = request.getParameter("user_id");
-
-
-		// 検索処理を行う
-				TopMemosDao mDao = new TopMemosDao();
-				List<Memo> cardList = mDao.select(new Memo(user_id));
-
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("cardList", cardList);
+		/*		// スコープでデータの取得
+						request.setCharacterEncoding("UTF-8");
+						String number = request.getParameter("user_id");
 
 
+				// 検索処理を行う
+						TopMemosDao mDao = new TopMemosDao();
+						List<Memo> cardList = mDao.select(new Memo(user_id));
+
+						// 検索結果をリクエストスコープに格納する
+						request.setAttribute("cardList", cardList);
+
+		*/
 		/*トップメモ関連ここまで*/
 
 		// トップページにフォワードする
