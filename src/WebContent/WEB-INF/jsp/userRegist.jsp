@@ -1,51 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
-
 <head>
-
-<meta charset="UTF-8">
-
-<title>Forza</title>
-
-</head>
-
+  <meta charset="UTF-8">
+  <title>Forza</title>
+  <link rel="stylesheet" type="text/css" href="/Forza/css/login.css">
 <body>
+    <div class="bg">
+    <div class="rogin">
 
-<h2>IDとPWの新規登録</h2>
+    <div class="titlegazou">
+        <img src="/Forza/images/Forza_trans.png" alt="home">
+    </div>
+    <div class="table-center">
+        <form method="POST" action="/Forza/LoginServlet" id="login_form'">
 
-<form method="POST" action="/Forza/RegisterServlet">
+           <div class="ID">
+                 ID(メール)
+              <label><input type="text" name="ID"><br></label>
+           </div>
+           <div class="PW">
+                 PW
+              <label><input type="password" name="PW"><br></label>
+           </div>
+           <div>
+              <input type="submit" name="REGIST" value="新規登録">
+           </div>
+        </form>
+    </div>
+    </div>
+    </div>
 
-<table>
 
- <tr>
-
-  <td>
-
-<label>ID<br><input type="text" name="id"><br>
-</label>
-
-  </td>
-
-  <td>
-
-<label>PW<br><input type="password" name="password"><br>
-</label>
-
- </td>
-
-  </tr>
-
-   </table>
-
-     <input type="submit">
-     <input type="reset" name="reset" value="リセット">
-
-</form>
-<a href="/Forza/TopServlet">メニューへ戻る</a>
-<!-- フッター（ここから） -->
-<!-- フッター（ここまで） -->
 </body>
-</html>
