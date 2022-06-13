@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Forza｜TopPage</title>
-<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
+	<meta charset="UTF-8">
+	<title>Forza｜TopPage</title>
+	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 </head>
 <body>
 <div class="wrapper">
