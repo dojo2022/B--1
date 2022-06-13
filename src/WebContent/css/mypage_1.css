@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 /* 個人設定ページ */
-
         html *{
             box-sizing: border-box;
         }
         body{
             background-color: blanchedalmond;
             margin: 0 auto;
+            text-align: center;
             width: 90%;
         }
         header{
@@ -25,7 +25,7 @@
         }
         .news {
             margin : 0;
-            padding : 0 20%;
+            padding : 0 40%;
             height: 50px;
             position: relative;
             text-align : center;
@@ -48,6 +48,14 @@
             height: 50px;
             border-radius: 60%;
             text-align: right;
+        }
+        main{
+            border: 1px solid black;
+            background-color: #ffffff80;
+            text-align: left;
+            width: 450px;
+            margin: 30px auto;
+            padding: 10px;
         }
         .holiday{
             display: inline-flex;

@@ -27,7 +27,7 @@
 
         </div>
         <div class="setting">
-            <form>
+            <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setPw">
                     <label for="setPw">PW:
                         <input type="text" name="password" placeholder="password">
@@ -40,6 +40,8 @@
                 </div>
                 <div class="setIcon">
                     <label>アイコンの画像設定</label>
+					<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+					<canvas id="preview" style="max-width:200px;"></canvas><br>
                 </div>
                 <div class="setRemind">
                     ご褒美Day(リマインダー)
