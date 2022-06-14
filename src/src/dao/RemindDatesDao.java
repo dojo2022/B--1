@@ -146,16 +146,9 @@ public class RemindDatesDao {
 
 			// SQL文を実行する
 			pStmt.executeUpdate();
-			}
-			while (rs.next()) {
-				Remind list = new Remind(
-				rs.getString("USER_ID"),
-				rs.getString("REMIND_NAME"),
-				rs.getDate("REMIND_DATE")
-				);
 
-				remindList.add(list);
 			}
+			result =true;
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -176,7 +169,7 @@ public class RemindDatesDao {
 		}
 
 		// 結果を返す
-		return remindList;
+		return result;
 	}
 
 	// 引数chooseで今日より前の日付を選択
