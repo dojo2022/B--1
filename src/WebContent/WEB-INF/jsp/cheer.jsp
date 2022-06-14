@@ -13,8 +13,10 @@
     <input type="checkbox" name="checkbox">
         <div id="popWin">
             <div class="pop-win">
-                <img src="https://2.bp.blogspot.com/-Qb5rDXWDfEM/WD_cQRLwuoI/AAAAAAABABc/Xzo9QhVNS1MsiPmA32OBxpBBtW81Y1ssACLcB/s800/futon_derenai_woman.png">
-                <p>がんばったね</p>
+	            <c:forEach var="e" items="${list}">
+	                ${cheer_image}
+	                ${cheer_message}
+	            </c:forEach>
                 <div id="close"><img src="img/check.png"></div>
             </div>
         </div>
