@@ -5,31 +5,28 @@
 <head>
 <meta charset="UTF-8">
 <title>褒めるポップアップ</title>
-<link rel="stylesheet" href="css/cheer_pop.css">
-<script src="CheerPopup.js"></script>
+<link rel="stylesheet" href="css/cheer_popup.css">
 </head>
 
 <body>
     <input type="checkbox" name="checkbox">
         <div id="popWin">
             <div class="pop-win">
-	            <c:forEach var="e" items="${list}">
-	                ${cheer_image}
+            <ver="cheer">
+            		${cheer.cheer_image}
 	                <br>
-	                ${cheer_message}
-	            </c:forEach>
-                <div id="close"><img src="img/check.png"></div>
+	                ${cheer.cheer_message}
+	        </ver>
+                <div id="close"><img src="images/check.png"></div>
             </div>
         </div>
 </body>
 </html>
+<!--<script src="CheerPopup.js"></script>-->
 
-
-<!--
 <script>
     const close = document.getElementById('close');
     close.addEventListener('click', () => {
     popWin.style.display = 'none';
     });
 </script>
--->
