@@ -22,7 +22,7 @@ public class Remind implements Serializable {
 	}
 
 	public Remind(String user_id) {
-		this.id = null;
+		this.id = 0;
 		this.user_id = user_id;
 		this.remind_name = null;
 		this.remind_date = null;

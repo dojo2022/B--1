@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -81,7 +82,7 @@ public class RemindDatesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select adddate where USER_ID = ?";
+			String sql = "update Remind_date set Remind_date = ? from remind_dates where USER_ID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, salary.getUser_id());
@@ -199,6 +200,68 @@ public class RemindDatesDao {
 
 		// 結果を返す
 		return result;
+	}
+
+	public List<Remind> choose(Remind choose){
+		Connection conn = null;
+		List<Remind> remindList = new ArrayList<Remind>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select USER_ID REMIND_NAME REMIND_DATE from Remind WHERE USER_ID = ? AND REMIND_DATE <= ? ORDER BY ID";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, choose.getUser_id());
+
+
+	        long miliseconds = System.currentTimeMillis();
+	        Date date = new Date(miliseconds);
+
+			pStmt.setDate(2, date);
+
+			// SQL分を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Remind list = new Remind(
+				rs.getString("USER_ID"),
+				rs.getString("REMIND_NAME"),
+				rs.getDate("REMIND_DATE")
+				);
+
+				remindList.add(list);
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			remindList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			remindList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					remindList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return remindList;
 	}
 
 
