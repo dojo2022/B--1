@@ -39,9 +39,11 @@
                     </label>
                 </div>
                 <div class="setIcon">
+                	<form>
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
+                	</form>
                 </div>
                 <div class="setRemind">
                     ご褒美Day(リマインダー)
@@ -180,6 +182,6 @@
         <!-- 今回は無し -->
 	</footer>
 </div>
-
+<script src="/Forza/PersonalOption.js"></script>
 </body>
 </html>
