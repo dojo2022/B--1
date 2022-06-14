@@ -32,6 +32,8 @@ public class CheerServlet extends HttpServlet {
 			response.sendRedirect("/simpleBC/LoginServlet");
 			return;
 		}
+		//画像のデータを取得
+		//データをcheerスコープに格納（list型）
 */
 		// 検索ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
@@ -68,11 +70,10 @@ public class CheerServlet extends HttpServlet {
 		Cheer cheer = CDao.getRandomCheer("user_id");
 		request.setAttribute("cheer", cheer);
 
-
-		//request.setAttribute("cheer_message", "/image/***.jpg");
+		request.setAttribute("cheer_message", "おつかれさま");
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
 		dispatcher.forward(request, response);
 	}
 }

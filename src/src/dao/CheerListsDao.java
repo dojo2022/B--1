@@ -5,10 +5,10 @@ import model.Cheer;
 public class CheerListsDao {
 	//対象ユーザーの１件のランダムな応援メッセージを取得する
 	public Cheer getRandomCheer(String user_id) {
-		//取得して返却
+
+	//取得して返却
 		return null;
 	}
-
 	/*
     //引数paramで検索項目を指定して検索結果のリストを返す
     public List<Cheer> select(Cheer param) {
