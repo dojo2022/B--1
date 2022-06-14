@@ -21,14 +21,8 @@ public class RemindDatesDAOTest {
 		System.out.println("---------- update()のテスト ----------");
 		for (Remind list : remindList) {
 			dao.change(list);
-			List<Remind> remindList2 = dao.select(list);
-			for (Remind remind2 : remindList2) {
-				System.out.println("USER_ID：" + remind2.getUser_id());
-				System.out.println("REMIND_NAME：" + remind2.getRemind_name());
-				System.out.println("REMIND_DATE：" + remind2.getRemind_date());
-				System.out.println();
-			}
 		}
+
 		System.out.println("---------- select()のテスト ----------");
 		List<Remind> remindList2 = dao.select(new Remind("HARU"));
 		for (Remind list : remindList2) {

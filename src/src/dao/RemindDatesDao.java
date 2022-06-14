@@ -6,7 +6,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import model.Remind;
@@ -69,7 +71,7 @@ public class RemindDatesDao {
 		return remindList;
 	}
 
-	// 引数changeで日付更新
+	// 引数changeでchooseで選ばれた日付更新
 	public boolean change(Remind change) {
 		Connection conn = null;
 		boolean result = false;
@@ -82,73 +84,63 @@ public class RemindDatesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// 給料日の更新
-			if(change.getRemind_name() == "給料日") {
-				System.out.println("値：" + change.getRemind_name());
-			// SQL文を準備する
-			String sql = "update Remind_days set Remind_date = ? where USER_ID = ? ";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+			switch(change.getRemind_name() ) {
+			case "給料日":
+				// SQL文を準備する
+				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? ";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			java.util.Date date1 = change.getRemind_date();
-			String strDate1 = date1.toString();
-			String[] dates = strDate1.split("-");
+				java.util.Date date1 = change.getRemind_date();
 
-			int intDate = Integer.parseInt(dates[2]);
-			int intMonth = Integer.parseInt(dates[1]);
-			int intYear = Integer.parseInt(dates[0]);
+				System.out.println(change.getRemind_date());
 
-			if(intMonth < 12) {
-				intMonth ++;
-			}else {
-				intYear ++;
-			}
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(date1);
+				calendar.add(Calendar.MONTH, 1);
+				date1 = calendar.getTime();
 
-			dates[2] = String.valueOf(intDate);
-			dates[1] = String.valueOf(intMonth);
-			dates[0] = String.valueOf(intYear);
+		        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		        String formattedDate = simpleDateFormat.format(date1);
+		        java.sql.Date date2 = java.sql.Date.valueOf(formattedDate);
 
-			String strDate2 = String.join("-", dates);
-			Date sqlDate = java.sql.Date.valueOf(strDate2);
+				pStmt.setDate(1, date2);
+				pStmt.setString(2, change.getUser_id());
 
-			pStmt.setDate(1, sqlDate);
+				// SQL文を実行する
+				pStmt.executeUpdate();
 
-			pStmt.setString(2, change.getUser_id());
-
-			// SQL文を実行する
-			pStmt.executeUpdate();
-			}
+				break;
 
 			// 誕生日の更新
-			if(change.getRemind_name() == "誕生日") {
-			// SQL文を準備する
-			String sql = "update Remind_days set Remind_date = ? where USER_ID = ? ";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+			case "誕生日":
+				// SQL文を準備する
+				String sql2 = "update Remind_days set Remind_date = ? where USER_ID = ? ";
+				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
-			java.util.Date date1 = change.getRemind_date();
-			String strDate1 = date1.toString();
-			String[] dates = strDate1.split("-");
+				java.util.Date date3 = change.getRemind_date();
+				Calendar calendar2 = Calendar.getInstance();
+				calendar2.setTime(date3);
+				calendar2.add(Calendar.YEAR, 1);
+				date3 = calendar2.getTime();
 
-			int intDate = Integer.parseInt(dates[2]);
-			int intMonth = Integer.parseInt(dates[1]);
-			int intYear = Integer.parseInt(dates[0]);
+		        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
 
-			intYear ++;
+		        String formattedDate2 = simpleDateFormat2.format(date3);
 
-			dates[2] = String.valueOf(intDate);
-			dates[1] = String.valueOf(intMonth);
-			dates[0] = String.valueOf(intYear);
+		        java.sql.Date date4 = java.sql.Date.valueOf(formattedDate2);
 
-			String strDate2 = String.join("-", dates);
-			Date sqlDate = java.sql.Date.valueOf(strDate2);
+				pStmt2.setDate(1, date4);
+				pStmt2.setString(2, change.getUser_id());
 
-			pStmt.setDate(1, sqlDate);
+				// SQL文を実行する
+				pStmt2.executeUpdate();
 
-			pStmt.setString(2, change.getUser_id());
-
-			// SQL文を実行する
-			pStmt.executeUpdate();
-
+				break;
 			}
-			result =true;
+
+			result = true;
+			System.out.println(result);
+
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
