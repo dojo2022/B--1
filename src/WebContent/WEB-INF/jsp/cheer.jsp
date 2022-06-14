@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>褒めるポップアップ</title>
-<link rel="stylesheet" href="css/cheer_pop.css">
+<link rel="stylesheet" href="css/cheer_popup.css">
 <script src="CheerPopup.js"></script>
 </head>
 
@@ -13,17 +13,14 @@
     <input type="checkbox" name="checkbox">
         <div id="popWin">
             <div class="pop-win">
-	            <c:forEach var="e" items="${list}">
-	                ${cheer_image}
+            		${cheer.cheer_image}
 	                <br>
-	                ${cheer_message}
-	            </c:forEach>
-                <div id="close"><img src="img/check.png"></div>
+	                ${cheer.cheer_message}
+                <div id="close"><img src="images/check.png"></div>
             </div>
         </div>
 </body>
 </html>
-
 
 <!--
 <script>
