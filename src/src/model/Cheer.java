@@ -1,41 +1,66 @@
 package model;
+import java.io.Serializable;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+public class Cheer implements Serializable {
+	private int id;	// 整理番号
+	private String user_id;	// ユーザーID
+	private String cheer_image; //応援画像
+	private String cheer_message; //応援メッセージ
 
-/**
- * Servlet implementation class Cheer
- */
-@WebServlet("/Cheer")
-public class Cheer extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Cheer() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	//引数があるコンストラクタを作成
+	public Cheer(int id, String user_id, String cheer_image, String cheer_message) {
+	super();
+	this.id = id;
+    this.user_id = user_id;
+    this.cheer_image = cheer_image;
+    this.cheer_message = cheer_message;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	public Cheer(String cheer_image,String cheer_message) {
+		super();
+		this.cheer_image = cheer_image;
+        this.cheer_message = cheer_message;
+		}
+
+	//引数がないコンストラクタを作成
+	public Cheer() {
+	super();
+	this.id = 0;
+	this.user_id = "";
+	this.cheer_image = "";
+	this.cheer_message = "";
 	}
 
+	//ゲッタとセッタ
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getCheer_image() {
+		return cheer_image;
+	}
+
+	public void setCheer_image(String cheer_image) {
+		this.cheer_image = cheer_image;
+	}
+
+	public String getCheer_message() {
+		return cheer_message;
+	}
+
+	public void setCheer_message(String cheer_message) {
+		this.cheer_message = cheer_message;
+	}
 }
