@@ -34,21 +34,20 @@ public class TopServlet extends HttpServlet {
 
 
 
-		/*トップメモ関連(46行目のエラーにより一旦コメントアウトしています)*/
 
 		/*		// スコープでデータの取得
 						request.setCharacterEncoding("UTF-8");
-						String number = request.getParameter("user_id");
+						String number = session.getAttribute("id");
 
 
 				// 検索処理を行う
 						TopMemosDao mDao = new TopMemosDao();
-						List<Memo> cardList = mDao.select(new Memo(user_id));
+						List<Memo> cardList = mDao.select(new Memo(number));
 
 						// 検索結果をリクエストスコープに格納する
 						request.setAttribute("cardList", cardList);
 
-		*/
+
 		/*トップメモ関連ここまで*/
 
 		// トップページにフォワードする
