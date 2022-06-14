@@ -15,6 +15,7 @@
             <div class="pop-win">
 	            <c:forEach var="e" items="${list}">
 	                ${cheer_image}
+	                <br>
 	                ${cheer_message}
 	            </c:forEach>
                 <div id="close"><img src="img/check.png"></div>
