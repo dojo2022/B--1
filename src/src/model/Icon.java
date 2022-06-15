@@ -1,41 +1,54 @@
 package model;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
+import java.io.Serializable;
+
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class Icon
  */
 @WebServlet("/Icon")
-public class Icon extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Icon() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+public class Icon implements Serializable {
+	private int id;
+	private String user_id;
+	private String icon_image;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public Icon() {
+		this.id = 0;
+		this.user_id = "";
+		this.icon_image = "";
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	public Icon(String user_id,String icon_image) {
+		this.id = 0;
+		this.user_id = user_id;
+		this.icon_image = icon_image;
+	}
+
+	public Icon(String user_id) {
+		this.id = 0;
+		this.user_id = user_id;
+		this.icon_image = null;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getIcon_image() {
+		return icon_image;
+	}
+	public void setIcon_images(String icon_image) {
+		this.icon_image = icon_image;
 	}
 
 }

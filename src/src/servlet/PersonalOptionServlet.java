@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import dao.IconImagesDao;
+import model.Icon;
+
 /**
  * Servlet implementation class PersonalOptionServlet
  */
@@ -32,6 +35,18 @@ public class PersonalOptionServlet extends HttpServlet {
 			return;
 		}
 		*/
+
+		Icon img_sample = new Icon("", "/Forza/icon_images/icon_test.png");
+		request.setAttribute("icon", img_sample);
+
+		IconImagesDao iDao = new IconImagesDao();
+		Icon icon = iDao.select(new Icon());
+
+		// 検索結果をリクエストスコープに格納する
+		if(icon != null) {
+		request.setAttribute("icon", icon);
+		System.out.println(1);
+		}
 
 		// 個人設定ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/personalOption.jsp");
