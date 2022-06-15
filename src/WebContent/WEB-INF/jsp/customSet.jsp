@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%= request.getAttribute("test") %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Forza|カスタマイズページ</title>
 <link rel = "stylesheet" type = "text/css" href = "/Forza/css/mypage_2.css">
-<script src="./js/CheerPopup.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -23,31 +23,47 @@
             </div>
 		</header>
 <!-- メイン -->
+<script type="text/javascript" src="customSet.js"></script>
      <div class="bg">
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
        <div class="custom">
-            <h3>カスタムセット　　　　　　　　　</h3>
-         <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-         </div>
-         <nav class="globalMenuSp">
-           <ul>
-             <li><a href="#">Menu1</a></li>
-             <li><a href="#">Menu2</a></li>
-             <li><a href="#">Menu3</a></li>
-             <li><a href="#">Menu4</a></li>
-             <li><a href="#">Menu5</a></li>
-           </ul>
-         </nav>
-       </div>
-     </div>
+       <input id="acd-check1" class="acd-check" type="checkbox">
 
+         <label class="acd-label" for="acd-check1"><h2>カスタムセット</h2></label>
+
+       <div class="acd-content">
+          <div class="submit">
+              <input type="submit" name="ADDNEW" value="+新規追加">
+		  </div>
+       </div>
+       <%--
+           <div class="customname">
+            <h3>カスタムセット　　　　　　　　　</h3>
+           </div>
+
+      <!-- <hamburger menu -->
+			<div class="drawer">
+	            <!-- ハンバーガーメニュー表示・非表示切り替え -->
+	            <input type="checkbox" id="drawer-check" class="drawer-hidden" >
+	            <!-- ハンバーガーアイコン -->
+	            <label for="drawer-check" class="drawer-open"><span></span></label>
+		            <nav class="drawer-content">
+		              <div class="block">
+			            <div class="submit">
+                              <input type="submit" name="ADDNEW" value="+新規追加">
+			            </div>
+			          </div>
+		            </nav>
+			 </div>
+			 --%>
+         </div>
+
+       </div>
 </form>
 </div>
+
 </body>
 </html>
