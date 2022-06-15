@@ -26,9 +26,8 @@ public class Icon implements Serializable {
 	}
 
 	public Icon(String user_id) {
-		this.id = 0;
 		this.user_id = user_id;
-		this.icon_image = null;
+		this.icon_image = "";
 	}
 
 
@@ -47,7 +46,7 @@ public class Icon implements Serializable {
 	public String getIcon_image() {
 		return icon_image;
 	}
-	public void setIcon_images(String icon_image) {
+	public void setIcon_image(String icon_image) {
 		this.icon_image = icon_image;
 	}
 
