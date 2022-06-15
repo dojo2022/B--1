@@ -26,9 +26,10 @@
             </div>
         </div>
 </body>
+<script src="js/CheerPopup.js" defer></script>
 </html>
-<!--<script src="CheerPopup.js"></script>-->
 
+<!--
 <script>
 
 //「閉じる」ボタンの動き
@@ -38,3 +39,4 @@
     });
 
 </script>
+-->

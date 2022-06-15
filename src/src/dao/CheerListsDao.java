@@ -20,7 +20,7 @@ public class CheerListsDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
 			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS";
