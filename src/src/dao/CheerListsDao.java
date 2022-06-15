@@ -13,7 +13,7 @@ import model.Cheer;
 public class CheerListsDao {
     public List<Cheer> show() {
 		Connection conn = null;
-		List<Cheer> cheerlist = new ArrayList<>();
+		List<Cheer> cheerlist = new ArrayList<Cheer>();
 
 		try {
 			// JDBCドライバを読み込む
