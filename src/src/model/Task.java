@@ -4,7 +4,7 @@ import java.io.Serializable;
     //Java Beans
 
 public class Task implements Serializable {
-	private int id;
+	private String id;
     private String user_id;
     private String task_id;
     private String customset_id;
@@ -17,7 +17,7 @@ public class Task implements Serializable {
 
 
 	//引数があるコンストラクタを作成
-	public Task(int id, String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
+	public Task(String id, String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
 		String priority, String task_judge) {
 	super();
 	this.id = id;
@@ -34,7 +34,7 @@ public class Task implements Serializable {
 	//引数がないコンストラクタを作成
 	public Task() {
 	super();
-	this.id = 0;
+	this.id = "0";
 	this.user_id = "0";
 	this.task_id = "0";
 	this.customset_id = "0";
@@ -46,11 +46,11 @@ public class Task implements Serializable {
 	}
 
 	//ゲッタとセッタ
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
