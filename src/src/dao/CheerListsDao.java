@@ -34,7 +34,7 @@ public class CheerListsDao {
 				Cheer cheercard = new Cheer(
 				rs.getInt("ID"),
 				rs.getString("USER_ID"),
-				rs.getString("CUSTOMSET_ID"),
+				rs.getInt("CUSTOMSET_ID"),
 				rs.getString("CHEER_IMAGE"),
 				rs.getString("CHEER_MESSAGE")
 				);
