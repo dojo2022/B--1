@@ -25,7 +25,7 @@ public class IconImagesDao  {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select * from ICON_IMAGES WHERE USER_ID = ?  ORDER BY ID";
+			String sql = "select * from ICON_IMAGES LIMIT 1 WHERE USER_ID = ?  ORDER BY ID DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
