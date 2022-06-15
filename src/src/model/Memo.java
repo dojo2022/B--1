@@ -22,6 +22,7 @@ public class Memo implements Serializable {
 	public Memo(String user_id) {
 		super();
 		this.user_id = user_id;
+		this.top_memo = "";
 
 	}
 
