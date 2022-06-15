@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.IconImagesDao;
@@ -27,25 +29,31 @@ public class PersonalOptionServlet extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
+
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/Forza/LoginServlet");
-			return;
-		}
-		*/
 
-		Icon img_sample = new Icon("", "/Forza/icon_images/icon_test.png");
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/Forza/LoginServlet");
+//			return;
+//		}
+
+		request.setCharacterEncoding("UTF-8");
+
+		// デフォルトのアイコンのデータをスコープに格納
+		Icon img_sample = new Icon("", "/Forza/icon_images/icon_test_1.png");
 		request.setAttribute("icon", img_sample);
 
+		// セッションスコープからUSER_IDを取得し、アイコンの選択
+		String obj = (String)session.getAttribute("memo");
+			System.out.println("-----個人設定------");
+			System.out.println(obj);
 		IconImagesDao iDao = new IconImagesDao();
-		Icon icon = iDao.select(new Icon());
+		List<Icon> icon = iDao.select(new Icon(obj));
 
-		// 検索結果をリクエストスコープに格納する
+		// 検索結果をリクエストスコープに上書きして格納する
 		if(icon != null) {
 		request.setAttribute("icon", icon);
-		System.out.println(1);
 		}
 
 		// 個人設定ページにフォワードする

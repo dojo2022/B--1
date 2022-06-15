@@ -19,7 +19,7 @@
                 <h3>お知らせはここに表示</h3>
             </div>
             <div class="myPage">
-                <input type="button" id="btn" value="myPage">
+                <input type="button" id="mypage_btn" value="myPage" onclick="location.href='/Forza/PersonalOptionServlet'">
             </div>
 		</header>
 <!-- メイン -->
