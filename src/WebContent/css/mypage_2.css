@@ -62,13 +62,13 @@
              text-align: center;
              margin: 20px 0px 0 7px;
              width: 450px;
-             padding: 1.5px;
+             padding: 0.1px;
              border: 1px solid #333;
              background: #f2f2f2;
          }
          input[name="UPLOAD"] {
              display: inline-block;
-             padding: 0.5em 0.4em;
+             padding: 0.125em 0.145em;
              background-color:#BBBBBB; /* 背景色 */
              box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
              cursor: pointer;
@@ -81,15 +81,16 @@
          }
          .custom {
              text-align: center;
-             margin: 20px 0px 0 7px;
+             margin: 4px 0 0 7px;
              width: 450px;
-             padding: 1.5px;
+             padding: 0;
              border: 1px solid #333;
              background: #f2f2f2;
          }
          .customname {
              margin: 0 0 0 -108px;
          }
+
 
 .acd-check{
     display: none;
@@ -108,7 +109,7 @@
     content: '三';
     display: block;
     font-family: "Font Awesome 5 Free";
-    height: 58px;
+    height: 55px;
     padding: 20px 20px;
     position: absolute;
     right: 0;
@@ -127,7 +128,7 @@
     content: '✖';
 }
 .acd-check:checked + .acd-label + .acd-content{
-    height: 50px;
+    height: 25px;
     opacity: 1;
     padding: 10px;
     visibility: visible;
@@ -141,10 +142,11 @@ h2 {
  /* 新規追加ボタン */
  input[name="ADDNEW"] {
 	 display: inline-block;
-  padding: 0.5em 0.7em;
-  background-color: #BBBBBB; /* 背景色 */
-  box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+  padding: 0.11em 0.125em;
+  background-color: #000080; /* 背景色 */
+  box-shadow: 0 5px 0 #000000; /* 影の太さ・色 */
   border-radius: 60px;
+  color: #fff;
   cursor: pointer;
   text-decoration: none; /* 文字の下線を消す */
 }
@@ -153,16 +155,12 @@ input[name="ADDNEW"]:hover {
     transform: translateY(5px);
   }
   .submit {
-    margin: 0 0 0 300px;
+    margin: 10px 0 0 200px;
   }
-  .block {
-  text-align: center;
-             margin: 20px 0px 0 8px;
-             width: 420px;
-             padding: 1.5px;
-             border: 1px solid #333;
-             background: #FFFFFF;
-  }
+/* カスタムセット 新規追加テキスト */
+         .addnew {
+             margin: 10px 0 0 -150px;
+         }
 
 
 /* ハンバーガーボタン */
@@ -226,7 +224,7 @@ input[name="ADDNEW"]:hover {
   }
   /* メニューのデザイン*/
 .drawer-content {
-    width: 33%;
+    width: 34%;
     height: 100%;
     position: fixed;
     top: -100%;
@@ -238,18 +236,6 @@ input[name="ADDNEW"]:hover {
   }
   /* アイコンがクリックされたらメニューを表示 */
   #drawer-check:checked ~ .drawer-content {
-    top: 38%;/* メニューを画面に入れる */
+    top: 25%;/* メニューを画面に入れる */
   }
 
-  /* 新規登録ボタン */
-  .submit {
-    margin: 0 0 0 300px;
-  }
-  .block {
-  text-align: center;
-             margin: 20px 0px 0 8px;
-             width: 420px;
-             padding: 1.5px;
-             border: 1px solid #333;
-             background: #FFFFFF;
-  }

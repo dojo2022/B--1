@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%= request.getAttribute("test") %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,23 +22,24 @@
             </div>
 		</header>
 <!-- メイン -->
-<script type="text/javascript" src="customSet.js"></script>
      <div class="bg">
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
        <div class="custom">
+       <%--
        <input id="acd-check1" class="acd-check" type="checkbox">
 
          <label class="acd-label" for="acd-check1"><h2>カスタムセット</h2></label>
 
        <div class="acd-content">
           <div class="submit">
-              <input type="submit" name="ADDNEW" value="+新規追加">
+              <input type="submit" name="ADDNEW" value="＋新規追加">
 		  </div>
        </div>
-       <%--
+       --%>
+
            <div class="customname">
             <h3>カスタムセット　　　　　　　　　</h3>
            </div>
@@ -53,12 +53,15 @@
 		            <nav class="drawer-content">
 		              <div class="block">
 			            <div class="submit">
-                              <input type="submit" name="ADDNEW" value="+新規追加">
+			              <div class="addnew">
+                             <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
+                             <input type="submit" name="ADDNEW" value="+新規追加"></label>
+                              </div>
 			            </div>
 			          </div>
 		            </nav>
 			 </div>
-			 --%>
+
          </div>
 
        </div>
