@@ -13,7 +13,7 @@ import model.Cheer;
 public class CheerListsDao {
     public List<Cheer> show() {
 		Connection conn = null;
-		List<Cheer> cheerlist = new ArrayList<Cheer>();
+		List<Cheer> cheerlist = new ArrayList<>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -31,15 +31,15 @@ public class CheerListsDao {
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				Cheer card = new Cheer(
-				rs.getInt("id"),
-				rs.getString("user_id"),
-				rs.getString("customset_id"),
-				rs.getString("cheer_image"),
-				rs.getString("cheer_message")
+				Cheer cheercard = new Cheer(
+				rs.getInt("ID"),
+				rs.getString("USER_ID"),
+				rs.getString("CUSTOMSET_ID"),
+				rs.getString("CHEER_IMAGE"),
+				rs.getString("CHEER_MESSAGE")
 				);
-				cheerlist.add(card);
-				System.out.println(rs.getInt("id"));
+				cheerlist.add(cheercard);
+				System.out.println(rs.getInt("ID"));
 			}
 		}
 		catch (SQLException e) {

@@ -47,16 +47,16 @@ public class Cheer implements Serializable {
 		return user_id;
 	}
 
-	public void setCustomset_id(String customset_id) {
-		this.customset_id = customset_id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getCustomset_id() {
 		return customset_id;
 	}
 
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setCustomset_id(String customset_id) {
+		this.customset_id = customset_id;
 	}
 
 	public String getCheer_image() {
