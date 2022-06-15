@@ -1,3 +1,5 @@
+'use strict';
+
 	function previewImage(obj){
 
 		var fileReader = new FileReader();

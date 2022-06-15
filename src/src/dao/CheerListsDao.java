@@ -1,42 +1,69 @@
 package dao;
 
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import model.Cheer;
 
-/**
- * Servlet implementation class CheerListsDao
- */
-@WebServlet("/CheerListsDao")
-public class CheerListsDao extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class CheerListsDao {
+    public List<Cheer> show() {
+		Connection conn = null;
+		List<Cheer> cheerlist = new ArrayList<>();
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CheerListsDao() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Cheer cheercard = new Cheer(
+				rs.getInt("ID"),
+				rs.getString("USER_ID"),
+				rs.getString("CUSTOMSET_ID"),
+				rs.getString("CHEER_IMAGE"),
+				rs.getString("CHEER_MESSAGE")
+				);
+				cheerlist.add(cheercard);
+				System.out.println(rs.getInt("ID"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			cheerlist = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cheerlist = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					cheerlist = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return cheerlist;
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }
