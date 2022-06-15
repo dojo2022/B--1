@@ -16,7 +16,7 @@ import model.Task;
 /**
  * Servlet implementation class MenuServlet
  */
-@WebServlet("/MenuServlet")
+@WebServlet("/TaskServlet")
 public class TaskServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

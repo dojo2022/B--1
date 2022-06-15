@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,9 @@
 <!-- メイン -->
     <main>
         <div class="icon">
-			<img alt="icon" src="${icon.icon_image}">
+        <c:forEach var="e" items="${icon}">
+			<img alt="icon" src="${e.icon_image}">
+		</c:forEach>
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">

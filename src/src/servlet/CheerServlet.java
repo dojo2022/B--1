@@ -33,6 +33,12 @@ public class CheerServlet extends HttpServlet {
 			return;
 		}
 		 */
+		// 一覧表示を行う
+		CheerListsDao cDao = new CheerListsDao();
+		List<Cheer> cheerlist = cDao.show();
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("cheerlist", cheerlist);
 
 		//褒めるポップアップのページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
@@ -65,7 +71,7 @@ public class CheerServlet extends HttpServlet {
 		request.setAttribute("cheerlist", cheerlist);
 
 		// 褒めるポップアップのページにフォワードする
-		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/cheertest.jsp");
+		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
 		dispatcher1.forward(request, response);
 	}
 }
