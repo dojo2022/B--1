@@ -15,7 +15,7 @@ import dao.CheerListsDao;
 import model.Cheer;
 
 /**
- * Servlet implementation class MenuServlet
+ * Servlet implementation class CheerServlet
  */
 @WebServlet("/CheerServlet")
 public class CheerServlet extends HttpServlet {
