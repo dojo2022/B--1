@@ -29,20 +29,23 @@
 
     #cheerlist {
       text-align: center;
+      width: 500px;
     }
 
     tr {
+      text-align: center;
       background-color:green;
     }
 
     th {
+      text-align: center;
       background-color:green;
     }
 
     #close {
-      text-align: center;
+      /*text-align: center;
       width: 10px;
-      height: 10px;
+      height: 10px;*/
       cursor: pointer;
       margin: auto;
     }
