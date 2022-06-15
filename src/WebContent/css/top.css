@@ -41,12 +41,15 @@
             0% { transform: translateX(0)}
             100% { transform: translateX(-100%)}
         }
-        #btn{
+        .btn{
             border-color: black;
             width: 50px;
             height: 50px;
             border-radius: 60%;
             text-align: right;
+        }
+        #displayPanel{
+        	display: inline-flex;
         }
         /* メイン */
         main{

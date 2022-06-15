@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.IconImagesDao;
+import dao.UsersDao;
 import model.Icon;
 
 /**
@@ -78,7 +79,11 @@ public class PersonalOptionServlet extends HttpServlet {
         //ディスパッチ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
-    }
+
+		String password = request.getParameter("password");
+		UsersDao user = new UsersDao();
+		user.isChangePw(password);
+	}
 
 	//ファイルの名前を取得してくる
 	private String getFileName(Part part) {

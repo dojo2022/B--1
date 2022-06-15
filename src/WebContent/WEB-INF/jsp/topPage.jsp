@@ -7,6 +7,8 @@
 	<meta charset="UTF-8">
 	<title>Forza｜TopPage</title>
 	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
+	<script src="/Forza/js/jquery-3.2.1.min.js"></script>
+	<script src="/Forza/js/TopMyPage.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -19,7 +21,15 @@
                 <h3>お知らせはここに表示</h3>
             </div>
             <div class="myPage">
-                <input type="button" id="mypage_btn" value="myPage" onclick="location.href='/Forza/PersonalOptionServlet'">
+                <input type="button" class="btn" id="displayChangeButton" value="myPage" onclick="displayChange();"><br>
+				<div id="displayPanel" style="width:150px;height:200px;text-align: center;background-color:#ff0000;display:none;" >
+    				表示したいDIV。中に他のオブジェクトを入れることもできる。<br>
+			    <ul>
+					<li onclick="location.href='/Forza/PersonalOptionServlet'">個人設定</li>
+					<li onclick="location.href='/Forza/TrophyServlet'">トロフィー</li>
+					<li onclick="location.href='/Forza/LogoutServlet'">ログアウト</li>
+				</ul>
+			    </div>
             </div>
 		</header>
 <!-- メイン -->
@@ -54,5 +64,6 @@
         <!-- 今回は無し -->
 	</footer>
 </div>
+<script src="/Forza/js/TopPage.js"></script>
 </body>
 </html>
