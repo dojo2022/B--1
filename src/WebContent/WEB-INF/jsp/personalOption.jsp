@@ -25,9 +25,7 @@
 <!-- メイン -->
     <main>
         <div class="icon">
-        <c:forEach var="e" items="${icon}">
-			<img alt="icon" src="${e.icon_image}">
-		</c:forEach>
+			<img alt="icon" src="${myIcon}">
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
