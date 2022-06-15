@@ -25,7 +25,7 @@ public class TaskListsDao {
     			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
     			// SQL文を準備する
-    			String sql = "select id,user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge from task_lists";
+    			String sql = "select id,user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge from task_lists where task_date =  CURRENT_DATE;";
     			PreparedStatement pStmt = conn.prepareStatement(sql);
 
     			// SQL文を実行し、結果表を取得する
@@ -34,7 +34,7 @@ public class TaskListsDao {
     			// 結果表をコレクションにコピーする
     			while (rs.next()) {
     				Task card = new Task(
-    				rs.getInt("id"),
+    				rs.getString("id"),
     				rs.getString("user_id"),
     				rs.getString("task_id"),
     				rs.getString("customset_id"),
@@ -72,7 +72,7 @@ public class TaskListsDao {
     		// 結果を返す
     		return list;
     	}
-/*
+
 	//新しくタスクを追加する際に使うSQL文
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 	public boolean insert(Task card) {
@@ -180,7 +180,7 @@ public class TaskListsDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "update Task_Lists set USER_ID=?, TASK_ID=?, CUSTOMSET_ID=?, TASK_TITlE=?, TASK_MEMO=?, TASK_DATE=?, PRIORITY=?, TASK_JUDGE=? where ID=?";
+			String sql = "update Task_Lists set user_id=?, task_id=?, customset_id=?, task_name=?, task_memo=?, task_date=?, priority=?, task_judge=? where id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -232,7 +232,7 @@ public class TaskListsDao {
 			else {
 				pStmt.setString(8, null);
 			}
-			pStmt.setInt(9, card.getId());
+			pStmt.setString(9, card.getId());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
@@ -260,10 +260,10 @@ public class TaskListsDao {
 		// 結果を返す
 		return result;
 	}
-*/
+
 	//タスクリストからタスクを削除する際のSQL文
 	// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-	public boolean delete(int id) {
+	public boolean delete(String id) {
 		Connection conn = null;
 		boolean result = false;
 

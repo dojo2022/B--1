@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>実績画面</title>
 <link rel = "stylesheet" type = "text/css" href = "/Forza/css/Trophy.css">
+<script type="text/javascript" src='/Forza/js/Trophy.js'></script>
 </head>
 <body>
 

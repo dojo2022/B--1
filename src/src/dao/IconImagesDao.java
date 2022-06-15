@@ -1,42 +1,64 @@
 package dao;
 
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class IconImagesDao
- */
+import model.Icon;
+
 @WebServlet("/IconImagesDao")
-public class IconImagesDao extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class IconImagesDao  {
+	// ユーザーのアイコンを選ぶ
+	public Icon select(Icon param){
+		Connection conn = null;
+		Icon iconList = new Icon();
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public IconImagesDao() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select * from ICON_IMAGES LIMIT 1 WHERE USER_ID = ?  ORDER BY ID DESC";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, param.getUser_id());
+
+			// SQL分を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			iconList.setUser_id(rs.getNString("USER_ID"));
+			iconList.setIcon_images(rs.getNString("ICON_IMAGES"));
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			iconList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			iconList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					iconList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return iconList;
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

@@ -44,9 +44,11 @@ public class LoginServlet extends HttpServlet {
 				UsersDao iDao = new UsersDao();
 				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
 
+					Object id1 = (Object)id;
 					// セッションスコープにIDを格納する
 					HttpSession session = request.getSession();
 					session.setAttribute("id", new Login(id));
+					session.setAttribute("memo",id1);
 
 					// メニューサーブレットにリダイレクトする
 					response.sendRedirect("/Forza/TopServlet");

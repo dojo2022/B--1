@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import dao.CheerListsDao;
 import model.Cheer;
 
 /**
- * Servlet implementation class MenuServlet
+ * Servlet implementation class CheerServlet
  */
 @WebServlet("/CheerServlet")
 public class CheerServlet extends HttpServlet {
@@ -25,55 +26,49 @@ public class CheerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-
 		HttpSession session = request.getSession();
 		/*
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/Forza/LoginServlet");
 			return;
 		}
-		//画像のデータを取得
-		//データをcheerスコープに格納（list型）
-*/
-		// 検索ページにフォワードする
+		 */
+
+		//褒めるポップアップのページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
 		dispatcher.forward(request, response);
 	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-
 		/*
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/simpleBC/LoginServlet");
 			return;
 		}
-*/
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int id = Integer.parseInt(request.getParameter("ID"));
-		String user_id = request.getParameter("USER_ID");
-		String cheer_image = request.getParameter("CHEER_IMAGE");
-		String cheer_message = request.getParameter("CHEER_MESSAGE");
+			int id = Integer.parseInt(request.getParameter("ID"));
+			String user_id = request.getParameter("USER_ID");
+			String customset_id = request.getParameter("CUSTOMSET_ID");
+			String cheer_image = request.getParameter("CHEER_IMAGE");
+			String cheer_message = request.getParameter("CHEER_MESSAGE");
+		*/
 
-		// 検索処理を行う
-		CheerListsDao CDao = new CheerListsDao();
-		//List<Cheer> cardList = CDao.select(new Cheer(id, user_id, cheer_image, cheer_message));
+		// 一覧表示を行う
+		CheerListsDao cDao = new CheerListsDao();
+		List<Cheer> cheerlist = cDao.show();
 
 		// 検索結果をリクエストスコープに格納する
-		//request.setAttribute("cardList", cardList);
+		request.setAttribute("cheerlist", cheerlist);
 
-		//1件だけ取ってくる
-		Cheer cheer = CDao.getRandomCheer("user_id");
-		request.setAttribute("cheer", cheer);
-
-		request.setAttribute("cheer_message", "おつかれさま");
-
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
-		dispatcher.forward(request, response);
+		// 褒めるポップアップのページにフォワードする
+		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/cheertest.jsp");
+		dispatcher1.forward(request, response);
 	}
 }
+
+
+
