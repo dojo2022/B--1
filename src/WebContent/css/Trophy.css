@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+
+/* 背景挿入のレシピ確立次第マネする */
+
+
+
+/* 枠みたいな部分 */
+.TrophyDiv{width:90%;
+			height:80%;
+			background:rgba(0,38,152,0.5);   /* 最後の0.5が透け方の程度を調整している */
+			margin: 0 auto;
+			position:relative;
+			top:100px;
+			border-radius: 20px; }
+
+
+
+table {
+border-collapse: separate;
+border-spacing: 15px 1px;
+}
+
+h1{font-size:40px;
+	white-space: nowrap;
+	font-weight:bold;
+	color: #000;
+	text-shadow:
+		0 0 0.05em #FFF59D,
+		0 0 0.06em #FFF59D,
+		0 0 0.07em #FFF59D,
+		0 0 0.08em #FFF59D,
+		0 0 0.09em #FFF59D,
+		0 0 0.20em #FFF59D,
+		0 0 0.20em #FFF59D,
+		0 0 0.20em #FFF59D,
+		0 0 0.50em #FFF59D;
+ }
+
+
+.midashi{font-size:25px;
+		white-space: nowrap;
+		font-weight:bold;
+		color: #000;
+		text-shadow:
+			0 0 0.05em #FFF59D,
+			0 0 0.06em #FFF59D,
+			0 0 0.07em #FFF59D,
+			0 0 0.08em #FFF59D,
+			0 0 0.09em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.50em #FFF59D;
+
+}
+.sousuu{font-size:40px;
+ 		font-weight:bold;
+		color: #ffd700;
+		text-shadow:
+			0 0 0.05em #FFF59D,
+			0 0 0.06em #FFF59D,
+			0 0 0.07em #FFF59D,
+			0 0 0.08em #FFF59D,
+			0 0 0.09em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.50em #FFF59D;
+
+
+
+}
+

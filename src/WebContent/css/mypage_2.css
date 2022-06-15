@@ -1,1 +1,255 @@
 @charset "UTF-8";
+
+ /* 全体 */
+      .wrapper {
+             padding:30px;
+             background-color:#4682B4;
+        }
+ /* ヘッダー */
+        header{
+            display: inline-flex;
+            text-align: center;
+            border-bottom: 1px solid #00000080;
+            width: 90%;
+            margin: 0 0 0 60px;
+        }
+        .logo{
+            margin: 0 0 0 250px;
+            left: 0px;
+        }
+        .logo img{
+            height: 50px;
+        }
+        .news {
+            margin : 0;
+            padding : 0 20%;
+            height: 50px;
+            position: relative;
+            text-align : center;
+            overflow : hidden;
+        }
+        .news h3{
+            margin:0;
+            position: absolute;
+            bottom: 0;
+            display : inline-block;
+            animation : scrollnews 20s linear infinite;
+        }
+        @keyframes scrollnews{
+            0% { transform: translateX(0)}
+            100% { transform: translateX(-100%)}
+        }
+        #btn{
+            border-color: black;
+            width: 50px;
+            height: 50px;
+            border-radius: 60%;
+            text-align: right;
+        }
+  /* メイン */
+
+        .bg  {
+             width: 470px;
+             height: 500px;
+             border : 1px solid #000;
+             position: relative;
+             margin: 50px 400px 50px 400px;
+             background-color:#DDDDDD;
+             opacity:30;
+         }
+   /* アップロードボタン */
+         .upload {
+             text-align: center;
+             margin: 20px 0px 0 7px;
+             width: 450px;
+             padding: 1.5px;
+             border: 1px solid #333;
+             background: #f2f2f2;
+         }
+         input[name="UPLOAD"] {
+             display: inline-block;
+             padding: 0.5em 0.4em;
+             background-color:#BBBBBB; /* 背景色 */
+             box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+             cursor: pointer;
+             text-decoration: none; /* 文字の下線を消す */
+             margin: 10px;
+         }
+         input[name="UPLOAD"]:hover {
+             box-shadow: none;
+             transform: translateY(5px);
+         }
+         .custom {
+             text-align: center;
+             margin: 20px 0px 0 7px;
+             width: 450px;
+             padding: 1.5px;
+             border: 1px solid #333;
+             background: #f2f2f2;
+         }
+         .customname {
+             margin: 0 0 0 -108px;
+         }
+
+.acd-check{
+    display: none;
+}
+.acd-label{
+
+    background: #f2f2f2;
+    display: block;
+    margin-bottom: 1px;
+    padding: 10px;
+    position: relative;
+}
+.acd-label:after{
+    background: #f2f2f2;
+    box-sizing: border-box;
+    content: '三';
+    display: block;
+    font-family: "Font Awesome 5 Free";
+    height: 58px;
+    padding: 20px 20px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+.acd-content{
+    border: 1px solid #4682B4;
+    display: block;
+    height: 0;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    visibility: hidden;
+}
+.acd-check:checked + .acd-label:after{
+    content: '✖';
+}
+.acd-check:checked + .acd-label + .acd-content{
+    height: 50px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
+}
+h2 {
+	margin: 0 0 0 -260px;
+}
+
+
+
+ /* 新規追加ボタン */
+ input[name="ADDNEW"] {
+	 display: inline-block;
+  padding: 0.5em 0.7em;
+  background-color: #BBBBBB; /* 背景色 */
+  box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
+input[name="ADDNEW"]:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+  .submit {
+    margin: 0 0 0 300px;
+  }
+  .block {
+  text-align: center;
+             margin: 20px 0px 0 8px;
+             width: 420px;
+             padding: 1.5px;
+             border: 1px solid #333;
+             background: #FFFFFF;
+  }
+
+
+/* ハンバーガーボタン */
+/* for hamburger menu */
+/* チェックボックス非表示 */
+
+.drawer-hidden {
+    display: none;
+}
+/* アイコン設置場所 */
+.drawer-open {
+    display: flex;
+    height: 60px;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;/* 重なり順を一番上に */
+    cursor: pointer;
+    margin: -60px 0 0 370px;
+}
+
+
+/* ハンバーガーメニューのアイコン */
+.drawer-open span,
+.drawer-open span:before,
+.drawer-open span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 40px;
+  border-radius: 3px;
+  background: #333;
+  transition: 0.5s;
+  position: absolute;
+}
+/* 三本線のうち一番上の棒の位置調整 */
+.drawer-open span:before {
+    bottom: 8px;
+  }
+  /* 三本線のうち一番下の棒の位置調整 */
+  .drawer-open span:after {
+    top: 8px;
+  }
+ /* メニューの中のリスト*/
+ .drawer-item {
+    text-align: right;
+ }
+  /* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer-check:checked ~ .drawer-open span {
+    background: rgba(255, 255, 255, 0);
+  }
+  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+  #drawer-check:checked ~ .drawer-open span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+  }
+  #drawer-check:checked ~ .drawer-open span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  /* メニューのデザイン*/
+.drawer-content {
+    width: 33%;
+    height: 100%;
+    position: fixed;
+    top: -100%;
+    bottom: 0;
+    /* メニューを画面の外に飛ばす */
+    z-index: 99;
+    background: rgba(90, 90, 94, 0.9);
+    transition: 0.5s;
+  }
+  /* アイコンがクリックされたらメニューを表示 */
+  #drawer-check:checked ~ .drawer-content {
+    top: 38%;/* メニューを画面に入れる */
+  }
+
+  /* 新規登録ボタン */
+  .submit {
+    margin: 0 0 0 300px;
+  }
+  .block {
+  text-align: center;
+             margin: 20px 0px 0 8px;
+             width: 420px;
+             padding: 1.5px;
+             border: 1px solid #333;
+             background: #FFFFFF;
+  }

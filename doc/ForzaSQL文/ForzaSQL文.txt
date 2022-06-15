@@ -72,6 +72,8 @@ CREATE TABLE ICON_IMAGES (
   icon_image VARCHAR(50)
 );
 【アイコンテーブルにサンプルデータを登録するSQL文】
+INSERT INTO ICON_IMAGES (user_id,icon_image) 
+VALUES ('DOJO', '/Forza/icon_images/icon_test.png');
 
 
 
@@ -85,7 +87,8 @@ CREATE TABLE REMIND_DAYS (
 【ご褒美デーテーブルにサンプルデータを登録するSQL文】
 INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
 VALUES ('DOJO', '給料日',20220620);
-
+【更新したデータを戻すSQL文】
+UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
 
 
 

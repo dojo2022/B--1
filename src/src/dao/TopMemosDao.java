@@ -24,7 +24,7 @@ public class TopMemosDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する ここ改造
-				String sql = "select top_memo from top_memo WHERE user_id =?";
+				String sql = "select * from top_memo WHERE user_id =?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる ここ改造
@@ -36,21 +36,28 @@ public class TopMemosDao {
 				ResultSet rs = pStmt.executeQuery();
 
 				// 結果表をコレクションにコピーする ここ改造
+
 				while (rs.next()) {
 					Memo card = new Memo(
 					rs.getString("user_id"),
 					rs.getString("top_memo")
+
 					);
 					cardList.add(card);
 				}
+
+
+
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
 				cardList = null;
+
 			}
 			catch (ClassNotFoundException e) {
 				e.printStackTrace();
 				cardList = null;
+
 			}
 			finally {
 				// データベースを切断
@@ -61,6 +68,7 @@ public class TopMemosDao {
 					catch (SQLException e) {
 						e.printStackTrace();
 						cardList = null;
+
 					}
 				}
 			}
@@ -68,7 +76,6 @@ public class TopMemosDao {
 			// 結果を返す
 			return cardList;
 		}
-
 
 	// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
 	public boolean update(Memo card) {
@@ -83,11 +90,12 @@ public class TopMemosDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "update Memo set top_memo  WHERE user_id=?";
+			String sql = "update TOP_MEMO set top_memo =? WHERE user_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setString(1,card.getUser_id());
+			pStmt.setString(1,card.getTop_memo());
+			pStmt.setString(2,card.getUser_id());
 
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +25,9 @@
 <!-- メイン -->
     <main>
         <div class="icon">
-
+        <c:forEach var="e" items="${icon}">
+			<img alt="icon" src="${e.icon_image}">
+		</c:forEach>
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
@@ -39,11 +42,9 @@
                     </label>
                 </div>
                 <div class="setIcon">
-                	<form>
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
-                	</form>
                 </div>
                 <div class="setRemind">
                     ご褒美Day(リマインダー)
