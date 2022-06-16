@@ -88,7 +88,7 @@
              background: #f2f2f2;
          }
          .customname {
-             margin: 0 0 0 -108px;
+             margin: 0 0 0 -96px;
          }
 
 
@@ -181,7 +181,7 @@ input[name="ADDNEW"]:hover {
     position: relative;
     z-index: 100;/* 重なり順を一番上に */
     cursor: pointer;
-    margin: -60px 0 0 370px;
+    margin: -60px 0 0 340px;
 }
 
 
