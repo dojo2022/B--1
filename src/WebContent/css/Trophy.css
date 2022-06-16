@@ -11,14 +11,14 @@
 			background:rgba(0,38,152,0.5);   /* 最後の0.5が透け方の程度を調整している */
 			margin: 0 auto;
 			position:relative;
-			top:100px;
+			top:80px;
 			border-radius: 20px; }
 
 
 
 table {
 border-collapse: separate;
-border-spacing: 15px 1px;
+border-spacing: 10px 1px;
 }
 
 h1{font-size:40px;
