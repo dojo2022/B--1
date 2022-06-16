@@ -21,7 +21,7 @@ import model.Icon;
 /**
  * Servlet implementation class PersonalOptionServlet
  */
-@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\images") // アップロードファイルの一時的な保存先
+@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\icon_images") // アップロードファイルの一時的な保存先
 @WebServlet("/PersonalOptionServlet")
 public class PersonalOptionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -94,8 +94,8 @@ public class PersonalOptionServlet extends HttpServlet {
                 name = name.substring(name.lastIndexOf("\\") + 1);
                 break;
             }
-        }		// TODO 自動生成されたメソッド・スタブ
-		return name;
+        }
+        return name;
 	}
 
 }
