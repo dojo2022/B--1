@@ -272,10 +272,10 @@ public class TaskListsDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "delete from Task_Lists where id=?";
+			String sql = "delete from task_lists where id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
