@@ -6,9 +6,9 @@
 
 
 /* 枠みたいな部分 */
-.TrophyDiv{width:90%;
+.TrophyDiv{width:1200px; /* %でもいいけどトロフィー画像たちは縮まないので固定にした */
 			height:80%;
-			background:rgba(0,38,152,0.5);   /* 最後の0.5が透け方の程度を調整している */
+			background:rgba(0,38,152,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 			margin: 0 auto;
 			position:relative;
 			top:80px;
@@ -67,8 +67,5 @@ h1{font-size:40px;
 			0 0 0.20em #FFF59D,
 			0 0 0.20em #FFF59D,
 			0 0 0.50em #FFF59D;
-
-
-
 }
 

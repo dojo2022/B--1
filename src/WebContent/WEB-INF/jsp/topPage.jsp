@@ -56,7 +56,16 @@
         </div>
 
         <div class="trophy">
-            トロフィー
+        	<table align="center">
+        	  <tr>
+        	  	<td align="center" class="midashi">ログイン日数:</td>
+        	  	<td align="center" class="sousuu" id=topLoginC>${loginCount}</td>
+        	  </tr>
+        	  <tr>
+        	  	<td align="center" class="midashi">タスク達成数:</td>
+        	  	<td align="center" class="sousuu" id=topTaskC></td>
+        	  </tr>
+        	</table>
         </div>
 </main>
 <!-- フッタ－ -->
