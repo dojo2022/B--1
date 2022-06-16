@@ -7,13 +7,50 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/taskregister_popup.css">
-<script src="Forza/js/TaskRegists.js" defer></script>
+<script src="/Forza/js/TaskRegist.js" defer></script>
 </head>
 <body>
 
 
 <p id="date"></p> <!-- 「[ログインした日付]のタスク」と表示される-->
-<button id="btn">+</button>
+
+
+<input type="button" value="+" onclick="onButtonClick()" id ="click-btn"/>
+<div id="popup-wrapper">
+  <div id="popup-inside">
+    <div id="close">閉じる</div>
+      <div id="message">
+     		<form method="POST" action="/Forza/TaskRegistServlet">
+            タスクの名前：<input type="text" name="task_name"><br>
+            <br>
+            カスタムセット：
+                <select id="custom" name="customset_id">
+                    <option value="work">仕事</option>
+                    <option value="health">健康</option>
+                    <option value="other">その他</option>
+                </select>
+            <br>
+            <br>
+            繰り返し設定：
+                <input type="checkbox" name="loop" value="e_day">毎日
+                <input type="checkbox" name="loop" value="e_week">毎週
+                <input type="checkbox" name="loop" value="e_month">毎月
+                <input type="checkbox" name="loop" value="e_year">毎年
+
+            <br>
+            繰り返しの期間：カレンダーから選択
+            <br>
+            メモ：<textarea name="task_memo"></textarea><br>
+            <br>
+            <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
+            </form>
+
+    </div>
+  </div>
+</div>
+
+
+
 <table id="list">
 
             <tr>
@@ -32,40 +69,12 @@
 	            	</td>
             	</tr>
 
-
             </c:forEach>
 
         </table>
-<!--Creates the popup body-->
-<div class="popup-overlay">
-  <!--Creates the popup content-->
-   <div class="popup-content">
-      <h2>Pop-Up</h2>
-      <p> This is an example pop-up that you can make using jQuery.</p>
-     <!--popup's close button-->
-      <button class="close">Close</button>    </div>
-</div>
-<!--Content shown when popup is not displayed-->
-<h2>jQuery Pop-Up Example</h2>
-<button class="open">Open</button>
 
 
-<script>
-    function recalc() {
-		const now = new Date();
-		const year = now.getFullYear();
-		let month = now.getMonth();
-		const date = now.getDate();
 
-		month = month +1;
-
-		document.getElementById('date').textContent
-		= year + '年' + month + '月' + date + '日' + 'のタスク';
-		refresh();
-	} recalc();
-
-
-</script>
 </html>
 
 
