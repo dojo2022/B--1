@@ -6,9 +6,21 @@ CREATE TABLE USERS (
   user_password VARCHAR(40) NOT NULL
 );
 【ユーザーテーブルにサンプルデータを登録するSQL文】
-INSERT INTO USERS (user_id,user_password) 
-VALUES ('DOJO', 'password');
-
+INSERT INTO TASK_LISTS (user_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO', '腹筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO', '背筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO', '大胸筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO', '腹直筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO', '上腕二頭筋', '15回', now(),1,0);
 
 
 
