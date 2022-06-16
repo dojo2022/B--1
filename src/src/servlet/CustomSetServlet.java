@@ -29,12 +29,13 @@ public class CustomSetServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
 				dispatcher.forward(request, response);
 	}
-
+/*
 	 //追加処理を行う
 	 CustomSetListsDao bDao = new CustomSetListsDao();
 	 List<CustomSetLists> List = bDao.show();
 	 //追加処理をリクエストスコープに格納する
 	 request.setAttribute("List", List);
+*/
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
