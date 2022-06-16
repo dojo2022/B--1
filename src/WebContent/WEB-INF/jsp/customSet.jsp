@@ -25,9 +25,13 @@
 <!-- メイン -->
      <div class="bg">
           <div class="upload">
-            <h3>背景画像アップロード:　　　　　　
+            <h3>背景画像アップロード:　　　　　　　　　　　
+          <form method="post" enctype="multipart/form-data">
+           <input type="file" name="avatar">
+          </form>
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
+
        <div class="custom">
        <%--
        <input id="acd-check1" class="acd-check" type="checkbox">
@@ -41,7 +45,7 @@
        </div>
        --%>
            <div class="customname">
-            <h3>カスタムセット　　　　　　　　　</h3>
+            <h3>カスタムセット:　　　　　　　　　</h3>
            </div>
 
       <!-- <hamburger menu -->
@@ -60,9 +64,9 @@
                         <table class="list">
                           <c:forEach var="e" items="${List}" >
                            <tr class="list">
-                            <td>${e.work}</td>
-                            <td>${e.health}</td>
-                            <td>${e.housework}</td>
+                            <td>${e.work}仕事</td>
+                            <td>${e.health}健康</td>
+                            <td>${e.housework}家事</td>
                            </tr>
                           </c:forEach>
                         </table>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,11 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CustomSetListsDao;
 import model.CustomSetLists;
 import model.Result;
-import model.Task;
+
 
 /**
  * Servlet implementation class RegisterServlet
  */
+@MultipartConfig(location = "C:\\pleiades\\workspace\\Nyample\\WebContent\\images") // アップロードファイルの一時的な保存先
 @WebServlet("/CustomSetServlet")
 public class CustomSetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,11 +33,13 @@ public class CustomSetServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 	}
 
-	 //追加処理を行う
+	 /*//追加処理を行う
 	 CustomSetListsDao bDao = new CustomSetListsDao();
-	 List<CustomSetLists> list = TaskDao.show();
+	 List<CustomSetLists> List = bDao.show();
+
 	 //追加処理をリクエストスコープに格納する
-	 request.setAttribute("List", List);
+	 request.setAttribute("List",List);
+*/
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -49,7 +53,7 @@ public class CustomSetServlet extends HttpServlet {
 
 				// 登録処理を行う
 				CustomSetListsDao bDao = new CustomSetListsDao();
-				if (bDao.insert(new CustomSetLists(name)) {	// 登録成功
+				if (bDao.insert(new CustomSetLists(customset_name)) {	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/Forza/CustomSetServlet"));
 				}
