@@ -32,12 +32,12 @@
       width: 500px;
     }
 
-    tr {
+    h2 {
       text-align: center;
       background-color:green;
     }
 
-    th {
+    h4 {
       text-align: center;
       background-color:green;
     }
@@ -50,7 +50,7 @@
       margin: auto;
     }
 
-    img{
+    .close{
 	 width:70px;
 	 height:70px;
 	}

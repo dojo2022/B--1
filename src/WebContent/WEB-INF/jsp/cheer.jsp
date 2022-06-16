@@ -14,29 +14,19 @@
     <input type="checkbox" name="checkbox">
         <div id="popWin">
             <div class="pop-win">
-            	<table id ="cheerlist">
-            		<tr>
-            			<th>ID</th><th>ユーザーID</th><th>カスタムセットID</th><th>画像</th><th>メッセージ</th>
-            		</tr>
+            		<h2>画像</h2>
 			        <c:forEach var="e" items="${cheerlist}">
-			    		<tr class="data_row2"><td>${e.id}</td><td>${e.user_id}</td><td>${e.customset_id}</td><td>${e.cheer_image}</td><td>${e.cheer_message}</td></tr>
+			    		<img class="cheer_image" src="${e.cheer_image}"></img>
 			    	</c:forEach>
-			    </table>
-                <div id="close"><img src="images/check.png"></div>
+					<br>
+			    	<h2>メッセージ</h2>
+			    	<c:forEach var="e" items="${cheerlist}">
+			    		<h4>${e.cheer_message}</h4>
+			    	</c:forEach>
+			    	<br>
+                <div id="close"><img class="close" src="images/check.png"></div>
             </div>
         </div>
 </body>
 <script src="js/CheerPopup.js" defer></script>
 </html>
-
-<!--
-<script>
-
-//「閉じる」ボタンの動き
-    const close = document.getElementById('close');  	//id "close"が
-    close.addEventListener('click', () => {  			//clickされたら
-    popWin.style.display = 'none';  					//popWinのdisplayがなくなる
-    });
-
-</script>
--->
