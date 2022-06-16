@@ -25,20 +25,13 @@
 <!-- メイン -->
     <main>
         <div class="icon">
-        <c:forEach var="e" items="${icon}">
-			<img alt="icon" src="${e.icon_image}">
-		</c:forEach>
+			<img class="icon_img" alt="icon" src="${myIcon}">
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setPw">
                     <label for="setPw">PW:
                         <input type="text" name="password" placeholder="password">
-                    </label>
-                </div>
-                <div class="setMail">
-                    <label for="setMail">Mail:
-                        <input type="text" name="mail" placeholder="mail">
                     </label>
                 </div>
                 <div class="setIcon">

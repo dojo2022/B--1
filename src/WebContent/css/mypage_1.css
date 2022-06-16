@@ -57,6 +57,9 @@
             margin: 30px auto;
             padding: 10px;
         }
+        .icon_img{
+        	text-align:center;
+        }
         .holiday{
             display: inline-flex;
         }

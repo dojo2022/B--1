@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.IconImagesDao;
+import dao.UsersDao;
 import model.Icon;
 
 /**
@@ -41,19 +43,21 @@ public class PersonalOptionServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// デフォルトのアイコンのデータをスコープに格納
-		Icon img_sample = new Icon("", "/Forza/icon_images/icon_test_1.png");
-		request.setAttribute("icon", img_sample);
+		List<Icon> img_sample = new ArrayList<Icon>();
+		Icon sample = new Icon("","/Forza/icon_images/icon_test_1.png");
+		img_sample.add(sample);
+		request.setAttribute("myIcon", img_sample.get(0).getIcon_image());
 
 		// セッションスコープからUSER_IDを取得し、アイコンの選択
-		String obj = (String)session.getAttribute("memo");
-			System.out.println("-----個人設定------");
-			System.out.println(obj);
-		IconImagesDao iDao = new IconImagesDao();
-		List<Icon> icon = iDao.select(new Icon(obj));
-
-		// 検索結果をリクエストスコープに上書きして格納する
-		if(icon != null) {
-		request.setAttribute("icon", icon);
+		if(session.getAttribute("id") != null) {
+			String obj = (String)session.getAttribute("memo");
+				System.out.println("-----個人設定------");
+				System.out.println(obj);
+			IconImagesDao iDao = new IconImagesDao();
+			List<Icon> icon = iDao.select(new Icon(obj));
+			// 検索結果をリクエストスコープに上書きして格納する
+			System.out.println(icon.get(0).getIcon_image());
+			request.setAttribute("myIcon", icon.get(0).getIcon_image());
 		}
 
 		// 個人設定ページにフォワードする
@@ -75,7 +79,11 @@ public class PersonalOptionServlet extends HttpServlet {
         //ディスパッチ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
-    }
+
+		String password = request.getParameter("password");
+		UsersDao user = new UsersDao();
+		user.isChangePw(password);
+	}
 
 	//ファイルの名前を取得してくる
 	private String getFileName(Part part) {
