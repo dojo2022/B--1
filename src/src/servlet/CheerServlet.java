@@ -33,9 +33,11 @@ public class CheerServlet extends HttpServlet {
 			return;
 		}
 		 */
+
+
 		// 一覧表示を行う
 		CheerListsDao cDao = new CheerListsDao();
-		List<Cheer> cheerlist = cDao.show();
+		List<Cheer> cheerlist = cDao.show(null);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cheerlist", cheerlist);
@@ -65,7 +67,7 @@ public class CheerServlet extends HttpServlet {
 
 		// 一覧表示を行う
 		CheerListsDao cDao = new CheerListsDao();
-		List<Cheer> cheerlist = cDao.show();
+		List<Cheer> cheerlist = cDao.show(null);
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cheerlist", cheerlist);
