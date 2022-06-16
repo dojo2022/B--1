@@ -87,7 +87,7 @@ public class TaskListsDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "insert into Task_Lists(user_id,task_id,customset_id,task_title,task_memo,task_date,priority,task_judge) values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into Task_Lists(id,user_id,customset_id,task_title,task_memo,task_date,priority,task_judge) values (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
