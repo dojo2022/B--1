@@ -64,9 +64,9 @@
                         <table class="list">
                           <c:forEach var="e" items="${List}" >
                            <tr class="list">
-                            <td>${e.work}仕事</td>
-                            <td>${e.health}健康</td>
-                            <td>${e.housework}家事</td>
+                            <td>${e.work}</td>
+                            <td>${e.health}</td>
+                            <td>${e.housework}</td>
                            </tr>
                           </c:forEach>
                         </table>
