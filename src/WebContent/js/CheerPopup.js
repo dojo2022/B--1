@@ -1,7 +1,7 @@
 //褒めるポップアップの
-//閉じるボタン（チェックの画像）に関するJS
+//「閉じる」ボタン(チェックの画像"images/check.png")の動き
 
-const close = document.getElementById('close');
-close.addEventListener('click', () => {
-popWin.style.display = 'none';
-});
+    const close = document.getElementById('close');  	//id "close"が
+    close.addEventListener('click', () => {  			//clickされたら
+    popWin.style.display = 'none';  					//popWinのdisplayがなくなる
+    });
