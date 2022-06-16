@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CustomSetListsDao;
 import model.CustomSetLists;
 import model.Result;
-import model.Task;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -33,7 +32,7 @@ public class CustomSetServlet extends HttpServlet {
 
 	 //追加処理を行う
 	 CustomSetListsDao bDao = new CustomSetListsDao();
-	 List<CustomSetLists> list = TaskDao.show();
+	 List<CustomSetLists> List = bDao.show();
 	 //追加処理をリクエストスコープに格納する
 	 request.setAttribute("List", List);
 	/**
