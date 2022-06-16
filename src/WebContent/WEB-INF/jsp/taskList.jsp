@@ -6,10 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/taskregister_popup.css">
+<script src="Forza/js/TaskRegists.js" defer></script>
 </head>
 <body>
-<form method="POST" action="/Forza/TaskUpdateDeleteServlet">
+
+
 <p id="date"></p> <!-- 「[ログインした日付]のタスク」と表示される-->
+<button id="btn">+</button>
 <table id="list">
 
             <tr>
@@ -17,42 +21,35 @@
             </tr>
             <c:forEach var="e" items="${list}" >
 
-            	<tr class="data_row"><td><input type="checkbox" name="check" value="ok"></td><td><input	 type="text" name="number" value="${e.task_name}"></td><td><input type="submit" name="SUBMIT" value="削除"></td></tr>
+            	<tr class="data_row">
+	            	<td><input type="checkbox" name="check" value="ok"></td>
+	            	<td><input	 type="text" name="task_name" value="${e.task_name}"></td>
+	            	<td>
+	            	<form method="POST" action="/Forza/TaskUpdateDeleteServlet">
+	            		<input type="hidden" name="id" value="${e.id}">
+	            		<input type="submit" name="SUBMIT" value="削除">
+	            	</form>
+	            	</td>
+            	</tr>
 
 
             </c:forEach>
 
         </table>
-</form>
-<div id="popup">Click</div>
-        <div id="popWin">
-            <div class="pop-win">
-            タイトル：<input type="text" name="title"><br>
-            <br>
-            カスタムセット：
-                <select id="custom" name="custom">
-                    <option value="work">仕事</option>
-                    <option value="health">健康</option>
-                    <option value="other">その他</option>
-                </select>
-            <br>
-            <br>
-            繰り返し設定：
-                <input type="checkbox" name="loop" value="e_day">毎日
-                <input type="checkbox" name="loop" value="e_week">毎週
-                <input type="checkbox" name="loop" value="e_month">毎月
-                <input type="checkbox" name="loop" value="e_year">毎年
-                <input type="checkbox" name="loop" value="e_custom"><input type="text" name="custom" class="txt1">日おき<br>
-            <br>
-            繰り返しの期間：カレンダーから選択
-            <br>
-            メモ：<textarea name="task_memo"></textarea><br>
-            <br>
-            <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
-            <div id="close">閉じる</div>
-        </div>
-        </div>
-</body>
+<!--Creates the popup body-->
+<div class="popup-overlay">
+  <!--Creates the popup content-->
+   <div class="popup-content">
+      <h2>Pop-Up</h2>
+      <p> This is an example pop-up that you can make using jQuery.</p>
+     <!--popup's close button-->
+      <button class="close">Close</button>    </div>
+</div>
+<!--Content shown when popup is not displayed-->
+<h2>jQuery Pop-Up Example</h2>
+<button class="open">Open</button>
+
+
 <script>
     function recalc() {
 		const now = new Date();
@@ -66,28 +63,8 @@
 		= year + '年' + month + '月' + date + '日' + 'のタスク';
 		refresh();
 	} recalc();
-    const popup = document.getElementById('popup');
-    const close = document.getElementById('close');
-    const popWin = document.getElementById('popWin');
-    popup.addEventListener('click', () => {
-    popWin.style.display = 'flex';
-    });
-    close.addEventListener('click', () => {
-    popWin.style.display = 'none';
-    });
-	// ページをreloadする方法
-	// reloadの基本的な使い方
-	/*function doReload() {
 
-	    // reloadメソッドによりページをリロード
-	    window.location.reload();
-	}
 
-	window.addEventListener('SUBMIT', function () {
-
-	    // ページ表示完了した5秒後にリロード
-	    setTimeout(doReload, 5000);
-	});*/
 </script>
 </html>
 
