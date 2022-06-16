@@ -227,5 +227,51 @@ public class RemindDatesDao {
 		return remindList;
 	}
 
+	public boolean insert(Remind insert) {
+		Connection conn = null;
+		boolean result = false;
 
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "insert into remind_days (user_id, remind_date) values (?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+				pStmt.setString(1, insert.getUser_id());
+
+				long miliseconds = System.currentTimeMillis();
+		        Date date = new Date(miliseconds);
+
+				pStmt.setDate(2, date);
+
+				result = true;
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+
+		return result;
+	}
 }

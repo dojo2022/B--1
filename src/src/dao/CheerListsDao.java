@@ -11,7 +11,7 @@ import java.util.List;
 import model.Cheer;
 
 public class CheerListsDao {
-    public List<Cheer> show() {
+    public List<Cheer> show(String customset_id) {
 		Connection conn = null;
 		List<Cheer> cheerlist = new ArrayList<Cheer>();
 
@@ -23,18 +23,22 @@ public class CheerListsDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS LIMIT 1";
+			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE customset_id=? LIMIT 1";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
+			//SQL文を完成させる
+			Integer i = Integer.valueOf(customset_id);
+			pStmt.setString(1, i.toString());
+
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Cheer cheercard = new Cheer(
-				rs.getInt("ID"),
+				rs.getString("ID"),
 				rs.getString("USER_ID"),
-				rs.getInt("CUSTOMSET_ID"),
+				rs.getString("CUSTOMSET_ID"),
 				rs.getString("CHEER_IMAGE"),
 				rs.getString("CHEER_MESSAGE")
 				);
