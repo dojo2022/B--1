@@ -110,8 +110,8 @@ public class CustomSetListsDao {
 				else {
 					pStmt.setString(3, null);
 				}
-				if (card.getCustomset_id() != null && !card.getCustomset_id().equals("")) {
-					pStmt.setString(4, card.getCustomset_id());
+				if (card.getCustomset_name() != null && !card.getCustomset_name().equals("")) {
+					pStmt.setString(4, card.getCustomset_name());
 				}
 				else {
 					pStmt.setString(4, null);
