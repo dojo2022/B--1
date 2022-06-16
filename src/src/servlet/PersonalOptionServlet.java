@@ -18,9 +18,6 @@ import dao.IconImagesDao;
 import dao.UsersDao;
 import model.Icon;
 
-/**
- * Servlet implementation class PersonalOptionServlet
- */
 @MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\icon_images") // アップロードファイルの一時的な保存先
 @WebServlet("/PersonalOptionServlet")
 public class PersonalOptionServlet extends HttpServlet {
@@ -50,11 +47,11 @@ public class PersonalOptionServlet extends HttpServlet {
 
 		// セッションスコープからUSER_IDを取得し、アイコンの選択
 		if(session.getAttribute("id") != null) {
-			String obj = (String)session.getAttribute("memo");
+			String id = (String)session.getAttribute("memo");
 				System.out.println("-----個人設定------");
-				System.out.println(obj);
+				System.out.println(id);
 			IconImagesDao iDao = new IconImagesDao();
-			List<Icon> icon = iDao.select(new Icon(obj));
+			List<Icon> icon = iDao.select(new Icon(id));
 			// 検索結果をリクエストスコープに上書きして格納する
 			System.out.println(icon.get(0).getIcon_image());
 			request.setAttribute("myIcon", icon.get(0).getIcon_image());
@@ -67,6 +64,9 @@ public class PersonalOptionServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("memo");
+
 		request.setCharacterEncoding("UTF-8");
 
 		Part part = request.getPart("IMAGE"); // getPartで取得
@@ -76,6 +76,9 @@ public class PersonalOptionServlet extends HttpServlet {
 		// サーバの指定のファイルパスへファイルを保存
         //場所はクラス名↑の上に指定してある
 		part.write(image);
+		IconImagesDao newicon = new IconImagesDao();
+		newicon.insert(new Icon(id,image));
+
         //ディスパッチ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
@@ -83,6 +86,8 @@ public class PersonalOptionServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		UsersDao user = new UsersDao();
 		user.isChangePw(password);
+
+
 	}
 
 	//ファイルの名前を取得してくる
