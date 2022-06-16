@@ -12,7 +12,7 @@ import model.Memo;
 
 public class TopMemosDao {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-		public List<Memo> select(Memo param) {
+		public List<Memo> select(String param) {
 			Connection conn = null;
 			List<Memo> cardList = new ArrayList<Memo>();
 
@@ -29,7 +29,7 @@ public class TopMemosDao {
 
 				// SQL文を完成させる ここ改造
 
-					pStmt.setString(1,param.getUser_id());
+					pStmt.setString(1,param);
 
 
 				// SQL文を実行し、結果表を取得する

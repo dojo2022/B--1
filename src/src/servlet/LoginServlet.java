@@ -43,6 +43,9 @@ public class LoginServlet extends HttpServlet {
 				// ログイン処理を行う
 				UsersDao iDao = new UsersDao();
 				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
+				UsersDao cDao = new UsersDao();
+				cDao.LoginDate(new Users(id));
+
 
 					Object id1 = (Object)id;
 					// セッションスコープにIDを格納する

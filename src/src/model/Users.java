@@ -1,13 +1,21 @@
 package model;
 import java.io.Serializable;
+import java.util.Date;
 
 public class Users implements Serializable {
 	private String id;	// ID
 	private String pw;	// PW
+	private Date date;
 
 	public Users(String id, String pw) {
 		this.id = id;
 		this.pw = pw;
+	}
+	public Users(String id) {
+		this.id = id;
+		long nowTime = System.currentTimeMillis();
+		Date date = new Date(nowTime);
+		this.date = date;
 	}
 
 	public Users() {
@@ -32,6 +40,12 @@ public class Users implements Serializable {
 
 
 }
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 }
 
 

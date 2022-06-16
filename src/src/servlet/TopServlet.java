@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.TopMemosDao;
+import dao.UsersDao;
+import model.LoginCount;
 import model.Memo;
+import model.Users;
 /**
  * Servlet implementation class TopServlet
  */
@@ -24,28 +27,26 @@ public class TopServlet extends HttpServlet {
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/Forza/LoginServlet");
-			return;
-		}
-
-
-
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/Forza/LoginServlet");
+//			return;
+//		}
 
 
 
 				// スコープでデータの取得
 						request.setCharacterEncoding("UTF-8");
-						String obj = (String)session.getAttribute("memo");
-						System.out.println(obj);
-
-
+						String memo_id = (String)session.getAttribute("memo");
+						System.out.println(memo_id);
+						UsersDao count = new UsersDao();
+						LoginCount count1 = count.LoginCount(new Users(memo_id));
+						request.setAttribute("loginCount",count1.getCount() );
 
 
 
 				// 検索処理を行う
 						TopMemosDao mDao = new TopMemosDao();
-						List<Memo> cardList = mDao.select(new Memo(obj));
+						List<Memo> cardList = mDao.select(memo_id);
 
 						// 検索結果をリクエストスコープに格納する
 						request.setAttribute("cardList", cardList);
@@ -74,13 +75,22 @@ public class TopServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String top_memo = request.getParameter("top_memo");
-		String obj = (String)session.getAttribute("memo");
+		String memo_id = (String)session.getAttribute("memo");
 
 
 		// 更新を行う
 		TopMemosDao Dao = new TopMemosDao();
+		Memo m= new Memo(memo_id,top_memo);
 		if (request.getParameter("submit").equals("更新")) {
-			Dao.update(new Memo(obj,top_memo));// 更新成功
+
+			Dao.update(m);// 更新成功
+
+			// 検索処理を行う
+			TopMemosDao mDao = new TopMemosDao();
+			List<Memo> cardList = mDao.select(memo_id);
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("cardList", cardList);
 		/*トップページにフォワードする*/
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/topPage.jsp");
 			dispatcher.forward(request, response);
