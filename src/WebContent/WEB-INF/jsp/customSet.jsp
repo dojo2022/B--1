@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,6 @@
 		  </div>
        </div>
        --%>
-
            <div class="customname">
             <h3>カスタムセット　　　　　　　　　</h3>
            </div>
@@ -56,14 +56,22 @@
 			              <div class="addnew">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
-                              </div>
+                          </div>
+                        <table class="list">
+                          <c:forEach var="e" items="${List}" >
+                           <tr class="list">
+                            <td>${e.work}</td>
+                            <td>${e.health}</td>
+                            <td>${e.housework}</td>
+                           </tr>
+                          </c:forEach>
+                        </table>
 			            </div>
 			          </div>
 		            </nav>
 			 </div>
 
          </div>
-
        </div>
 </form>
 </div>

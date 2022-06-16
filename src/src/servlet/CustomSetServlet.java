@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CustomSetListsDao;
 import model.CustomSetLists;
 import model.Result;
+import model.Task;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -19,14 +21,6 @@ import model.Result;
 @WebServlet("/CustomSetServlet")
 public class CustomSetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CustomSetServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,6 +30,12 @@ public class CustomSetServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
 				dispatcher.forward(request, response);
 	}
+
+	 //追加処理を行う
+	 CustomSetListsDao bDao = new CustomSetListsDao();
+	 List<CustomSetLists> list = TaskDao.show();
+	 //追加処理をリクエストスコープに格納する
+	 request.setAttribute("List", List);
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

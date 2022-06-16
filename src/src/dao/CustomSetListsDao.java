@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 
-import model.Task;
+import model.CustomSetLists;
 
 /**
  * Servlet implementation class CustomSetListsDao
@@ -19,9 +19,9 @@ import model.Task;
 public class CustomSetListsDao {
 
 	//タスク一覧を表示する場合のSQL文
-		public List<Task> show() {
+		public List<CustomSetLists> show() {
 	    		Connection conn = null;
-	    		List<Task> list = new ArrayList<Task>();
+	    		List<CustomSetLists> list = new ArrayList<CustomSetLists>();
 
 	    		try {
 	    			// JDBCドライバを読み込む
@@ -39,7 +39,7 @@ public class CustomSetListsDao {
 
 	    			// 結果表をコレクションにコピーする
 	    			while (rs.next()) {
-	    				Customset card = new Customset(
+	    				CustomSetLists card = new CustomSetLists(
 	    				rs.getString("id"),
 	    				rs.getString("user_id"),
 	    				rs.getString("customset_id"),
@@ -76,7 +76,7 @@ public class CustomSetListsDao {
 
 		//新しくタスクを追加する際に使うSQL文
 		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-		public boolean insert(Task card) {
+		public boolean insert(CustomSetLists card) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -110,8 +110,8 @@ public class CustomSetListsDao {
 				else {
 					pStmt.setString(3, null);
 				}
-				if (card.getCustomset_name() != null && !card.getCustomset_name().equals("")) {
-					pStmt.setString(4, card.getCustomset_name());
+				if (card.getCustomset_id() != null && !card.getCustomset_id().equals("")) {
+					pStmt.setString(4, card.getCustomset_id());
 				}
 				else {
 					pStmt.setString(4, null);
@@ -146,7 +146,7 @@ public class CustomSetListsDao {
 
 		//タスクを編集・更新する際のSQL文
 		// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
-		public boolean update(Task card) {
+		public boolean update(CustomSetLists card) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -180,8 +180,8 @@ public class CustomSetListsDao {
 				else {
 					pStmt.setString(3, null);
 				}
-				if (card.getCustomeset_name() != null && !card.getTask_name().equals("")) {
-					pStmt.setString(4, card.getTask_name());
+				if (card.getCustomset_name() != null && !card.getCustomset_name().equals("")) {
+					pStmt.setString(4, card.getCustomset_name());
 				}
 				else {
 					pStmt.setString(4, null);

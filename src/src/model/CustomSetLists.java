@@ -10,13 +10,13 @@ public class CustomSetLists implements Serializable {
     private String customset_name;
 
 	//引数があるコンストラクタを作成
-	public Task(String id, String user_id, String customset_id, String customset_name)
+	public CustomSetLists (String id, String user_id, String customset_id, String customset_name)
 	{
 	super();
 	this.id = id;
 	this.user_id = user_id;
-	this.task_id = customeset_id;
-	this.customset_id = customset_name;
+	this.customset_id = customset_id;;
+	this.customset_name = customset_name;
 	}
 
 	//引数がないコンストラクタを作成
