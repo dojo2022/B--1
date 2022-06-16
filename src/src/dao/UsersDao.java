@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 import javax.servlet.annotation.WebServlet;
 
+import model.LoginCount;
 import model.Users;
 /**
  * Servlet implementation class UsersDao
@@ -201,5 +202,104 @@ finally {
 // 結果を返す
 return result;
 }
+
+public LoginCount LoginCount(Users loginCount) {
+	Connection conn = null;
+	model.LoginCount LoginCount = new LoginCount();
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+		// SELECT文を準備する
+		String sql = "select user_id, count(*) from (select user_id, count(*) from loginCount where USER_ID = ? group by date) group by user_id";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		pStmt.setString(1, loginCount.getId());
+
+		// SELECT文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		while(rs.next()) {
+			LoginCount.setCount(rs.getInt("count(*)"));
+			LoginCount.setId(rs.getString("user_id"));
+
+		}
+
+
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// 結果を返す
+	return LoginCount;
+}
+
+public boolean LoginDate(Users loginCount) {
+	Connection conn = null;
+	boolean LoginCount = false;
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+		// SELECT文を準備する
+		String sql = "insert into loginCount(user_id,date) values(user_id =?,date=?)";
+
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		pStmt.setString(1, loginCount.getId());
+		java.sql.Date countdate = (java.sql.Date)loginCount.getDate();
+		pStmt.setDate(2, countdate);
+		// SELECT文を実行し、結果表を取得する
+		if( pStmt.executeUpdate() == 1) {
+			LoginCount = true;
+		}
+
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	// 結果を返す
+	return LoginCount;
+}
+
+
 
 }

@@ -8,6 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.UsersDao;
+import model.LoginCount;
+import model.Users;
 
 /*リクエストパラメータを取得してくる元のDAOをインポートする*/
 
@@ -31,26 +36,21 @@ public class TrophyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// トロフィーページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Trophy.jsp");
-		dispatcher.forward(request, response);
+		HttpSession session = request.getSession();
 
-
-		/*		// リクエストパラメータを取得する
+			// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
-				ログイン日数
-				int loginCount = Integer.parseInt(request.getParameter("loginCount"));
-				タスク達成数
-				int taskCount =  Integer.parseInt(request.getParameter("taskCount"));
+				UsersDao count = new UsersDao();
+				String memo_id = (String)session.getAttribute("memo");
+				LoginCount count1 = count.LoginCount(new Users(memo_id));
+				request.setAttribute("loginCount",count1.getCount() );
 
-				// リクエストスコープに格納する
-				request.setAttribute("loginCount", loginCount());
-				request.setAttribute("taskCount", taskCount());
-
-		*/
-
-
+		// トロフィーページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Trophy.jsp" );
+		dispatcher.forward(request, response);
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

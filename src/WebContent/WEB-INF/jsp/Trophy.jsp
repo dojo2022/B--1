@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,7 @@
 		<td><img id="login1000"src="images/灰トロフィー背景透過.png" width=90;></td>
 	</tr>
 	<tr>
-		<td align="center" class="sousuu">10100</td>
+		<td align="center" class="sousuu" id=loginC></td>
 		<td align="center">1</td>
 		<td align="center">7</td>
 		<td align="center">30</td>
@@ -47,21 +48,6 @@
 		<td align="center">1000</td>
 	</tr>
 
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
-	<tr></tr>
 	<tr></tr>
 	<tr></tr>
 	<tr></tr>
@@ -159,7 +145,7 @@
 		<td><img id="task1000"src="images/灰トロフィー背景透過.png" width=90;></td>
 	</tr>
 	<tr>
-		<td align="center"class="sousuu">228</td>
+		<td align="center"class="sousuu" id="taskC">228</td>
 		<td align="center">1</td>
 		<td align="center">7</td>
 		<td align="center">30</td>

@@ -45,8 +45,8 @@
         <c:forEach var="e" items="${cardList}" >
 			<form id ="topMemoForm" method="POST" action="/Forza/TopServlet">
 				<table>
-					<tr><td><label for="topMemo">Memo</label></td><td align="right"><input type="submit" class="submit" value="更新"></td></tr>
-					<tr><td colspan =2><textarea id="topMemo" name="topMemo" rows="25" cols="40" maxlength="200" placeholder="自由に入力（200字まで・改行は1字扱い）">${e.top_memo}</textarea></td></tr>
+					<tr><td><label for="topMemo">Memo</label></td><td align="right"><input type="submit" name="submit" class="submit" value="更新"></td></tr>
+					<tr><td colspan =2><textarea id="topMemo" name="top_memo" rows="25" cols="40" maxlength="200" placeholder="自由に入力（200字まで・改行は1字扱い）">${e.top_memo}</textarea></td></tr>
 					<!--  テキストエリアのrowsとcolsは適宜変えてください。入力字数の制限の明示はプレイスホルダーでいいのかな？(1文字でも入力されていると表示されなくなる) -->
 				</table>
 
@@ -61,6 +61,10 @@
 </main>
 <!-- フッタ－ -->
 	<footer>
+	<c:forEach var="a" items="${loginCount} ">
+
+	<a href="TrophyServlet?loginCount=${a}">torophy</a>
+	</c:forEach>
         <!-- 今回は無し -->
 	</footer>
 </div>
