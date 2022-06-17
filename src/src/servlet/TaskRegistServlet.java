@@ -46,6 +46,7 @@ public class TaskRegistServlet extends HttpServlet {
 				String id = request.getParameter("id");
 				String user_id = request.getParameter("user_id");
 				String task_id = request.getParameter("task_id");
+				//Integer.parseInt("task_id");
 				String customset_id = request.getParameter("customset_id");
 				String task_name = request.getParameter("task_name");
 				String task_memo = request.getParameter("task_memo");
