@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.IconImagesDao;
-import dao.UsersDao;
 import model.Icon;
 
 @MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\icon_images") // アップロードファイルの一時的な保存先
@@ -32,10 +31,10 @@ public class PersonalOptionServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/Forza/LoginServlet");
-//			return;
-//		}
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/Forza/LoginServlet");
+			return;
+		}
 
 		request.setCharacterEncoding("UTF-8");
 
@@ -54,7 +53,7 @@ public class PersonalOptionServlet extends HttpServlet {
 			List<Icon> icon = iDao.select(new Icon(id));
 			// 検索結果をリクエストスコープに上書きして格納する
 			System.out.println(icon.get(0).getIcon_image());
-			request.setAttribute("", icon.get(0).getIcon_image());
+			request.setAttribute("myIcon", icon.get(0).getIcon_image());
 		}
 
 		// 個人設定ページにフォワードする
@@ -82,11 +81,13 @@ public class PersonalOptionServlet extends HttpServlet {
         //ディスパッチ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
-
-		String password = request.getParameter("password");
-		UsersDao user = new UsersDao();
-		user.isChangePw(password);
-
+//
+//		if (request.getParameter("password") != null) {
+//		String password = request.getParameter("password");
+//		UsersDao user = new UsersDao();
+//		user.isChangePw(password);
+//		}
+//
 
 	}
 
