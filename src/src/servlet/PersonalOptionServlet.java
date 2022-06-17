@@ -54,7 +54,7 @@ public class PersonalOptionServlet extends HttpServlet {
 			List<Icon> icon = iDao.select(new Icon(id));
 			// 検索結果をリクエストスコープに上書きして格納する
 			System.out.println(icon.get(0).getIcon_image());
-			request.setAttribute("myIcon", icon.get(0).getIcon_image());
+			request.setAttribute("", icon.get(0).getIcon_image());
 		}
 
 		// 個人設定ページにフォワードする

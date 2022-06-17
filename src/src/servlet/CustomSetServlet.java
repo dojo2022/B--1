@@ -9,10 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CustomSetListsDao;
+import dao.TaskListsDao;
 import model.CustomSetLists;
 import model.Result;
+
 
 /**
  * Servlet implementation class RegisterServlet
@@ -25,23 +28,31 @@ public class CustomSetServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// 追加処理を行う
+	        CustomSetListsDao CustomDao = new CustomSetListsDao();
+			List<CustomSetLists> List = CustomDao.show();
+
+        // 検索結果をリクエストスコープに格納する
+			request.setAttribute("List", List);
+
 		// 検索ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
 				dispatcher.forward(request, response);
 	}
-/*
-	 //追加処理を行う
-	 CustomSetListsDao bDao = new CustomSetListsDao();
-	 List<CustomSetLists> List = bDao.show();
-	 //追加処理をリクエストスコープに格納する
-	 request.setAttribute("List", List);
-*/
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 
+		    // セッションスコープを破棄する
+		        HttpSession session = request.getSession();
+		        session.invalidate();
+
+		    // カスタムセットにリダイレクトする
+		        response.sendRedirect("/Forza/CustomSetServlet");
 
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
@@ -62,5 +73,6 @@ public class CustomSetServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
 				dispatcher.forward(request, response);
 			}
+
 		}
 

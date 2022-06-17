@@ -48,6 +48,7 @@
             <h3>カスタムセット:　　　　　　　　　</h3>
            </div>
 
+
       <!-- <hamburger menu -->
 			<div class="drawer">
 	            <!-- ハンバーガーメニュー表示・非表示切り替え -->
@@ -57,16 +58,17 @@
 		            <nav class="drawer-content">
 		              <div class="block">
 			            <div class="submit">
-			              <div class="addnew">
+			             <div class="addnew">
+			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
-                          </div>
-                        <table class="list">
+                          </form>
+                         </div>
+                               <table class="list">
                           <c:forEach var="e" items="${List}" >
                            <tr class="list">
-                            <td>${e.work}</td>
-                            <td>${e.health}</td>
-                            <td>${e.housework}</td>
+                            <td>${e.customset_name}</td>
+
                            </tr>
                           </c:forEach>
                         </table>

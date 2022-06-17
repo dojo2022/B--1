@@ -21,7 +21,7 @@ public class CustomSetListsDao {
 	//タスク一覧を表示する場合のSQL文
 		public List<CustomSetLists> show() {
 	    		Connection conn = null;
-	    		List<CustomSetLists> list = new ArrayList<CustomSetLists>();
+	    		List<CustomSetLists> List = new ArrayList<CustomSetLists>();
 
 	    		try {
 	    			// JDBCドライバを読み込む
@@ -31,7 +31,7 @@ public class CustomSetListsDao {
 	    			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 	    			// SQL文を準備する
-	    			String sql = "select id,user_id,customset_id,customset_name from _lists;";
+	    			String sql = "select id,user_id,customset_id,customset_name from customset_lists;";
 	    			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 	    			// SQL文を実行し、結果表を取得する
@@ -45,17 +45,17 @@ public class CustomSetListsDao {
 	    				rs.getString("customset_id"),
 	                    rs.getString("customset_name")
 	    				);
-	    				list.add(card);
+	    				List.add(card);
 	    				System.out.println(rs.getString("id"));
 	    			}
 	    		}
 	    		catch (SQLException e) {
 	    			e.printStackTrace();
-	    			list = null;
+	    			List = null;
 	    		}
 	    		catch (ClassNotFoundException e) {
 	    			e.printStackTrace();
-	    			list = null;
+	    			List = null;
 	    		}
 	    		finally {
 	    			// データベースを切断
@@ -65,13 +65,13 @@ public class CustomSetListsDao {
 	    				}
 	    				catch (SQLException e) {
 	    					e.printStackTrace();
-	    					list = null;
+	    					List = null;
 	    				}
 	    			}
 	    		}
 
 	    		// 結果を返す
-	    		return list;
+	    		return List;
 	    	}
 
 		//新しくタスクを追加する際に使うSQL文
