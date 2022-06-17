@@ -1,14 +1,15 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/earlyaccess/hannari.css');
 
 
 /* 背景挿入のレシピ確立次第マネする */
 
-
+body{background-color:blanchedalmond;}
 
 /* 枠みたいな部分 */
 .TrophyDiv{width:1200px; /* %でもいいけどトロフィー画像たちは縮まないので固定にした */
 			height:80%;
-			background:rgba(0,38,152,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+			background:rgba(230,230,230,0.7);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 			margin: 0 auto;
 			position:relative;
 			top:80px;
@@ -23,9 +24,9 @@ border-spacing: 10px 1px;
 
 h1{font-size:40px;
 	white-space: nowrap;
+	font-family:"Hannari";
 	font-weight:bold;
-	color: #000;
-	text-shadow:
+/* 	text-shadow:
 		0 0 0.05em #FFF59D,
 		0 0 0.06em #FFF59D,
 		0 0 0.07em #FFF59D,
@@ -35,12 +36,36 @@ h1{font-size:40px;
 		0 0 0.20em #FFF59D,
 		0 0 0.20em #FFF59D,
 		0 0 0.50em #FFF59D;
- }
+ */
+ 	padding: 20px 0;
+	margin: 0;
+	background-image: linear-gradient(
+		70deg,
+		#DC413C 45%, /* font color */
+		#FFF 50%,
+		#DC413C 55% /* font color */
+	);
+	background-size: 180% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	animation: shine 3s infinite;
+}
+
+@keyframes shine {
+	0% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
 
 .midashi{font-size:25px;
 		white-space: nowrap;
 		font-weight:bold;
+
 		color: #000;
 		text-shadow:
 			0 0 0.05em #FFF59D,
@@ -52,9 +77,54 @@ h1{font-size:40px;
 			0 0 0.20em #FFF59D,
 			0 0 0.20em #FFF59D,
 			0 0 0.50em #FFF59D;
-
 }
-.sousuu{font-size:40px;
+.sousuu{font-size:50px;
+ 		font-weight:bold;
+ 			white-space: nowrap;
+	font-family:"Hannari";
+	font-weight:bold;
+/* 	text-shadow:
+		0 0 0.05em #FFF59D,
+		0 0 0.06em #FFF59D,
+		0 0 0.07em #FFF59D,
+		0 0 0.08em #FFF59D,
+		0 0 0.09em #FFF59D,
+		0 0 0.20em #FFF59D,
+		0 0 0.20em #FFF59D,
+		0 0 0.20em #FFF59D,
+		0 0 0.50em #FFF59D;
+ */
+ 	padding: 0;
+	margin: 0;
+	background-image: linear-gradient(
+		70deg,
+		#DC413C 45%, /* font color */
+		#FFF 50%,
+		#DC413C 55% /* font color */
+	);
+	background-size: 180% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	animation: shine 3s infinite;
+
+/* 		color: #ffd700;
+		text-shadow:
+			0 0 0.05em #FFF59D,
+			0 0 0.06em #FFF59D,
+			0 0 0.07em #FFF59D,
+			0 0 0.08em #FFF59D,
+			0 0 0.09em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.20em #FFF59D,
+			0 0 0.50em #FFF59D; */
+}
+
+
+/* 獲得しているトロフィーの下にある数字のフォント変更 */
+
+.a{font-size:20px;
  		font-weight:bold;
 		color: #ffd700;
 		text-shadow:
@@ -66,7 +136,14 @@ h1{font-size:40px;
 			0 0 0.20em #FFF59D,
 			0 0 0.20em #FFF59D,
 			0 0 0.20em #FFF59D,
-			0 0 0.50em #FFF59D;
-}
+			0 0 0.50em #FFF59D;}
+
+
+
+/* トロフィーを光らせようとしている部分ここから */
+
+
+
+
 
 
