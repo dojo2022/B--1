@@ -12,13 +12,14 @@ public class Task implements Serializable {
     private String task_memo;
     private String task_date;
     private String priority;
-    private String task_judge;
+    private boolean task_judge;
+
 
 
 
 	//引数があるコンストラクタを作成
 	public Task(String id, String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
-		String priority, String task_judge) {
+		String priority, boolean task_judge) {
 	super();
 	this.id = id;
 	this.user_id = user_id;
@@ -32,7 +33,7 @@ public class Task implements Serializable {
 	}
 	//引数があるコンストラクタを作成
 	public Task(String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
-		String priority, String task_judge) {
+		String priority, boolean task_judge) {
 	super();
 	this.user_id = user_id;
 	this.task_id = task_id;
@@ -42,6 +43,11 @@ public class Task implements Serializable {
 	this.task_date = task_date;
 	this.priority = priority;
 	this.task_judge = task_judge;
+	}
+	//引数があるコンストラクタを作成
+	public Task(String user_id) {
+	super();
+	this.user_id = user_id;
 	}
 
 	//引数がないコンストラクタを作成
@@ -55,7 +61,7 @@ public class Task implements Serializable {
 	this.task_memo = "0";
 	this.task_date = "0";
 	this.priority = "0";
-	this.task_judge = "0";
+	this.task_judge = false;
 	}
 
 	//ゲッタとセッタ
@@ -123,11 +129,11 @@ public class Task implements Serializable {
 		this.priority = priority;
 	}
 
-	public String getTask_judge(){
+	public boolean getTask_judge(){
 		return task_judge;
 	}
 
-	public void setTask_judge(){
+	public void setTask_judge(boolean task_judge){
 		this.task_judge = task_judge;
 	}
 

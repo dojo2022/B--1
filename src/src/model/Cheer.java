@@ -2,16 +2,41 @@ package model;
 import java.io.Serializable;
 
 public class Cheer implements Serializable {
-	private String id;	// 整理番号
+	private int id;	// 整理番号
 	private String user_id;	// ユーザーID
 	private String customset_id;//カスタムセットID
 	private String cheer_image; //応援画像
 	private String cheer_message; //応援メッセージ
+	private String icon_image;
+
+	public void Icon() {
+		this.id = 0;
+		this.user_id = "";
+		this.icon_image = "";
+	}
+
+	public void Icon(String user_id,String icon_image) {
+		this.id = 0;
+		this.user_id = user_id;
+		this.icon_image = icon_image;
+	}
+
+	public void Icon(String user_id) {
+		this.user_id = user_id;
+		this.icon_image = "";
+	}
+
+	public String getIcon_image() {
+		return icon_image;
+	}
+	public void setIcon_image(String icon_image) {
+		this.icon_image = icon_image;
+	}
 
 	//引数があるコンストラクタを作成
-	public Cheer(String id, String user_id, String customset_id, String cheer_image, String cheer_message) {
+	public Cheer(String string, String user_id, String customset_id, String cheer_image, String cheer_message) {
 	super();
-	this.id = id;
+	this.id = string;
     this.user_id = user_id;
     this.customset_id = customset_id;
     this.cheer_image = cheer_image;
@@ -35,11 +60,11 @@ public class Cheer implements Serializable {
 	}
 
 	//ゲッタとセッタ
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
