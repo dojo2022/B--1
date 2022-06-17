@@ -8,8 +8,9 @@ let params = url.searchParams;
 /*ログイン日数をYとする。パラメータを受け取る*/
 var y=params.get('loginCount');
 /*タスクカウントをXとする*/
-var x=999;
+var x=params.get('taskCount');
 
+console.log(x + ',' + y);
 window.onload = function Trophy(){
 
 	document.getElementById("loginC").textContent = y;
