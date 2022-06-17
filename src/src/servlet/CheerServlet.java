@@ -34,13 +34,14 @@ public class CheerServlet extends HttpServlet {
 		}
 		 */
 
-
 		// 一覧表示を行う
-		CheerListsDao cDao = new CheerListsDao();
-		List<Cheer> cheerlist = cDao.show(null);
-
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cheerlist", cheerlist);
+//		CheerListsDao cDao = new CheerListsDao();
+//		List<Cheer> cheerlist = cDao.show(request.getParameter("checkbox"));
+//
+//		System.out.println(request.getParameter("checkbox"));
+//
+//		// 検索結果をリクエストスコープに格納する
+//		request.setAttribute("cheerlist", cheerlist);
 
 		//褒めるポップアップのページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
@@ -64,10 +65,12 @@ public class CheerServlet extends HttpServlet {
 			String cheer_image = request.getParameter("CHEER_IMAGE");
 			String cheer_message = request.getParameter("CHEER_MESSAGE");
 		*/
+		request.setCharacterEncoding("UTF-8");
 
 		// 一覧表示を行う
 		CheerListsDao cDao = new CheerListsDao();
 		List<Cheer> cheerlist = cDao.show(null);
+
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cheerlist", cheerlist);

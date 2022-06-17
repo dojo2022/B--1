@@ -12,7 +12,7 @@ public class CheerListsDaoTest {
 		// show()のテスト
 
 		System.out.println("---------- show()のテスト ----------");
-		List<Cheer> cheerlist = dao.show();
+		List<Cheer> cheerlist = dao.show("1");
 		for (Cheer cheercard : cheerlist) {
 			System.out.println("ID：" + cheercard.getId());
 			System.out.println("USER_ID：" + cheercard.getUser_id());
