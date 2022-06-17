@@ -26,9 +26,8 @@
      <div class="bg">
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　　　　　　
-          <form method="post" enctype="multipart/form-data">
-           <input type="file" name="avatar">
-          </form>
+          <input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+		  <canvas id="preview" style="max-width:200px;"></canvas><br>
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
 
@@ -63,16 +62,16 @@
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
                           </form>
-                         </div>
-                               <table class="list">
+                        </div>
+                         <table class="list">
                           <c:forEach var="e" items="${List}" >
-                           <tr class="list">
-                            <td>${e.customset_name}</td>
-
+                           <tr class="listname">
+                            <td><label>${e.customset_name}
+                            <input type="submit" name="EDIT" value="編集"></label></td>
                            </tr>
                           </c:forEach>
                         </table>
-			            </div>
+			           </div>
 			          </div>
 		            </nav>
 			 </div>

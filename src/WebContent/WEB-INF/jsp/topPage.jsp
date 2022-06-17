@@ -63,17 +63,15 @@
         	  </tr>
         	  <tr>
         	  	<td align="center" class="midashi">タスク達成数:</td>
-        	  	<td align="center" class="sousuu" id=topTaskC></td>
+        	  	<td align="center" class="sousuu" id=topTaskC>${TaskCount}</td>
         	  </tr>
         	</table>
         </div>
 </main>
 <!-- フッタ－ -->
 	<footer>
-	<c:forEach var="a" items="${loginCount} ">
 
-	<a href="TrophyServlet?loginCount=${a}">torophy</a>
-	</c:forEach>
+	<a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">torophy</a>
         <!-- 今回は無し -->
 	</footer>
 </div>

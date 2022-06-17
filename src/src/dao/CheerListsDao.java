@@ -24,7 +24,7 @@ public class CheerListsDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE customset_id=? LIMIT 1";
+			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE customset_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を実行し、結果表を取得する

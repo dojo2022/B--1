@@ -226,7 +226,7 @@ public class RemindDatesDao {
 		// 結果を返す
 		return remindList;
 	}
-	// 引数insertで給料日,誕生日に登録
+	// 引数insertで給料日,誕生日に初期登録
 	public boolean insert(Remind insert) {
 		Connection conn = null;
 		boolean result = false;
