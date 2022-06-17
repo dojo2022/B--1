@@ -35,9 +35,9 @@ public class TopServlet extends HttpServlet {
 //			return;
 //		}
 
+		// お知らせの獲得
 
-
-				// スコープでデータの取得
+				// スコープでカウント数の取得
 						request.setCharacterEncoding("UTF-8");
 						String memo_id = (String)session.getAttribute("memo");
 						System.out.println(memo_id);
@@ -51,7 +51,7 @@ public class TopServlet extends HttpServlet {
 						torophy[1] = Integer.toString(count3);
 
 
-				// 検索処理を行う
+				// メモの検索処理を行う
 						TopMemosDao mDao = new TopMemosDao();
 						List<Memo> cardList = mDao.select(memo_id);
 
