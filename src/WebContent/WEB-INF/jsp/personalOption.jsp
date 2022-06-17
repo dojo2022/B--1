@@ -44,7 +44,7 @@
                     <br>
                         <div class="salary">
                             <label >&emsp;給与日：
-                                <select name="day">
+                                <select name="salary_day">
                                     <option value="">-</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -76,7 +76,6 @@
                                     <option value="28">28</option>
                                     <option value="29">29</option>
                                     <option value="30">30</option>
-                                    <option value="31">31</option>
                                 </select> 日
                             </label>
                         </div>
@@ -113,8 +112,8 @@
                         </div>
                         <div class="birthday">
                             <label>&emsp;誕生日：
-                                <select name="month">
-                                    <option value="">-</option>
+                                <select name="birth_month">
+                                    <option value=null>-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -128,8 +127,8 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                 </select> 月
-                                <select name="day">
-                                    <option value="">-</option>
+                                <select name="birth_day">
+                                    <option value=null>-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -160,7 +159,6 @@
                                     <option value="28">28</option>
                                     <option value="29">29</option>
                                     <option value="30">30</option>
-                                    <option value="31">31</option>
                                 </select> 日
                             </label>
                         </div>
