@@ -33,6 +33,9 @@ public class CustomSetServlet extends HttpServlet {
 			List<CustomSetLists> List = CustomDao.show();
         // カスタムセットの中身（CheerListsDao)
 
+
+
+
         // 検索結果をリクエストスコープに格納する
 			request.setAttribute("List", List);
 
