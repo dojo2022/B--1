@@ -28,9 +28,10 @@ public class CustomSetServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		// 追加処理を行う
+		// カスタムセットのタグ
 	        CustomSetListsDao CustomDao = new CustomSetListsDao();
 			List<CustomSetLists> List = CustomDao.show();
+        // カスタムセットの中身（CheerListsDao)
 
         // 検索結果をリクエストスコープに格納する
 			request.setAttribute("List", List);
@@ -59,7 +60,7 @@ public class CustomSetServlet extends HttpServlet {
 
 				// 登録処理を行う
 				CustomSetListsDao bDao = new CustomSetListsDao();
-				if (bDao.insert(new CustomSetLists(name)) {	// 登録成功
+				if (bDao.insert(new CustomSetLists(name))){	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/Forza/CustomSetServlet"));
 				}
