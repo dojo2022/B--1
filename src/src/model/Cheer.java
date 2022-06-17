@@ -34,9 +34,9 @@ public class Cheer implements Serializable {
 	}
 
 	//引数があるコンストラクタを作成
-	public Cheer(String string, String user_id, String customset_id, String cheer_image, String cheer_message) {
+	public Cheer(int id, String user_id, String customset_id, String cheer_image, String cheer_message) {
 	super();
-	this.id = string;
+	this.id = id;
     this.user_id = user_id;
     this.customset_id = customset_id;
     this.cheer_image = cheer_image;
@@ -52,7 +52,7 @@ public class Cheer implements Serializable {
 	//引数がないコンストラクタを作成
 	public Cheer() {
 	super();
-	this.id = "";
+	this.id = 0;
 	this.user_id = "";
 	this.customset_id = "";
 	this.cheer_image = "";
