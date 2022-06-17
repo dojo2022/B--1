@@ -54,7 +54,10 @@
 	 width:70px;
 	 height:70px;
 	}
-
+	/*
+	.addSize{
     input[type="checkbox"]:checked + #popWin{
     display:block;
     }
+	}
+	*/

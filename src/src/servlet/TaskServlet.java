@@ -42,6 +42,8 @@ public class TaskServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskList.jsp");
 		dispatcher.forward(request, response);
 
+
+
         // １：タスクリストの「task_title」がクリックされる
         // ２：一回トップ画面に戻る？
         // ３：追加編集のポップアップが表示される?
