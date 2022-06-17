@@ -84,27 +84,35 @@ public class TaskListsDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "insert into Task_Lists(user_id,task_id,customset_id,task_title,task_memo,task_date,priority,task_judge) values (?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into Task_Lists(user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge) values (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
+			int taskid;//task_id
+			int customsetid;//customset_id
+			int priorityNum;//priority
 			// SQL文を完成させる
 			if (card.getUser_id() != null && !card.getUser_id().equals("")) {
 				pStmt.setString(1, card.getUser_id());
+
 			}
 			else {
 				pStmt.setString(1, null);
 			}
-			if (card.getTask_id() != null && !card.getTask_id().equals("")) {
+			/*if (card.getTask_id() != null && !card.getTask_id().equals("")) {
 				pStmt.setString(2, card.getTask_id());
+
 			}
-			else {
-				pStmt.setString(2, null);
-			}
+			else {}*/
+				taskid = Integer.valueOf(card.getTask_id());
+
+				pStmt.setInt(2, taskid);
+
 			if (card.getCustomset_id() != null && !card.getCustomset_id().equals("")) {
-				pStmt.setString(3, card.getCustomset_id());
+				customsetid = Integer.valueOf(card.getCustomset_id());
+				pStmt.setInt(3,customsetid );
 			}
 			else {
 				pStmt.setString(3, null);
@@ -128,7 +136,9 @@ public class TaskListsDao {
 				pStmt.setString(6, null);
 			}
 			if (card.getPriority() != null && !card.getPriority().equals("")) {
-				pStmt.setString(7, card.getPriority());
+
+				priorityNum = Integer.valueOf(card.getPriority());
+				pStmt.setInt(7,priorityNum);
 			}
 			else {
 				pStmt.setString(7, null);
