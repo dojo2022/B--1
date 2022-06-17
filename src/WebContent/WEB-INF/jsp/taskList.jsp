@@ -24,12 +24,18 @@
             タスクの名前：<input type="text" name="task_name"><br>
             <br>
             カスタムセット：
-                <select id="custom" name="customset_id">
-                    <option value="work">仕事</option>
-                    <option value="health">健康</option>
-                    <option value="other">その他</option>
+                <select id="customset_name" name="customset_id">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             <br>
+            優先度
+            	<select id="priority" name="priority">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
             <br>
             繰り返し設定：
                 <input type="checkbox" name="loop" value="e_day">毎日
@@ -42,6 +48,11 @@
             <br>
             メモ：<textarea name="task_memo"></textarea><br>
             <br>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="user_id" value="${list[0].user_id}">
+            <input type="hidden" name="task_id" value="">
+            <input type="hidden" name="task_judge" value="0">
+            <input type="text" name="task_date" value="${list[0].task_date}">
             <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
             </form>
 
