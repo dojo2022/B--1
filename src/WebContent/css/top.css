@@ -99,7 +99,12 @@
 
 /* トップメモのCSS　ここから */
 
-.memo { font-family: "Meiryo UI";  font-size: 2vw;   /* おそらくメモのラベルのみに適用されている */
+.memo { font-family: "Meiryo UI";  font-size: 25px;   /* おそらくメモのラベルのみに適用されている */
+		/* text-shadow:1px 1px 0 #ffffff,-1px 1px 0 #ffffff,1px -1px 0 #ffffff,-1px -1px 0 #ffffff; */
+		  font-weight: bold;
+  text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                  0 -1px 4px white,                    0 1px 4px white,
+                1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
 }
 
 textarea {
@@ -107,32 +112,36 @@ textarea {
 	height:100%;                       /* divタグの大きさのうち何パーセントの大きさか */
     font-family: inherit;
     font-size: 1rem;
-    resize: none;                      /* テキストエリアの大きさを固定(なくても行数に合わせて可変になるわけではない) */
-  	border: solid 2px black;         /* 枠の太さと色 */
+    resize: none;                 /* テキストエリアの大きさを固定(なくても行数に合わせて可変になるわけではない) */
+  	border: solid 2px rgb(153, 153, 153,0.6);         /* 枠の太さと色 */
   	border-radius: 6px;                /* 枠の丸みの度合いを指定 */
   	outline: 0;                        /* これが何かは忘れた　不要なら削除 */
   	transition: 0.3s;                  /* これが何かは忘れた　不要なら削除 */
   	-webkit-appearance: none;          /* これが何かは忘れた　不要なら削除 */
+  	background:rgba(255,255,255,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+
 }
 
-textarea:focus{border:2px solid blue;}  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
+textarea:focus{border:2px solid black;}  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
 
 
 	/* トップメモ更新ボタンのCSS　ここから */
 
 	.submit{
-		border:1px solid #777;
+		font-weight: bold;
+		border: solid 2px rgb(153, 153, 153,0.6);
 	    padding: 4px 1px;
+	    background:rgba(255,255,255,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 	    color: black;
 	    cursor: pointer;
-	    background: white;
+	    /* background: white; */
 	    border-radius:10px;
 	    height: 2em;
 	    width: 5em;
 		font-size:19px;
     }
 	.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
-	    border:1px solid #777;
+	    border: solid 2px rgb(153, 153, 153,0.6);
 	    padding: 4px 1px;
 	    color: white;
 	    cursor: pointer;

@@ -15,7 +15,7 @@
 
 <div class="TrophyDiv">
 
-<h1 align="center">実績</h1>
+<h1 align="center">Congratulations!</h1>
 
 
 
@@ -36,16 +36,16 @@
 	</tr>
 	<tr>
 		<td align="center" class="sousuu" id=loginC></td>
-		<td align="center">1</td>
-		<td align="center">7</td>
-		<td align="center">30</td>
-		<td align="center">60</td>
-		<td align="center">100</td>
-		<td align="center">180</td>
-		<td align="center">365</td>
-		<td align="center">555</td>
-		<td align="center">777</td>
-		<td align="center">1000</td>
+		<td align="center" class="a">1</td>
+		<td align="center" id= "login7n">7</td>
+		<td align="center" id= "login30n">30</td>
+		<td align="center" id= "login60n">60</td>
+		<td align="center" id= "login100n">100</td>
+		<td align="center" id= "login180n">180</td>
+		<td align="center" id= "login365n">365</td>
+		<td align="center" id= "login555n">555</td>
+		<td align="center" id= "login777n">777</td>
+		<td align="center" id= "login1000n">1000</td>
 	</tr>
 
 	<tr></tr>
@@ -146,16 +146,16 @@
 	</tr>
 	<tr>
 		<td align="center"class="sousuu" id="taskC"></td>
-		<td align="center">1</td>
-		<td align="center">7</td>
-		<td align="center">30</td>
-		<td align="center">60</td>
-		<td align="center">100</td>
-		<td align="center">180</td>
-		<td align="center">365</td>
-		<td align="center">555</td>
-		<td align="center">777</td>
-		<td align="center">1000</td>
+		<td align="center" id="task1n">1</td>
+		<td align="center" id="task7n">7</td>
+		<td align="center" id="task30n">30</td>
+		<td align="center" id="task60n">60</td>
+		<td align="center" id="task100n">100</td>
+		<td align="center" id="task180n">180</td>
+		<td align="center" id="task365n">365</td>
+		<td align="center" id="task555n">555</td>
+		<td align="center" id="task777n">777</td>
+		<td align="center" id="task1000n">1000</td>
 	</tr>
 
 	<tr></tr>
