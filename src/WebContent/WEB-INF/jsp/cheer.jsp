@@ -8,10 +8,11 @@
 <meta charset="UTF-8">
 <title>褒めるポップアップ</title>
 <link rel="stylesheet" href="css/cheer_popup.css">
+<script src="/Forza/js/jquery-3.2.1.min.js">
 </head>
 
 <body>
-    <input type="checkbox" name="checkbox">
+    <input id="task_check" type="checkbox" name="checkbox" value="2" onclick="task_popup"> <!-- ${cheerList.customset_id} -->
         <div id="popWin">
             <div class="pop-win">
             		<h2>画像</h2>

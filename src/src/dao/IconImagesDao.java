@@ -85,14 +85,17 @@ public class IconImagesDao  {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "insert into icon_images (user_id, icon_image) values (?, ?)";
+			String sql = "insert into ICON_IMAGES (USER_ID, ICON_IMAGE) values (?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
 			pStmt.setString(1, insert.getUser_id());
 			pStmt.setString(2, "/Forza/icon_images/" + insert.getIcon_image());
 
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
 				result = true;
+			}
 
 		}
 		catch (SQLException e) {
