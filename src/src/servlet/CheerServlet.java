@@ -38,15 +38,6 @@ public class CheerServlet extends HttpServlet {
 		}
 		 */
 
-		// 一覧表示を行う
-//		CheerListsDao cDao = new CheerListsDao();
-//		List<Cheer> cheerlist = cDao.show(request.getParameter("checkbox"));
-//
-//		System.out.println(request.getParameter("checkbox"));
-//
-//		// 検索結果をリクエストスコープに格納する
-//		request.setAttribute("cheerlist", cheerlist);
-
 		//褒めるポップアップのページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
 		dispatcher.forward(request, response);
@@ -99,6 +90,7 @@ public class CheerServlet extends HttpServlet {
 		        //ディスパッチ
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 				dispatcher.forward(request, response);
+
 		//
 //				if (request.getParameter("password") != null) {
 //				String password = request.getParameter("password");
@@ -111,27 +103,30 @@ public class CheerServlet extends HttpServlet {
 			response.sendRedirect("/simpleBC/LoginServlet");
 			return;
 		}
+		*/
 
+		//褒めるポップアップの画像とメッセージを選択するServlet↓
+		//板垣が書きました
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-			int id = Integer.parseInt(request.getParameter("ID"));
+			int id1 = Integer.parseInt(request.getParameter("ID"));
 			String user_id = request.getParameter("USER_ID");
 			String customset_id = request.getParameter("CUSTOMSET_ID");
 			String cheer_image = request.getParameter("CHEER_IMAGE");
 			String cheer_message = request.getParameter("CHEER_MESSAGE");
-		*/
+
 		request.setCharacterEncoding("UTF-8");
 
-		// 一覧表示を行う
+		// 検索表示を行う
 		CheerListsDao cDao = new CheerListsDao();
-		List<Cheer> cheerlist = cDao.show(null);
+		List<Cheer> cheerList = cDao.select(new Cheer(id1,user_id,customset_id,cheer_image,cheer_message));
 
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cheerlist", cheerlist);
+		request.setAttribute("cheerList", cheerList);
 
 		// 褒めるポップアップのページにフォワードする
-		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
+		RequestDispatcher dispatcher1 = request.getRequestDispatcher("/WEB-INF/jsp/cheerAfter.jsp");
 		dispatcher1.forward(request, response);
 	}
 
