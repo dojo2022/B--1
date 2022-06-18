@@ -4,7 +4,7 @@
             box-sizing: border-box;
         }
         body{
-            background-color: blanchedalmond;
+            background-color:blanchedalmond;
             margin: 0 auto;
             width: 90%;
         }
@@ -79,12 +79,29 @@
             grid-column: 3 / 4;
             grid-row: 1 / 3;
         }
-        .trophy{
+/*         .trophy{
             background-color: #ff000094;
             border-radius: 10%;
             grid-column: 1 / 2;
             grid-row: 2 / 3;
         }
+ */
+/* トロフィー(実際は日数とかの部分)クラス勝手に変えました。不都合あれば戻してください  */
+		 .trophy,.trophy:link,.trophy:visited, .trophy:hover, .trophy:active{grid-column: 1 / 2;
+            		grid-row: 2 / 3;
+            		height: 90px;
+					background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+					border-radius: 20px;
+					cursor: pointer;
+					text-decoration:none;
+					 }
+
+
+
+
+
+
+
         @media  screen and (max-width:1000px) {
 
         }
@@ -101,13 +118,15 @@
 
 .memo { font-family: "Meiryo UI";  font-size: 25px;   /* おそらくメモのラベルのみに適用されている */
 		/* text-shadow:1px 1px 0 #ffffff,-1px 1px 0 #ffffff,1px -1px 0 #ffffff,-1px -1px 0 #ffffff; */
-		  font-weight: bold;
-  text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
-                  0 -1px 4px white,                    0 1px 4px white,
-                1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+		font-weight: bold;
+  		text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                 	 0 -1px 4px white,                    0 1px 4px white,
+               		 1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
 }
 
 textarea {
+	position:relative;
+	top:5px;
 	width:100%;                        /* divタグの大きさのうち何パーセントの大きさか */
 	height:100%;                       /* divタグの大きさのうち何パーセントの大きさか */
     font-family: inherit;
@@ -118,11 +137,15 @@ textarea {
   	outline: 0;                        /* これが何かは忘れた　不要なら削除 */
   	transition: 0.3s;                  /* これが何かは忘れた　不要なら削除 */
   	-webkit-appearance: none;          /* これが何かは忘れた　不要なら削除 */
-  	background:rgba(255,255,255,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+  	background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 
 }
 
-textarea:focus{border:2px solid black;}  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
+textarea:focus{border:2px solid black;
+  				box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                 			 0 -1px 4px white,                    0 1px 4px white,
+               				 1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+}  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
 
 
 	/* トップメモ更新ボタンのCSS　ここから */
@@ -131,22 +154,24 @@ textarea:focus{border:2px solid black;}  /* 入力時に枠の色が変わる。
 		font-weight: bold;
 		border: solid 2px rgb(153, 153, 153,0.6);
 	    padding: 4px 1px;
-	    background:rgba(255,255,255,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 	    color: black;
 	    cursor: pointer;
-	    /* background: white; */
 	    border-radius:10px;
 	    height: 2em;
 	    width: 5em;
 		font-size:19px;
     }
 	.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
-	    border: solid 2px rgb(153, 153, 153,0.6);
+	    border: solid 2px black;
 	    padding: 4px 1px;
-	    color: white;
 	    cursor: pointer;
-	    background: black;
 	    border-radius:10px;
+	    background:rgba(255,255,255,0.6);
+	    box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                 	0 -1px 4px white,                    0 1px 4px white,
+               		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+
     }
 
 	/* トップメモ更新ボタンのCSS　ここまで */
@@ -156,37 +181,52 @@ textarea:focus{border:2px solid black;}  /* 入力時に枠の色が変わる。
 
 /* トップページの実績欄のCSS　ここから */
 
-.midashi{font-size:25px;
+.midashi{font-size:20px;
 		white-space: nowrap;
 		font-weight:bold;
+
 		color: #000;
 		text-shadow:
-			0 0 0.05em #FFF59D,
-			0 0 0.06em #FFF59D,
-			0 0 0.07em #FFF59D,
-			0 0 0.08em #FFF59D,
-			0 0 0.09em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.50em #FFF59D;
-
+			0 0 0.05em rgb(255, 255, 255),
+			0 0 0.06em rgb(255, 255, 255),
+			0 0 0.07em rgb(255, 255, 255),
+			0 0 0.08em rgb(255, 255, 255),
+			0 0 0.09em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.50em rgb(255, 255, 255);
 }
 
-.sousuu{font-size:40px;
+
+
+.sousuu{font-size:30px;
  		font-weight:bold;
-		color: #ffd700;
-		text-shadow:
-			0 0 0.05em #FFF59D,
-			0 0 0.06em #FFF59D,
-			0 0 0.07em #FFF59D,
-			0 0 0.08em #FFF59D,
-			0 0 0.09em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.50em #FFF59D;
+ 			white-space: nowrap;
+	font-weight:bold;
+ 	padding: 0;
+	margin: 0;
+	background-image: linear-gradient(
+		70deg,
+		#DC413C 45%, /* font color */
+		#FFF 50%,
+		#DC413C 55% /* font color */
+	);
+	background-size: 400% 100%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	animation: shine 3s infinite;
 }
+@keyframes shine {
+	0% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 /* トップページの実績欄のCSS　ここまで */
 

@@ -4,10 +4,12 @@
 
 /* 背景挿入のレシピ確立次第マネする */
 
-body{background-color:blanchedalmond;}
+body{/* background-color:blanchedalmond; */
+	background-color:pink;
+	}
 
 /* 枠みたいな部分 */
-.TrophyDiv{width:1200px; /* %でもいいけどトロフィー画像たちは縮まないので固定にした */
+.TrophyDiv{width:1200px; /* %でもいいけどどうせトロフィー画像たちは縮まないので固定にした */
 			height:80%;
 			background:rgba(230,230,230,0.7);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 			margin: 0 auto;
@@ -68,15 +70,15 @@ h1{font-size:40px;
 
 		color: #000;
 		text-shadow:
-			0 0 0.05em #FFF59D,
-			0 0 0.06em #FFF59D,
-			0 0 0.07em #FFF59D,
-			0 0 0.08em #FFF59D,
-			0 0 0.09em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.50em #FFF59D;
+			0 0 0.05em rgb(255, 255, 255),
+			0 0 0.06em rgb(255, 255, 255),
+			0 0 0.07em rgb(255, 255, 255),
+			0 0 0.08em rgb(255, 255, 255),
+			0 0 0.09em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.50em rgb(255, 255, 255);
 }
 .sousuu{font-size:50px;
  		font-weight:bold;
@@ -124,23 +126,19 @@ h1{font-size:40px;
 
 /* 獲得しているトロフィーの下にある数字のフォント変更 */
 
-.a{font-size:20px;
+.a{font-size:25px;
  		font-weight:bold;
 		color: #ffd700;
 		text-shadow:
-			0 0 0.05em #FFF59D,
-			0 0 0.06em #FFF59D,
-			0 0 0.07em #FFF59D,
-			0 0 0.08em #FFF59D,
-			0 0 0.09em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.20em #FFF59D,
-			0 0 0.50em #FFF59D;}
-
-
-
-/* トロフィーを光らせようとしている部分ここから */
+			0 0 0.05em rgb(255, 255, 255),
+			0 0 0.06em rgb(255, 255, 255),
+			0 0 0.07em rgb(255, 255, 255),
+			0 0 0.08em rgb(255, 255, 255),
+			0 0 0.09em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.20em rgb(255, 255, 255),
+			0 0 0.50em rgb(255, 255, 255);}
 
 
 
