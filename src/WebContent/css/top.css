@@ -94,7 +94,8 @@
 					border-radius: 20px;
 					cursor: pointer;
 					text-decoration:none;
-					 }
+					user-select:none;
+		 }
 
 
 
@@ -116,7 +117,8 @@
 
 /* トップメモのCSS　ここから */
 
-.memo { font-family: "Meiryo UI";  font-size: 25px;   /* おそらくメモのラベルのみに適用されている */
+.memo { user-select:none;
+		font-family: "Meiryo UI";  font-size: 25px;   /* おそらくメモのラベルのみに適用されている */
 		/* text-shadow:1px 1px 0 #ffffff,-1px 1px 0 #ffffff,1px -1px 0 #ffffff,-1px -1px 0 #ffffff; */
 		font-weight: bold;
   		text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
