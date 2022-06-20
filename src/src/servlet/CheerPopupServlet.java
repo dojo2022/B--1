@@ -24,7 +24,8 @@ public class CheerPopupServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 				HttpSession session = request.getSession();
 				/*
@@ -42,13 +43,14 @@ public class CheerPopupServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
 
 		//褒めるポップアップの画像とメッセージを選択するServlet↓
-				//板垣が書きました
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
-					int id = Integer.parseInt(request.getParameter("ID"));
+					String num = request.getParameter("ID");
+					int id = Integer.parseInt(num);
 					String user_id = request.getParameter("USER_ID");
 					String customset_id = request.getParameter("CUSTOMSET_ID");
 					String cheer_image = request.getParameter("CHEER_IMAGE");
@@ -57,7 +59,6 @@ public class CheerPopupServlet extends HttpServlet {
 				// 検索表示を行う
 				CheerListsDao cDao = new CheerListsDao();
 				List<Cheer> cheerList = cDao.select(new Cheer(id,user_id,customset_id,cheer_image,cheer_message));
-
 
 				// 検索結果をリクエストスコープに格納する
 				request.setAttribute("cheerList", cheerList);
