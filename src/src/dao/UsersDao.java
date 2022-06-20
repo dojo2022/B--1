@@ -9,7 +9,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -271,9 +270,8 @@ public boolean LoginDate(Users loginCount) {
 
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		pStmt.setString(1, loginCount.getId());
-		SimpleDateFormat abc = new SimpleDateFormat("yyyyMMdd");
-		long date = Long.parseLong(loginCount.getDate());
-		Date countdate1 = new Date(date);
+		Date countdate1 = new Date(loginCount.getDate());
+
 		pStmt.setDate(2, countdate1);
 		// SELECT文を実行し、結果表を取得する
 		if( pStmt.executeUpdate() == 1) {
