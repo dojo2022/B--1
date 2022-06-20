@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="wrapper">
-<form method="POST" action="/Forza/CustomSetServlet" id="login_form'">
+<!-- <form method="POST" action="/Forza/CustomSetServlet" id="login_form'"> -->
 <!-- ヘッダ－ -->
 		<header class="header">
             <div class="logo">
@@ -23,6 +23,9 @@
             </div>
 		</header>
 <!-- メイン -->
+   <div class="background">
+			<img class="backgound_img" alt="background" src="${myBackGround}">
+        </div>
      <div class="bg">
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　　　　　　
@@ -43,12 +46,15 @@
 	            <input type="checkbox" id="drawer-check" class="drawer-hidden" >
 	            <!-- ハンバーガーアイコン -->
 	            <label for="drawer-check" class="drawer-open"><span></span></label>
-		            <nav class="drawer-content">
+		            <div class="drawer-content">
 		              <div class="block">
 			            <div class="submit">
 			             <div class="addnew">
 			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
+                           <%--   <input type="hidden" name="customset_id" value=${List.customset_id }>
+                             <input type="hidden" name="customset_name" value=${List.customset_name }>
+ --%>
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
                           </form>
 
@@ -90,7 +96,7 @@
                         --%>
 			           </div>
 			          </div>
-		            </nav>
+		            </div>
 			 </div>
 
          </div>

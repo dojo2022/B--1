@@ -27,4 +27,24 @@
 		    popupWrapper.style.display = 'none';
 		  }
 		});
+
+}
+
+
+function onNameClick(){
+		const clickBtn = document.getElementById('click-name');
+		const editPopupWrapper = document.getElementById('edit-popup-wrapper');
+		const close = document.getElementById('edit-close');
+
+		// ボタンをクリックしたときにポップアップを表示させる
+		clickBtn.addEventListener('click', () => {
+		  editPopupWrapper.style.display = "block";
+		});
+
+		// ポップアップの外側又は「x」のマークをクリックしたときポップアップを閉じる
+		popupWrapper.addEventListener('click', e => {
+		  if (e.target.id === popupWrapper.id || e.target.id === close.id) {
+		    editPopupWrapper.style.display = 'none';
+		  }
+		});
 }

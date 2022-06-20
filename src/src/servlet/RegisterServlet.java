@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.RemindDatesDao;
 import dao.UsersDao;
+import model.Remind;
 import model.Result;
 import model.Users;
 
@@ -54,6 +56,8 @@ public class RegisterServlet extends HttpServlet {
 				if (bDao.insert(new Users(id, password))) {	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/Forza/LoginServlet"));
+					RemindDatesDao defaultRemind = new RemindDatesDao();
+					defaultRemind.insert(new Remind(id));
 				}
 				else {												// 登録失敗
 					request.setAttribute("result",

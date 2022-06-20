@@ -30,7 +30,7 @@ public class RemindDatesDAOTest {
 		dao.salary("HARU", "20");
 		dao.birth("HARU", "08", "07");
 
-		System.out.println("---------- select()のテスト ----------");
+		System.out.println("---------- select(1)のテスト ----------");
 			List<Remind> remindList1 = dao.select(new Remind("HARU"));
 			for (Remind list : remindList1) {
 				System.out.println("USER_ID：" + list.getUser_id());
@@ -52,7 +52,7 @@ public class RemindDatesDAOTest {
 		for (Remind list : remindList2) {
 			dao.change(list);
 		}
-		System.out.println("---------- choose()のテスト ----------");
+		System.out.println("---------- choose(1)のテスト ----------");
 		List<Remind> remindList3 = dao.choose(new Remind("HARU"));
 		for (Remind remind : remindList3) {
 			System.out.println("USER_ID：" + remind.getUser_id());

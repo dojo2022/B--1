@@ -88,21 +88,17 @@ public class RemindDatesDao {
 			switch(change.getRemind_name() ) {
 			case "給料日":
 				// SQL文を準備する
-				String sql = "update Remind_days set Remind_date = ? where USER_ID = ?  REMIND_NAME = '給料日'";
+				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '給料日'";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				java.util.Date date1 = change.getRemind_date();
-
-				System.out.println(change.getRemind_date());
-
 				Calendar calendar = Calendar.getInstance();
 				calendar.setTime(date1);
 				calendar.add(Calendar.MONTH, 1);
 				date1 = calendar.getTime();
-
 		        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		        String formattedDate = simpleDateFormat.format(date1);
-		        java.sql.Date date2 = java.sql.Date.valueOf(formattedDate);
+		        Date date2 = Date.valueOf(formattedDate);
 
 				pStmt.setDate(1, date2);
 				pStmt.setString(2, change.getUser_id());
@@ -115,7 +111,7 @@ public class RemindDatesDao {
 			// 誕生日の更新
 			case "誕生日":
 				// SQL文を準備する
-				String sql2 = "update Remind_days set Remind_date = ? where USER_ID = ? REMIND_NAME = '誕生日'";
+				String sql2 = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '誕生日'";
 				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
 				java.util.Date date3 = change.getRemind_date();
@@ -123,12 +119,9 @@ public class RemindDatesDao {
 				calendar2.setTime(date3);
 				calendar2.add(Calendar.YEAR, 1);
 				date3 = calendar2.getTime();
-
 		        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
-
 		        String formattedDate2 = simpleDateFormat2.format(date3);
-
-		        java.sql.Date date4 = java.sql.Date.valueOf(formattedDate2);
+		        Date date4 = Date.valueOf(formattedDate2);
 
 				pStmt2.setDate(1, date4);
 				pStmt2.setString(2, change.getUser_id());
@@ -178,7 +171,7 @@ public class RemindDatesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select * from Remind_days WHERE USER_ID = ? AND REMIND_DATE <= ? ORDER BY ID";
+			String sql = "select * from Remind_days WHERE USER_ID = ? AND REMIND_DATE < ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
@@ -257,10 +250,10 @@ public class RemindDatesDao {
 
 	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	        String formattedDate = simpleDateFormat.format(date2);
-	        java.sql.Date date3 = java.sql.Date.valueOf(formattedDate);
+	        Date date4 = Date.valueOf(formattedDate);
 
 			pStmt.setDate(2, date1);
-			pStmt.setDate(3, date3);
+			pStmt.setDate(3, date4);
 
 			// SQL分を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -362,7 +355,7 @@ public class RemindDatesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? ";
+				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '給料日'";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		        long miliseconds = System.currentTimeMillis();
@@ -371,10 +364,10 @@ public class RemindDatesDao {
 		        String date1 = dateFormat.format(date);
 		        String[] date2 = date1.split("-");
 		        date2[2] = day;
-		        String date3 = String.join("", date2);
-		        Date date4 = Date.valueOf(date3);
+		        String date3 = String.join("-", date2);
+		        Date date5 = Date.valueOf(date3);
 
-				pStmt.setDate(1, date4);
+				pStmt.setDate(1, date5);
 				pStmt.setString(2, user_id);
 
 				// SQL文を実行する
@@ -420,7 +413,7 @@ public class RemindDatesDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? ";
+				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '誕生日'";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		        long miliseconds = System.currentTimeMillis();
@@ -430,10 +423,10 @@ public class RemindDatesDao {
 		        String[] date2 = date1.split("-");
 		        date2[1] = Month;
 		        date2[2] = day;
-		        String date3 = String.join("", date2);
-		        Date date4 = Date.valueOf(date3);
+		        String date3 = String.join("-", date2);
+		        Date date5 = Date.valueOf(date3);
 
-				pStmt.setDate(1, date4);
+				pStmt.setDate(1, date5);
 				pStmt.setString(2, user_id);
 
 				// SQL文を実行する
