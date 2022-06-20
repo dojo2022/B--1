@@ -32,6 +32,20 @@ public class Task implements Serializable {
 	this.task_judge = task_judge;
 	}
 	//引数があるコンストラクタを作成
+		public Task(String id, String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
+			String priority, String task_judge) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.task_id = task_id;
+		this.customset_id = customset_id;
+		this.task_name = task_name;
+		this.task_memo = task_memo;
+		this.task_date = task_date;
+		this.priority = priority;
+		this.task_judge  = Boolean.valueOf(task_judge);
+		}
+	//引数があるコンストラクタを作成
 	public Task(String user_id, String task_id, String customset_id, String task_name, String task_memo, String task_date,
 		String priority, boolean task_judge) {
 	super();
