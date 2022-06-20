@@ -367,7 +367,7 @@ public class RemindDatesDao {
 
 		        long miliseconds = System.currentTimeMillis();
 		        Date date = new Date(miliseconds);
-		        DateFormat dateFormat = new SimpleDateFormat("yyy-MM-dd");
+		        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		        String date1 = dateFormat.format(date);
 		        String[] date2 = date1.split("-");
 		        date2[2] = day;

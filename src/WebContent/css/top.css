@@ -163,6 +163,7 @@ textarea:focus{border:2px solid black;
 	    height: 2em;
 	    width: 5em;
 		font-size:19px;
+		transition: 0.3s;
     }
 	.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
 	    border: solid 2px black;

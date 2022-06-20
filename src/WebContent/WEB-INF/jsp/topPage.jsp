@@ -71,7 +71,7 @@
 <!-- フッタ－ -->
 	<footer>
 
-<%-- 	<a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">torophy</a> --%>
+<%-- 	<a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">torophy</a> 上に移動したけど一応残してます--%>
         <!-- 今回は無し -->
 	</footer>
 </div>

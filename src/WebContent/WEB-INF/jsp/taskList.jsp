@@ -50,7 +50,7 @@
             <br>
             <input type="hidden" name="id" value="">
             <input type="text" name="user_id" value="${list[0].user_id}">
-            <input type="hidden" name="task_id" value="">
+            <input type="hidden" name="task_id" value="100">
             <input type="hidden" name="task_judge" value="0">
             <input type="text" name="task_date" value="${list[0].task_date}">
             <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
