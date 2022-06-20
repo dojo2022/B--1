@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -265,12 +266,13 @@ public boolean LoginDate(Users loginCount) {
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 		// SELECT文を準備する
-		String sql = "insert into loginCount(user_id,date) values(user_id =?,date=?)";
+		String sql = "insert into loginCount(user_id,date) values(?,?)";
 
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 		pStmt.setString(1, loginCount.getId());
-		java.sql.Date countdate = (java.sql.Date)loginCount.getDate();
-		pStmt.setDate(2, countdate);
+		Date countdate1 = new Date(loginCount.getDate());
+
+		pStmt.setDate(2, countdate1);
 		// SELECT文を実行し、結果表を取得する
 		if( pStmt.executeUpdate() == 1) {
 			LoginCount = true;

@@ -62,7 +62,12 @@ CREATE TABLE CHEER_LISTS (
   cheer_message VARCHAR(100)
 );
 【応援画像メッセージテーブルにサンプルデータを登録するSQL文】
-
+INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
+VALUES ('1','1','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
+INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
+VALUES ('2','2','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
+INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
+VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
 
 【背景テーブルを作成するSQL文】
 CREATE TABLE BACKGROUND_IMAGES (
@@ -136,6 +141,19 @@ CREATE TABLE TASK_ACHIEVEMENT (
 
 INSERT INTO TASK_ACHIEVEMENT (user_id,task_achievement) 
 VALUES ('DOJO', 0);
+
+
+
+【ログインカウントテーブルを作成するSQL文】
+CREATE TABLE TASK_LOGINCOUNT (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  date DATE
+);
+【ログインカウントテーブルにサンプルデータを登録するSQL文】
+
+INSERT INTO LOGINCOUNT (user_id, date) 
+VALUES ('DOJO', 2022-06-19);
 
 
 

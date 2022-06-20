@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.UsersDao;
 import model.Login;
+import model.LoginCount;
 import model.Result;
 import model.Users;
 
@@ -43,8 +44,6 @@ public class LoginServlet extends HttpServlet {
 				// ログイン処理を行う
 				UsersDao iDao = new UsersDao();
 				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
-				UsersDao cDao = new UsersDao();
-				cDao.LoginDate(new Users(id));
 
 
 					Object id1 = (Object)id;
@@ -52,6 +51,12 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("id", new Login(id));
 					session.setAttribute("memo",id1);
+
+					UsersDao count = new UsersDao();
+					count.LoginDate(new Users(id));
+					LoginCount count1 = count.LoginCount(new Users(id));
+					session.setAttribute("loginCount",count1.getCount() );
+
 
 					// メニューサーブレットにリダイレクトする
 					response.sendRedirect("/Forza/TopServlet");

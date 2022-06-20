@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <form class="checkbox_form" method="POST" action="/Forza/CheerServlet">
+    <form class="checkbox_form" method="POST" action="/Forza/CheerPopupServlet">
+    	<input type="hidden" name="ID" value="1">
         <input type="checkbox" name="CUSTOMSET_ID" value="1">
         <input type="submit" name="REGIST" value="表示">
     </form>

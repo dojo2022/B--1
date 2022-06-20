@@ -5,13 +5,16 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.BackGroundImagesDao;
 import dao.CustomSetListsDao;
+import model.BackGround;
 import model.CustomSetLists;
 import model.Result;
 
@@ -19,6 +22,8 @@ import model.Result;
 /**
  * Servlet implementation class RegisterServlet
  */
+
+@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\background_images") // アップロードファイルの一時的な保存先
 @WebServlet("/CustomSetServlet")
 public class CustomSetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,11 +34,14 @@ public class CustomSetServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		// カスタムセットのタグ
-	        CustomSetListsDao CustomDao = new CustomSetListsDao();
-			List<CustomSetLists> List = CustomDao.show();
+	        CustomSetListsDao bDao = new CustomSetListsDao();
+			List<CustomSetLists> List = bDao.show();
+
+/*
         // カスタムセットの中身（CheerListsDao)
-
-
+            CheerListsDao CustomDao = new CheerListsDao();
+            List<CustomSetLists> List = CustomDao.show();
+*/
 
 
         // 検索結果をリクエストスコープに格納する
@@ -50,14 +58,14 @@ public class CustomSetServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 
-		    // セッションスコープを破棄する
+	/*
+		// セッションスコープを破棄する
 		        HttpSession session = request.getSession();
 		        session.invalidate();
-
-		    // カスタムセットにリダイレクトする
-		        response.sendRedirect("/Forza/CustomSetServlet");
+    */
 
 				// リクエストパラメータを取得する
+		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
 				String name = request.getParameter("name");
 
@@ -72,8 +80,21 @@ public class CustomSetServlet extends HttpServlet {
 					new Result("登録失敗！", "レコードを登録できませんでした。", "/Forza/CustomSetServlet"));
 				}
 
-				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
+
+	            // セッションスコープからUSER_IDを取得し、アイコンの選択
+			   if(session.getAttribute("id") != null) {
+				String id = (String)session.getAttribute("memo");
+					System.out.println("-----個人設定------");
+					System.out.println(id);
+				BackGroundImagesDao iDao = new BackGroundImagesDao();
+				List<BackGround> background = iDao.select(new BackGround(id));
+				// 検索結果をリクエストスコープに上書きして格納する
+				System.out.println(background.get(0).getBackground_image());
+				request.setAttribute("myBackGround", background.get(0).getBackground_image());
+			   }
+
+			 //ディスパッチ
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 				dispatcher.forward(request, response);
 			}
 

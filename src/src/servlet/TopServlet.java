@@ -41,12 +41,12 @@ public class TopServlet extends HttpServlet {
 						request.setCharacterEncoding("UTF-8");
 						String memo_id = (String)session.getAttribute("memo");
 						System.out.println(memo_id);
-						UsersDao count = new UsersDao();
-						LoginCount count1 = count.LoginCount(new Users(memo_id));
-						request.setAttribute("loginCount",count1.getCount() );
 						TaskCountDao count2 = new TaskCountDao();
 						int count3 = count2.TaskCount(new Task(memo_id));
 						java.lang.String[] torophy = new java.lang.String[2];
+						UsersDao count = new UsersDao();
+						LoginCount count1 = count.LoginCount(new Users(memo_id));
+
 						torophy[0] = Integer.toString(count1.getCount());
 						torophy[1] = Integer.toString(count3);
 
@@ -56,9 +56,9 @@ public class TopServlet extends HttpServlet {
 						List<Memo> cardList = mDao.select(memo_id);
 
 						// 検索結果をリクエストスコープに格納する
-						request.setAttribute("cardList", cardList);
-						request.setAttribute("TaskCount", count3);
-						request.setAttribute("torophy", torophy);
+						session.setAttribute("cardList", cardList);
+						session.setAttribute("TaskCount", count3);
+						session.setAttribute("torophy", torophy);
 
 
 		/*トップメモ関連ここまで*/

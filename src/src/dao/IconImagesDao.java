@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -16,9 +14,9 @@ import model.Icon;
 public class IconImagesDao  {
 
 	// 最新のアイコンを取得
-	public List<Icon> select(Icon select){
+	public Icon select(Icon select){
 		Connection conn = null;
-		List<Icon> iconList = new ArrayList<Icon>();
+		Icon icon = new Icon();
 
 		try {
 			// JDBCドライバを読み込む
@@ -38,22 +36,18 @@ public class IconImagesDao  {
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
-				Icon list = new Icon(
+				icon = new Icon(
 				rs.getString("USER_ID"),
 				rs.getString("ICON_IMAGE")
 				);
-
-				iconList.add(list);
 			}
 
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			iconList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			iconList = null;
 		}
 		finally {
 			// データベースを切断
@@ -63,12 +57,11 @@ public class IconImagesDao  {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					iconList = null;
 				}
 			}
 		}
 		// 結果を返す
-		return iconList;
+		return icon;
 
 	}
 

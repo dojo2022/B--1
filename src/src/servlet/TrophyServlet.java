@@ -36,7 +36,14 @@ public class TrophyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/Forza/LoginServlet");
+			return;
+		}
+
+
 
 			// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
