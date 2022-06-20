@@ -23,6 +23,9 @@
             </div>
 		</header>
 <!-- メイン -->
+   <div class="background">
+			<img class="backgound_img" alt="background" src="${myBackGround}">
+        </div>
      <div class="bg">
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　　　　　　
@@ -43,7 +46,7 @@
 	            <input type="checkbox" id="drawer-check" class="drawer-hidden" >
 	            <!-- ハンバーガーアイコン -->
 	            <label for="drawer-check" class="drawer-open"><span></span></label>
-		            <nav class="drawer-content">
+		            <div class="drawer-content">
 		              <div class="block">
 			            <div class="submit">
 			             <div class="addnew">
@@ -90,7 +93,7 @@
                         --%>
 			           </div>
 			          </div>
-		            </nav>
+		            </div>
 			 </div>
 
          </div>

@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.IconImagesDao;
-import dao.RemindDatesDao;
 import dao.UsersDao;
 import model.Icon;
 
@@ -85,7 +84,7 @@ public class PersonalOptionServlet extends HttpServlet {
 		UsersDao user = new UsersDao();
 		user.isChangePw(password);
 		}
-
+/*
 				// 給料日設定
 		if(request.getParameter("salary_day") != null) {
 			String salaryDay = request.getParameter("salary_day");
@@ -101,7 +100,7 @@ public class PersonalOptionServlet extends HttpServlet {
 
 			birth.birth(id, birthMonth, birthDay);
 		}
-
+*/
 		//ディスパッチ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
