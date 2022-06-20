@@ -44,6 +44,13 @@ public class TaskUpdateDeleteServlet extends HttpServlet {
 		String priority = request.getParameter("priority");
 		String task_judge = request.getParameter("task_judge");
 
+		/*if("true".equals(task_judge)) {
+
+		}else {
+			bool=false;
+		}
+		task_judge = Boolean.valueOf("task_judge");
+		*/
 
 
 		// 更新または削除を行う
