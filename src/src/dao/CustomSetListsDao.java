@@ -85,36 +85,30 @@ public class CustomSetListsDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C:dojo6Data/dojo6Data", "sa", "");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 				// SQL文を準備する
-				String sql = "insert into CustomSet_Lists(user_id,task_id,customset_id,customset_name) values (?, ?, ?, ?)";
+				String sql = "insert into CustomSet_Lists(user_id,customset_id,customset_name) values (?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (card.getId() != null && !card.getId().equals("")) {
-					pStmt.setString(1, card.getId());
+				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
+					pStmt.setString(1, card.getUser_id());
 				}
 				else {
 					pStmt.setString(1, null);
 				}
-				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
-					pStmt.setString(2, card.getUser_id());
+				if (card.getCustomset_id() != null && !card.getCustomset_id().equals("")) {
+					pStmt.setString(2, card.getCustomset_id());
 				}
 				else {
 					pStmt.setString(2, null);
 				}
-				if (card.getCustomset_id() != null && !card.getCustomset_id().equals("")) {
-					pStmt.setString(3, card.getCustomset_id());
+				if (card.getCustomset_name() != null && !card.getCustomset_name().equals("")) {
+					pStmt.setString(3, card.getCustomset_name());
 				}
 				else {
 					pStmt.setString(3, null);
-				}
-				if (card.getCustomset_name() != null && !card.getCustomset_name().equals("")) {
-					pStmt.setString(4, card.getCustomset_name());
-				}
-				else {
-					pStmt.setString(4, null);
 				}
 
 				// SQL文を実行する

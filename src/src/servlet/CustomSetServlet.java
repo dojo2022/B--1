@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.CustomSetListsDao;
 import model.CustomSetLists;
@@ -50,12 +49,11 @@ public class CustomSetServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 
-		    // セッションスコープを破棄する
+	/*
+		// セッションスコープを破棄する
 		        HttpSession session = request.getSession();
 		        session.invalidate();
-
-		    // カスタムセットにリダイレクトする
-		        response.sendRedirect("/Forza/CustomSetServlet");
+    */
 
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
