@@ -71,9 +71,54 @@
 
             	<tr class="data_row">
 	            	<td><input type="checkbox" name="check" value="ok"></td>
-	            	<td><input	 type="text" name="task_name" value="${e.task_name}"></td>
-	            	<td>
-	            	<form method="POST" action="/Forza/TaskUpdateDeleteServlet">
+	            	<td><input	 type="button" name="task_name" value="${e.task_name}" onclick="onNameClick()" id ="click-name">
+
+
+					<div id="edit-popup-wrapper${e.task_name}">
+					  <div id="edit-popup-inside">
+					    <div id="edit-close">閉じる</div>
+					      <div id="edit-message">
+					     		<form method="POST" action="/Forza/TaskRegistServlet">
+					            タスクの名前：<input type="text" name="task_name"><br>
+					            <br>
+					            カスタムセット：
+					                <select id="customset_name" name="customset_id">
+					                    <option value="1">1</option>
+					                    <option value="2">2</option>
+					                    <option value="3">3</option>
+					                </select>
+					            <br>
+					            優先度
+					            	<select id="priority" name="priority">
+					                    <option value="1">1</option>
+					                    <option value="2">2</option>
+					                    <option value="3">3</option>
+					                </select>
+					            <br>
+					            繰り返し設定：
+					                <input type="checkbox" name="loop" value="e_day">毎日
+					                <input type="checkbox" name="loop" value="e_week">毎週
+					                <input type="checkbox" name="loop" value="e_month">毎月
+					                <input type="checkbox" name="loop" value="e_year">毎年
+
+					            <br>
+					            繰り返しの期間：カレンダーから選択
+					            <br>
+					            メモ：<textarea name="task_memo"></textarea><br>
+					            <br>
+					            <input type="hidden" name="id" value="">
+					            <input type="text" name="user_id" value="${list[0].user_id}">
+					            <input type="hidden" name="task_id" value="100">
+					            <input type="hidden" name="task_judge" value="0">
+					            <input type="text" name="task_date" value="${list[0].task_date}">
+					            <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
+					            </form>
+
+					    </div>
+					  </div>
+					</div>
+					</td>
+	            	<td><form method="POST" action="/Forza/TaskUpdateDeleteServlet">
 	            		<input type="hidden" name="id" value="${e.id}">
 	            		<input type="submit" name="SUBMIT" value="削除">
 	            	</form>
@@ -84,6 +129,49 @@
 
         </table>
 
+				<div id="edit-popup-wrapper">
+					  <div id="edit-popup-inside">
+					    <div id="edit-close">閉じる</div>
+					      <div id="edit-message">
+					     		<form method="POST" action="/Forza/TaskRegistServlet">
+					            タスクの名前：<input type="text" name="task_name"><br>
+					            <br>
+					            カスタムセット：
+					                <select id="customset_name" name="customset_id">
+					                    <option value="1">1</option>
+					                    <option value="2">2</option>
+					                    <option value="3">3</option>
+					                </select>
+					            <br>
+					            優先度
+					            	<select id="priority" name="priority">
+					                    <option value="1">1</option>
+					                    <option value="2">2</option>
+					                    <option value="3">3</option>
+					                </select>
+					            <br>
+					            繰り返し設定：
+					                <input type="checkbox" name="loop" value="e_day">毎日
+					                <input type="checkbox" name="loop" value="e_week">毎週
+					                <input type="checkbox" name="loop" value="e_month">毎月
+					                <input type="checkbox" name="loop" value="e_year">毎年
+
+					            <br>
+					            繰り返しの期間：カレンダーから選択
+					            <br>
+					            メモ：<textarea name="task_memo"></textarea><br>
+					            <br>
+					            <input type="hidden" name="id" value="">
+					            <input type="text" name="user_id" value="${list[0].user_id}">
+					            <input type="hidden" name="task_id" value="100">
+					            <input type="hidden" name="task_judge" value="0">
+					            <input type="text" name="task_date" value="${list[0].task_date}">
+					            <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
+					            </form>
+
+					    </div>
+					  </div>
+					</div>
 
 </body>
 </html>
