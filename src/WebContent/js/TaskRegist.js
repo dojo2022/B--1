@@ -29,7 +29,7 @@
 		});
 
 }
-for
+
 
 function onNameClick(){
 		const clickBtn = document.getElementById('click-name');
