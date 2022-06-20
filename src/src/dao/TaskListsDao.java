@@ -42,7 +42,7 @@ public class TaskListsDao {
     				rs.getString("task_memo"),
     				rs.getString("task_date"),
                     rs.getString("priority"),
-                    rs.getString("task_judge")
+                    rs.getBoolean("task_judge")
     				);
     				list.add(card);
     				System.out.println(rs.getString("id"));
@@ -143,12 +143,13 @@ public class TaskListsDao {
 			else {
 				pStmt.setString(7, null);
 			}
-			if (card.getTask_judge() != null && !card.getTask_judge().equals("")) {
-				pStmt.setString(8, card.getTask_judge());
-			}
-			else {
+			/*if (card.getTask_judge() != null && !card.getTask_judge().equals("")) {
+
+			}*/
+			pStmt.setBoolean(8, card.getTask_judge());
+			/*else {
 				pStmt.setString(8, null);
-			}
+			}*/
 			// SQL文を実行する
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -236,12 +237,9 @@ public class TaskListsDao {
 			else {
 				pStmt.setString(7, null);
 			}
-			if (card.getTask_judge() != null && !card.getTask_judge().equals("")) {
-				pStmt.setString(8, card.getTask_judge());
-			}
-			else {
-				pStmt.setString(8, null);
-			}
+
+				pStmt.setBoolean(8, card.getTask_judge());
+
 			pStmt.setString(9, card.getId());
 
 			// SQL文を実行する
