@@ -1,12 +1,10 @@
 package model;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class Users implements Serializable {
 	private String id;	// ID
 	private String pw;	// PW
-	private String date;
+	private long date;
 
 	public Users(String id, String pw) {
 		this.id = id;
@@ -14,9 +12,7 @@ public class Users implements Serializable {
 	}
 	public Users(String id) {
 		this.id = id;
-		Calendar calendar = Calendar.getInstance();
-		SimpleDateFormat nowDate = new SimpleDateFormat("yyyyMMdd");
-		String nowTime = nowDate.format(calendar.getTime());
+		long nowTime = System.currentTimeMillis();
 		this.date = nowTime;
 	}
 
@@ -42,10 +38,10 @@ public class Users implements Serializable {
 
 
 }
-	public String getDate() {
+	public long getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(long date) {
 		this.date = date;
 	}
 }
