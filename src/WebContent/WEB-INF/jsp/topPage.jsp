@@ -55,7 +55,7 @@
 
         </div>
 
-        <div class="trophy">
+        <a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}" class="trophy" onclick="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">
         	<table align="center">
         	  <tr>
         	  	<td align="center" class="midashi">ログイン日数:</td>
@@ -66,12 +66,12 @@
         	  	<td align="center" class="sousuu" id=topTaskC>${TaskCount}</td>
         	  </tr>
         	</table>
-        </div>
+        </a>
 </main>
 <!-- フッタ－ -->
 	<footer>
 
-	<a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">torophy</a>
+<%-- 	<a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">torophy</a> --%>
         <!-- 今回は無し -->
 	</footer>
 </div>

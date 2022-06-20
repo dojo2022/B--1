@@ -15,7 +15,7 @@
 
 <div class="TrophyDiv">
 
-<h1 align="center">実績</h1>
+<h1 align="center">Congratulations!</h1>
 
 
 
@@ -23,29 +23,29 @@
 
 	<tr>
 		<td align="center" class="midashi">ログイン日数</td>
-		<td><img id="login1"   src="images/トロフィー背景透過.png" width=90;></td>
-		<td><img id="login7"   src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login30"  src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login60"  src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login100" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login180" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login365" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login555" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login777" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="login1000"src="images/灰トロフィー背景透過.png" width=90;></td>
+		<td align="center"><img id="login1"   src="images/トロフィー背景透過.png" width=90;></td>
+		<td align="center"><img id="login7"   src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login30"  src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login60"  src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login100" src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login180" src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login365" src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login555" src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login777" src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login1000"src="images/なし.png" width=90;></td>
 	</tr>
 	<tr>
 		<td align="center" class="sousuu" id=loginC></td>
-		<td align="center">1</td>
-		<td align="center">7</td>
-		<td align="center">30</td>
-		<td align="center">60</td>
-		<td align="center">100</td>
-		<td align="center">180</td>
-		<td align="center">365</td>
-		<td align="center">555</td>
-		<td align="center">777</td>
-		<td align="center">1000</td>
+		<td align="center" class="a">1</td>
+		<td align="center" id= "login7n">7</td>
+		<td align="center" id= "login30n">30</td>
+		<td align="center" id= "login60n">60</td>
+		<td align="center" id= "login100n">100</td>
+		<td align="center" id= "login180n">180</td>
+		<td align="center" id= "login365n">365</td>
+		<td align="center" id= "login555n">555</td>
+		<td align="center" id= "login777n">777</td>
+		<td align="center" id= "login1000n">1000</td>
 	</tr>
 
 	<tr></tr>
@@ -133,29 +133,29 @@
 
 	<tr>
 		<td align="center" class="midashi">タスク達成数</td>
-		<td><img id="task1"   src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task7"   src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task30"  src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task60"  src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task100" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task180" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task365" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task555" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task777" src="images/灰トロフィー背景透過.png" width=90;></td>
-		<td><img id="task1000"src="images/灰トロフィー背景透過.png" width=90;></td>
+		<td><img id="task1"   src="images/なし.png" width=90;></td>
+		<td><img id="task7"   src="images/なし.png" width=90;></td>
+		<td><img id="task30"  src="images/なし.png" width=90;></td>
+		<td><img id="task60"  src="images/なし.png" width=90;></td>
+		<td><img id="task100" src="images/なし.png" width=90;></td>
+		<td><img id="task180" src="images/なし.png" width=90;></td>
+		<td><img id="task365" src="images/なし.png" width=90;></td>
+		<td><img id="task555" src="images/なし.png" width=90;></td>
+		<td><img id="task777" src="images/なし.png" width=90;></td>
+		<td><img id="task1000"src="images/なし.png" width=90;></td>
 	</tr>
 	<tr>
 		<td align="center"class="sousuu" id="taskC"></td>
-		<td align="center">1</td>
-		<td align="center">7</td>
-		<td align="center">30</td>
-		<td align="center">60</td>
-		<td align="center">100</td>
-		<td align="center">180</td>
-		<td align="center">365</td>
-		<td align="center">555</td>
-		<td align="center">777</td>
-		<td align="center">1000</td>
+		<td align="center" id="task1n">1</td>
+		<td align="center" id="task7n">7</td>
+		<td align="center" id="task30n">30</td>
+		<td align="center" id="task60n">60</td>
+		<td align="center" id="task100n">100</td>
+		<td align="center" id="task180n">180</td>
+		<td align="center" id="task365n">365</td>
+		<td align="center" id="task555n">555</td>
+		<td align="center" id="task777n">777</td>
+		<td align="center" id="task1000n">1000</td>
 	</tr>
 
 	<tr></tr>

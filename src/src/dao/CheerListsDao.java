@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Cheer;
-import model.Icon;
 
 public class CheerListsDao {
-    public List<Cheer> show(String customset_id) {
+	
+    //褒めるポップアップの画像とメッセージをとってくるためのSELECT文↓
+    //板垣が書きました
+    public List<Cheer> select(Cheer param) {
 		Connection conn = null;
-		List<Cheer> cheerlist = new ArrayList<Cheer>();
+		ArrayList<Cheer> cheerList = new ArrayList<Cheer>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -23,37 +25,68 @@ public class CheerListsDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
-			// SQL文を準備する
-			String sql = "select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE customset_id=?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を考える（ここが仕事）
+			String sql =
+			"Select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE id LIKE ? AND user_id LIKE ? AND customset_id LIKE ? AND cheer_image LIKE ? AND cheer_message LIKE ? ORDER BY id";
+			PreparedStatement pStmt = conn.prepareStatement(sql); //お約束
+
+			// SQL文を完成させる
+			//どんな条件で検索するかを考える
+			if (param.getId() != 0) {
+				Integer i = Integer.valueOf(param.getId());
+				pStmt.setString(1, "%" + i.toString() + "%");
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+			if (param.getUser_id() != null) {
+				pStmt.setString(2, "%" + param.getUser_id() + "%");
+			}
+			else {
+				pStmt.setString(2, "%");
+			}
+			if (param.getCustomset_id() != null) {
+				pStmt.setString(3, "%" + param.getCustomset_id() + "%");
+			}
+			else {
+				pStmt.setString(3, "%");
+			}
+			if (param.getCheer_image() != null) {
+				pStmt.setString(4, "%" + param.getCheer_image() + "%");
+			}
+			else {
+				pStmt.setString(4, "%");
+			}
+			if (param.getCheer_message() != null) {
+				pStmt.setString(5, "%" + param.getCheer_message() + "%");
+			}
+			else {
+				pStmt.setString(5, "%");
+			}
 
 			// SQL文を実行し、結果表を取得する
+			//この段階ではまだSQLを読んでない
 			ResultSet rs = pStmt.executeQuery();
 
-			//SQL文を完成させる
-			Integer i = Integer.valueOf(customset_id);
-			pStmt.setString(1, i.toString());
-
 			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-				Cheer cheercard = new Cheer(
-				rs.getString("ID"),
+			while (rs.next()) { //whileでnextを行分繰り返している
+				Cheer card = new Cheer( //1行分のデータを保持するCheerを生成
+				rs.getInt("ID"),
 				rs.getString("USER_ID"),
 				rs.getString("CUSTOMSET_ID"),
 				rs.getString("CHEER_IMAGE"),
 				rs.getString("CHEER_MESSAGE")
 				);
-				cheerlist.add(cheercard);
-				System.out.println(rs.getInt("ID"));
+				cheerList.add(card);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cheerlist = null;
+			cheerList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cheerlist = null;
+			cheerList = null;
 		}
 		finally {
 			// データベースを切断
@@ -63,114 +96,12 @@ public class CheerListsDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cheerlist = null;
+					cheerList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cheerlist;
+		return cheerList;
 	}
-
- // 最新のアイコンを取得
- 	public List<Icon> select(Icon select){
- 		Connection conn = null;
- 		List<Icon> iconList = new ArrayList<Icon>();
-
- 		try {
- 			// JDBCドライバを読み込む
- 			Class.forName("org.h2.Driver");
-
- 			// データベースに接続する
- 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
-
- 			// SQL文を準備する
- 			String sql = "select * from icon_images WHERE USER_ID = ?  ORDER BY ID DESC LIMIT 1";
- 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
- 			// SQL文を完成させる
- 			pStmt.setString(1, select.getUser_id());
-
- 			// SQL分を実行し、結果表を取得する
- 			ResultSet rs = pStmt.executeQuery();
-
- 			while (rs.next()) {
- 				Icon list = new Icon(
- 				rs.getString("USER_ID"),
- 				rs.getString("ICON_IMAGE")
- 				);
-
- 				iconList.add(list);
- 			}
-
- 		}
- 		catch (SQLException e) {
- 			e.printStackTrace();
- 			iconList = null;
- 		}
- 		catch (ClassNotFoundException e) {
- 			e.printStackTrace();
- 			iconList = null;
- 		}
- 		finally {
- 			// データベースを切断
- 			if (conn != null) {
- 				try {
- 					conn.close();
- 				}
- 				catch (SQLException e) {
- 					e.printStackTrace();
- 					iconList = null;
- 				}
- 			}
- 		}
- 		// 結果を返す
- 		return iconList;
-
- 	}
-
- 	// アイコンの画像を登録
- 	public boolean insert(Icon insert) {
- 		Connection conn = null;
- 		boolean result = false;
-
- 		try {
- 			// JDBCドライバを読み込む
- 			Class.forName("org.h2.Driver");
-
- 			// データベースに接続する
- 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
-
- 			// SQL文を準備する
- 			String sql = "insert into icon_images (user_id, icon_image) values (?, ?)";
- 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
- 			// SQL文を完成させる
- 			pStmt.setString(1, insert.getUser_id());
- 			pStmt.setString(2, "/Forza/icon_images/" + insert.getIcon_image());
-
- 				result = true;
-
- 		}
- 		catch (SQLException e) {
- 			e.printStackTrace();
- 		}
- 		catch (ClassNotFoundException e) {
- 			e.printStackTrace();
- 		}
- 		finally {
- 			// データベースを切断
- 			if (conn != null) {
- 				try {
- 					conn.close();
- 				}
- 				catch (SQLException e) {
- 					e.printStackTrace();
- 				}
- 			}
- 		}
-
-
- 		return result;
- 	}
 }

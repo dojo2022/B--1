@@ -7,7 +7,7 @@
       width: 500px;
       height: 600px;
       z-index: 0;
-      display: none;
+      display:block;
       justify-content: center;
       align-items: center;
     }
@@ -54,10 +54,8 @@
 	 width:70px;
 	 height:70px;
 	}
-	/*
-	.addSize{
+
+/*
     input[type="checkbox"]:checked + #popWin{
     display:block;
-    }
-	}
-	*/
+    } */

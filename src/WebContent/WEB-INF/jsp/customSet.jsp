@@ -27,22 +27,11 @@
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　　　　　　
           <input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
-		  <canvas id="preview" style="max-width:200px;"></canvas><br>
+		 <canvas id="preview" style="max-width:200px;"></canvas><br>
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
 
        <div class="custom">
-       <%--
-       <input id="acd-check1" class="acd-check" type="checkbox">
-
-         <label class="acd-label" for="acd-check1"><h2>カスタムセット</h2></label>
-
-       <div class="acd-content">
-          <div class="submit">
-              <input type="submit" name="ADDNEW" value="＋新規追加">
-		  </div>
-       </div>
-       --%>
            <div class="customname">
             <h3>カスタムセット:　　　　　　　　　</h3>
            </div>
@@ -62,7 +51,34 @@
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
                           </form>
+
                         </div>
+
+                      <div class="clickableTable">
+	                  <c:forEach var="e" items="${List}" >
+	                      <div class="clickableLine">
+                             <div class="clickableTitle">${e.customset_name}</div>
+                             <%--
+                             <div class="hiddenLine">
+                                <c:forEach var="custom" items="${List.custom}" >
+                                  <div class="postCustomset">
+                                     <input type="hidden" class="customId" value="${custom.id} }">
+                                     <div class="postLeft">
+					                    <div>${cheer.image}</div>
+				                      </div>
+				                      <div class="postcenter">
+					                    <div>${cheer.message}</div>
+				                      </div>
+                                  </div>
+                                </c:forEach>
+                              </div>
+                               --%>
+	                       </div>
+
+	                  </c:forEach>
+	                  </div>
+
+                       <%--
                          <table class="list">
                           <c:forEach var="e" items="${List}" >
                            <tr class="listname">
@@ -71,6 +87,7 @@
                            </tr>
                           </c:forEach>
                         </table>
+                        --%>
 			           </div>
 			          </div>
 		            </nav>
