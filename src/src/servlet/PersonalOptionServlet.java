@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,21 +38,17 @@ public class PersonalOptionServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		// デフォルトのアイコンのデータをスコープに格納
-		List<Icon> img_sample = new ArrayList<Icon>();
 		Icon sample = new Icon("","/Forza/icon_images/icon_test_1.png");
-		img_sample.add(sample);
-		request.setAttribute("myIcon", img_sample.get(0).getIcon_image());
+		request.setAttribute("myIcon", sample);
 
 		// セッションスコープからUSER_IDを取得し、アイコンの選択
 		if(session.getAttribute("id") != null) {
-			String id = (String)session.getAttribute("memo");
-				System.out.println("-----個人設定------");
-				System.out.println(id);
+			String id = (String)session.getAttribute("memo");  // IDを取得
 			IconImagesDao iDao = new IconImagesDao();
-			List<Icon> icon = iDao.select(new Icon(id));
+			Icon icon = iDao.select(new Icon(id));
 			// 検索結果をリクエストスコープに上書きして格納する
-			System.out.println(icon.get(0).getIcon_image());
-			request.setAttribute("myIcon", icon.get(0).getIcon_image());
+			System.out.println(icon);
+			request.setAttribute("myIcon", icon);
 		}
 
 		// 個人設定ページにフォワードする
