@@ -145,7 +145,7 @@
 		<td><img id="task1000"src="images/灰トロフィー背景透過.png" width=90;></td>
 	</tr>
 	<tr>
-		<td align="center"class="sousuu" id="taskC">228</td>
+		<td align="center"class="sousuu" id="taskC"></td>
 		<td align="center">1</td>
 		<td align="center">7</td>
 		<td align="center">30</td>
