@@ -18,7 +18,13 @@ public class CustomSetLists implements Serializable {
 	this.customset_id = customset_id;;
 	this.customset_name = customset_name;
 	}
-
+	//引数があるコンストラクタを作成
+	public CustomSetLists ( String user_id,  String customset_name)
+	{
+	super();
+	this.user_id = user_id;
+	this.customset_name = customset_name;
+	}
 	//引数があるコンストラクタを作成(カスタムセットタグの部分）
 	public CustomSetLists (String customset_name)
 	{

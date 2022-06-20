@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="wrapper">
-<form method="POST" action="/Forza/CustomSetServlet" id="login_form'">
+<!-- <form method="POST" action="/Forza/CustomSetServlet" id="login_form'"> -->
 <!-- ヘッダ－ -->
 		<header class="header">
             <div class="logo">
@@ -52,6 +52,9 @@
 			             <div class="addnew">
 			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
+                           <%--   <input type="hidden" name="customset_id" value=${List.customset_id }>
+                             <input type="hidden" name="customset_name" value=${List.customset_name }>
+ --%>
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
                           </form>
 

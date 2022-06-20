@@ -42,6 +42,19 @@ public class CustomSetServlet extends HttpServlet {
             CheerListsDao CustomDao = new CheerListsDao();
             List<CustomSetLists> List = CustomDao.show();
 */
+            // セッションスコープからUSER_IDを取得し、アイコンの選択
+			HttpSession session = request.getSession();
+		   if(session.getAttribute("id") != null) {
+//			String id = (String)session.getAttribute("memo");
+			   String id ="Dojo";
+				System.out.println("-----個人設定------");
+				System.out.println(id);
+			BackGroundImagesDao iDao = new BackGroundImagesDao();
+			List<BackGround> background = iDao.select(new BackGround(id));
+			// 検索結果をリクエストスコープに上書きして格納する
+			System.out.println(background.get(0).getBackground_image());
+			request.setAttribute("myBackGround", background.get(0).getBackground_image());
+		   }
 
 
         // 検索結果をリクエストスコープに格納する
@@ -67,11 +80,13 @@ public class CustomSetServlet extends HttpServlet {
 				// リクエストパラメータを取得する
 		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
-				String name = request.getParameter("name");
+				//idはセッションスコープから受けておる
+				String name = "Dojo";
 
+				String customset_name = request.getParameter("ADDTEXT");
 				// 登録処理を行う
 				CustomSetListsDao bDao = new CustomSetListsDao();
-				if (bDao.insert(new CustomSetLists(name))){	// 登録成功
+				if (bDao.insert(new CustomSetLists(name,customset_name))){	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "レコードを登録しました。", "/Forza/CustomSetServlet"));
 				}
