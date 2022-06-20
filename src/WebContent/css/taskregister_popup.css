@@ -60,7 +60,7 @@
   padding: 6px 10px;
 }
 
-#edit-popup-wrapper {
+.edit-popup-wrapper {
   background-color: rgba(0, 0, 0, .5);
   position: fixed;
   top: 0;
@@ -70,7 +70,7 @@
   display: none;
 }
 
-#edit-popup-inside {
+.edit-popup-inside {
   text-align: center;
   width: 100%;
   max-width: 500px;
@@ -82,14 +82,14 @@
   position: relative;
 }
 
-#edit-message a {
+.edit-message a {
   background: purple;
   color: white;
   text-decoration: none;
   padding: 6px 10px;
 }
 
-#edit-close {
+.edit-close {
   position: absolute;
   top: 0;
   right: 5px;

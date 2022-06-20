@@ -45,7 +45,7 @@ public class TaskListsDao {
                     rs.getBoolean("task_judge")
     				);
     				list.add(card);
-    				System.out.println(rs.getString("id"));
+//    				System.out.println(rs.getString("id"));
     			}
     		}
     		catch (SQLException e) {

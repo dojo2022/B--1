@@ -36,7 +36,7 @@ public class TaskServlet extends HttpServlet {
 		List<Task> list = TaskDao.show();
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("list", list);
+		request.setAttribute("lists", list);
 
 		// テンポラリーページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskList.jsp");
