@@ -15,10 +15,15 @@
 <!-- ヘッダ－ -->
 		<header class="header">
             <div class="logo">
-                <img src="/Forza/images/Forza_trans.png" alt="home">
+                <a href="/Forza/TopServlet"><img src="/Forza/images/Forza_trans.png" alt="home"></a>
             </div>
             <div class="news">
-                <h3>お知らせはここに表示</h3>
+            お知らせ：
+            <c:forEach var="a" items="${news}">
+				<ul>
+					<li><pre>${a.remind_date}は${a.remind_name}です。&#009;</pre></li>
+				</ul>
+            </c:forEach>
             </div>
             <div class="myPage">
                 <input type="button" class="btn" id="displayChangeButton" value="myPage" onclick="displayChange();"><br>

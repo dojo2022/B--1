@@ -57,6 +57,9 @@
             margin: 30px auto;
             padding: 10px;
         }
+        .icon {
+        	text-align:center;
+        }
         .icon_img{
         	text-align:center;
         }

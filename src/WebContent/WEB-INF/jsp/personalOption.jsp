@@ -13,7 +13,7 @@
 <!-- ヘッダ－ -->
 		<header class="header">
             <div class="logo">
-                <img src="/Forza/images/Forza_trans.png" alt="home">
+                <a href="/Forza/TopServlet"><img src="/Forza/images/Forza_trans.png" alt="home"></a>
             </div>
             <div class="news">
                 <h3>お知らせはここに表示</h3>
@@ -82,31 +82,31 @@
                         <div class="holiday">
                             &emsp;休日：
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="sunday" name="days" value="sunday">
+                                    <input type="checkbox" id="sunday" name="days" value="sun">
                                     <label for="sunday">日</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="monday" name="days" value="monday">
+                                    <input type="checkbox" id="monday" name="days" value="mon">
                                     <label for="monday">月</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="tuesday" name="days" value="tuesday">
+                                    <input type="checkbox" id="tuesday" name="days" value="tue">
                                     <label for="tuesday">火</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="wednesday" name="days" value="wednesday">
+                                    <input type="checkbox" id="wednesday" name="days" value="wed">
                                     <label for="wednesday">水</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="thursay" name="days" value="thursday">
+                                    <input type="checkbox" id="thursay" name="days" value="thu">
                                     <label for="thursday">木</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="friday" name="days" value="friday">
+                                    <input type="checkbox" id="friday" name="days" value="fri">
                                     <label for="friday">金</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="saturday" name="days" value="saturday">
+                                    <input type="checkbox" id="saturday" name="days" value="sat">
                                     <label for="saturday">土</label>
                                 </div>
                         </div>

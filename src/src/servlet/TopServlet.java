@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.RemindDatesDao;
 import dao.TaskCountDao;
 import dao.TopMemosDao;
 import dao.UsersDao;
 import model.LoginCount;
 import model.Memo;
+import model.Remind;
 import model.Task;
 import model.Users;
 
@@ -55,10 +57,15 @@ public class TopServlet extends HttpServlet {
 						TopMemosDao mDao = new TopMemosDao();
 						List<Memo> cardList = mDao.select(memo_id);
 
+				// 近頃のご褒美Dayの検索
+						RemindDatesDao news = new RemindDatesDao();
+						List<Remind> newsList = news.wow(new Remind(memo_id));
+
 						// 検索結果をリクエストスコープに格納する
 						session.setAttribute("cardList", cardList);
 						session.setAttribute("TaskCount", count3);
 						session.setAttribute("torophy", torophy);
+						request.setAttribute("news", newsList);
 
 
 		/*トップメモ関連ここまで*/
