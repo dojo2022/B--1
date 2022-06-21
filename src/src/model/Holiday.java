@@ -32,6 +32,12 @@ public class Holiday implements Serializable {
 		this.dayOfWeek = DayOfWeek;
 		this.yesNo = yesNo;
 	}
+	public Holiday(String user_id, String DayOfWeek, boolean yesNo) {
+		this.id = 0;
+		this.user_id = user_id;
+		this.dayOfWeek = DayOfWeek;
+		this.yesNo = yesNo;
+	}
 
 	public int getId() {
 		return id;

@@ -129,6 +129,7 @@ public class HolidayDao {
 		// 結果を返す
 		return result;
 	}
+
 	// 引数chooseで今日より前の日付を選択
 	public List<Holiday> choose(Holiday choose){
 		Connection conn = null;
@@ -248,4 +249,78 @@ public class HolidayDao {
 
 		return result;
 	}
+
+	// 近頃の休日を検索し、リストで返す
+	public List<Holiday> niceFight(String user_id) {
+		Connection conn = null;
+		List<Holiday> holidayList = new ArrayList<Holiday>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select * from holiday WHERE USER_ID = ? AND holiday BETWEEN ? AND ? ORDER BY ID";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setString(1, user_id);
+
+	        long date = System.currentTimeMillis();
+
+	        java.sql.Date date1 = new java.sql.Date(date);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date1);
+			calendar.add(Calendar.DATE, 2);
+			Date date2 = new Date(calendar.getTime().getTime());
+
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+	        String formattedDate = simpleDateFormat.format(date2);
+	        Date date4 = Date.valueOf(formattedDate);
+
+			pStmt.setDate(2, date1);
+			pStmt.setDate(3, date4);
+
+			// SQL分を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				Holiday list = new Holiday(
+				rs.getString("USER_ID"),
+				rs.getDate("HOLIDAY"),
+				rs.getString("DAYOFWEEK"),
+				rs.getBoolean("YESNO")
+			);
+
+				holidayList.add(list);
+			}
+
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			holidayList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			holidayList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					holidayList = null;
+				}
+			}
+		}
+		// 結果を返す
+		return holidayList;
+	}
+
 }

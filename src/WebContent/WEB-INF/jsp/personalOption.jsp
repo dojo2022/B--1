@@ -6,7 +6,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forza｜Setting</title>
-	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/mypage_1.css">
 </head>
 <body>
@@ -26,18 +25,18 @@
 <!-- メイン -->
     <main>
         <div class="icon">
-			<img class="icon_img" alt="icon" src="${myIcon}">
+			<img class="icon_img" id="iconImage" alt="icon" src="${myIcon}">
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setPw">
                     <label for="setPw">PW:
-                        <input type="text" name="password" placeholder="password">
+                        <input type="text" id="pw" name="password" placeholder="password">
                     </label>
                 </div>
                 <div class="setIcon">
                     <label>アイコンの画像設定</label>
-					<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
                 </div>
                 <div class="setRemind">
@@ -45,7 +44,7 @@
                     <br>
                         <div class="salary">
                             <label >&emsp;給与日：
-                                <select name="salary_day">
+                                <select name="salary_day" id="salaryDay">
                                     <option value="">-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -83,37 +82,37 @@
                         <div class="holiday">
                             &emsp;休日：
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="sunday" name="days" value="sun">
+                                    <input type="checkbox" id="sunday" name="days" value="日曜日">
                                     <label for="sunday">日</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="monday" name="days" value="mon">
+                                    <input type="checkbox" id="monday" name="days" value="月曜日">
                                     <label for="monday">月</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="tuesday" name="days" value="tue">
+                                    <input type="checkbox" id="tuesday" name="days" value="火曜日">
                                     <label for="tuesday">火</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="wednesday" name="days" value="wed">
+                                    <input type="checkbox" id="wednesday" name="days" value="水曜日">
                                     <label for="wednesday">水</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="thursay" name="days" value="thu">
+                                    <input type="checkbox" id="thursay" name="days" value="木曜日">
                                     <label for="thursday">木</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="friday" name="days" value="fri">
+                                    <input type="checkbox" id="friday" name="days" value="金曜日">
                                     <label for="friday">金</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="saturday" name="days" value="sat">
+                                    <input type="checkbox" id="saturday" name="days" value="土曜日">
                                     <label for="saturday">土</label>
                                 </div>
                         </div>
                         <div class="birthday">
                             <label>&emsp;誕生日：
-                                <select name="birth_month">
+                                <select name="birth_month" id="birthMonth">
                                     <option value=null>-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -128,7 +127,7 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                 </select> 月
-                                <select name="birth_day">
+                                <select name="birth_day" id="birthDay">
                                     <option value=null>-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -165,7 +164,7 @@
                         </div>
                 </div>
                 <div>
-                    <button type="submit">変更</button>
+                    <input type="button" value="変更" onclick="update()">
                 </div>
             </form>
         </div>

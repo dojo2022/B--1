@@ -12,9 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import dao.HolidayDao;
 import dao.IconImagesDao;
 import dao.RemindDatesDao;
 import dao.UsersDao;
+import model.Holiday;
 import model.Icon;
 
 @MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\icon_images") // アップロードファイルの一時的な保存先
@@ -64,7 +68,25 @@ public class PersonalOptionServlet extends HttpServlet {
 		String id = (String)session.getAttribute("memo");
 
 		request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+		response.setHeader("Cache-Control", "nocache");
+		response.setCharacterEncoding("utf-8");
 
+		// 送信されたデータの取得
+		String pw = request.getParameter("Pw");
+//		String icon = request.getParameter("Icon");
+		String salary = request.getParameter("Salary");
+		String sun = request.getParameter("Sun");
+		String mon = request.getParameter("Mon");
+		String tue = request.getParameter("Tue");
+		String wed = request.getParameter("Wed");
+		String thu = request.getParameter("Thu");
+		String fri = request.getParameter("Fri");
+		String sat = request.getParameter("Sat");
+		String birthMonth = request.getParameter("BirthMonth");
+		String birthDay = request.getParameter("BirthDay");
+
+		// 画像の保存等
 		Part part = request.getPart("IMAGE"); // getPartで取得
 
 		String image = this.getFileName(part);
@@ -72,36 +94,85 @@ public class PersonalOptionServlet extends HttpServlet {
 		// サーバの指定のファイルパスへファイルを保存
         //場所はクラス名↑の上に指定してある
 		part.write(image);
+
+		String strIcon = null;
+		// アイコンの保存
+		if(image != null) {
 		IconImagesDao newicon = new IconImagesDao();
 		newicon.insert(new Icon(id,image));
-
-		if (request.getParameter("password") != null) {
-		String password = request.getParameter("password");
-		UsersDao user = new UsersDao();
-		user.isChangePw(password);
+		strIcon = newicon.select(new Icon(id)).getIcon_image();
 		}
 
-				// 給料日設定
-		if(request.getParameter("salary_day") != null) {
-			String salaryDay = request.getParameter("salary_day");
-			RemindDatesDao salary = new RemindDatesDao();
-			salary.salary(id, salaryDay);
+		// PWの変更
+		if (pw != null) {
+		UsersDao user = new UsersDao();
+		user.isChangePw(pw);
+		}
+
+		// 給料日設定
+		if(salary != null) {
+			RemindDatesDao cSalary = new RemindDatesDao();
+			cSalary.salary(id, salary);
 		}
 
 		// 月日どっちも入っていたら誕生日設定
-		if(request.getParameter("birth_Month") != null && request.getParameter("birth_day") != null) {
+		if(birthMonth != null && birthDay != null) {
 			RemindDatesDao birth = new RemindDatesDao();
-			String birthMonth = request.getParameter("birth_Month");
-			String birthDay = request.getParameter("birth_day");
-
 			birth.birth(id, birthMonth, birthDay);
 		}
 
-		//ディスパッチ
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-		dispatcher.forward(request, response);
+		// 休日の設定
+		HolidayDao holiday = new HolidayDao();
 
+		if(sun != null) {
+			holiday.fight(new Holiday(id, sun, true));
+		}
+		if(mon != null) {
+			holiday.fight(new Holiday(id, mon, true));
+		}
+		if(tue != null) {
+			holiday.fight(new Holiday(id, tue, true));
+		}
+		if(wed != null) {
+			holiday.fight(new Holiday(id, wed, true));
+		}
+		if(thu != null) {
+			holiday.fight(new Holiday(id, thu, true));
+		}
+		if(fri != null) {
+			holiday.fight(new Holiday(id, fri, true));
+		}
+		if(sat != null) {
+			holiday.fight(new Holiday(id, sat, true));
+		}
+
+		try {
+		    //JavaオブジェクトからJSONに変換
+		    //JSONの出力
+			if(strIcon != null) {
+		    response.getWriter().write(strIcon);
+			}
+		} catch (JsonProcessingException e) {
+		    e.printStackTrace();
+		}
+
+		//文字コードの設定（めんどいのでコピペでOK）
+		response.setContentType("application/json");
+		response.setHeader("Cache-Control", "nocache");
+		response.setCharacterEncoding("utf-8");
+
+		/*
+		//JSPに返却する値を作成する。値はoutの中に格納する
+		PrintWriter out = response.getWriter();
+		//outの中に持ってきたデータを連結したものを入れる
+		//勝手にJSPに渡り、dataという名前で使用することができる
+		out.print(data1+","+data2+","+data3);
+
+		return;
+
+		*/
 	}
+
 
 	//ファイルの名前を取得してくる
 	private String getFileName(Part part) {
