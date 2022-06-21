@@ -4,19 +4,53 @@
 
 /* 背景挿入のレシピ確立次第マネする */
 
-body{/* background-color:blanchedalmond; */
-	background-color:pink;
+body{ background-color:blanchedalmond;
+
 	}
 
 /* 枠みたいな部分 */
 .TrophyDiv{width:1200px; /* %でもいいけどどうせトロフィー画像たちは縮まないので固定にした */
 			height:80%;
-			background:rgba(230,230,230,0.7);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+			background:rgba(240,248,255,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 			margin: 0 auto;
 			position:relative;
 			top:80px;
 			border-radius: 20px;
 			user-select:none;
+			overflow:hidden;   /* ここ */
+}
+@keyframes shiny {
+    0% {
+        transform: scale(0) rotate(25deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1) rotate(25deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(50) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+
+.TrophyDiv::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -300px;
+    width: 100px;
+    height: 500px;
+    background-image: linear-gradient(100deg,  rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 0) 0%);
+
+    /* アニメーション */
+    animation-name: shiny;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 
@@ -26,12 +60,13 @@ border-collapse: separate;
 border-spacing: 10px 1px;
 }
 
-h1{font-size:40px;
+/* h1{font-size:60px;
 	white-space: nowrap;
 	font-family:"Hannari";
+	font-family:Times New Roman;
 	font-weight:bold;
 
-/* 	text-shadow:
+	text-shadow:
 		0 0 0.05em #FFF59D,
 		0 0 0.06em #FFF59D,
 		0 0 0.07em #FFF59D,
@@ -41,14 +76,14 @@ h1{font-size:40px;
 		0 0 0.20em #FFF59D,
 		0 0 0.20em #FFF59D,
 		0 0 0.50em #FFF59D;
- */
+
  	padding: 20px 0;
 	margin: 0;
 	background-image: linear-gradient(
 		70deg,
-		#DC413C 45%, /* font color */
+		#DC413C 45%, font color
 		#FFF 50%,
-		#DC413C 55% /* font color */
+		#DC413C 55% font color
 	);
 	background-size: 180% 100%;
 	background-clip: text;
@@ -64,6 +99,20 @@ h1{font-size:40px;
 	100% {
 		background-position: 0% 50%;
 	}
+}
+ */
+h1 {
+	font-size:3em;
+	text-align:center;
+	line-height:0.95em;
+	font-weight:bold;
+	color: orange;
+	text-shadow:
+		0 0 0.05em #fff,
+		0 0 0.10em #fff,
+		0 0 0.15em #fff,
+		0 0 0.30em #fff;
+	filter: saturate(80%);
 }
 
 
@@ -88,6 +137,13 @@ h1{font-size:40px;
  			white-space: nowrap;
 	font-family:"Hannari";
 	font-weight:bold;
+		text-shadow:
+		0 0 0.05em #fff,
+		0 0 0.10em #fff,
+		0 0 0.15em #fff,
+		0 0 0.30em #fff;
+	filter: saturate(80%);
+
 /* 	text-shadow:
 		0 0 0.05em #FFF59D,
 		0 0 0.06em #FFF59D,
@@ -99,19 +155,19 @@ h1{font-size:40px;
 		0 0 0.20em #FFF59D,
 		0 0 0.50em #FFF59D;
  */
- 	padding: 0;
+/*  	padding: 0;
 	margin: 0;
 	background-image: linear-gradient(
 		70deg,
-		#DC413C 45%, /* font color */
+		#DC413C 45%, font color
 		#FFF 50%,
-		#DC413C 55% /* font color */
+		#DC413C 55% font color
 	);
 	background-size: 180% 100%;
 	background-clip: text;
 	-webkit-background-clip: text;
 	color: transparent;
-	animation: shine 3s infinite;
+	animation: shine 3s infinite; */
 
 /* 		color: #ffd700;
 		text-shadow:
@@ -131,7 +187,7 @@ h1{font-size:40px;
 
 .a{font-size:25px;
  		font-weight:bold;
-		color: #ffd700;
+		color: orange;
 		text-shadow:
 			0 0 0.05em rgb(255, 255, 255),
 			0 0 0.06em rgb(255, 255, 255),
