@@ -16,7 +16,7 @@
 <p id="date"></p> <!-- 「[ログインした日付]のタスク」と表示される-->
 
 
-<input type="button" value="+" onclick="onButtonClick()" id ="click-btn"/>
+<input type="button" value="+新規追加" onclick="onButtonClick()" id ="click-btn"/>
 <div id="popup-wrapper">
   <div id="popup-inside">
     <div id="close">閉じる</div>
@@ -50,10 +50,10 @@
             メモ：<textarea name="task_memo"></textarea><br>
             <br>
             <input type="hidden" name="id" value="">
-            <input type="text" name="user_id" value="${lists[0].user_id}">
+            <input type="hidden" name="user_id" value="${lists[0].user_id}">
             <input type="hidden" name="task_id" value="100">
             <input type="hidden" name="task_judge" value="0">
-            <input type="text" name="task_date" value="${lists[0].task_date}">
+            <input type="hidden" name="task_date" value="${lists[0].task_date}">
             <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
             </form>
 
@@ -79,7 +79,7 @@
 					  <div class="edit-popup-inside" id="edit-popup-inside${status.count}">
 					    <div class="edit-close" id="edit-close${status.count}">閉じる</div>
 					      <div class="edit-message" id="edit-message${status.count}">
-					     		<form method="POST" action="/Forza/TaskRegistServlet">
+					     		<form method="POST" action="/Forza/TaskUpdateDeleteServlet">
 					            タスクの名前：<input type="text" name="task_name" value="${e.task_name}"><br>
 					            <br>
 					            カスタムセット：
@@ -108,11 +108,11 @@
 					            メモ：<textarea name="task_memo"></textarea><br>
 					            <br>
 					            <input type="hidden" name="id" value="${e.id}">
-					            <input type="text" name="user_id" value="${e.user_id}">
+					            <input type="hidden" name="user_id" value="${e.user_id}">
 					            <input type="hidden" name="task_id" value="100">
 					            <input type="hidden" name="task_judge" value="0">
-					            <input type="text" name="task_date" value="${e.task_date}">
-					            <input type="submit" name="REGIST" value="変更" onClick="alert('変更しました！');">
+					            <input type="hidden" name="task_date" value="${e.task_date}">
+					            <input type="submit" name="SUBMIT" value="更新" onClick="alert('更新しました！');">
 					            </form>
 
 					    </div>
@@ -120,7 +120,7 @@
 					</div>
 					</td>
 	            	<td><form method="POST" action="/Forza/TaskUpdateDeleteServlet">
-	            		<input type="hidden" name="id" value="${status.count}">
+	            		<input type="hidden" name="id" value="${e.id}">
 	            		<input type="submit" name="SUBMIT" value="削除">
 	            	</form>
 	            	</td>
