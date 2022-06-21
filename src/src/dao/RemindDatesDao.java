@@ -130,6 +130,8 @@ public class RemindDatesDao {
 				pStmt2.executeUpdate();
 
 				break;
+			default :
+				break;
 			}
 
 			result = true;
