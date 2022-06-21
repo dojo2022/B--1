@@ -7,15 +7,17 @@
 		popWin.style.display = 'none';				//popWinのdisplayがなくなる
 	});
 
-//紙吹雪の動き
+//紙吹雪の動き（閉じるをクリックしたときの動き）
+//理由は分からないが、13-17行目を消すと全画面の方の紙吹雪も消える
+
 	document.querySelector(".pop-win").addEventListener("click", function (e) {
 	    party.confetti(this, {
 	        count: party.variation.range(20, 40),
 	    });
 	});
 
+//紙吹雪の動き（全画面の動き）
 
-//CheerAfterの紙吹雪
 	particlesJS("particles-js",{
 	"particles":{
 		"number":{
