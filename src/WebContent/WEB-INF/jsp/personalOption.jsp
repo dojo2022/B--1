@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forza｜Setting</title>
+	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/mypage_1.css">
 </head>
 <body>
@@ -25,7 +26,7 @@
 <!-- メイン -->
     <main>
         <div class="icon">
-			<img class="icon_img" alt="icon" src="${myIcon.icon_image}">
+			<img class="icon_img" alt="icon" src="${myIcon}">
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">

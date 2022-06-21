@@ -211,9 +211,9 @@ textarea:focus{border:2px solid black;
 	margin: 0;
 	background-image: linear-gradient(
 		70deg,
-		#DC413C 45%, /* font color */
+		orange 45%, /* font color */
 		#FFF 50%,
-		#DC413C 55% /* font color */
+		orange 55% /* font color */
 	);
 	background-size: 400% 100%;
 	background-clip: text;

@@ -53,6 +53,9 @@ INSERT INTO CUSTOMSET_LISTS (user_id,customset_name)
 VALUES ('DOJO', '筋トレ');
 
 
+
+
+
 【応援画像メッセージテーブルを作成するSQL文】
 CREATE TABLE CHEER_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -69,6 +72,10 @@ VALUES ('2','2','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
 VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
 
+
+
+
+
 【背景テーブルを作成するSQL文】
 CREATE TABLE BACKGROUND_IMAGES (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -76,6 +83,11 @@ CREATE TABLE BACKGROUND_IMAGES (
   background_image VARCHAR(50)
 );
 【背景テーブルにサンプルデータを登録するSQL文】
+
+
+
+
+
 
 【アイコンテーブルを作成するSQL文】
 CREATE TABLE ICON_IMAGES (
@@ -86,6 +98,9 @@ CREATE TABLE ICON_IMAGES (
 【アイコンテーブルにサンプルデータを登録するSQL文】
 INSERT INTO ICON_IMAGES (user_id,icon_image) 
 VALUES ('DOJO', '/Forza/icon_images/icon_test.png');
+
+
+
 
 
 
@@ -104,17 +119,21 @@ UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
 
 
 
+
+
+
 【TOPメモテーブルを作成するSQL文】
 CREATE TABLE TOP_MEMO (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   top_memo VARCHAR(200)
 );
-
 【TOPメモテーブルにサンプルデータを登録するSQL文】
-
 INSERT INTO TOP_MEMO (user_id,top_memo) 
 VALUES ('DOJO', '空のメモ');
+
+
+
 
 
 
@@ -125,9 +144,10 @@ CREATE TABLE LOGIN_DAYS (
   login_day INT
 );
 【ログイン日数テーブルにサンプルデータを登録するSQL文】
-
 INSERT INTO LOGIN_DAYS (user_id,login_day) 
 VALUES ('DOJO', 0);
+
+
 
 
 
@@ -138,9 +158,10 @@ CREATE TABLE TASK_ACHIEVEMENT (
   task_achievement INT
 );
 【タスク達成数テーブルにサンプルデータを登録するSQL文】
-
 INSERT INTO TASK_ACHIEVEMENT (user_id,task_achievement) 
 VALUES ('DOJO', 0);
+
+
 
 
 
@@ -151,12 +172,37 @@ CREATE TABLE TASK_LOGINCOUNT (
   date DATE
 );
 【ログインカウントテーブルにサンプルデータを登録するSQL文】
-
 INSERT INTO LOGINCOUNT (user_id, date) 
 VALUES ('DOJO', 2022-06-19);
 
 
 
+
+
+
+【休日テーブルを作成するSQL文】
+CREATE TABLE HOLIDAY (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  holiday DATE,
+　dayOfWeek VARCHAR(100),
+　yesNo BOOLEAN
+);
+【ログインカウントテーブルにサンプルデータを登録するSQL文】
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220619, '日曜日', 1);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220620, '月曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220621, '火曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220622, '水曜日', 1);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220623, '木曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220624, '金曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220625, '土曜日', 1);
 
 
 

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import dao.IconImagesDao;
+import dao.RemindDatesDao;
 import dao.UsersDao;
 import model.Icon;
 
@@ -46,9 +47,10 @@ public class PersonalOptionServlet extends HttpServlet {
 			String id = (String)session.getAttribute("memo");  // IDを取得
 			IconImagesDao iDao = new IconImagesDao();
 			Icon icon = iDao.select(new Icon(id));
+			String iconImage = icon.getIcon_image();
 			// 検索結果をリクエストスコープに上書きして格納する
 			System.out.println(icon);
-			request.setAttribute("myIcon", icon);
+			request.setAttribute("myIcon", iconImage);
 		}
 
 		// 個人設定ページにフォワードする
@@ -78,7 +80,7 @@ public class PersonalOptionServlet extends HttpServlet {
 		UsersDao user = new UsersDao();
 		user.isChangePw(password);
 		}
-/*
+
 				// 給料日設定
 		if(request.getParameter("salary_day") != null) {
 			String salaryDay = request.getParameter("salary_day");
@@ -94,7 +96,7 @@ public class PersonalOptionServlet extends HttpServlet {
 
 			birth.birth(id, birthMonth, birthDay);
 		}
-*/
+
 		//ディスパッチ
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
 		dispatcher.forward(request, response);
