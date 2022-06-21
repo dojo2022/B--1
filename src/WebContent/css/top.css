@@ -56,7 +56,8 @@
         main{
             width: 90%;
             position: relative;
-            margin:0 auto;
+			top:30px;
+            margin:0 auto 0 auto;
         }
         .main{
             margin-top: 10px;
@@ -237,7 +238,7 @@ textarea:focus{border:2px solid black;
 
 
 
-/* ヘッダーCSSのテスト */
+/* ヘッダーCSSのテスト 一応いらないものはコメントアウトしてますが邪魔なら消してください */
 
 header{width:100%;
 margin:0;
@@ -246,6 +247,8 @@ padding:0;
 		background :#fff;
 		color:#333;
 		display:flex;
+		border-bottom:solid 3px rgba(153,153,153,0.6);
+		user-select:none;
 
 }
 
@@ -255,6 +258,7 @@ padding:0px;
 position:relative;
 text-align:center;
 height:50px;
+font-size:35px;
 }
 
 /*==ナビゲーション全体の設定*/
@@ -264,6 +268,7 @@ nav{
   text-align: center;
   height:50px;
   margin-left:auto;
+  border-left:solid 2px rgba(153,153,153,0.6);
 }
 /*ナビゲーションを横並びに*/
 nav ul{
@@ -290,9 +295,9 @@ nav ul li a{
 
   display: block;
   text-decoration: none;
-  color: #999;
+  color: #7e7e7e;
    padding:20px 35px;
-  transition:all .3s;
+  transition:all .1s;
 }
 
 nav ul li li a{
@@ -338,7 +343,7 @@ nav li.has-child ul{
     /*絶対配置で位置を指定*/
    position: relative;
   left:0;
-  top:-14px;
+  top:0px;
   z-index: 1000;
     /*形状を指定*/
   background:#28BFE7;
@@ -346,8 +351,8 @@ nav li.has-child ul{
     /*はじめは非表示*/
  visibility: hidden;
   opacity: 0;
-    /*アニメーション設定*/
-  transition: all .1s;
+    /*アニメーション設定 メモの更新ボタンと近い関係上、アニメーションがあると若干邪魔なので一旦コメントアウト*/
+ /*  transition: all .1s; */
 }
 
 /*hoverしたら表示*/
@@ -399,6 +404,10 @@ h1{
   font-size:2rem;
   text-align: center;
 
+}
+
+.menu{height:50px;
+		font-size:36px;
 }
 
 /* h2{

@@ -21,7 +21,7 @@
 
     <nav style="margin-left: 0px;">
     <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
-      <li class="has-child"><a href="#">MENU</a>
+      <li class="has-child"><a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu">MENU</a>
         <ul>
         <li><a href="/Forza/PersonalOptionServlet">一般設定</a></li>
         <li><a href="/Forza/CustomSetServlet">カスタマイズ</a></li>
