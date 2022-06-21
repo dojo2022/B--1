@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <input type="checkbox" name="checkbox">
+    <input type="checkbox" name="checkbox" checked>
         <div id="popWin">
             <div class="pop-win">
             		<h2>画像</h2>

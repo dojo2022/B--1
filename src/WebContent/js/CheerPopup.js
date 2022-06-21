@@ -7,7 +7,7 @@
 		popWin.style.display = 'none';				//popWinのdisplayがなくなる
 	});
 
-//jQueryの記述
+/*//jQueryの記述
 
 	$(function(){
 		$('[name="CUSTOMSET_ID"]').change(function(){
@@ -17,7 +17,7 @@
 				});
 				$('#popWin').html(aryCmp.join(','));
 		});
-	});
+	});*/
 
 
 
@@ -31,17 +31,9 @@ function task_popup() {
   // jQueryでテキストボックスにCSSを付与
   $("#popWin").css( { 'display':'block' });
 }
+*/
 
-//褒めるポップアップの
-//「閉じる」ボタン(チェックの画像"images/check.png")の動き
-
-    const close = document.getElementById('close');  	//id "close"が
-    close.addEventListener('click', () => {  			//clickされたら
-    popWin.style.display = 'none';  					//popWinのdisplayがなくなる
-    });
-
-
-const chk= document.getElementById("chk_box");
+/*const chk= document.getElementById("chk_box");
 chk.addEventListener("change",function(){
 	document.getElementById("popWin").style.display="block";
 });
