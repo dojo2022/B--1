@@ -13,7 +13,27 @@
 <body>
 <div class="wrapper">
 <!-- ヘッダ－ -->
-		<header class="header">
+<header id="header">
+    <h1 style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;">Forza</h1>
+    <div class="news">
+                <h3>お知らせはここに表示</h3>
+    </div>
+
+    <nav style="margin-left: 0px;">
+    <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
+      <li class="has-child"><a href="#">MENU</a>
+        <ul>
+        <li><a href="/Forza/PersonalOptionServlet">一般設定</a></li>
+        <li><a href="/Forza/CustomSetServlet">カスタマイズ</a></li>
+        <li><a href="TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">実績</a></li>
+        <li><a href="/Forza/LogoutServlet">ログアウト</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  </header>
+<!-- 		<header class="header">
             <div class="logo">
                 <a href="/Forza/TopServlet"><img src="/Forza/images/Forza_trans.png" alt="home"></a>
             </div>
@@ -37,7 +57,7 @@
 			    </div>
             </div>
 		</header>
-<!-- メイン -->
+ --><!-- メイン -->
 	<main class="main">
         <div class="calendar">
             <iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=2&bgcolor=%23ffffff&ctz=Asia%2FTokyo&showDate=1&showPrint=0&showNav=1&showTabs=0&showCalendars=1&showTz=0&mode=MONTH&showTitle=1&src=bjI0OGhrYzNubHZwMzkwaXI5bWFvMnYzMzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=amEuamFwYW5lc2Uub2ZmaWNpYWwjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23D81B60&color=%2333B679&color=%230B8043" style="border-width:0" width="290" height="300" frameborder="0" scrolling="no"></iframe>

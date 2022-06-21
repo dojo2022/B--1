@@ -11,18 +11,7 @@
 <body>
 
 <!-- ヘッダーやフッターはトップページのものが完成次第コピペしてくる -->
-<!-- <div class="gnavi__wrap"style="z-index:10000/*前面に出す*/">
-    <ul class="gnavi__lists">
-        <li class="gnavi__list">
-        	<a href="#">メニュータイトル</a>
-        	<ul class="dropdown__lists" style="z-index:10000">
-        		<li class="dropdown__list"><a href="#">メニュー1</a></li>
-                <li class="dropdown__list"><a href="#">メニュー1</a></li>
-                <li class="dropdown__list"><a href="#">メニュー1</a></li>
-        	</ul>
-    </ul>
-</div>
- -->
+
 
 <div class="TrophyDiv">
 

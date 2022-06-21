@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UsersDao;
-import model.LoginCount;
-import model.Users;
-
 /*リクエストパラメータを取得してくる元のDAOをインポートする*/
 
 /**
@@ -45,12 +41,6 @@ public class TrophyServlet extends HttpServlet {
 
 
 
-			// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				UsersDao count = new UsersDao();
-				String memo_id = (String)session.getAttribute("memo");
-				LoginCount count1 = count.LoginCount(new Users(memo_id));
-				request.setAttribute("loginCount",count1.getCount() );
 
 		// トロフィーページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Trophy.jsp" );
