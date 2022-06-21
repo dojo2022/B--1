@@ -24,7 +24,7 @@
       text-align: center;
       width: 500px;
       height: 600px;
-      background-color: yellow;
+      background-color: white;
     }
 
     #cheerlist {
@@ -34,25 +34,43 @@
 
     h2 {
       text-align: center;
-      background-color:green;
-    }
-
-    h4 {
-      text-align: center;
-      background-color:green;
     }
 
     #close {
-      /*text-align: center;
-      width: 10px;
-      height: 10px;*/
-      cursor: pointer;
-      margin: auto;
-    }
+    display: inline-block;
+  	padding: 0.8em 1.5em;
+  	background-color: #e3364a; /* 背景色 */
+  	box-shadow: 0 5px 0 #ca1c30; /* 影の太さ・色 */
+  	border-radius: 60px;
+  	color: black;
+  	cursor: pointer;
+  	text-decoration: none; /* 文字の下線を消す */
+	}
+
+	#close:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+	}
+
 
     .close{
 	 width:70px;
 	 height:70px;
+	}
+
+
+	#particles-js{
+	position:fixed;/*描画固定*/
+	z-index:-1;/*描画を一番下に*/
+	width: 100%;
+	height: 100%;
+	}
+
+	#wrapper{
+	position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+	z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+	width:100%;
+	height: 100%;
 	}
 
     /* input[type="checkbox"]:checked + #popWin{

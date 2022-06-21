@@ -8,7 +8,9 @@
 <meta charset="UTF-8">
 <title>褒めるポップアップ</title>
 <link rel="stylesheet" href="css/cheer_popup.css">
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+ -->
 </head>
 
 <body>
@@ -18,6 +20,7 @@
         <input type="submit" name="REGIST" value="表示">
     </form>
 
+ <!--    <div class="button" onmousedown="party.confetti(this)">Click me!</div> -->
 
         <%-- <div id="popWin">
             <div class="pop-win">
