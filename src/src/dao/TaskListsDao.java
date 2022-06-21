@@ -89,7 +89,7 @@ public class TaskListsDao {
 			// SQL文を準備する
 			String sql = "insert into Task_Lists(user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge) values (?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
+			//String sql1 = "SELECT MAX(task_id) FROM Task_Lists";
 			int taskid;//task_id
 			int customsetid;//customset_id
 			int priorityNum;//priority
