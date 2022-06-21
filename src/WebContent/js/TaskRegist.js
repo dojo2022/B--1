@@ -33,12 +33,16 @@ function onButtonClick() {
 }
 
 
-
+/*何列あるのかを計測*/
 const ele = document.getElementsByClassName("data_row");
+/*各エレメントを格納する配列*/
 let clickBtn = [];
 let editPopupWrapper =[];
 let close = [];
-console.log(ele.length);
+/*console.log(ele.length);*/
+/*列の分だけイベントを準備*/
+/*今回は列の分だけ「edit-popup-wrapper」を作成したが*/
+/*「edit-popup-wrapper」は一つで必要項目のvalue値をjspから取ってきて格納しても良かった*/
 for (let i = 1; i <= ele.length; i++) {
 	clickBtn[i] = document.getElementById("click-name" +i);
 	console.log("click-name"+i);
@@ -46,16 +50,12 @@ for (let i = 1; i <= ele.length; i++) {
 	console.log("edit-popup-wrapper"+i);
 	close[i] = document.getElementById('edit-close'+i);
 	console.log('edit-close'+i);
+	/*他のページに同じJavaScriptを使うときはコメントを外す*/
 /*	if (!clickBtn[i]) { return false; }
 	if (!editPopupWrapper[i]) { return false; }
 	if (!close[i]) { return false; }*/
 }
-/*clickBtn[1].addEventListener('click', () => {
-		editPopupWrapper[1].style.display = "block";
-	});
-clickBtn[2].addEventListener('click', () => {
-		editPopupWrapper[2].style.display = "block";
-	});*/
+/*閉じるためのイベント*/
 for (let i = 1; i <= ele.length; i++) {
 	clickBtn[i].addEventListener('click', () => {
 		editPopupWrapper[i].style.display = "block";

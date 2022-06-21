@@ -107,11 +107,11 @@
 					            <br>
 					            メモ：<textarea name="task_memo"></textarea><br>
 					            <br>
-					            <input type="hidden" name="id" value="">
-					            <input type="text" name="user_id" value="${lists[0].user_id}">
+					            <input type="hidden" name="id" value="${e.id}">
+					            <input type="text" name="user_id" value="${e.user_id}">
 					            <input type="hidden" name="task_id" value="100">
 					            <input type="hidden" name="task_judge" value="0">
-					            <input type="text" name="task_date" value="${lists[0].task_date}">
+					            <input type="text" name="task_date" value="${e.task_date}">
 					            <input type="submit" name="REGIST" value="変更" onClick="alert('変更しました！');">
 					            </form>
 
