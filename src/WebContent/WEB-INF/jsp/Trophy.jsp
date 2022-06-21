@@ -23,16 +23,16 @@
 
 	<tr>
 		<td align="center" class="midashi">ログイン日数</td>
-		<td align="center"><img id="login1"   src="images/トロフィー背景透過.png" width=90;></td>
-		<td align="center"><img id="login7"   src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login30"  src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login60"  src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login100" src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login180" src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login365" src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login555" src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login777" src="images/なし.png" width=90;></td>
-		<td align="center"><img id="login1000"src="images/なし.png" width=90;></td>
+		<td align="center"><img id="login1"   src="images/cup.png" width=90;></td>
+		<td align="center"><img id="login7"   src="images/none.png" width=90;></td>
+		<td align="center"><img id="login30"  src="images/none.png" width=90;></td>
+		<td align="center"><img id="login60"  src="images/none.png" width=90;></td>
+		<td align="center"><img id="login100" src="images/none.png" width=90;></td>
+		<td align="center"><img id="login180" src="images/none.png" width=90;></td>
+		<td align="center"><img id="login365" src="images/none.png" width=90;></td>
+		<td align="center"><img id="login555" src="images/none.png" width=90;></td>
+		<td align="center"><img id="login777" src="images/none.png" width=90;></td>
+		<td align="center"><img id="login1000"src="images/none.png" width=90;></td>
 	</tr>
 	<tr>
 		<td align="center" class="sousuu" id=loginC></td>
@@ -133,16 +133,16 @@
 
 	<tr>
 		<td align="center" class="midashi">タスク達成数</td>
-		<td><img id="task1"   src="images/なし.png" width=90;></td>
-		<td><img id="task7"   src="images/なし.png" width=90;></td>
-		<td><img id="task30"  src="images/なし.png" width=90;></td>
-		<td><img id="task60"  src="images/なし.png" width=90;></td>
-		<td><img id="task100" src="images/なし.png" width=90;></td>
-		<td><img id="task180" src="images/なし.png" width=90;></td>
-		<td><img id="task365" src="images/なし.png" width=90;></td>
-		<td><img id="task555" src="images/なし.png" width=90;></td>
-		<td><img id="task777" src="images/なし.png" width=90;></td>
-		<td><img id="task1000"src="images/なし.png" width=90;></td>
+		<td><img id="task1"   src="images/none.png" width=90;></td>
+		<td><img id="task7"   src="images/none.png" width=90;></td>
+		<td><img id="task30"  src="images/none.png" width=90;></td>
+		<td><img id="task60"  src="images/none.png" width=90;></td>
+		<td><img id="task100" src="images/none.png" width=90;></td>
+		<td><img id="task180" src="images/none.png" width=90;></td>
+		<td><img id="task365" src="images/none.png" width=90;></td>
+		<td><img id="task555" src="images/none.png" width=90;></td>
+		<td><img id="task777" src="images/none.png" width=90;></td>
+		<td><img id="task1000"src="images/none.png" width=90;></td>
 	</tr>
 	<tr>
 		<td align="center"class="sousuu" id="taskC"></td>
