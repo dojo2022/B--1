@@ -14,11 +14,12 @@
 <body>
     <form class="checkbox_form" method="POST" action="/Forza/CheerPopupServlet">
     	<input type="hidden" name="ID" value="1">
-        <input class="check" type="checkbox" name="CUSTOMSET_ID" value="1">
+        <input class="chk" type="checkbox" name="CUSTOMSET_ID" value="1">
         <input type="submit" name="REGIST" value="表示">
     </form>
 
-        <div id="popWin">
+
+        <%-- <div id="popWin">
             <div class="pop-win">
             		<h2>画像</h2>
 			        <c:forEach var="e" items="${cheerList}">
@@ -32,7 +33,7 @@
 			    	 <br>
                 <div id="close"><img class="close" src="images/check.png"></div>
             </div>
-        </div>
+        </div> --%>
 
 </body>
 <script src="js/CheerPopup.js" defer></script>
