@@ -1,4 +1,3 @@
-'use strict';
 
 	function previewImage(obj){
 
@@ -12,7 +11,6 @@
 			var ctx = canvas.getContext('2d');
 			var image = new Image();
 			image.src = fileReader.result;
-			console.log(fileReader.result) // ← (確認用)
 
 			image.onload = (function () {
 				canvas.width = image.width;
@@ -22,15 +20,11 @@
 		});
 		// 画像読み込み
 		fileReader.readAsDataURL(obj.files[0]);
-		console.log(fileReader.result) // ← (確認用)null
 	}
 
 	function update(){
-		alert("functionはいったよ！");
-
 		//入力値を取得してくる
 		let setPw = document.getElementById('pw').value;
-		let setIcon = document.getElementById('img').value;
 		let setSalary = document.getElementById('salaryDay').value;
 		let setSun = document.getElementById('sunday').value;
 		let setMon = document.getElementById('monday').value;
@@ -43,7 +37,7 @@
 		let setBirthDay = document.getElementById('birthDay').value;
 
 		//{変数名：中に入れるもの}みたいに書いて、複数の値をpostData変数に格納
-		let postData = {Pw:setPw, Icon:setIcon, Salary:setSalary, Sun:setSun,
+		let postData = {Pw:setPw, Salary:setSalary, Sun:setSun,
 		Mon:setMon, Tue:setTue, Wed:setWed, Thu:setThu, Fri:setFri, Sat:setSat,
 		BirthMonth:setBirthMonth, BirthDay:setBirthDay}
 
@@ -68,7 +62,9 @@
 		.done(function(data) {
 			alert("成功1");
 			// アイコンの表示を変える。リマインドのデフォルトを変更する。
-			document.getElementById("iconImage").src=data[0];
+				for(var i in data){
+					document.getElementById("iconImage").src = data[i].icon_image;
+				}
 		})
 		//非同期通信が失敗したときの処理
 		.fail(function() {
@@ -76,4 +72,37 @@
 			alert("失敗！");
 		});
 	}
+
+	function newIcon() {
+		$.ajaxSetup({scriptCharset:'utf-8'});
+		$.ajax({
+			//どのサーブレットに送るか
+			//ajaxSampleのところは自分のプロジェクト名に変更する必要あり。
+			url: '/Forza/PersonalOptionServlet',
+			//どのメソッドを使用するか
+			type:"POST",
+			//受け取るデータのタイプ
+			dataType:"json",
+			//何をサーブレットに飛ばすか（変数を記述）
+			data: postData,
+			//この下の２行はとりあえず書いてる（書かなくても大丈夫？）
+			contentType:false,
+			processDate:false,
+			timeStamp: new Date().getTime()
+		})
+		//非同期通信が成功したときの処理
+		.done(function(data) {
+			alert("成功1");
+			// アイコンの表示を変える。リマインドのデフォルトを変更する。
+				for(var i in data){
+					document.getElementById("iconImage").src = data[i].icon_image;
+				}
+		})
+		//非同期通信が失敗したときの処理
+		.fail(function() {
+			//失敗とアラートを出す
+			alert("失敗！");
+		});
+	}
+
 

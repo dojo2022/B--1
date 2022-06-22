@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.HolidayDao;
 import dao.IconImagesDao;
@@ -95,12 +97,14 @@ public class PersonalOptionServlet extends HttpServlet {
         //場所はクラス名↑の上に指定してある
 		part.write(image);
 
-		String strIcon = null;
+		ArrayList<Icon> iconImage = new ArrayList<>();
+
 		// アイコンの保存
 		if(image != null) {
 		IconImagesDao newicon = new IconImagesDao();
 		newicon.insert(new Icon(id,image));
-		strIcon = newicon.select(new Icon(id)).getIcon_image();
+		Icon icon_data = newicon.select(new Icon(id));
+		iconImage.add(icon_data);
 		}
 
 		// PWの変更
@@ -147,30 +151,21 @@ public class PersonalOptionServlet extends HttpServlet {
 		}
 
 		try {
-		    //JavaオブジェクトからJSONに変換
-		    //JSONの出力
-			if(strIcon != null) {
-		    response.getWriter().write(strIcon);
-			}
+		//JavaオブジェクトからJSONに変換
+		//JSONの出力
+		if(iconImage != null) {
+			ObjectMapper mapper = new ObjectMapper();
+			String json = mapper.writeValueAsString(iconImage);
+		    response.getWriter().write(json);
+		}
 		} catch (JsonProcessingException e) {
 		    e.printStackTrace();
 		}
 
-		//文字コードの設定（めんどいのでコピペでOK）
 		response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
 
-		/*
-		//JSPに返却する値を作成する。値はoutの中に格納する
-		PrintWriter out = response.getWriter();
-		//outの中に持ってきたデータを連結したものを入れる
-		//勝手にJSPに渡り、dataという名前で使用することができる
-		out.print(data1+","+data2+","+data3);
-
-		return;
-
-		*/
 	}
 
 
