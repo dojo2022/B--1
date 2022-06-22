@@ -105,6 +105,7 @@ public class CheerListsDao {
 		return cheerList;
 	}
 
+    //褒めるポップアップの非同期通信のためのDAO
     public Cheer one(Cheer data) {
 		Connection conn = null;
 		Cheer cheerList = new Cheer();
@@ -116,7 +117,7 @@ public class CheerListsDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
-			// SQL文を考える（ここが仕事）
+			// SQL文を考える
 			String sql =
 			"Select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE user_id = ? AND customset_id = ? ORDER BY id DESC limit 1";
 			PreparedStatement pStmt = conn.prepareStatement(sql); //お約束
@@ -165,6 +166,7 @@ public class CheerListsDao {
 		// 結果を返す
 		return cheerList;
 	}
+
 
         //カスタムセットタスク達成時の褒めるポップアップ設定一覧を表示する場合のSQL文
 		public List<Cheer> show() {

@@ -19,7 +19,7 @@
     	<input type="hidden" name="ID" value="1">
         <input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box" checked>
         <!-- <input type="submit" name="REGIST" value="表示"> -->
-        <input type="button" value="非同期送信" onclick="goAjax()">
+        <input type="button" value="確定" onclick="goAjax()">
     <!-- </form> -->
 
          <div id="popWin">
@@ -31,15 +31,15 @@
 	            		<h2>タスク完了！</h2>
 				        <!-- カスタムセットの画像を表示 -->
 				        <div id="cheerImage"></div>
-				        <%-- <c:forEach var="e" items="${cheerList}">
-				    		<img class="cheer_image" src="${e.cheer_image}"></img>
-				    	</c:forEach> --%>
+						        <%-- <c:forEach var="e" items="${cheerList}">
+						    		<img class="cheer_image" src="${e.cheer_image}"></img>
+						    	</c:forEach> --%>
 						<br>
 				    	<!-- カスタムセットのメッセージ表示 -->
-				    	<div id="cheerMessage"></div>
-				    	<%-- <c:forEach var="e" items="${cheerList}">
-				    		<h2>${e.cheer_message}</h2>
-				    	</c:forEach> --%>
+				    	<h3><div id="cheerMessage"></div></h3>
+						    	<%-- <c:forEach var="e" items="${cheerList}">
+						    		<h2>${e.cheer_message}</h2>
+						    	</c:forEach> --%>
 				    	 <br>
 				    	 <!-- 閉じるボタン -->
 	                	<div id="close" onmousedown="party.confetti(this)">閉じる</div>

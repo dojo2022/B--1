@@ -48,11 +48,13 @@
 			  }).done(function(data) {
 				alert("成功1");
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
-				//document.getElementById("cheerImage").innerText=data[0].cheer_image;
+				// 褒めるポップアップにCheerimageを表示する
 				var img_element=document.createElement('img');
 				img_element.src = data[0].cheer_image;
 				var content_area=document.getElementById("cheerImage");
 				content_area.appendChild(img_element);
+				// 褒めるポップアップにCheerMessageを表示する
+				document.getElementById("cheerMessage").innerText=data[0].cheer_message;
 			  })
 			   //非同期通信が失敗したときの処理
 			  .fail(function() {

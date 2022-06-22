@@ -50,11 +50,9 @@ public class CheerPopupServlet extends HttpServlet {
 		String data1 = request.getParameter("data1");
 
 		//ArrayListをインスタンス化
-		//ここがよく分からない、澄川先生に聞く
 		ArrayList<Cheer> list = new ArrayList<>();
 
 		//適当な値を突っ込む
-		//for(int i=0;i<5;i++) {
 			CheerListsDao cheer = new CheerListsDao();
 			Cheer jub = cheer.one(new Cheer(id,data1));
 			//jub.setCustomset_id(data1);
