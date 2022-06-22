@@ -254,13 +254,37 @@ input[name="EDIT"] {
   #drawer-check:checked ~ .drawer-content {
     top: 24%;/* メニューを画面に入れる */
   }
+.clickableTable{
+	width: 30%;
+}
+.clickableTitle{
+	float: center;
+	border-bottom: 1px solid #bad9b4;
+	cursor: pointer;
 
+}
+.clickableTitle:nth-child(1){
+    background-color: #61825a;
+    color: #f9fff7;
+}
 .hiddenLine{
 	display: none;
-	overflow-y: scroll;
-	float: left;
-	width: 100%;
+	float: center;
+	width: 200%;
 }
 .hiddenLine:after{
 	clear:both;
+}
+.postReview{
+	display: flex;
+	border-bottom: 1px solid #61825a;
+}
+.postLeft{
+	width: 20%;
+    background-color: #bad9b4;
+    color: #f9fff7;
+    border: 1px solid #bad9b4;
+}
+.postRight{
+	width: 70%;
 }
