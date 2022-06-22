@@ -30,7 +30,7 @@
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　　　　　　
           <input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
-		 <canvas id="preview" style="max-width:200px;"></canvas><br>
+		 <canvas id="preview" style="max-width:30px;"></canvas><br>
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
 
@@ -52,48 +52,32 @@
 			             <div class="addnew">
 			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT">
-                           <%--   <input type="hidden" name="customset_id" value=${List.customset_id }>
-                             <input type="hidden" name="customset_name" value=${List.customset_name }>
- --%>
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
                           </form>
 
                         </div>
 
                       <div class="clickableTable">
-	                  <c:forEach var="e" items="${List}" >
+	                  <c:forEach var="e" items="${customsetlists}" >
 	                      <div class="clickableLine">
                              <div class="clickableTitle">${e.customset_name}</div>
-                             <%--
                              <div class="hiddenLine">
-                                <c:forEach var="custom" items="${List.custom}" >
+                                <c:forEach var="custom" items="${customsetlists.cheer}" >
                                   <div class="postCustomset">
-                                     <input type="hidden" class="customId" value="${custom.id} }">
+                                  <input type="hidden" class="reviewId" value="${custom.customset_name}">
                                      <div class="postLeft">
-					                    <div>${cheer.image}</div>
+					                  <div>${custom.cheer_image}</div>
 				                      </div>
 				                      <div class="postcenter">
-					                    <div>${cheer.message}</div>
+					                   <div>${custom.cheer_message}</div>
 				                      </div>
                                   </div>
                                 </c:forEach>
                               </div>
-                               --%>
-	                       </div>
 
+	                       </div>
 	                  </c:forEach>
 	                  </div>
-
-                       <%--
-                         <table class="list">
-                          <c:forEach var="e" items="${List}" >
-                           <tr class="listname">
-                            <td><label>${e.customset_name}
-                            <input type="submit" name="EDIT" value="編集"></label></td>
-                           </tr>
-                          </c:forEach>
-                        </table>
-                        --%>
 			           </div>
 			          </div>
 		            </div>
@@ -101,7 +85,6 @@
 
          </div>
        </div>
-</form>
 </div>
 
 </body>

@@ -60,7 +60,7 @@
    /* アップロードボタン */
          .upload {
              text-align: center;
-             margin: 20px 0px 0 7px;
+             margin: 10px 0px 0 8px;
              width: 450px;
              padding: 0.1px;
              border: 1px solid #333;
@@ -73,7 +73,7 @@
              box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
              cursor: pointer;
              text-decoration: none; /* 文字の下線を消す */
-             margin: 10px;
+             margin: -20px 0;
          }
          input[name="UPLOAD"]:hover {
              box-shadow: none;
@@ -81,7 +81,7 @@
          }
          .custom {
              text-align: center;
-             margin: 4px 0 0 7px;
+             margin: 4px 0 0 8px;
              width: 450px;
              padding: 0;
              border: 1px solid #333;
@@ -162,7 +162,7 @@ input[name="ADDNEW"]:hover {
          }
 /* カスタムセット タグデザイン */
 .clickableTitle{
-	margin: 30px 0 -20px -160px;
+	margin: 24px 0 -20px -160px;
 	border-bottom: 5px solid #bad9b4;
 	cursor: pointer;
 	 border: solid 4px;  /* 枠線指定 */
@@ -255,3 +255,12 @@ input[name="EDIT"] {
     top: 24%;/* メニューを画面に入れる */
   }
 
+.hiddenLine{
+	display: none;
+	overflow-y: scroll;
+	float: left;
+	width: 100%;
+}
+.hiddenLine:after{
+	clear:both;
+}
