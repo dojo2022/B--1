@@ -1,0 +1,119 @@
+CREATE TABLE USERS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  user_password VARCHAR(40) NOT NULL
+);
+CREATE TABLE TASK_LISTS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  task_id INT,
+  customset_id INT,
+  task_name VARCHAR(40) NOT NULL,
+  task_memo VARCHAR(100) ,
+  task_date DATE,
+  priority INT,
+  task_judge BOOLEAN
+);
+INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO','1','1', '腹筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO','1','1', '腹筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO','1','1', '腹筋', '15回', now(),1,0);
+INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
+  task_date,priority,task_judge) 
+VALUES ('DOJO','1','1', '腹筋', '15回', now(),1,0);
+CREATE TABLE CUSTOMSET_LISTS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  customset_id INT,
+  customset_name VARCHAR(20) NOT NULL
+);
+INSERT INTO CUSTOMSET_LISTS (user_id,customset_name) 
+VALUES ('DOJO', '筋トレ');
+CREATE TABLE CHEER_LISTS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  customset_id INT,
+  cheer_image VARCHAR(50),
+  cheer_message VARCHAR(100)
+);
+INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
+VALUES ('1','1','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
+INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
+VALUES ('2','2','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
+INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
+VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
+CREATE TABLE BACKGROUND_IMAGES (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  background_image VARCHAR(50)
+);
+CREATE TABLE ICON_IMAGES (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  icon_image VARCHAR(50)
+);
+INSERT INTO ICON_IMAGES (user_id,icon_image) 
+VALUES ('DOJO', '/Forza/icon_images/icon_test.png');
+CREATE TABLE REMIND_DAYS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+　remind_name VARCHAR(100),
+  remind_date DATE
+);
+INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
+VALUES ('DOJO', '給料日',20220620);
+UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
+CREATE TABLE TOP_MEMO (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  top_memo VARCHAR(200)
+);
+INSERT INTO TOP_MEMO (user_id,top_memo) 
+VALUES ('DOJO', '空のメモ');
+CREATE TABLE LOGIN_DAYS (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  login_day INT
+);
+INSERT INTO LOGIN_DAYS (user_id,login_day) 
+VALUES ('DOJO', 0);
+CREATE TABLE TASK_ACHIEVEMENT (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  task_achievement INT
+);
+INSERT INTO TASK_ACHIEVEMENT (user_id,task_achievement) 
+VALUES ('DOJO', 0);
+CREATE TABLE TASK_LOGINCOUNT (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  date DATE
+);
+INSERT INTO LOGINCOUNT (user_id, date) 
+VALUES ('DOJO', 2022-06-19);
+CREATE TABLE HOLIDAY (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(100) NOT NULL,
+  holiday DATE,
+　dayOfWeek VARCHAR(100),
+　yesNo BOOLEAN
+);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220619, '日曜日', 1);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220620, '月曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220621, '火曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220622, '水曜日', 1);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220623, '木曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220624, '金曜日', 0);
+INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
+VALUES ('DOJO', 20220625, '土曜日', 1);
