@@ -1,17 +1,18 @@
 
-【ユーザーテーブルを作成するSQL文】
+/*ユーザーテーブルを作成するSQL文*/
 CREATE TABLE USERS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   user_password VARCHAR(40) NOT NULL
 );
-【ユーザーテーブルにサンプルデータを登録するSQL文】
+
+/*ユーザーテーブルにサンプルデータを登録するSQL文*/
 
 
 
 
 
-【タスクリストテーブルを作成するSQL文】
+/*タスクリストテーブルを作成するSQL文*/
 CREATE TABLE TASK_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
@@ -23,7 +24,8 @@ CREATE TABLE TASK_LISTS (
   priority INT,
   task_judge BOOLEAN
 );
-【タスクリストテーブルにサンプルデータを登録するSQL文】
+
+/*タスクリストテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
   task_date,priority,task_judge) 
 VALUES ('DOJO','1','1', '腹筋', '15回', now(),1,0);
@@ -41,14 +43,15 @@ VALUES ('DOJO','1','1', '腹筋', '15回', now(),1,0);
 
 
 
-【カスタムセットテーブルを作成するSQL文】
+/*カスタムセットテーブルを作成するSQL文*/
 CREATE TABLE CUSTOMSET_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   customset_id INT,
   customset_name VARCHAR(20) NOT NULL
 );
-【カスタムセットテーブルにサンプルデータを登録するSQL文】
+
+/*カスタムセットテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO CUSTOMSET_LISTS (user_id,customset_name) 
 VALUES ('DOJO', '筋トレ');
 
@@ -56,7 +59,7 @@ VALUES ('DOJO', '筋トレ');
 
 
 
-【応援画像メッセージテーブルを作成するSQL文】
+/*応援画像メッセージテーブルを作成するSQL文*/
 CREATE TABLE CHEER_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
@@ -64,7 +67,8 @@ CREATE TABLE CHEER_LISTS (
   cheer_image VARCHAR(50),
   cheer_message VARCHAR(100)
 );
-【応援画像メッセージテーブルにサンプルデータを登録するSQL文】
+
+/*応援画像メッセージテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
 VALUES ('1','1','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
@@ -76,26 +80,28 @@ VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
 
 
 
-【背景テーブルを作成するSQL文】
+/*背景テーブルを作成するSQL文*/
 CREATE TABLE BACKGROUND_IMAGES (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   background_image VARCHAR(50)
 );
-【背景テーブルにサンプルデータを登録するSQL文】
+
+/*背景テーブルにサンプルデータを登録するSQL文*/
 
 
 
 
 
 
-【アイコンテーブルを作成するSQL文】
+/*アイコンテーブルを作成するSQL文*/
 CREATE TABLE ICON_IMAGES (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   icon_image VARCHAR(50)
 );
-【アイコンテーブルにサンプルデータを登録するSQL文】
+
+/*アイコンテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO ICON_IMAGES (user_id,icon_image) 
 VALUES ('DOJO', '/Forza/icon_images/icon_test.png');
 
@@ -104,17 +110,19 @@ VALUES ('DOJO', '/Forza/icon_images/icon_test.png');
 
 
 
-【ご褒美デーテーブルを作成するSQL文】
+/*ご褒美デーテーブルを作成するSQL文*/
 CREATE TABLE REMIND_DAYS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
 　remind_name VARCHAR(100),
   remind_date DATE
 );
-【ご褒美デーテーブルにサンプルデータを登録するSQL文】
+
+/*ご褒美デーテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
 VALUES ('DOJO', '給料日',20220620);
-【更新したデータを戻すSQL文】
+
+/*更新したデータを戻すSQL文*/
 UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
 
 
@@ -122,13 +130,13 @@ UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
 
 
 
-【TOPメモテーブルを作成するSQL文】
+/*TOPメモテーブルを作成するSQL文*/
 CREATE TABLE TOP_MEMO (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   top_memo VARCHAR(200)
 );
-【TOPメモテーブルにサンプルデータを登録するSQL文】
+/*TOPメモテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO TOP_MEMO (user_id,top_memo) 
 VALUES ('DOJO', '空のメモ');
 
@@ -137,13 +145,14 @@ VALUES ('DOJO', '空のメモ');
 
 
 
-【ログイン日数テーブルを作成するSQL文】
+/*ログイン日数テーブルを作成するSQL文*/
 CREATE TABLE LOGIN_DAYS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   login_day INT
 );
-【ログイン日数テーブルにサンプルデータを登録するSQL文】
+
+/*ログイン日数テーブルにサンプルデータを登録するSQL文*/
 INSERT INTO LOGIN_DAYS (user_id,login_day) 
 VALUES ('DOJO', 0);
 
@@ -151,13 +160,14 @@ VALUES ('DOJO', 0);
 
 
 
-【タスク達成数テーブルを作成するSQL文】
+/*タスク達成数テーブルを作成するSQL文*/
 CREATE TABLE TASK_ACHIEVEMENT (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   task_achievement INT
 );
-【タスク達成数テーブルにサンプルデータを登録するSQL文】
+
+/*タスク達成数テーブルにサンプルデータを登録するSQL文*/
 INSERT INTO TASK_ACHIEVEMENT (user_id,task_achievement) 
 VALUES ('DOJO', 0);
 
@@ -165,13 +175,14 @@ VALUES ('DOJO', 0);
 
 
 
-【ログインカウントテーブルを作成するSQL文】
-CREATE TABLE TASK_LOGINCOUNT (
+/*ログインカウントテーブルを作成するSQL文*/
+CREATE TABLE LOGINCOUNT (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   date DATE
 );
-【ログインカウントテーブルにサンプルデータを登録するSQL文】
+
+/*ログインカウントテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO LOGINCOUNT (user_id, date) 
 VALUES ('DOJO', 2022-06-19);
 
@@ -180,7 +191,7 @@ VALUES ('DOJO', 2022-06-19);
 
 
 
-【休日テーブルを作成するSQL文】
+/*休日テーブルを作成するSQL文*/
 CREATE TABLE HOLIDAY (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
@@ -188,7 +199,8 @@ CREATE TABLE HOLIDAY (
 　dayOfWeek VARCHAR(100),
 　yesNo BOOLEAN
 );
-【ログインカウントテーブルにサンプルデータを登録するSQL文】
+
+/*ログインカウントテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
 VALUES ('DOJO', 20220619, '日曜日', 1);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
