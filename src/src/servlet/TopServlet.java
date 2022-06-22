@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.HolidayDao;
 import dao.RemindDatesDao;
 import dao.TaskCountDao;
 import dao.TopMemosDao;
 import dao.UsersDao;
+import model.Holiday;
 import model.LoginCount;
 import model.Memo;
 import model.Remind;
@@ -32,10 +34,10 @@ public class TopServlet extends HttpServlet {
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect("/Forza/LoginServlet");
-//			return;
-//		}
+			if (session.getAttribute("id") == null) {
+				response.sendRedirect("/Forza/LoginServlet");
+				return;
+			}
 
 		// お知らせの獲得
 
@@ -60,12 +62,15 @@ public class TopServlet extends HttpServlet {
 				// 近頃のご褒美Dayの検索
 						RemindDatesDao news = new RemindDatesDao();
 						List<Remind> newsList = news.wow(new Remind(memo_id));
+						HolidayDao holiday = new HolidayDao();
+						List<Holiday> hList = holiday.niceFight(memo_id);
 
 						// 検索結果をリクエストスコープに格納する
 						session.setAttribute("cardList", cardList);
 						session.setAttribute("TaskCount", count3);
 						session.setAttribute("torophy", torophy);
 						request.setAttribute("news", newsList);
+						request.setAttribute("holiday", hList);
 
 
 		/*トップメモ関連ここまで*/

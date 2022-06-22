@@ -6,7 +6,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forza｜TopPage</title>
-	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 	<script src="/Forza/js/jquery-3.2.1.min.js"></script>
 	<script src="/Forza/js/TopMyPage.js"></script>
 </head>
@@ -14,11 +13,20 @@
 <div class="wrapper">
 <!-- ヘッダ－ -->
 <header id="header">
-    <h1 style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;">Forza</h1>
-    <div class="news">
-                <h3>お知らせはここに表示</h3>
-    </div>
-
+    <h1 style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;"><a href="/Forza/TopServlet">Forza</a></h1>
+            <div class="newsWrapper">
+            <div class="news">
+                <ul>
+					<li>お知らせ：</li>
+					<c:forEach var="n" items="${news}">
+						<li>${n.remind_name}は${n.remind_date}です。</li>
+					</c:forEach>
+					<c:forEach var="h" items="${holiday}">
+						<li>${h.dayOfWeek}は休日です。</li>
+					</c:forEach>
+                </ul>
+            </div>
+            </div>
     <nav style="margin-left: 0px;">
     <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
       <li class="has-child"><a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu">MENU</a>
@@ -100,6 +108,7 @@
         <!-- 今回は無し -->
 	</footer>
 </div>
+	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 <script src="/Forza/js/TopPage.js"></script>
 </body>
 </html>
