@@ -59,7 +59,7 @@ public class CustomSetServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 		   if(session.getAttribute("id") != null) {
 //			String id = (String)session.getAttribute("memo");
-			   String id ="Dojo";
+			   String id ="DOJO";
 				System.out.println("-----個人設定------");
 				System.out.println(id);
 			BackGroundImagesDao iDao = new BackGroundImagesDao();
@@ -96,7 +96,7 @@ public class CustomSetServlet extends HttpServlet {
 		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
 				//idはセッションスコープから受けておる
-				String name = "Dojo";
+				String name = "DOJO";
 
 				String customset_name = request.getParameter("ADDTEXT");
 				// 登録処理を行う
