@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.annotation.WebServlet;
 
+import model.Cheer;
 import model.CustomSetLists;
 
 /**
@@ -18,10 +18,16 @@ import model.CustomSetLists;
 @WebServlet("/CustomSetListsDao")
 public class CustomSetListsDao {
 
-	//タスク一覧を表示する場合のSQL文
-		public List<CustomSetLists> show() {
-	    		Connection conn = null;
-	    		List<CustomSetLists> List = new ArrayList<CustomSetLists>();
+	      public ArrayList<CustomSetLists> getAllBookList(){
+		//ここは未実装。
+		//CustomSetListsだけを取得するメソッドも必要なので想定だけしておく。
+		  return null;
+}
+
+	    //タスク一覧を表示し、タスク達成時の褒めるポップアップの設定を表示させる場合のSQL文（階層型）
+	      public ArrayList<CustomSetLists> getCustomTagList(){
+		   ArrayList<CustomSetLists> custom = new ArrayList<CustomSetLists>();
+		   Connection conn = null;
 
 	    		try {
 	    			// JDBCドライバを読み込む
@@ -31,7 +37,11 @@ public class CustomSetListsDao {
 	    			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 	    			// SQL文を準備する
-	    			String sql = "select id,user_id,customset_id,customset_name from customset_lists;";
+	    			// ここでJOINを利用して2つのテーブルからデータを取得する。
+	    			String sql = "select *"
+	    					+ " FROM customset_lists"
+	    					+ " LEFT JOIN cheer_lists"
+	    					+ " ON customset_lists.customset_id = cheer_lists.customset_id";
 	    			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 	    			// SQL文を実行し、結果表を取得する
@@ -39,11 +49,67 @@ public class CustomSetListsDao {
 
 	    			// 結果表をコレクションにコピーする
 	    			while (rs.next()) {
+	    				//結果リストの中に存在しなければCustomSetを１つ追加する
+	    				CustomSetLists trgCustomSet = null;
+	    				int customsetid = rs.getInt("user_id");
+
+	    				for(CustomSetLists b: custom) {
+	    					if(b.getId() == customsetid) {
+	    						//見つけた(これまでの処理・行に存在した書籍）
+	    						trgCustomSet = b;
+	    						//見つけたのでこれ以上のループは必要ない
+	    						break;
+	    					}
+	    				}
+
+	    				if(trgCustomSet == null) {
+	    					//見つからなかったので親となる書籍情報を追加
+	    					trgCustomSet = new CustomSetLists();
+	    					trgCustomSet.setId(rs.getInt("id"));
+	    					trgCustomSet.setUser_id(rs.getString("user_id"));
+	    					trgCustomSet.setCustomset_id(rs.getString("customset_id"));
+	    					trgCustomSet.setCustomset_name(rs.getString("customset_name"));
+	    					custom.add(trgCustomSet);
+	    				}
+	    				//trgCustomSetに１つのreviewを追加
+	    				Cheer cheer = new Cheer();
+	    				cheer.setId(rs.getInt("id"));
+	    				cheer.setUser_id(rs.getString("user_id"));
+	    				cheer.setCustomset_id(rs.getString("customset_id"));
+	    				cheer.setCheer_image(rs.getString("cheer_image"));
+	    				cheer.setCheer_message(rs.getString("cheer_message"));
+
+	    				//現在存在するレビューのリストを取得
+	    				ArrayList<Cheer> cheerList = trgCustomSet.getCheers();
+	    				cheerList.add(cheer);
+	    			}
+
+	    		}catch(Exception ex) {
+	    			ex.printStackTrace();
+	    			custom = null;
+	    		}finally {
+	    			// データベースを切断
+	    			if (conn != null) {
+	    				try {
+	    					conn.close();
+	    				}
+	    				catch (SQLException e) {
+	    					e.printStackTrace();
+	    					custom = null;
+	    				}
+	    			}
+	    		}
+	    		return custom;
+	    	}
+
+	     /*
 	    				CustomSetLists card = new CustomSetLists(
+	    			//カスタムセットリストタグ情報
 	    				rs.getString("id"),
 	    				rs.getString("user_id"),
 	    				rs.getString("customset_id"),
 	                    rs.getString("customset_name")
+
 	    				);
 	    				List.add(card);
 	    				System.out.println(rs.getString("id"));
@@ -73,7 +139,7 @@ public class CustomSetListsDao {
 	    		// 結果を返す
 	    		return List;
 	    	}
-
+*/
 		//新しくタスクを追加する際に使うSQL文
 		// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean insert(CustomSetLists card) {
@@ -132,6 +198,8 @@ public class CustomSetListsDao {
 			// 結果を返す
 			return result;
 		}
+
+
 
 		//タスクを編集・更新する際のSQL文
 		// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
