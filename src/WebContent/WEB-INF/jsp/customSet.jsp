@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Forza|カスタマイズページ</title>
 <link rel = "stylesheet" type = "text/css" href = "/Forza/css/mypage_2.css">
+<script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="./js/CustomSet.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -62,9 +67,9 @@
 	                      <div class="clickableLine">
                              <div class="clickableTitle">${e.customset_name}</div>
                              <div class="hiddenLine">
-                                <c:forEach var="custom" items="${customsetlists.cheer}" >
+                                <c:forEach var="custom" items="${e.cheers}" >
                                   <div class="postCustomset">
-                                  <input type="hidden" class="reviewId" value="${custom.customset_name}">
+                                  <input type="hidden" class="reviewId" value="${custom.customset_id}">
                                      <div class="postLeft">
 					                  <div>${custom.cheer_image}</div>
 				                      </div>

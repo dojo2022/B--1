@@ -66,11 +66,11 @@ CREATE TABLE CHEER_LISTS (
 );
 【応援画像メッセージテーブルにサンプルデータを登録するSQL文】
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('1','DOJO','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
+VALUES ('1','1','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('2','DOJO','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
+VALUES ('2','2','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('3','DOJO','/Forza/cheer_images/ushi500.jpg','最高＾＾');
+VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
 
 
 

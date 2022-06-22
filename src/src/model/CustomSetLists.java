@@ -72,7 +72,7 @@ public class CustomSetLists implements Serializable {
 	}
 
 	public void setCustomset_name(String customset_name) {
-		this.customset_id = customset_name;
+		this.customset_name = customset_name;
 	}
 	public ArrayList<Cheer> getCheers() {
 		return cheers;

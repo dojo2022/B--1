@@ -35,7 +35,7 @@ public class CustomSetServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//画面用jsを追加
-				String js = "<script type=\"text/javascript\" src=\"./js/CustomSet.js\"></script>";
+				String js = "<script type=\"text/javascript\" src=\"/Forza/js/CustomSet.js\"></script>";
 				request.setAttribute("script", js);
 
 		//画面表示時、customsetlistsとcheersテーブルの中身を表示する
@@ -59,7 +59,7 @@ public class CustomSetServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 		   if(session.getAttribute("id") != null) {
 //			String id = (String)session.getAttribute("memo");
-			   String id ="Dojo";
+			   String id ="DOJO";
 				System.out.println("-----個人設定------");
 				System.out.println(id);
 			BackGroundImagesDao iDao = new BackGroundImagesDao();
@@ -96,7 +96,7 @@ public class CustomSetServlet extends HttpServlet {
 		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
 				//idはセッションスコープから受けておる
-				String name = "Dojo";
+				String name = "DOJO";
 
 				String customset_name = request.getParameter("ADDTEXT");
 				// 登録処理を行う
