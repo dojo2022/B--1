@@ -7,12 +7,24 @@
 		popWin.style.display = 'none';				//popWinのdisplayがなくなる
 	});
 
+function checkedBox() {
+	const chkBox = document.getElementById('chk_box');
+	const popWin = document.getElementById('popWin');
+
+	// ボタンをクリックしたときにポップアップを表示させる
+	chkBox.addEventListener('change', () => {
+		popWin.style.display = "block";
+	});
+
+}
+
+
 //紙吹雪の動き（閉じるをクリックしたときの動き）
 //理由は分からないが、13-17行目を消すと全画面の方の紙吹雪も消える
 
-	document.querySelector(".pop-win").addEventListener("click", function (e) {
+	document.querySelector(".popwin-inside").addEventListener("click", function () {
 	    party.confetti(this, {
-	        count: party.variation.range(20, 40),
+	        count: party.variation.range(20,40),
 	    });
 	});
 
@@ -121,8 +133,8 @@ function task_popup() {
 }
 */
 
-/*const chk= document.getElementById("chk_box");
-chk.addEventListener("change",function(){
-	document.getElementById("popWin").style.display="block";
-});
-*/
+/*//チェックボックスにチェックを入れるとポップアップウィンドウが出る
+	const chk= document.getElementById("chk_box");
+	chk.addEventListener("change",function(){
+		document.getElementById("popWin").style.display="block";
+	});*/
