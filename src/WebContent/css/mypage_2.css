@@ -256,35 +256,32 @@ input[name="EDIT"] {
   }
 .clickableTable{
 	width: 30%;
+
 }
 .clickableTitle{
 	float: center;
-	border-bottom: 1px solid #bad9b4;
+	border-bottom: 3px solid #4682B4;
 	cursor: pointer;
 
 }
 .clickableTitle:nth-child(1){
-    background-color: #61825a;
+    background-color: #444444;
     color: #f9fff7;
 }
 .hiddenLine{
 	display: none;
 	float: center;
-	width: 200%;
+	width: 407%;
+	background-color: #CCCCCC;
+	margin: 20px 0 0 -156px;
 }
 .hiddenLine:after{
 	clear:both;
 }
-.postReview{
-	display: flex;
-	border-bottom: 1px solid #61825a;
-}
+
 .postLeft{
-	width: 20%;
-    background-color: #bad9b4;
-    color: #f9fff7;
-    border: 1px solid #bad9b4;
+
 }
 .postRight{
-	width: 70%;
+	width: 100%;
 }
