@@ -269,9 +269,8 @@ input[name="EDIT"] {
 }
 .hiddenLine{
 	display: none;
-	overflow-y: scroll;
 	float: center;
-	width: 30%;
+	width: 200%;
 }
 .hiddenLine:after{
 	clear:both;
