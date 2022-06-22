@@ -15,28 +15,39 @@
             border-bottom: 1px solid #00000080;
             width: 90%;
         }
- */        .logo{
+ */
+        .logo{
             margin: 0;
             left: 0px;
         }
         .logo img{
             height: 50px;
         }
-        .news {
-            margin : auto;
-			padding : 0 20%;
-            height: 50px;
-            position: relative;
-            text-align : center;
-            overflow : hidden;
-
-        }
-        .news h3{
-            margin:0;
+        .newsWrapper {
+            display: inline;
+            top: 0px;
+            left: 200px;
+            overflow: hidden;
             position: absolute;
-            bottom: 0;
-            display : inline-block;
+            background:linear-gradient(transparent 70%, #FFFF00 0%);
             animation : scrollnews 20s linear infinite;
+        }
+        .news {
+            margin: 0px;
+            padding: 0px;
+            text-align: left;
+            display: inline;
+            overflow: hidden;
+        }
+        .news ul{
+            display: inline;
+            overflow: hidden;
+            list-style: none;
+        }
+        .news li {
+            display: inline;
+            overflow: hidden;
+            list-style: none;
         }
         @keyframes scrollnews{
             0% { transform: translateX(0)}

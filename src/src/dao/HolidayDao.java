@@ -215,7 +215,7 @@ public class HolidayDao {
 			calendar.setTime(date1);
 			calendar.add(Calendar.DATE, 7);
 			date1 = calendar.getTime();
-	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	        String formattedDate = simpleDateFormat.format(date1);
 	        Date date2 = Date.valueOf(formattedDate);
 
@@ -277,7 +277,7 @@ public class HolidayDao {
 			calendar.add(Calendar.DATE, 2);
 			Date date2 = new Date(calendar.getTime().getTime());
 
-	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	        String formattedDate = simpleDateFormat.format(date2);
 	        Date date4 = Date.valueOf(formattedDate);
 
