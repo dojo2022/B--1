@@ -7,7 +7,10 @@ CREATE TABLE USERS (
 );
 
 /*ユーザーテーブルにサンプルデータを登録するSQL文*/
-
+INSERT INTO USERS (user_id,  user_password) 
+VALUES ('DOJO', 'password');
+INSERT INTO USERS (user_id,  user_password) 
+VALUES ('SMITH', 'HARU');
 
 
 
@@ -52,8 +55,12 @@ CREATE TABLE CUSTOMSET_LISTS (
 );
 
 /*カスタムセットテーブルにサンプルデータを登録するSQL文*/
-INSERT INTO CUSTOMSET_LISTS (user_id,customset_name) 
-VALUES ('DOJO', '筋トレ');
+INSERT INTO CUSTOMSET_LISTS (user_id, customset_id, customset_name) 
+VALUES ('DOJO', '1', '筋トレ');
+INSERT INTO CUSTOMSET_LISTS (user_id, customset_id, customset_name) 
+VALUES ('DOJO', '2', '仕事');
+INSERT INTO CUSTOMSET_LISTS (user_id, customset_id, customset_name) 
+VALUES ('DOJO', '3', '家事');
 
 
 
@@ -70,11 +77,11 @@ CREATE TABLE CHEER_LISTS (
 
 /*応援画像メッセージテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('1','1','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
+VALUES ('DOJO','1','/Forza/cheer_images/child500.jpg','よくがんばったね！お疲れさま');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('2','2','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
+VALUES ('DOJO','2','/Forza/cheer_images/cat500.jpg','えらい、かしこい');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
+VALUES ('DOJO','3','/Forza/cheer_images/ushi500.jpg','最高＾＾');
 
 
 
@@ -121,10 +128,11 @@ CREATE TABLE REMIND_DAYS (
 /*ご褒美デーテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
 VALUES ('DOJO', '給料日',20220620);
+INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
+VALUES ('DOJO', '誕生日',20220624);
 
 /*更新したデータを戻すSQL文*/
 UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
-
 
 
 
@@ -184,7 +192,7 @@ CREATE TABLE LOGINCOUNT (
 
 /*ログインカウントテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO LOGINCOUNT (user_id, date) 
-VALUES ('DOJO', 2022-06-19);
+VALUES ('DOJO', 20220619);
 
 
 
