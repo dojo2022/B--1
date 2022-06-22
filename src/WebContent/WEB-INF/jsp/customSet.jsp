@@ -71,7 +71,7 @@
                                   <div class="postCustomset">
                                   <input type="hidden" class="reviewId" value="${custom.customset_id}">
                                      <div class="postLeft">
-					                  <div>${custom.cheer_image}</div>
+					                  <img class="cheer-image" src="${custom.cheer_image}"></img>
 				                      </div>
 				                      <div class="postcenter">
 					                   <div>${custom.cheer_message}</div>
