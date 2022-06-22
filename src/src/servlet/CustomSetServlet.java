@@ -35,7 +35,7 @@ public class CustomSetServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//画面用jsを追加
-				String js = "<script type=\"text/javascript\" src=\"./js/CustomSet.js\"></script>";
+				String js = "<script type=\"text/javascript\" src=\"/Forza/js/CustomSet.js\"></script>";
 				request.setAttribute("script", js);
 
 		//画面表示時、customsetlistsとcheersテーブルの中身を表示する

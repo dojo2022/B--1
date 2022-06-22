@@ -18,7 +18,7 @@ import model.CustomSetLists;
 @WebServlet("/CustomSetListsDao")
 public class CustomSetListsDao {
 
-	      public ArrayList<CustomSetLists> getAllBookList(){
+	      public ArrayList<CustomSetLists> getAllCustomSetList(){
 		//ここは未実装。
 		//CustomSetListsだけを取得するメソッドも必要なので想定だけしておく。
 		  return null;
@@ -38,10 +38,10 @@ public class CustomSetListsDao {
 
 	    			// SQL文を準備する
 	    			// ここでJOINを利用して2つのテーブルからデータを取得する。
-	    			String sql = "select *"
-	    					+ " FROM customset_lists"
-	    					+ " LEFT JOIN cheer_lists"
-	    					+ " ON customset_lists.customset_id = cheer_lists.customset_id";
+	    			String sql = "SELECT * "
+	    					+ "FROM customset_lists "
+	    					+ "LEFT JOIN cheer_lists "
+	    					+ "ON customset_lists.customset_id = cheer_lists.customset_id";
 	    			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 	    			// SQL文を実行し、結果表を取得する
@@ -51,10 +51,10 @@ public class CustomSetListsDao {
 	    			while (rs.next()) {
 	    				//結果リストの中に存在しなければCustomSetを１つ追加する
 	    				CustomSetLists trgCustomSet = null;
-	    				int customsetid = rs.getInt("user_id");
+	    				String customsetid = rs.getString("customset_id");
 
 	    				for(CustomSetLists b: custom) {
-	    					if(b.getId() == customsetid) {
+	    					if(b.getCustomset_id() == customsetid) {
 	    						//見つけた(これまでの処理・行に存在した書籍）
 	    						trgCustomSet = b;
 	    						//見つけたのでこれ以上のループは必要ない
