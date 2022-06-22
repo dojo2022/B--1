@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Forza｜Setting</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/mypage_1.css">
 </head>
 <body>
@@ -29,17 +30,23 @@
         </div>
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
-                <div class="setPw">
-                    <label for="setPw">PW:
-                        <input type="text" id="pw" name="password" placeholder="password">
-                    </label>
-                </div>
                 <div class="setIcon">
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
 					<canvas id="preview" style="max-width:200px;"></canvas><br>
                 </div>
-                <div class="setRemind">
+				<div>
+					<input type="button" value="変更" onclick="newIcon()">
+                </div>
+
+			</form>
+			<form action="/Forza/PersonalOptionServlet" method="post">
+                <div class="setPw">
+                    <label for="setPw">PW:
+                        <input type="text" id="pw" name="password" placeholder="password">
+                    </label>
+                </div>
+                 <div class="setRemind">
                     ご褒美Day(リマインダー)
                     <br>
                         <div class="salary">
@@ -98,7 +105,7 @@
                                     <label for="wednesday">水</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="thursay" name="days" value="木曜日">
+                                    <input type="checkbox" id="thursday" name="days" value="木曜日">
                                     <label for="thursday">木</label>
                                 </div>
                                 <div class="dayOfWeek">
@@ -164,7 +171,7 @@
                         </div>
                 </div>
                 <div>
-                    <input type="button" value="変更" onclick="update()">
+                    <input type="button" value="更新" onclick="update()">
                 </div>
             </form>
         </div>
@@ -174,6 +181,6 @@
         <!-- 今回は無し -->
 	</footer>
 </div>
-<script src="/Forza/PersonalOption.js"></script>
+<script type="text/javascript" src="/Forza/js/PersonalOption.js"></script>
 </body>
 </html>
