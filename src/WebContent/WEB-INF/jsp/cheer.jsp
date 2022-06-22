@@ -9,16 +9,18 @@
 <title>褒めるポップアップ</title>
 <link rel="stylesheet" href="css/cheer_popup.css">
  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
  -->
 </head>
 
 <body>
-    <form class="checkbox_form" method="POST" action="/Forza/CheerPopupServlet">
+    <!-- <form class="checkbox_form" method="POST" action="/Forza/CheerPopupServlet"> -->
     	<input type="hidden" name="ID" value="1">
         <input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box" checked>
-        <input type="submit" name="REGIST" value="表示">
-    </form>
+        <!-- <input type="submit" name="REGIST" value="表示"> -->
+        <input type="button" value="非同期送信" onclick="goAjax()">
+    <!-- </form> -->
 
          <div id="popWin">
          <!-- 紙吹雪のためのdiv -->
@@ -28,14 +30,16 @@
             <div class="popwin-inside">
 	            		<h2>タスク完了！</h2>
 				        <!-- カスタムセットの画像を表示 -->
-				        <c:forEach var="e" items="${cheerList}">
+				        <div id="cheerImage"></div>
+				        <%-- <c:forEach var="e" items="${cheerList}">
 				    		<img class="cheer_image" src="${e.cheer_image}"></img>
-				    	</c:forEach>
+				    	</c:forEach> --%>
 						<br>
 				    	<!-- カスタムセットのメッセージ表示 -->
-				    	<c:forEach var="e" items="${cheerList}">
+				    	<div id="cheerMessage"></div>
+				    	<%-- <c:forEach var="e" items="${cheerList}">
 				    		<h2>${e.cheer_message}</h2>
-				    	</c:forEach>
+				    	</c:forEach> --%>
 				    	 <br>
 				    	 <!-- 閉じるボタン -->
 	                	<div id="close" onmousedown="party.confetti(this)">閉じる</div>

@@ -1,23 +1,65 @@
 //褒めるポップアップの動きについてのJS
 
-//褒めるポップアップの「閉じる」チェックボタンの動き
+//褒めるポップアップの「閉じる」ボタンの動き
 
 	const close = document.getElementById('close');	//id[close]が
 	close.addEventListener('click', () => {			//clickされたら
 		popWin.style.display = 'none';				//popWinのdisplayがなくなる
 	});
 
-function checkedBox() {
-	const chkBox = document.getElementById('chk_box');
-	const popWin = document.getElementById('popWin');
+//褒めるポップアップ表示に関する動き
 
-	// ボタンをクリックしたときにポップアップを表示させる
-	chkBox.addEventListener('change', () => {
-		popWin.style.display = "block";
-	});
+	function checkedBox() {
+		const chkBox = document.getElementById('chk_box');
+		const popWin = document.getElementById('popWin');
 
-}
+		// ボタンをクリックしたときにポップアップを表示させる
+		chkBox.addEventListener('change', () => {
+			popWin.style.display = "block";
+		});
+	}
 
+//非同期通信
+
+	function goAjax(){
+			alert("functionはいったよ！");
+			//入力値を取得してくる
+			let testData1 = document.getElementById('chk_box').value;
+
+			//{変数名：中に入れるもの}みたいに書いて、複数の値をpostData変数に格納
+			let postData = {data1:testData1};
+
+			//非同期通信始めるよ
+			$.ajaxSetup({scriptCharset:'utf-8'});
+			$.ajax({
+				//どのサーブレットに送るか
+				//ajaxSampleのところは自分のプロジェクト名に変更する必要あり。
+				url: '/Forza/CheerPopupServlet',
+				//どのメソッドを使用するか
+				type:"POST",
+				//受け取るデータのタイプ
+				dataType:"json",
+				//何をサーブレットに飛ばすか（変数を記述）
+				data: postData,
+				//この下の２行はとりあえず書いてる（書かなくても大丈夫？）
+				processDate:false,
+				timeStamp: new Date().getTime()
+			   //非同期通信が成功したときの処理
+			  }).done(function(data) {
+				alert("成功1");
+				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
+				//document.getElementById("cheerImage").innerText=data[0].cheer_image;
+				var img_element=document.createElement('img');
+				img_element.src = data[0].cheer_image;
+				var content_area=document.getElementById("cheerImage");
+				content_area.appendChild(img_element);
+			  })
+			   //非同期通信が失敗したときの処理
+			  .fail(function() {
+				//失敗とアラートを出す
+				alert("失敗！");
+			  });
+		}
 
 //紙吹雪の動き（閉じるをクリックしたときの動き）
 //理由は分からないが、13-17行目を消すと全画面の方の紙吹雪も消える

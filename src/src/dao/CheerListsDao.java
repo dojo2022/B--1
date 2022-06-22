@@ -105,6 +105,67 @@ public class CheerListsDao {
 		return cheerList;
 	}
 
+    public Cheer one(Cheer data) {
+		Connection conn = null;
+		Cheer cheerList = new Cheer();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を考える（ここが仕事）
+			String sql =
+			"Select id, user_id, customset_id, cheer_image, cheer_message from CHEER_LISTS WHERE user_id = ? AND customset_id = ? ORDER BY id DESC limit 1";
+			PreparedStatement pStmt = conn.prepareStatement(sql); //お約束
+
+			// SQL文を完成させる
+			//どんな条件で検索するかを考える
+			pStmt.setString(1, data.getUser_id());
+			pStmt.setString(2, data.getCustomset_id());
+
+			// SQL文を実行し、結果表を取得する
+			//この段階ではまだSQLを読んでない
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) { //whileでnextを行分繰り返している
+				cheerList = new Cheer( //1行分のデータを保持するCheerを生成
+				rs.getInt("ID"),
+				rs.getString("USER_ID"),
+				rs.getString("CUSTOMSET_ID"),
+				rs.getString("CHEER_IMAGE"),
+				rs.getString("CHEER_MESSAGE")
+				);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			cheerList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			cheerList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					cheerList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return cheerList;
+	}
+
         //カスタムセットタスク達成時の褒めるポップアップ設定一覧を表示する場合のSQL文
 		public List<Cheer> show() {
 	    		Connection conn = null;
@@ -222,4 +283,5 @@ public class CheerListsDao {
 					// 結果を返す
 					return result;
 				}
+
 }
