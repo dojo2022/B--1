@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.CheerListsDao;
 import model.Cheer;
@@ -26,14 +25,6 @@ public class CheerPopupServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				/*
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/Forza/LoginServlet");
-					return;
-				}
-				 */
 
 				//褒めるポップアップのページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cheer.jsp");
@@ -43,8 +34,6 @@ public class CheerPopupServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
 
 		//褒めるポップアップの画像とメッセージを選択するServlet↓
 				// リクエストパラメータを取得する
