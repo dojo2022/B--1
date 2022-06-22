@@ -71,7 +71,7 @@
             <c:forEach var="e" items="${lists}" varStatus="status">
 
             	<tr class="data_row">
-	            	<td><input type="checkbox" name="check" value="ok"></td>
+	            	<td><input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box" checked></td>
 	            	<td><input	 type="button" name="task_name" value="${e.task_name}"  id ="click-name${status.count}">
 					</td>
 					<td>
@@ -109,7 +109,7 @@
 					            <br>
 					            <input type="hidden" name="id" value="${e.id}">
 					            <input type="hidden" name="user_id" value="${e.user_id}">
-					            <input type="hidden" name="task_id" value="100">
+					            <input type="hidden" name="task_id" value="${e.task_id}">
 					            <input type="hidden" name="task_judge" value="0">
 					            <input type="hidden" name="task_date" value="${e.task_date}">
 					            <input type="submit" name="SUBMIT" value="更新" onClick="alert('更新しました！');">
