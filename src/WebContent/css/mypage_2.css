@@ -138,7 +138,7 @@ h2 {
 
 
  /* 新規追加ボタン */
- input[name="ADDNEW"] {
+ input[name="data1"] {
 	 display: inline-block;
   padding: 0.11em 0.125em;
   background-color: #000080; /* 背景色 */
@@ -148,7 +148,7 @@ h2 {
   cursor: pointer;
   text-decoration: none; /* 文字の下線を消す */
 }
-input[name="ADDNEW"]:hover {
+input[name="data1"]:hover {
     box-shadow: none;
     transform: translateY(5px);
   }
