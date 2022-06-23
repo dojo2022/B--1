@@ -17,9 +17,9 @@
 <body>
     <!-- <form class="checkbox_form" method="POST" action="/Forza/CheerPopupServlet"> -->
     	<input type="hidden" name="ID" value="1">
-        <input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box" checked>
+        <input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="goAjax()" id="chk_box">
         <!-- <input type="submit" name="REGIST" value="表示"> -->
-        <input type="button" value="確定" onclick="goAjax()">
+        <!-- <input type="button" value="確定" onclick="goAjax()"> -->
     <!-- </form> -->
 
          <div id="popWin">

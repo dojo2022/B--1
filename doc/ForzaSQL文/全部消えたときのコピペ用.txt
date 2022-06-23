@@ -3,6 +3,8 @@ CREATE TABLE USERS (
   user_id VARCHAR(100) NOT NULL,
   user_password VARCHAR(40) NOT NULL
 );
+INSERT INTO USERS (user_id, user_password)
+VALUES ('DOJO','password');
 CREATE TABLE TASK_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
