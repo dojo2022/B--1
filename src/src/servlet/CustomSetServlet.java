@@ -64,10 +64,6 @@ public class CustomSetServlet extends HttpServlet {
 			//List<BackGround> background = iDao.select(new BackGround(id));
 			// 検索結果をリクエストスコープに上書きして格納する
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4ee03637b181aad79a5ff34c447b256cc0f16574
 			//System.out.println(background.get(0).getBackground_image());
 			//request.setAttribute("myBackGround", background.get(0).getBackground_image());
 		   }
