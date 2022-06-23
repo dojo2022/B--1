@@ -71,7 +71,7 @@
             <c:forEach var="e" items="${lists}" varStatus="status">
 
             	<tr class="data_row">
-	            	<td><input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box" checked></td>
+	            	<td><input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box"></td>
 	            	<td><input	 type="button" name="task_name" value="${e.task_name}"  id ="click-name${status.count}">
 					</td>
 					<td>
