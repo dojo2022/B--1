@@ -92,3 +92,31 @@ img{
 .setIcon{text-align:center;
 margin:  0 auto;
 }
+
+/* ボタン */
+input[id ="submit"] {
+             display: inline-block;
+             padding: 0.14em 30px;
+             background-color:#BBBBBB; /* 背景色 */
+             box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+             cursor: pointer;
+             text-decoration: none; /* 文字の下線を消す */
+             margin: -20px 0;
+         }
+         input[id ="submit"]:hover {
+             box-shadow: none;
+             transform: translateY(5px);
+         }
+input[class ="button"] {
+             display: inline-block;
+             padding: 0.125em 30px;
+             background-color:#BBBBBB; /* 背景色 */
+             box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+             cursor: pointer;
+             text-decoration: none; /* 文字の下線を消す */
+             margin: -20px 0;
+         }
+         input[class ="button"]:hover {
+             box-shadow: none;
+             transform: translateY(5px);
+         }
