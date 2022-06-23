@@ -292,6 +292,11 @@ nav{
   margin-left:auto;
   border-left:solid 2px rgba(153,153,153,0.6);
 }
+nav:hover{
+	border-left:solid 3px rgba(153,153,153,0.6);
+	border-top:solid 3px rgba(153,153,153,0.6);
+
+}
 /*ナビゲーションを横並びに*/
 nav ul{
   list-style: none;
@@ -321,7 +326,7 @@ nav ul li a{
   display: block;
   text-decoration: none;
   color: #7e7e7e;
-   padding:20px 35px;
+   padding:15px 35px;
   transition:all .1s;
 }
 

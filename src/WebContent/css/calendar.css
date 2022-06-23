@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+#calendar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*全体*/
+.CalendarWrapper{
+    max-width: 600px;
+    margin: 0 auto;
+    color: #666;
+}
+
+section {
+    margin: 10px;
+}
+
+h1 CalendarHeader{
+    font-size: 25px;
+    margin: -1px 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+/*日曜*/
+td:first-child {
+    color: red;
+}
+
+/*土曜*/
+td:last-child {
+    color: royalblue;
+}
+
+/*前後付きの日付*/
+td.is-disabled {
+    color: #ccc;
+}
+
+/*本日*/
+td.today {
+    background-color: #D65E72;
+    color: #fff;
+}
+
+/*ボタン*/
+#prev {
+    cursor: pointer;
+    background: #B78D4A;
+    color: #fff;
+    margin: 0 0 0 163px;
+}
+#next {
+    cursor: pointer;
+    background: #B78D4A;
+    color: #fff;
+}

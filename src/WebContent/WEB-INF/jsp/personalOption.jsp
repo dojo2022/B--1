@@ -33,24 +33,25 @@
                 <div class="setIcon">
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
-					<canvas id="preview" style="max-width:200px;"></canvas><br>
+					<canvas id="preview" style="max-width:200px ;"></canvas><br>
                 </div>
 				<div>
-					<input type="button" value="変更" onclick="newIcon()">
+					<table align="center"><tr><td align="center"><input type="button" class="button" value="変更" onclick="newIcon()"></td></tr></table>
                 </div>
-
 			</form>
+<hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;">
 			<form action="/Forza/PersonalOptionServlet" method="post">
                 <div class="setPw">
-                    <label for="setPw">PW:
+                    <label for="setPw">変更後パスワード:
                         <input type="text" id="pw" name="password" placeholder="password">
                     </label>
                 </div>
                  <div class="setRemind">
                     ご褒美Day(リマインダー)
                     <br>
+                    <br>
                         <div class="salary">
-                            <label >&emsp;給与日：
+                            <label >&emsp;給与日：毎月
                                 <select name="salary_day" id="salaryDay">
                                     <option value="">-</option>
                                     <option value="01">1</option>
@@ -83,15 +84,13 @@
                                     <option value="28">28</option>
                                     <option value="29">29</option>
                                     <option value="30">30</option>
+                                    <option value="31">31</option>
+
                                 </select> 日
                             </label>
                         </div>
                         <div class="holiday">
                             &emsp;休日：
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="sunday" name="days" value="日曜日">
-                                    <label for="sunday">日</label>
-                                </div>
                                 <div class="dayOfWeek">
                                     <input type="checkbox" id="monday" name="days" value="月曜日">
                                     <label for="monday">月</label>
@@ -116,6 +115,11 @@
                                     <input type="checkbox" id="saturday" name="days" value="土曜日">
                                     <label for="saturday">土</label>
                                 </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="sunday" name="days" value="日曜日">
+                                    <label for="sunday">日</label>
+                                </div>
+
                         </div>
                         <div class="birthday">
                             <label>&emsp;誕生日：
@@ -166,12 +170,13 @@
                                     <option value="28">28</option>
                                     <option value="29">29</option>
                                     <option value="30">30</option>
+                                    <option value="31">31</option>
                                 </select> 日
                             </label>
                         </div>
                 </div>
                 <div>
-                    <input type="button" value="更新" onclick="update()">
+                    <table align="center"><tr><td align="center"><input type="button" value="更新" id="submit" onclick="update()"></td></tr></table>
                 </div>
             </form>
         </div>
