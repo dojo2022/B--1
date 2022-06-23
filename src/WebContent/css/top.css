@@ -16,6 +16,11 @@
             width: 90%;
         }
  */
+        .header_logo{
+        	z-index: 1;
+        	background-color: white;
+        }
+
         .logo{
             margin: 0;
             left: 0px;
@@ -24,16 +29,15 @@
             height: 50px;
         }
         .newsWrapper {
-            display: inline;
-            top: 0px;
-            left: 200px;
-            overflow: hidden;
-            position: absolute;
-            background:linear-gradient(transparent 70%, #FFFF00 0%);
+        	display: block;
+  			height: 50px;
+  			width: 100%;
+  			background-color:white;
+  			overflow: hidden;
             animation : scrollnews 20s linear infinite;
         }
         .news {
-            margin: 0px;
+        	margin: 0px;
             padding: 0px;
             text-align: left;
             display: inline;
@@ -50,7 +54,7 @@
             list-style: none;
         }
         @keyframes scrollnews{
-            0% { transform: translateX(0)}
+            0% { transform: translateX(100%)}
             100% { transform: translateX(-100%)}
         }
         .btn{
@@ -60,9 +64,27 @@
             border-radius: 60%;
             text-align: right;
         }
+
         #displayPanel{
         	display: inline-flex;
         }
+
+		.iconImage {
+        	width: 100%;
+		 	max-width: 50px;
+		 	height: 100%;
+		 	max-height: 50px;
+		 	background-color: white;
+		 	z-index:1;
+        }
+
+		.icon_image{
+			width: 100%;
+		 	max-width: 50px;
+		 	height: 100%;
+		 	max-height: 50px;
+		}
+
         /* メイン */
         main{
             width: 90%;
@@ -330,9 +352,8 @@ nav ul li a{
   transition:all .1s;
 }
 
-nav ul li li a{
+/*nav ul li li a{*/
 /*   padding:10px 35px; */
-}
 
 /* nav ul li a:hover{
   color:#fff;
