@@ -30,13 +30,9 @@
 				</c:forEach>
                 </ul>
             </div>
-            </div>
-    <div class="iconImage">
-    		<img class="icon_image" src="${iconImage}"></img>
-    </div>
     <nav style="margin-left: 0px; z-index:1; background-color:white;">
     <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
-      <li class="has-child"><a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu">MENU</a>
+      <li class="has-child"><a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu"><img class="icon_image" src="${iconImage.icon_image}"></img></a>
         <ul>
         <li><a href="/Forza/PersonalOptionServlet">一般設定</a></li>
         <li><a href="/Forza/CustomSetServlet">カスタマイズ</a></li>
