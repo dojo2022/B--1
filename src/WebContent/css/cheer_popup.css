@@ -9,7 +9,7 @@
 	  	height: 100%;
 	  	display: none;
 	    animation: fadeIn 0.8s ease 0.0s 1 normal;
-    }
+     }
 
       @keyframes fadeIn { /*animation-nameで設定した値を書く*/
         0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
@@ -17,15 +17,15 @@
       }
 
 	 .popwin-inside {
-	      text-align: center;
-		  width: 100%;
-		  max-width: 500px;
-		  height: 100%;
-		  max-height: 400px;
-		  background: white;
-		  margin: 10% auto;
-		  padding: 20px;
-		  position: relative;
+	     text-align: center;
+	 	 width: 100%;
+		 max-width: 500px;
+		 height: 100%;
+		 max-height: 500px;
+		 background: white;
+		 margin: 10% auto;
+		 padding: 20px;
+		 position: relative;
     }
 
     #cheerlist {

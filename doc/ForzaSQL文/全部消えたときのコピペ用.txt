@@ -1,21 +1,8 @@
-
-/*ƒ†[ƒU[ƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
 CREATE TABLE USERS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   user_password VARCHAR(40) NOT NULL
 );
-
-/*ƒ†[ƒU[ƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
-INSERT INTO USERS (user_id,  user_password) 
-VALUES ('DOJO', 'password');
-INSERT INTO USERS (user_id,  user_password) 
-VALUES ('SMITH', 'HARU');
-
-
-
-
-/*ƒ^ƒXƒNƒŠƒXƒgƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
 CREATE TABLE TASK_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
@@ -27,46 +14,26 @@ CREATE TABLE TASK_LISTS (
   priority INT,
   task_judge BOOLEAN
 );
-
-/*ƒ^ƒXƒNƒŠƒXƒgƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
   task_date,priority,task_judge) 
-VALUES ('DOJO','1','1', '• ‹Ø', '15‰ñ', now(),1,0);
+VALUES ('DOJO','1','1', 'è…¹ç­‹', '15å›', now(),1,0);
 INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
   task_date,priority,task_judge) 
-VALUES ('DOJO','1','1', '• ‹Ø', '15‰ñ', now(),1,0);
+VALUES ('DOJO','1','1', 'è…¹ç­‹', '15å›', now(),1,0);
 INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
   task_date,priority,task_judge) 
-VALUES ('DOJO','1','1', '• ‹Ø', '15‰ñ', now(),1,0);
+VALUES ('DOJO','1','1', 'è…¹ç­‹', '15å›', now(),1,0);
 INSERT INTO TASK_LISTS (user_id,task_id,customset_id,task_name,task_memo,
   task_date,priority,task_judge) 
-VALUES ('DOJO','1','1', '• ‹Ø', '15‰ñ', now(),1,0);
-
-
-
-
-
-/*ƒJƒXƒ^ƒ€ƒZƒbƒgƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
+VALUES ('DOJO','1','1', 'è…¹ç­‹', '15å›', now(),1,0);
 CREATE TABLE CUSTOMSET_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   customset_id INT,
   customset_name VARCHAR(20) NOT NULL
 );
-
-/*ƒJƒXƒ^ƒ€ƒZƒbƒgƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
-INSERT INTO CUSTOMSET_LISTS (user_id, customset_id, customset_name) 
-VALUES ('DOJO', '1', '‹ØƒgƒŒ');
-INSERT INTO CUSTOMSET_LISTS (user_id, customset_id, customset_name) 
-VALUES ('DOJO', '2', 'd–');
-INSERT INTO CUSTOMSET_LISTS (user_id, customset_id, customset_name) 
-VALUES ('DOJO', '3', '‰Æ–');
-
-
-
-
-
-/*‰‰‡‰æ‘œƒƒbƒZ[ƒWƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
+INSERT INTO CUSTOMSET_LISTS (user_id,customset_name) 
+VALUES ('DOJO', 'ç­‹ãƒˆãƒ¬');
 CREATE TABLE CHEER_LISTS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
@@ -74,155 +41,79 @@ CREATE TABLE CHEER_LISTS (
   cheer_image VARCHAR(50),
   cheer_message VARCHAR(100)
 );
-
-/*‰‰‡‰æ‘œƒƒbƒZ[ƒWƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('DOJO','1','/Forza/cheer_images/child500.jpg','‚æ‚­‚ª‚ñ‚Î‚Á‚½‚ËI‚¨”æ‚ê‚³‚Ü');
+VALUES ('1','1','/Forza/cheer_images/child500.jpg','ã‚ˆããŒã‚“ã°ã£ãŸã­ï¼ãŠç–²ã‚Œã•ã¾');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('DOJO','2','/Forza/cheer_images/cat500.jpg','‚¦‚ç‚¢A‚©‚µ‚±‚¢');
+VALUES ('2','2','/Forza/cheer_images/cat500.jpg','ãˆã‚‰ã„ã€ã‹ã—ã“ã„');
 INSERT INTO CHEER_LISTS(user_id,customset_id,cheer_image,cheer_message)
-VALUES ('DOJO','3','/Forza/cheer_images/ushi500.jpg','Å‚OO');
-
-
-
-
-
-/*”wŒiƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
+VALUES ('3','3','/Forza/cheer_images/ushi500.jpg','æœ€é«˜ï¼¾ï¼¾');
 CREATE TABLE BACKGROUND_IMAGES (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   background_image VARCHAR(50)
 );
-
-/*”wŒiƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
-
-
-
-
-
-
-/*ƒAƒCƒRƒ“ƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
 CREATE TABLE ICON_IMAGES (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   icon_image VARCHAR(50)
 );
-
-/*ƒAƒCƒRƒ“ƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO ICON_IMAGES (user_id,icon_image) 
 VALUES ('DOJO', '/Forza/icon_images/icon_test.png');
-
-
-
-
-
-
-/*‚²–J”üƒf[ƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
 CREATE TABLE REMIND_DAYS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
-@remind_name VARCHAR(100),
+ã€€remind_name VARCHAR(100),
   remind_date DATE
 );
-
-/*‚²–J”üƒf[ƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
-VALUES ('DOJO', '‹‹—¿“ú',20220620);
-INSERT INTO REMIND_DAYS(user_id,remind_name,remind_date) 
-VALUES ('DOJO', '’a¶“ú',20220624);
-
-/*XV‚µ‚½ƒf[ƒ^‚ğ–ß‚·SQL•¶*/
+VALUES ('DOJO', 'çµ¦æ–™æ—¥',20220620);
 UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
-
-
-
-
-
-/*TOPƒƒ‚ƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
 CREATE TABLE TOP_MEMO (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   top_memo VARCHAR(200)
 );
-/*TOPƒƒ‚ƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO TOP_MEMO (user_id,top_memo) 
-VALUES ('DOJO', '‹ó‚Ìƒƒ‚');
-
-
-
-
-
-
-/*ƒƒOƒCƒ““ú”ƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
+VALUES ('DOJO', 'ç©ºã®ãƒ¡ãƒ¢');
 CREATE TABLE LOGIN_DAYS (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   login_day INT
 );
-
-/*ƒƒOƒCƒ““ú”ƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO LOGIN_DAYS (user_id,login_day) 
 VALUES ('DOJO', 0);
-
-
-
-
-
-/*ƒ^ƒXƒN’B¬”ƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
 CREATE TABLE TASK_ACHIEVEMENT (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   task_achievement INT
 );
-
-/*ƒ^ƒXƒN’B¬”ƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO TASK_ACHIEVEMENT (user_id,task_achievement) 
 VALUES ('DOJO', 0);
-
-
-
-
-
-/*ƒƒOƒCƒ“ƒJƒEƒ“ƒgƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
-CREATE TABLE LOGINCOUNT (
+CREATE TABLE TASK_LOGINCOUNT (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   date DATE
 );
-
-/*ƒƒOƒCƒ“ƒJƒEƒ“ƒgƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO LOGINCOUNT (user_id, date) 
-VALUES ('DOJO', 20220619);
-
-
-
-
-
-
-/*‹x“úƒe[ƒuƒ‹‚ğì¬‚·‚éSQL•¶*/
+VALUES ('DOJO', 2022-06-19);
 CREATE TABLE HOLIDAY (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
   holiday DATE,
-@dayOfWeek VARCHAR(100),
-@yesNo BOOLEAN
+ã€€dayOfWeek VARCHAR(100),
+ã€€yesNo BOOLEAN
 );
-
-/*ƒƒOƒCƒ“ƒJƒEƒ“ƒgƒe[ƒuƒ‹‚ÉƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“o˜^‚·‚éSQL•¶*/
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220619, '“ú—j“ú', 1);
+VALUES ('DOJO', 20220619, 'æ—¥æ›œæ—¥', 1);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220620, 'Œ—j“ú', 0);
+VALUES ('DOJO', 20220620, 'æœˆæ›œæ—¥', 0);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220621, '‰Î—j“ú', 0);
+VALUES ('DOJO', 20220621, 'ç«æ›œæ—¥', 0);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220622, '…—j“ú', 1);
+VALUES ('DOJO', 20220622, 'æ°´æ›œæ—¥', 1);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220623, '–Ø—j“ú', 0);
+VALUES ('DOJO', 20220623, 'æœ¨æ›œæ—¥', 0);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220624, '‹à—j“ú', 0);
+VALUES ('DOJO', 20220624, 'é‡‘æ›œæ—¥', 0);
 INSERT INTO HOLIDAY (user_id, holiday, dayOfWeek, yesNo) 
-VALUES ('DOJO', 20220625, '“y—j“ú', 1);
-
-
-
+VALUES ('DOJO', 20220625, 'åœŸæ›œæ—¥', 1);
