@@ -151,13 +151,18 @@ public class PersonalOptionServlet extends HttpServlet {
 		}
 
 		try {
+			ObjectMapper mapper = new ObjectMapper();
+			String json = null;
+
 		//JavaオブジェクトからJSONに変換
 		//JSONの出力
 		if(iconImage != null) {
-			ObjectMapper mapper = new ObjectMapper();
-			String json = mapper.writeValueAsString(iconImage);
+			json = mapper.writeValueAsString(iconImage);
 		    response.getWriter().write(json);
 		}
+
+		response.getWriter().write(json);
+
 		} catch (JsonProcessingException e) {
 		    e.printStackTrace();
 		}
