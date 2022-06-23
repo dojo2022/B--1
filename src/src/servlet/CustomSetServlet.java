@@ -85,13 +85,17 @@ public class CustomSetServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-
+		request.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+		response.setHeader("Cache-Control", "nocache");
+		response.setCharacterEncoding("utf-8");
 	/*
 		// セッションスコープを破棄する
 		        HttpSession session = request.getSession();
 		        session.invalidate();
     */
-
+    String CustomSetName=request.getParameter("data1");
+    CustomSetListsDao cdao=new CustomSetListsDao();
 				// リクエストパラメータを取得する
 		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
