@@ -57,12 +57,12 @@
 			             <div class="addnew">
 			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT" id="DATA1">
-                             <input type="submit" name="ADDNEW" value="+新規追加" oneclick="goAjax()"></label>
+                             <input type="submit" name="ADDNEW" value="+新規追加"></label>
                           </form>
 
                         </div>
 
-                      <div class="clickableTable">
+                      <div class="clickableTable" id="hidouki">
 	                  <c:forEach var="e" items="${customsetlists}" >
 	                      <div class="clickableLine">
                              <div class="clickableTitle">${e.customset_name}</div>
@@ -70,12 +70,17 @@
                                 <c:forEach var="custom" items="${e.cheers}" >
                                   <div class="postCustomset">
                                   <input type="hidden" class="reviewId" value="${custom.customset_id}">
+                                <div class="edit">
+                                  <label><input type="submit" name="EDITT" value="編集"></label>
+                                </div>
                                      <div class="postLeft">
-					                  <img class="cheer-image" src="${custom.cheer_image}"></img>
+					                  <img class="cheer-image" src="${custom.cheer_image}"></img><br>
 				                      </div>
+				                     <div class="bg1">
 				                      <div class="postcenter">
 					                   <div>${custom.cheer_message}</div>
 				                      </div>
+				                     </div>
                                   </div>
                                 </c:forEach>
                               </div>

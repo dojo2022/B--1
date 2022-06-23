@@ -34,7 +34,8 @@ function goAjax(){
 			}).done(function(data) {
 				alert("成功1");
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
-				document.getElementById("test").innerText=data[0].name;
+					for(var i in data){
+					$("hidouki").append('<div class="clickableTitle">' + data[i].customset_name + '</div><div class="hiddenLine"><div class="postLeft"></div><div class="postcenter"></div></div>' );
 			  })
 			   //非同期通信が失敗したときの処理
 			  .fail(function() {
