@@ -62,7 +62,7 @@
 
                         </div>
 
-                      <div class="clickableTable">
+                      <div class="clickableTable" id="hidouki">
 	                  <c:forEach var="e" items="${customsetlists}" >
 	                      <div class="clickableLine">
                              <div class="clickableTitle">${e.customset_name}</div>

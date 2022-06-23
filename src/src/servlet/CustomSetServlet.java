@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import dao.BackGroundImagesDao;
 import dao.CustomSetListsDao;
 import model.BackGround;
@@ -94,20 +97,31 @@ public class CustomSetServlet extends HttpServlet {
 		        HttpSession session = request.getSession();
 		        session.invalidate();
     */
-    String CustomSetName=request.getParameter("data1");
-    CustomSetListsDao cdao=new CustomSetListsDao();
+		//idはセッションスコープから受けておる
+		String name = "DOJO";
+
+        String CustomSetName=request.getParameter("data1");
+        new CustomSetLists(name,CustomSetName)
 				// リクエストパラメータを取得する
 		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
-				//idはセッションスコープから受けておる
-				String name = "DOJO";
 
-				String customset_name = request.getParameter("ADDTEXT");
 				// 登録処理を行う
 				CustomSetListsDao bDao = new CustomSetListsDao();
-				if (bDao.insert(new CustomSetLists(name,customset_name))){	// 登録成功
+				if (bDao.insert(new CustomSetLists(name,CustomSetName))){	// 登録成功
 					request.setAttribute("result",
 					new Result("登録成功！", "登録しました。", "/Forza/CustomSetServlet"));
+					   ObjectMapper mapper = new ObjectMapper();
+						try {
+				            //JavaオブジェクトからJSONに変換
+
+				            String testJson = mapper.writeValueAsString(new CustomSetLists(name,CustomSetName));
+				            //JSONの出力
+				            response.getWriter().write(testJson);
+				        } catch (JsonProcessingException e) {
+				            e.printStackTrace();
+				        }
+
 				}
 				else {												// 登録失敗
 					request.setAttribute("result",
@@ -128,9 +142,7 @@ public class CustomSetServlet extends HttpServlet {
 				request.setAttribute("myBackGround", background.get(0).getBackground_image());
 			   }
 
-			    // ディスパッチ
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-				dispatcher.forward(request, response);
+
 			}
 
 		}
