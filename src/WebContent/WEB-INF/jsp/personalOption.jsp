@@ -25,15 +25,17 @@
 		</header>
 <!-- メイン -->
     <main>
-        <div class="icon">
-			<img class="icon_img" id="iconImage" alt="icon" src="${myIcon}">
+        <div class="icon" style="width:100px; height:100px;">
+			<img class="icon_img" id="iconImage" alt="icon" src="${myIcon}" style="width:100px; height:100px;">
         </div>
+        <hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;"><br>
+
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setIcon">
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
-					<canvas id="preview" style="max-width:200px ;"></canvas><br>
+					<canvas id="preview" style="width:100px; height:100px;"></canvas><br>
                 </div>
 				<div>
 					<table align="center"><tr><td align="center"><input type="button" class="button" value="変更" onclick="newIcon()"></td></tr></table>

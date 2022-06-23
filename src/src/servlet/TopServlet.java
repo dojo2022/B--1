@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.HolidayDao;
+import dao.IconImagesDao;
 import dao.RemindDatesDao;
 import dao.TaskCountDao;
 import dao.TopMemosDao;
 import dao.UsersDao;
 import model.Holiday;
+import model.Icon;
 import model.LoginCount;
 import model.Memo;
 import model.Remind;
@@ -72,8 +74,11 @@ public class TopServlet extends HttpServlet {
 						request.setAttribute("news", newsList);
 						request.setAttribute("holiday", hList);
 
+				// アイコン画像の取得
+						IconImagesDao topIcon = new IconImagesDao();
+						Icon icon = topIcon.select(new Icon(memo_id));
 
-		/*トップメモ関連ここまで*/
+						session.setAttribute("iconImage", icon);
 
 		// トップページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/topPage.jsp");

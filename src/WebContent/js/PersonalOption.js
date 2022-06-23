@@ -16,6 +16,7 @@
 				canvas.width = image.width;
 				canvas.height = image.height;
 				ctx.drawImage(image, 0, 0);
+
 			});
 		});
 		// 画像読み込み
