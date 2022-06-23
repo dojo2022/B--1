@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.TaskListsDao;
-import model.Result;
 import model.Task;
 
 
@@ -62,24 +63,31 @@ public class TaskUpdateDeleteServlet extends HttpServlet {
 		TaskListsDao LDAO = new TaskListsDao();
 		if (request.getParameter("SUBMIT").equals("更新")) {
 			if (LDAO.update(new Task(id,user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge))) {	// 更新成功
-				request.setAttribute("result",
-				new Result("更新成功！", "レコードを更新しました。", "//Forza/TaskServlet"));
+				/*request.setAttribute("result",
+				new Result("更新成功！", "レコードを更新しました。", "//Forza/TaskServlet"));*/
 			}
 			else {												// 更新失敗
-				request.setAttribute("result",
-				new Result("更新失敗！", "レコードを更新できませんでした。", "/Forza/TaskServlet"));
+				/*request.setAttribute("result",
+				new Result("更新失敗！", "レコードを更新できませんでした。", "/Forza/TaskServlet"));*/
 			}
 		}else
 		if (request.getParameter("SUBMIT").equals("削除")) {
 			if (LDAO.delete(id)) {	// 削除成功
-				request.setAttribute("result",
-				new Result("削除成功！", "レコードを削除しました。", "/Forza/TaskServlet"));
+				/*request.setAttribute("result",
+				new Result("削除成功！", "レコードを削除しました。", "/Forza/TaskServlet"));*/
 			}
 			else {						// 削除失敗
-				request.setAttribute("result",
-				new Result("削除失敗！", "レコードを削除できませんでした。", "/Forza/TaskServlet"));
+				/*request.setAttribute("result",
+				new Result("削除失敗！", "レコードを削除できませんでした。", "/Forza/TaskServlet"));*/
 			}
 		}
+		TaskListsDao TaskDao = new TaskListsDao();
+		List<Task> list = TaskDao.show();
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("lists", list);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskList.jsp");
+		dispatcher.forward(request, response);
 
     }
 
