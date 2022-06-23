@@ -57,11 +57,11 @@
 			             <div class="addnew">
 			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT" id="DATA1">
-<<<<<<< HEAD
+
                              <input type="submit" name="data1" value="+新規追加" onclick="return goAjax();">--</label>
-=======
+
                              <input type="submit" name="ADDNEW" value="+新規追加"></label>
->>>>>>> dff42ea416e3707ca4d1720bb7fafd18ea7c1f1b
+
                           </form>
 
                         </div>
