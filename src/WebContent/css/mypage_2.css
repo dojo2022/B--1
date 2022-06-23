@@ -270,18 +270,49 @@ input[name="EDIT"] {
 }
 .hiddenLine{
 	display: none;
-	float: center;
+	float: second;
 	width: 407%;
+	height: 120px;
+
 	background-color: #CCCCCC;
-	margin: 20px 0 0 -156px;
+	margin: 20px 0 40px -156px;
 }
 .hiddenLine:after{
 	clear:both;
 }
 
-.postLeft{
+.cheer-image{
+	width:35%;
+	margin: 0 200px 0 0;
+}
 
+.bg1 {
+	padding: 100px 0 0 -100px;
+    margin: 0 20px 10px 100px;
+    font-weight: bold;
+}
+
+.postcenter{
+    margin: -45px 20px 0 30px;
 }
 .postRight{
 	width: 100%;
+}
+/* カスタムセットの中身　編集ボタン */
+ input[name="EDITT"] {
+	 display: inline-block;
+  padding: 0.11em 0.125em;
+  background-color: #000080; /* 背景色 */
+  box-shadow: 0 5px 0 #000000; /* 影の太さ・色 */
+  border-radius: 60px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none; /* 文字の下線を消す */
+}
+input[name="EDITT"]:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
+.edit {
+	margin: 0 0 0 250px;
 }
