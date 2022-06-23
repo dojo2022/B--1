@@ -164,5 +164,33 @@ public class Task implements Serializable {
 	}
 
 
+public class JsonUserBeans {
 
+	private String id;
+	private String user_id;
+	private String task_name;
+
+
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return user_id;
+	}
+	public void setName(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getData() {
+		return task_name;
+	}
+	public void setData(String task_name) {
+		this.task_name = task_name;
+	}
+
+
+
+}
 }
