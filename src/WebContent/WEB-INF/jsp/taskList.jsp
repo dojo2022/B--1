@@ -22,10 +22,10 @@
     <div id="close">閉じる</div>
       <div id="message">
      		<form method="POST" action="/Forza/TaskRegistServlet">
-            タスクの名前：<input type="text" name="task_name"><br>
+            タスクの名前：<input type="text" name="task_name" id="task_name" ><br>
             <br>
             カスタムセット：
-                <select id="customset_name" name="customset_id">
+                <select id="customset_id" name="customset_id">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -47,14 +47,14 @@
             <br>
             繰り返しの期間：カレンダーから選択
             <br>
-            メモ：<textarea name="task_memo"></textarea><br>
+            メモ：<textarea name="task_memo" id="task_memo"></textarea><br>
             <br>
             <input type="hidden" name="id" value="">
             <input type="hidden" name="user_id" value="${lists[0].user_id}">
             <input type="hidden" name="task_id" value="100">
             <input type="hidden" name="task_judge" value="0">
             <input type="hidden" name="task_date" value="${lists[0].task_date}">
-            <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
+            <input type="submit" name="REGIST" value="追加" onclick="Regist()">
             </form>
 
     </div>
@@ -112,7 +112,7 @@
 					            <input type="hidden" name="task_id" value="${e.task_id}">
 					            <input type="hidden" name="task_judge" value="0">
 					            <input type="hidden" name="task_date" value="${e.task_date}">
-					            <input type="submit" name="SUBMIT" value="更新" onClick="alert('更新しました！');">
+					            <input type="submit" name="SUBMIT" value="更新" onclick="alert('更新しました！');">
 					            </form>
 
 					    </div>
@@ -121,8 +121,8 @@
 					</td>
 	            	<td><form method="POST" action="/Forza/TaskUpdateDeleteServlet">
 	            		<input type="hidden" name="id" value="${e.id}">
-	            		<input type="submit" name="SUBMIT" value="削除">
-	            	</form>
+	            		<input type="submit" name="SUBMIT" value="削除" onclick="Delete">
+						</form>
 	            	</td>
             	</tr>
 
