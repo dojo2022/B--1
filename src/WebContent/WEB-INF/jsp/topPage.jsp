@@ -8,6 +8,8 @@
 	<title>Forza｜TopPage</title>
 	<script src="/Forza/js/jquery-3.2.1.min.js"></script>
 	<script src="/Forza/js/TopMyPage.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
+    <link rel="stylesheet" href="/Forza/calendar.css">
 </head>
 <body>
 <div class="wrapper">
@@ -50,7 +52,15 @@
             <iframe src="https://calendar.google.com/calendar/embed?height=300&wkst=2&bgcolor=%23ffffff&ctz=Asia%2FTokyo&showDate=1&showPrint=0&showNav=1&showTabs=0&showCalendars=1&showTz=0&mode=MONTH&showTitle=1&src=bjI0OGhrYzNubHZwMzkwaXI5bWFvMnYzMzRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=amEuamFwYW5lc2Uub2ZmaWNpYWwjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23D81B60&color=%2333B679&color=%230B8043" style="border-width:0" width="290" height="300" frameborder="0" scrolling="no"></iframe>
  -->
 
-
+		<div class="CalendarWrapper">
+		    <!-- xxxx年xx月を表示 -->
+		    <h1 id="CalendarHeader"></h1>
+		  <!-- ボタンクリックで月移動 -->
+		    <button id="prev" type="button">＜</button>
+		    <button id="next" type="button">＞</button>
+		  <!-- カレンダー -->
+		    <div id="calendar"></div>
+		</div>
 
         </div>
         <div class="task">
@@ -91,7 +101,7 @@
         <!-- 今回は無し -->
 	</footer>
 </div>
-	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/top.css">
 <script src="/Forza/js/TopPage.js"></script>
+<script src="/Forza/js/Calendar.js"></script>
 </body>
 </html>
