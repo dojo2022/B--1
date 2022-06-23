@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,9 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import dao.BackGroundImagesDao;
 import dao.CustomSetListsDao;
-import model.BackGround;
 import model.CustomSetLists;
 
 
@@ -63,13 +60,11 @@ public class CustomSetServlet extends HttpServlet {
 			   String id ="DOJO";
 				System.out.println("-----個人設定------");
 				System.out.println(id);
-			BackGroundImagesDao iDao = new BackGroundImagesDao();
-			List<BackGround> background = iDao.select(new BackGround(id));
+			//BackGroundImagesDao iDao = new BackGroundImagesDao();
+			//List<BackGround> background = iDao.select(new BackGround(id));
 			// 検索結果をリクエストスコープに上書きして格納する
-<<<<<<< HEAD
 
-=======
->>>>>>> dff42ea416e3707ca4d1720bb7fafd18ea7c1f1b
+
 			//System.out.println(background.get(0).getBackground_image());
 			//request.setAttribute("myBackGround", background.get(0).getBackground_image());
 		   }
