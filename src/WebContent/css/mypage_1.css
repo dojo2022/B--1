@@ -6,7 +6,7 @@
         }
         body{
             /* background-color: blanchedalmond; */
-            background-color:black;
+            background-color:pink;
             margin: 0 auto;
             text-align: center;
             width: 90%;
@@ -54,17 +54,19 @@
         	border-radius: 20px;
             text-align: left;
             width: 450px;
-			height:auto;
+			height:550px;
             margin: 30px auto;
             padding: 10px;
         }
         .icon {
         	text-align:center;
+        	margin:  0 auto;
         }
         .icon_img{
         	text-align:center;
-        	width:200px;
-        	height:200px;
+        	object-fit: cover;
+        	margin:  0 auto;
+
         }
         .holiday{
             display: inline-flex;
@@ -80,3 +82,41 @@
 }
 hr{position:relative;
 		top:10px;}
+
+#preview{width: 250px;
+  		height: 250px;
+ 		object-fit: cover;
+ 		margin:  0 auto;}
+img{
+  object-fit: cover;}
+.setIcon{text-align:center;
+margin:  0 auto;
+}
+
+/* ボタン */
+input[id ="submit"] {
+             display: inline-block;
+             padding: 0.14em 30px;
+             background-color:#BBBBBB; /* 背景色 */
+             box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+             cursor: pointer;
+             text-decoration: none; /* 文字の下線を消す */
+             margin: -20px 0;
+         }
+         input[id ="submit"]:hover {
+             box-shadow: none;
+             transform: translateY(5px);
+         }
+input[class ="button"] {
+             display: inline-block;
+             padding: 0.125em 30px;
+             background-color:#BBBBBB; /* 背景色 */
+             box-shadow: 0 5px 0 #444444; /* 影の太さ・色 */
+             cursor: pointer;
+             text-decoration: none; /* 文字の下線を消す */
+             margin: -20px 0;
+         }
+         input[class ="button"]:hover {
+             box-shadow: none;
+             transform: translateY(5px);
+         }

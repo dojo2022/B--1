@@ -65,7 +65,7 @@ for (let i = 1; i <= ele.length; i++) {
 		editPopupWrapper[i].style.display = 'none';
 	});
 }
-
+/*
 
 function Delete(){
 			alert("functionはいったよ！");
@@ -157,5 +157,5 @@ function Regist(){
 				alert("失敗！");
 			  });
 		}
-
+*/
 

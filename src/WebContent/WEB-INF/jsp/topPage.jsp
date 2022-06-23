@@ -31,7 +31,10 @@
                 </ul>
             </div>
             </div>
-    <nav style="margin-left: 0px;">
+    <div class="iconImage">
+    		<img class="icon_image" src="${iconImage}"></img>
+    </div>
+    <nav style="margin-left: 0px; z-index:1; background-color:white;">
     <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
       <li class="has-child"><a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu">MENU</a>
         <ul>
