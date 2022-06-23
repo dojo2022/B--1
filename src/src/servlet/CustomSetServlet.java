@@ -13,14 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.BackGroundImagesDao;
 import dao.CustomSetListsDao;
 import model.BackGround;
 import model.CustomSetLists;
-import model.Result;
 
 
 /**
@@ -68,8 +66,9 @@ public class CustomSetServlet extends HttpServlet {
 			BackGroundImagesDao iDao = new BackGroundImagesDao();
 			List<BackGround> background = iDao.select(new BackGround(id));
 			// 検索結果をリクエストスコープに上書きして格納する
-			System.out.println(background.get(0).getBackground_image());
-			request.setAttribute("myBackGround", background.get(0).getBackground_image());
+
+			//System.out.println(background.get(0).getBackground_image());
+			//request.setAttribute("myBackGround", background.get(0).getBackground_image());
 		   }
 
 
@@ -100,35 +99,30 @@ public class CustomSetServlet extends HttpServlet {
 		//idはセッションスコープから受けておる
 		String name = "DOJO";
 
-        String CustomSetName=request.getParameter("data1");
-        new CustomSetLists(name,CustomSetName)
+        String CustomSetName = request.getParameter("cName");
+
 				// リクエストパラメータを取得する
 		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
 
+
+
 				// 登録処理を行う
 				CustomSetListsDao bDao = new CustomSetListsDao();
-				if (bDao.insert(new CustomSetLists(name,CustomSetName))){	// 登録成功
-					request.setAttribute("result",
-					new Result("登録成功！", "登録しました。", "/Forza/CustomSetServlet"));
-					   ObjectMapper mapper = new ObjectMapper();
-						try {
-				            //JavaオブジェクトからJSONに変換
+				bDao.insert(new CustomSetLists(name,CustomSetName));	// 登録成功
 
-				            String testJson = mapper.writeValueAsString(new CustomSetLists(name,CustomSetName));
+
+				ArrayList<CustomSetLists> Custom_name = new ArrayList<>();
+				CustomSetLists CustomSet = new CustomSetLists(name, CustomSetName);
+
+				            //JavaオブジェクトからJSONに変換
+							   ObjectMapper mapper = new ObjectMapper();
+				            String testJson = mapper.writeValueAsString(CustomSet);
+				            System.out.println(testJson);
 				            //JSONの出力
 				            response.getWriter().write(testJson);
-				        } catch (JsonProcessingException e) {
-				            e.printStackTrace();
-				        }
 
-				}
-				else {												// 登録失敗
-					request.setAttribute("result",
-					new Result("登録失敗！", "登録できませんでした。", "/Forza/CustomSetServlet"));
-				}
-
-
+/*
 
 	            // セッションスコープからUSER_IDを取得し、アイコンの選択
 			   if(session.getAttribute("id") != null) {
@@ -141,7 +135,7 @@ public class CustomSetServlet extends HttpServlet {
 				System.out.println(background.get(0).getBackground_image());
 				request.setAttribute("myBackGround", background.get(0).getBackground_image());
 			   }
-
+*/
 
 			}
 

@@ -12,7 +12,7 @@ function goAjax(){
 			let testData1 = document.getElementById('DATA1').value;
 
 			//{変数名：中に入れるもの}みたいに書いて、複数の値をpostData変数に格納
-			let postData = {data1:testData1}
+			let postData = {cName:testData1}
 
 
 			//非同期通信始めるよ
@@ -20,7 +20,7 @@ function goAjax(){
 			$.ajax({
 				//どのサーブレットに送るか
 				//ajaxSampleのところは自分のプロジェクト名に変更する必要あり。
-				url: '/sampleProgram/AjaxSampleServlet',
+				url: '/Forza/CustomSetServlet',
 				//どのメソッドを使用するか
 				type:"POST",
 				//受け取るデータのタイプ
@@ -34,12 +34,12 @@ function goAjax(){
 			}).done(function(data) {
 				alert("成功1");
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
-					for(var i in data){
-					$("hidouki").append('<div class="clickableTitle">' + data[i].customset_name + '</div><div class="hiddenLine"><div class="postLeft"></div><div class="postcenter"></div></div>' );
+	$("#hidouki").append('<div class="clickableLine"><div class="clickableTitle">'+ data.customset_name + '</div><div class="hiddenLine"><div class="postLeft"></div><div class="postcenter"></div></div></div>' );
 			  })
 			   //非同期通信が失敗したときの処理
 			  .fail(function() {
 				//失敗とアラートを出す
 				alert("失敗！");
 			  });
+			  return false;
 		}
