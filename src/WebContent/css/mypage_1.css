@@ -5,7 +5,8 @@
             box-sizing: border-box;
         }
         body{
-            background-color: blanchedalmond;
+            /* background-color: blanchedalmond; */
+            background-color:black;
             margin: 0 auto;
             text-align: center;
             width: 90%;
@@ -49,11 +50,11 @@
             border-radius: 60%;
             text-align: right;
         }
-        main{
-            border: 1px solid black;
-            background-color: #ffffff80;
+        main{background:rgba(255,255,255,0.6);
+        	border-radius: 20px;
             text-align: left;
             width: 450px;
+            height:465px;
             margin: 30px auto;
             padding: 10px;
         }
@@ -66,3 +67,14 @@
         .holiday{
             display: inline-flex;
         }
+
+
+.setPw{position:relative;
+		top:20px;}
+.setRemind{position:relative;
+		top:45px;}
+#submit{position:relative;
+		top:65px;
+}
+hr{position:relative;
+		top:10px;}
