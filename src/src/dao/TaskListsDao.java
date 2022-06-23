@@ -101,14 +101,17 @@ public class TaskListsDao {
 			else {
 				pStmt.setString(1, null);
 			}
-			/*if (card.getTask_id() != null && !card.getTask_id().equals("")) {
-				pStmt.setString(2, card.getTask_id());
+			if (card.getTask_id() != null && !card.getTask_id().equals("")) {
 
-			}
-			else {}*/
 				taskid = Integer.valueOf(card.getTask_id());
-
 				pStmt.setInt(2, taskid);
+			}
+			else {
+				pStmt.setString(2, null);
+			}
+
+
+
 
 			if (card.getCustomset_id() != null && !card.getCustomset_id().equals("")) {
 				customsetid = Integer.valueOf(card.getCustomset_id());
@@ -438,68 +441,6 @@ public class TaskListsDao {
 
 		// 結果を返す
 		return list;
-	}
-
-	public Task select(Task select) {
-		// TODO 自動生成されたメソッド・スタブ
-		Connection conn = null;
-		List<Task> list = new ArrayList<Task>();
-
-		try {
-			// JDBCドライバを読み込む
-			Class.forName("org.h2.Driver");
-
-			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
-
-			// SQL文を準備する
-			String sql = "select id,user_id,task_id,customset_id,task_name,task_memo,task_date,priority,task_judge from task_lists where task_date =  CURRENT_DATE;";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			// SQL文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
-
-			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-				Task card = new Task(
-				rs.getString("id"),
-				rs.getString("user_id"),
-				rs.getString("task_id"),
-				rs.getString("customset_id"),
-				rs.getString("task_name"),
-				rs.getString("task_memo"),
-				rs.getString("task_date"),
-                rs.getString("priority"),
-                rs.getBoolean("task_judge")
-				);
-				list.add(card);
-//				System.out.println(rs.getString("id"));
-			}
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-			list = null;
-		}
-		catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			list = null;
-		}
-		finally {
-			// データベースを切断
-			if (conn != null) {
-				try {
-					conn.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-					list = null;
-				}
-			}
-		}
-
-		// 結果を返す
-		return (Task) list;
-
 	}
 
 }
