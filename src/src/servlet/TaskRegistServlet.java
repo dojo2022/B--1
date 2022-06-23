@@ -43,6 +43,11 @@ public class TaskRegistServlet extends HttpServlet {
 
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
+		        response.setContentType("application/json");
+				response.setHeader("Cache-Control", "nocache");
+				response.setCharacterEncoding("utf-8");
+
+
 				String id = request.getParameter("id");
 				String user_id = request.getParameter("user_id");
 				String task_id = request.getParameter("task_id");

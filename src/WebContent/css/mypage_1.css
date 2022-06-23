@@ -54,7 +54,7 @@
         	border-radius: 20px;
             text-align: left;
             width: 450px;
-            height:465px;
+			height:auto;
             margin: 30px auto;
             padding: 10px;
         }
@@ -63,6 +63,8 @@
         }
         .icon_img{
         	text-align:center;
+        	width:200px;
+        	height:200px;
         }
         .holiday{
             display: inline-flex;

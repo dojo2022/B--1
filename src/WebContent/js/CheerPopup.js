@@ -19,10 +19,17 @@
 		});
 	}
 
+//チェックボックスにチェックを入れるとポップアップウィンドウが出る
+	const chk= document.getElementById("chk_box");
+	chk.addEventListener("change",function(){
+		document.getElementById("popWin").style.display="block";
+	});
+
+
 //非同期通信
 
 	function goAjax(){
-			alert("functionはいったよ！");
+			//alert("functionはいったよ！");
 			//入力値を取得してくる
 			let testData1 = document.getElementById('chk_box').value;
 
@@ -46,7 +53,7 @@
 				timeStamp: new Date().getTime()
 			   //非同期通信が成功したときの処理
 			  }).done(function(data) {
-				alert("成功1");
+				//alert("成功1");
 				// 今回は上の<div id="test"></div>の中に返ってきた文字列を入れる
 				// 褒めるポップアップにCheerimageを表示する
 				var img_element=document.createElement('img');
@@ -176,9 +183,3 @@ function task_popup() {
   $("#popWin").css( { 'display':'block' });
 }
 */
-
-/*//チェックボックスにチェックを入れるとポップアップウィンドウが出る
-	const chk= document.getElementById("chk_box");
-	chk.addEventListener("change",function(){
-		document.getElementById("popWin").style.display="block";
-	});*/
