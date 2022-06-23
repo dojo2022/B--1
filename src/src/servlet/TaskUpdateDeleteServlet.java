@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import dao.TaskListsDao;
 import model.Result;
 import model.Task;
@@ -40,8 +37,8 @@ public class TaskUpdateDeleteServlet extends HttpServlet {
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
-		
-		
+
+
 		String id = request.getParameter("id");
 		String user_id = request.getParameter("user_id");
 		String task_id = request.getParameter("task_id");
@@ -84,20 +81,6 @@ public class TaskUpdateDeleteServlet extends HttpServlet {
 			}
 		}
 
-		try {
-			//JavaオブジェクトからJSONに変換
-			//JSONの出力
-			if(iconImage != null) {
-				ObjectMapper mapper = new ObjectMapper();
-				String json = mapper.writeValueAsString(iconImage);
-			    response.getWriter().write(json);
-			}
-			} catch (JsonProcessingException e) {
-			    e.printStackTrace();
-			}
-		response.setContentType("application/json");
-		response.setHeader("Cache-Control", "nocache");
-		response.setCharacterEncoding("utf-8");
-	}
+    }
 
 }
