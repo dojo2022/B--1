@@ -60,11 +60,11 @@
 		})
 		//非同期通信が成功したときの処理
 		.done(function(data) {
-			alert("成功1");
+//			alert("成功1");
 			// アイコンの表示を変える。リマインドのデフォルトを変更する。
-				for(var i in data){
-					document.getElementById("iconImage").src = data[i].icon_image;
-				}
+//				for(var i in data){
+//				document.getElementById("iconImage").src = data[i].icon_image;
+//				}
 		})
 		//非同期通信が失敗したときの処理
 		.fail(function() {
@@ -74,6 +74,11 @@
 	}
 
 	function newIcon() {
+
+		let setIcon = document.getElementById('img').value;
+
+		let postData = { Icon : setIcon }
+
 		$.ajaxSetup({scriptCharset:'utf-8'});
 		$.ajax({
 			//どのサーブレットに送るか
@@ -92,7 +97,7 @@
 		})
 		//非同期通信が成功したときの処理
 		.done(function(data) {
-			alert("成功1");
+//			alert("成功1");
 			// アイコンの表示を変える。リマインドのデフォルトを変更する。
 				for(var i in data){
 					document.getElementById("iconImage").src = data[i].icon_image;

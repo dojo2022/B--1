@@ -76,7 +76,7 @@ public class PersonalOptionServlet extends HttpServlet {
 
 		// 送信されたデータの取得
 		String pw = request.getParameter("Pw");
-//		String icon = request.getParameter("Icon");
+		String icon = request.getParameter("Icon");
 		String salary = request.getParameter("Salary");
 		String sun = request.getParameter("Sun");
 		String mon = request.getParameter("Mon");

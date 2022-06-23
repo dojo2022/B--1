@@ -263,7 +263,7 @@ public class HolidayDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select * from holiday WHERE USER_ID = ? AND holiday BETWEEN ? AND ? ORDER BY ID";
+			String sql = "select * from holiday WHERE USER_ID = ? AND yesNo = true AND holiday BETWEEN ? AND ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
