@@ -20,6 +20,7 @@
 	</div>
     <div class="newsWrapper">
         <div class="news">
+            <br class="newsBr">
             <ul>
 				<li>お知らせ：</li>
 				<c:forEach var="n" items="${news}">
