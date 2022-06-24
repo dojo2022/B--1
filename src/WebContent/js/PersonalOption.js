@@ -40,9 +40,9 @@
 		let setBirthDay = document.getElementById('birthDay').value;
 
 		//{変数名：中に入れるもの}みたいに書いて、複数の値をpostData変数に格納
-		let postData = {Pw:setPw, Salary:setSalary, Sun:setSun,
-		Mon:setMon, Tue:setTue, Wed:setWed, Thu:setThu, Fri:setFri, Sat:setSat,
-		BirthMonth:setBirthMonth, BirthDay:setBirthDay}
+		let postData = {pw:setPw, salaryDay:setSalary, sunday:setSun,
+		monday:setMon, tuesday:setTue, wednesday:setWed, thursday:setThu, friday:setFri, saturday:setSat,
+		birthMonth:setBirthMonth, birthDay:setBirthDay}
 
 
 		//非同期通信始めるよ
@@ -76,42 +76,6 @@
 		});
 	}
 
-	function newIcon() {
-			alert("newIconはいったよ！");
-
-		let setIcon = document.getElementById('img').value;
-
-		let postData = { Icon : setIcon }
-
-		$.ajaxSetup({scriptCharset:'utf-8'});
-		$.ajaxSetup({enctype:'multipart/form-data'});
-		$.ajax({
-			//どのサーブレットに送るか
-			//ajaxSampleのところは自分のプロジェクト名に変更する必要あり。
-			url: '/Forza/PersonalOptionServlet',
-			//どのメソッドを使用するか
-			type:"POST",
-			//受け取るデータのタイプ
-			dataType:"json",
-			//何をサーブレットに飛ばすか（変数を記述）
-			data: postData,
-			//この下の２行はとりあえず書いてる（書かなくても大丈夫？）
-			processDate:false,
-			timeStamp: new Date().getTime()
-		})
-		//非同期通信が成功したときの処理
-		.done(function(data) {
-//			alert("成功1");
-			// アイコンの表示を変える。リマインドのデフォルトを変更する。
-					document.getElementById("iconImage").src = data[0].icon_image;
-		})
-		//非同期通信が失敗したときの処理
-		.fail(function() {
-			//失敗とアラートを出す
-			alert("失敗！");
-		});
-		return false;
-	}
 
 /*ヘッダーのテストコード*/
 //ドロップダウンの設定を関数でまとめる
@@ -141,3 +105,10 @@ $(window).resize(function() {
 $(window).on('load',function(){
   mediaQueriesWin();/* ドロップダウンの関数を呼ぶ*/
 });
+
+/* リロードする */
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("submit").addEventListener("click", function(){
+    window.location.reload(true);
+    })
+  });
