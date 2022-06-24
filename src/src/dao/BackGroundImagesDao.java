@@ -90,7 +90,7 @@ public class BackGroundImagesDao {
 
 					// SQL文を完成させる
 					pStmt.setString(1, insert.getUser_id());
-					pStmt.setString(2, "/Forza/background_images/" + insert.getBackground_image());
+					pStmt.setString(2, "/Forza/cheer_images/" + insert.getBackground_image());
 
 					// SQL文を実行する
 					if (pStmt.executeUpdate() == 1) {
