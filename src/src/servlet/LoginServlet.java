@@ -57,7 +57,6 @@ public class LoginServlet extends HttpServlet {
 					LoginCount count1 = count.LoginCount(new Users(id));
 					session.setAttribute("loginCount",count1.getCount() );
 
-
 					// メニューサーブレットにリダイレクトする
 					response.sendRedirect("/Forza/TopServlet");
 				}

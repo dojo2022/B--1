@@ -81,12 +81,19 @@ public class TopServlet extends HttpServlet {
 
 						session.setAttribute("iconImage", icon);
 
-				// 検索処理を行う
+				// タスクの検索処理を行う(デフォルト)
 						TaskListsDao TaskDao = new TaskListsDao();
 						List<Task> list = TaskDao.show();
 
 				// 検索結果をリクエストスコープに格納する
 						request.setAttribute("lists", list);
+
+				// パラメータが渡された場合のタスク表示
+						if(request.getParameter("date") != null) {
+							String date =request.getParameter("date");
+							List<Task> tList = TaskDao.one_day(memo_id, date);
+							request.setAttribute("lists", tList);
+						}
 
 		// トップページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/topPage.jsp");
@@ -112,6 +119,7 @@ public class TopServlet extends HttpServlet {
 		String memo_id = (String)session.getAttribute("memo");
 
 
+
 		// 更新を行う
 		TopMemosDao Dao = new TopMemosDao();
 		Memo m= new Memo(memo_id,top_memo);
@@ -128,13 +136,12 @@ public class TopServlet extends HttpServlet {
 		/*トップページにフォワードする*/
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/topPage.jsp");
 			dispatcher.forward(request, response);
-
-
-
-
 		}
 
 		/*トップメモ関連ここまで*/
+
+		/* タスクリストの表示変更など */
+
 	}
 
 }

@@ -32,7 +32,7 @@ function createCalendar(year, month) {
     let calendarHtml = '' // HTMLを組み立てる変数
 
     calendarHtml += '<h1>' + year  + '/' + month + '</h1>'
-    calendarHtml += '<table>'
+    calendarHtml += '<table class="calendar_table">'
 
     // 曜日の行を作成
     for (let i = 0; i < weeks.length; i++) {
@@ -98,11 +98,15 @@ document.querySelector('#prev').addEventListener('click', moveCalendar)
 document.querySelector('#next').addEventListener('click', moveCalendar)
 
 /* 日付をクリックしたらイベントを発生させる */
+
 document.addEventListener("click", function(e) {
     if(e.target.classList.contains("calendar_td")) {
-        alert('クリックした日付は' + e.target.dataset.date + 'です')
-    }
+        alert( e.target.dataset.date + 'のタスクを表示します')
+        location.href = '/Forza/TopServlet?date=' + e.target.dataset.date ;
+        }
 })
+
+
 /*数ヵ月分表示する*/
 showCalendar(year, month)/**
  *

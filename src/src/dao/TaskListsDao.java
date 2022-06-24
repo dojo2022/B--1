@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -412,6 +413,74 @@ public class TaskListsDao {
 				Task card = new Task(
 				rs.getString("user_id"),
 				rs.getString("task_date"),
+                rs.getBoolean("task_judge")
+				);
+				list.add(card);
+//				System.out.println(rs.getString("id"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			list = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			list = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					list = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return list;
+	}
+
+	// ある日のタスクを表示
+	public List<Task> one_day(String user_id, String date) {
+		Connection conn = null;
+		List<Task> list = new ArrayList<Task>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "select * from task_lists where user_id = ? and task_date = ?;";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, user_id);
+
+			String date1 = date.replace("/", "-");
+			Date aDate = Date.valueOf(date1);
+
+			pStmt.setDate(2, aDate);
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Task card = new Task(
+				rs.getString("id"),
+				rs.getString("user_id"),
+				rs.getString("task_id"),
+				rs.getString("customset_id"),
+				rs.getString("task_name"),
+				rs.getString("task_memo"),
+				rs.getString("task_date"),
+                rs.getString("priority"),
                 rs.getBoolean("task_judge")
 				);
 				list.add(card);

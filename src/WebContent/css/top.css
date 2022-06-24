@@ -116,7 +116,7 @@
             display: grid;
             gap: 30px;
             grid-template-columns: 1fr 2fr 1fr;
-            grid-template-rows: 300px  80px auto;
+            grid-template-rows: 380px  80px auto;
         }
         .calendar{
             background-color: #ffffff94;
@@ -124,6 +124,81 @@
             grid-column: 1;
             grid-row: 1 / 2;
         }
+        .calendar_table{
+        	margin: 0 auto;
+        }
+
+        .CalendarWrapper{
+    margin: 0 auto;
+    color: #666;
+    text-align: center;
+    object-fit: cover;
+
+}
+
+.CalendarWrapper * {
+	    object-fit: cover;
+}
+
+section {
+    margin: 5px;
+}
+
+table {
+	margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.calendar_table td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+/*日曜*/
+.calendar_table td:first-child {
+    color: red;
+}
+
+/*土曜*/
+.calendar_table td:last-child {
+    color: royalblue;
+}
+
+/*前後付きの日付*/
+.calendar_table td.is-disabled {
+    color: #ccc;
+}
+
+/*本日*/
+.calendar_table td.today {
+    background-color: #D65E72;
+    color: #fff;
+}
+
+
+
+
+        /* カレンダーボタン */
+#prev {
+	font-weight: bold;
+	border: solid 2px rgb(153, 153, 153,0.6);
+    cursor: pointer;
+	background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	color: black;
+    margin: 15px 5px 0px 20px;
+    border-radius:10px;
+
+}
+#next {
+	font-weight: bold;
+	border: solid 2px rgb(153, 153, 153,0.6);
+    cursor: pointer;
+    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+    color: black;
+	border-radius:10px;
+}
         .task{
 	        background-color: #ffffff94;
             border-radius: 10%;

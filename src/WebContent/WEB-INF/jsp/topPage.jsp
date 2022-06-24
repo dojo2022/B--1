@@ -59,7 +59,6 @@
 
 		<div class="CalendarWrapper">
 		    <!-- xxxx年xx月を表示 -->
-		    <h1 id="CalendarHeader"></h1>
 		  <!-- ボタンクリックで月移動 -->
 		    <button id="prev" type="button">＜</button>
 		    <button id="next" type="button">＞</button>
