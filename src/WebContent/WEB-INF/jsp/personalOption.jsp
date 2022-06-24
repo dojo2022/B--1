@@ -58,15 +58,19 @@
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setIcon">
+
                 </div>
-				<div>
+
                     <label><b>新しいアイコン画像</b></label><br><br>
 					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br><br><br>
 					<canvas id="preview" style="width:47px; height:47px;"></canvas><br><br>
-                </div>
+
 				<div>
 					<br>
 					<table align="center"><tr><td align="center"><input type="button" class="button" value="変更" onclick="newIcon()"></td></tr></table>
+
+
+
                 </div>
 			</form>
 </div>

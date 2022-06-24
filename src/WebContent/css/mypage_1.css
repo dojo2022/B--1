@@ -104,6 +104,7 @@ font-size:35px;
 
 /*         main{background:rgba(255,255,255,0.6);
 
+/*         main{background:rgba(255,255,255,0.6);
         	border-radius: 20px;
             text-align: left;
             width: 90%;
@@ -138,15 +139,21 @@ font-size:35px;
 hr{position:relative;
 		top:10px;}
 
-#preview{
+#preview{border-radius:50%;
+
 		width: 100px;
   		height: 100px;
   		margin:  0 auto;
+		width: 250px;
+  		height: 250px;
+ 		margin:  0 auto;}
+
+
+img{
  		object-fit: cover;
  		margin:  0 auto;
- 		border-radius:50%;}
-img{
-  object-fit: cover;
+ 		border-radius:50%;
+object-fit: cover;
   		user-select:none;
 		-webkit-user-select:none;
 		-ms-user-select: none;
@@ -400,6 +407,7 @@ section{
 section:nth-child(2n){
   background:#f3f3f3;
 } */
+
 
 
 .left{background:rgba(255,255,255,0.6);
