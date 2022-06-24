@@ -60,11 +60,6 @@
 
                              <input type="submit" name="data1" value="+新規追加" onclick="return goAjax();"></label>
 
-                             <input type="submit" name="ADDNEW" value="+新規追加"></label>
-
-                           <input type="submit" name="data1" value="+新規追加" onclick="return goAjax();"></label>
-
-
                           </form>
 
                         </div>
