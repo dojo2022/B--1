@@ -1,15 +1,39 @@
 
 /*タスク登録用ポップアップCSS*/
 #click-btn {
-  display: block;
+		font-weight: bold;
+		border: solid 2px rgb(153, 153, 153,0.6);
+	    padding: 4px 1px;
+	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	    color: black;
+	    cursor: pointer;
+	    border-radius:10px;
+	    height: 2em;
+	    width: 5em;
+		font-size:19px;
+		transition: 0.3s;
+    }
+#click-btn:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
+	    border: solid 2px black;
+	    padding: 4px 1px;
+	    cursor: pointer;
+	    border-radius:10px;
+	    background:rgba(255,255,255,0.6);
+	    box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                 	0 -1px 4px white,                    0 1px 4px white,
+               		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+
+    }
+ /*  display: block;
   margin: 20px auto;
   background-color: purple;
   color: white;
   border: 0;
   padding: 6px 10px;
-}
+} */
 
 #popup-wrapper {
+  z-index:2;
   background-color: rgba(0, 0, 0, .5);
   position: fixed;
   top: 0;
@@ -20,6 +44,7 @@
 }
 
 #popup-inside {
+  z-index:3;
   text-align: center;
   width: 100%;
   max-width: 500px;
@@ -64,6 +89,7 @@
 }
 
 .edit-popup-wrapper {
+  z-index:2;
   background-color: rgba(0, 0, 0, .5);
   position: fixed;
   top: 0;
@@ -74,6 +100,7 @@
 }
 
 .edit-popup-inside {
+  z-index:3;
   text-align: center;
   width: 100%;
   max-width: 500px;
@@ -103,10 +130,8 @@
 
 /*褒める用のCSS*/
 
-
-
-
     #popWin {
+    	z-index:2;
 	    background-color: rgba(0, 0, 0, .5);
 	  	position: fixed;
 	  	top: 0;
@@ -123,11 +148,12 @@
       }
 
 	 .popwin-inside {
+	 	 z-index:3;
 	     text-align: center;
 	 	 width: 100%;
 		 max-width: 500px;
 		 height: 100%;
-		 max-height: 500px;
+		 max-height: 600px;
 		 background: white;
 		 margin: 10% auto;
 		 padding: 20px;

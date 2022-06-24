@@ -98,11 +98,16 @@
             grid-row: 1 / 2;
         }
         .task{
-            background-color: #33ff0094;
+	        background-color: #ffffff94;
+            border-radius: 10%;
+            grid-column: 1;
+            grid-row: 1 / 2;
+        }
+            /* background-color: #33ff0094;
             border-radius: 10%;
             grid-column: 2 / 3;
-            grid-row: auto;
-        }
+            grid-row: auto; */
+
         .memo{
             grid-column: 3 / 4;
             grid-row: 1 / 3;
@@ -458,7 +463,6 @@ h1{
 
 
 }
-
 .menu{height:50px;
 		font-size:36px;
 		user-select:none;
@@ -470,7 +474,6 @@ h1{
 		-khtml-user-drag:none;
 
 }
-
 /* h2{
   font-size:1.2rem;
   text-align: center;

@@ -127,9 +127,7 @@
 					                <input type="checkbox" name="loop" value="e_week">毎週
 					                <input type="checkbox" name="loop" value="e_month">毎月
 					                <input type="checkbox" name="loop" value="e_year">毎年
-
-					            <br>
-					            繰り返しの期間：カレンダーから選択
+					            <!-- 繰り返しの期間：カレンダーから選択 -->
 					            <br>
 					            メモ：<textarea name="task_memo"></textarea><br>
 					            <br>
