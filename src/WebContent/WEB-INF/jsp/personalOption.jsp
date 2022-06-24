@@ -59,7 +59,7 @@
 					<canvas id="preview" style="width:100px; height:100px;"></canvas><br>
                 </div>
 				<div>
-					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" onclick="return newIcon();"></td></tr></table>
+					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
                 </div>
 			</form>
 <hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;">
