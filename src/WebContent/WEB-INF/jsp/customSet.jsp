@@ -29,16 +29,18 @@
 		</header>
 <!-- メイン -->
    <div class="background">
-			<img class="backgound_img" alt="background" src="${myBackGround}">
+			<img class="backgound_img" alt="background" src="${background}">
         </div>
+
      <div class="bg">
+     <form action="/Forza/CustomSetServlet" method="post" enctype="multipart/form-data">
           <div class="upload">
             <h3>背景画像アップロード:　　　　　　　　　　　
-          <input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+          <input type="file" name="BACK" accept="image/*" onchange="previewImage(this);"><br>
 		 <canvas id="preview" style="max-width:30px;"></canvas><br>
             <input type="submit" name="UPLOAD" value="アップロード"></h3>
           </div>
-
+		</form>
        <div class="custom">
            <div class="customname">
             <h3>カスタムセット:　　　　　　　　　</h3>

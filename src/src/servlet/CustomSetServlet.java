@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,10 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dao.BackGroundImagesDao;
 import dao.CustomSetListsDao;
+import model.BackGround;
 import model.CustomSetLists;
 
 
@@ -22,7 +26,7 @@ import model.CustomSetLists;
  * Servlet implementation class RegisterServlet
  */
 
-@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\background_images") // アップロードファイルの一時的な保存先
+@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\cheer_images") // アップロードファイルの一時的な保存先
 @WebServlet("/CustomSetServlet")
 public class CustomSetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -55,18 +59,18 @@ public class CustomSetServlet extends HttpServlet {
 */
             // セッションスコープからUSER_IDを取得し、アイコンの選択
 			HttpSession session = request.getSession();
-		   if(session.getAttribute("id") != null) {
+
 //			String id = (String)session.getAttribute("memo");
 			   String id ="DOJO";
 				System.out.println("-----個人設定------");
 				System.out.println(id);
-			//BackGroundImagesDao iDao = new BackGroundImagesDao();
-			//List<BackGround> background = iDao.select(new BackGround(id));
+			BackGroundImagesDao iDao = new BackGroundImagesDao();
+			List<BackGround> background = iDao.select(new BackGround(id));
 			// 検索結果をリクエストスコープに上書きして格納する
 
-			//System.out.println(background.get(0).getBackground_image());
-			//request.setAttribute("myBackGround", background.get(0).getBackground_image());
-		   }
+			System.out.println(background.get(0).getBackground_image());
+			session.setAttribute("background", background.get(0).getBackground_image());
+
 
 
 /*
@@ -88,6 +92,16 @@ public class CustomSetServlet extends HttpServlet {
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
+		HttpSession session =request.getSession();
+
+		Part part = request.getPart("BACK"); // getPartで取得
+
+		String image = this.getFileName(part);
+		session.setAttribute("background", image);
+		// サーバの指定のファイルパスへファイルを保存
+        //場所はクラス名↑の上に指定してある
+		part.write(image);
+
 	/*
 		// セッションスコープを破棄する
 		        HttpSession session = request.getSession();
@@ -99,11 +113,20 @@ public class CustomSetServlet extends HttpServlet {
         String CustomSetName = request.getParameter("cName");
 
 				// リクエストパラメータを取得する
-		        HttpSession session = request.getSession();
 				request.setCharacterEncoding("UTF-8");
 
+				// セッションスコープからUSER_IDを取得し、アイコンの選択
 
-
+	            BackGroundImagesDao iDao = new BackGroundImagesDao();
+				iDao.insert(new BackGround(name, image));
+	            List<BackGround> background = iDao.select(new BackGround(name));
+				// 検索結果をリクエストスコープに上書きして格納する
+				System.out.println(background.get(0).getBackground_image());
+				session.setAttribute("background", background.get(0).getBackground_image());
+				if (background != null) {
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
+					dispatcher.forward(request, response);
+				}
 				// 登録処理を行う
 				CustomSetListsDao bDao = new CustomSetListsDao();
 				bDao.insert(new CustomSetLists(name,CustomSetName));	// 登録成功
@@ -119,22 +142,30 @@ public class CustomSetServlet extends HttpServlet {
 				            //JSONの出力
 				            response.getWriter().write(testJson);
 
-/*
 
-	            // セッションスコープからUSER_IDを取得し、アイコンの選択
-			   if(session.getAttribute("id") != null) {
+
+
+			   /*
+							if(session.getAttribute("id") != null) {
 				String id = (String)session.getAttribute("memo");
 					System.out.println("-----個人設定------");
 					System.out.println(id);
-				BackGroundImagesDao iDao = new BackGroundImagesDao();
-				List<BackGround> background = iDao.select(new BackGround(id));
-				// 検索結果をリクエストスコープに上書きして格納する
-				System.out.println(background.get(0).getBackground_image());
-				request.setAttribute("myBackGround", background.get(0).getBackground_image());
+
 			   }
-*/
+				*/
 
+					}
+			//ファイルの名前を取得してくる
+			private String getFileName(Part part) {
+		        String name = null;
+		        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+		            if (dispotion.trim().startsWith("filename")) {
+		                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+		                name = name.substring(name.lastIndexOf("\\") + 1);
+		                break;
+		            }
+		        }		// TODO 自動生成されたメソッド・スタブ
+				return name;
 			}
-
 		}
 
