@@ -46,22 +46,13 @@
   </header>
 <!-- メイン -->
     <main>
-<<<<<<< Updated upstream
     <div class = "flex">
     <div class= "left">
     	<br><b id="center">現在のアイコン画像</b><br><br>
-=======
-    <div class="icon_setting">
->>>>>>> Stashed changes
         <div class="icon" style="width:100px; height:100px;">
-			<img class="icon_img" id="iconImage" alt="icon" src="${iconImage.icon_image}" style="width:100px; height:100px;">
+			<img class="icon_image" id="iconImage" alt="icon" src="${iconImage.icon_image}" style="width:100px; height:100px;">
         </div>
-<<<<<<< Updated upstream
         <hr style="border:none;border-top:dashed 1px black;height:1px;width:95%;"><br>
-=======
-
-<hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;"><br>
->>>>>>> Stashed changes
 
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
@@ -72,7 +63,6 @@
 					<canvas id="preview" ></canvas><br>
                 </div>
 				<div>
-<<<<<<< Updated upstream
 					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
 =======
                     <label><b>新しいアイコン画像</b></label><br>
@@ -91,17 +81,6 @@
 <!-- ここで分ける -->
 
 <div class="right"><br><br><br>
-=======
-					<table align="center"><tr><td align="center"><input type="submit" class="button" id="submit" value="変更" ></td></tr></table>
-                </div>
-			</form>
-		</div>
-	</div>
-
-<hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;">
-
-		<div class="PerOpt_setting">
->>>>>>> Stashed changes
 			<form action="/Forza/PersonalOptionServlet" method="post">
                 <div class="setPw">
                     <label for="setPw"><b>変更後パスワード:</b>
@@ -238,7 +217,7 @@
                         </div>
                 </div>
                 <div>
-                    <table align="center"><tr><td align="center"><input type="submit" value="更新" id="submit" ></td></tr></table>
+                    <table align="center"><tr><td align="center"><input type="button" value="更新" id="submit" onclick="update()"></td></tr></table>
                 </div>
             </form>
 
