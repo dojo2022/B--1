@@ -71,8 +71,8 @@ public class TopServlet extends HttpServlet {
 						session.setAttribute("cardList", cardList);
 						session.setAttribute("TaskCount", count3);
 						session.setAttribute("torophy", torophy);
-						request.setAttribute("news", newsList);
-						request.setAttribute("holiday", hList);
+						session.setAttribute("news", newsList);
+						session.setAttribute("holiday", hList);
 
 				// アイコン画像の取得
 						IconImagesDao topIcon = new IconImagesDao();

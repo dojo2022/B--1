@@ -24,6 +24,8 @@
 	}
 
 	function update(){
+				alert("updataはいったよ！");
+
 		//入力値を取得してくる
 		let setPw = document.getElementById('pw').value;
 		let setSalary = document.getElementById('salaryDay').value;
@@ -75,12 +77,14 @@
 	}
 
 	function newIcon() {
+			alert("newIconはいったよ！");
 
 		let setIcon = document.getElementById('img').value;
 
 		let postData = { Icon : setIcon }
 
 		$.ajaxSetup({scriptCharset:'utf-8'});
+		$.ajaxSetup({enctype:'multipart/form-data'});
 		$.ajax({
 			//どのサーブレットに送るか
 			//ajaxSampleのところは自分のプロジェクト名に変更する必要あり。
@@ -92,7 +96,6 @@
 			//何をサーブレットに飛ばすか（変数を記述）
 			data: postData,
 			//この下の２行はとりあえず書いてる（書かなくても大丈夫？）
-			contentType:false,
 			processDate:false,
 			timeStamp: new Date().getTime()
 		})
@@ -100,15 +103,41 @@
 		.done(function(data) {
 //			alert("成功1");
 			// アイコンの表示を変える。リマインドのデフォルトを変更する。
-				for(var i in data){
-					document.getElementById("iconImage").src = data[i].icon_image;
-				}
+					document.getElementById("iconImage").src = data[0].icon_image;
 		})
 		//非同期通信が失敗したときの処理
 		.fail(function() {
 			//失敗とアラートを出す
 			alert("失敗！");
 		});
+		return false;
 	}
 
+/*ヘッダーのテストコード*/
+//ドロップダウンの設定を関数でまとめる
+function mediaQueriesWin(){
+  var width = $(window).width();
+  if(width <= 768) {//横幅が768px以下の場合
+    $(".has-child>a").off('click'); //has-childクラスがついたaタグのonイベントを複数登録を避ける為offにして一旦初期状態へ
+    $(".has-child>a").on('click', function() {//has-childクラスがついたaタグをクリックしたら
+      var parentElem =  $(this).parent();// aタグから見た親要素の<li>を取得し
+      $(parentElem).toggleClass('active');//矢印方向を変えるためのクラス名を付与して
+      $(parentElem).children('ul').stop().slideToggle(500);//liの子要素のスライドを開閉させる※数字が大きくなるほどゆっくり開く
+      return false;//リンクの無効化
+    });
+  }else{//横幅が768px以上の場合
+    $(".has-child>a").off('click');//has-childクラスがついたaタグのonイベントをoff(無効)にし
+    $(".has-child").removeClass('active');//activeクラスを削除
+    $('.has-child').children('ul').css("display","");//スライドトグルで動作したdisplayも無効化にする
+  }
+}
 
+// ページがリサイズされたら動かしたい場合の記述
+$(window).resize(function() {
+  mediaQueriesWin();/* ドロップダウンの関数を呼ぶ*/
+});
+
+// ページが読み込まれたらすぐに動かしたい場合の記述
+$(window).on('load',function(){
+  mediaQueriesWin();/* ドロップダウンの関数を呼ぶ*/
+});
