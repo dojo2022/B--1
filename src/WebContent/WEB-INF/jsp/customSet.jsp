@@ -70,6 +70,7 @@
                              <div class="clickableTitle">${e.customset_name}</div>
                              <div class="hiddenLine">
                                 <c:forEach var="custom" items="${e.cheers}" >
+                                 <form method="POST" action="/Forza/CustomSetServlet">
                                   <div class="postCustomset">
                                   <input type="hidden" class="reviewId" value="${custom.customset_id}">
                                 <div class="edit">
@@ -80,10 +81,11 @@
 				                      </div>
 				                     <div class="bg1">
 				                      <div class="postcenter">
-					                   <div>${custom.cheer_message}</div>
+					                   <input type="text" name="message" value="${custom.cheer_message}">
 				                      </div>
 				                     </div>
                                   </div>
+                                  </form>
                                 </c:forEach>
                               </div>
 
