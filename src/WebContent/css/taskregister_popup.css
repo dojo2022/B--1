@@ -56,12 +56,35 @@
   position: relative;
 }
 
-#message a {
-  background: purple;
-  color: white;
-  text-decoration: none;
-  padding: 6px 10px;
+#message {
+	text-align:left;
+	padding:50px 20px 50px 20px;
 }
+
+#addBtn{
+		font-weight: bold;
+		border: solid 2px rgb(153, 153, 153,0.6);
+	    padding: 4px 1px;
+	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	    color: black;
+	    cursor: pointer;
+	    border-radius:10px;
+	    height: 3em;
+	    width: 5em;
+		font-size:13px;
+		transition: 0.3s;
+    }
+#addBtn:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
+	    border: solid 2px black;
+	    padding: 4px 1px;
+	    cursor: pointer;
+	    border-radius:10px;
+	    background:rgba(255,255,255,0.6);
+	    box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                 	0 -1px 4px white,                    0 1px 4px white,
+               		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+
+    }
 
 
 #close {
@@ -119,6 +142,11 @@
   padding: 6px 10px;
 }
 
+.edit-message {
+	text-align:left;
+	padding:50px 20px 50px 20px;
+}
+
 .edit-close {
   position: absolute;
   top: 0;
@@ -126,6 +154,30 @@
   cursor: pointer;
 }
 
+#updateBtn{
+		font-weight: bold;
+		border: solid 2px rgb(153, 153, 153,0.6);
+	    padding: 4px 1px;
+	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	    color: black;
+	    cursor: pointer;
+	    border-radius:10px;
+	    height: 3em;
+	    width: 5em;
+		font-size:13px;
+		transition: 0.3s;
+    }
+#updateBtn:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
+	    border: solid 2px black;
+	    padding: 4px 1px;
+	    cursor: pointer;
+	    border-radius:10px;
+	    background:rgba(255,255,255,0.6);
+	    box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+                 	0 -1px 4px white,                    0 1px 4px white,
+               		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+
+    }
 
 
 /*褒める用のCSS*/

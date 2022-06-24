@@ -57,10 +57,10 @@
 		              <div class="block">
 			            <div class="submit">
 			             <div class="addnew">
-			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'">
+			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'" enctype="multipart/form-data">
                              <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT" id="DATA1">
 
-                             <input type="submit" name="data1" value="+新規追加" onclick="return goAjax();"></label>
+                             <input type="submit" name="data1" value="+新規追加" ></label>
 
                           </form>
 
@@ -71,6 +71,13 @@
 	                      <div class="clickableLine">
                              <div class="clickableTitle">${e.customset_name}</div>
                              <div class="hiddenLine">
+                             <form method="POST" action="/Forza/CustomSetServlet" enctype="multipart/form-data">
+                             <div class="new_cheer">
+                             	<input type="file" name="CHEER" accept="image/*" >
+                             	<input type="text" style="width: 200px; height: 30px;" name="ADDMESSAGE" >
+                             	<input type="submit" name="data1" value="+新規追加" >
+                             </div>
+                             </form>
                                 <c:forEach var="custom" items="${e.cheers}" >
                                  <form method="POST" action="/Forza/CustomSetServlet">
                                   <div class="postCustomset">

@@ -286,4 +286,111 @@ public class CheerListsDao {
 					return result;
 				}
 
+}		public List<Cheer> show() {
+	Connection conn = null;
+	ArrayList<Cheer> Custom = new ArrayList<Cheer>();
+
+	try {
+		// JDBCドライバを読み込む
+		Class.forName("org.h2.Driver");
+
+		// データベースに接続する
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+		// SQL文を準備する
+		// ここでJOINを利用して2つのテーブルからデータを取得する。
+		String sql = "select id,user_id,customset_id,cheer_image,cheer_message from cheer_lists;";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		// 結果表をコレクションにコピーする
+		while (rs.next()) {
+			Cheer card = new Cheer(
+		//カスタムセットリストタグ情報
+			rs.getInt("id"),
+			rs.getString("user_id"),
+			rs.getString("customset_id"),
+            rs.getString("cheer_image"),
+            rs.getString("cheer_message")
+
+			);
+			Custom.add(card);
+			System.out.println(rs.getString("id"));
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		Custom = null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		Custom = null;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				Custom = null;
+			}
+		}
+	}
+
+	// 結果を返す
+	return Custom;
+
+}
+	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
+	public boolean touroku(Cheer card) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+
+			// SQL文を準備する
+			String sql = "insert into CHEER_LISTS(user_id,customset_id, CHEER_IMAGE, CHEER_MESSAGE) values (?, 1, ?, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+				pStmt.setString(1, card.getUser_id());
+				pStmt.setString(2, card.getCheer_image());
+				pStmt.setString(2, card.getCheer_message());
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
+	}
+
 }
