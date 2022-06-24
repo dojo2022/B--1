@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import dao.BackGroundImagesDao;
+import dao.CheerListsDao;
 import dao.CustomSetListsDao;
 import model.BackGround;
+import model.Cheer;
 import model.CustomSetLists;
 
 
@@ -95,53 +95,67 @@ public class CustomSetServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		HttpSession session =request.getSession();
 
-		Part part = request.getPart("BACK"); // getPartで取得
+		//idはセッションスコープから受けておる
+				String name = "DOJO";
 
+		// 背景
+		if (  request.getPart("BACK") != null) { // getPartで取得
+		Part part = request.getPart("BACK");
 		String image = this.getFileName(part);
 		session.setAttribute("background", image);
 		// サーバの指定のファイルパスへファイルを保存
         //場所はクラス名↑の上に指定してある
 		part.write(image);
+		BackGroundImagesDao iDao = new BackGroundImagesDao();
+		iDao.insert(new BackGround(name, image));
+        List<BackGround> background = iDao.select(new BackGround(name));
+        session.setAttribute("background", background.get(0).getBackground_image());
+		}
 
+		// 応援
+		if(request.getParameter("CHEER") != null) {
+			Part part = request.getPart("CHEER");
+			String image = this.getFileName(part);
+			request.setAttribute("cheer_image", image);
+			// サーバの指定のファイルパスへファイルを保存
+	        //場所はクラス名↑の上に指定してある
+			part.write(image);
+			String message = request.getParameter("ADDMESSAGE");
+			CheerListsDao cDao = new CheerListsDao();
+			cDao.touroku(new Cheer(name, image, message));
+		}
+
+		if(request.getParameter("ADDTEXT") != null) {
+			CustomSetListsDao bDao = new CustomSetListsDao();
+			String cName = request.getParameter("ADDTEXT");
+			bDao.insert(new CustomSetLists(name,cName));	// 登録成功
+
+		}
 	/*
 		// セッションスコープを破棄する
 		        HttpSession session = request.getSession();
 		        session.invalidate();
     */
-		//idはセッションスコープから受けておる
-		String name = "DOJO";
 
-        String CustomSetName = request.getParameter("cName");
 
 				// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
 
 				// セッションスコープからUSER_IDを取得し、アイコンの選択
 
-	            BackGroundImagesDao iDao = new BackGroundImagesDao();
-				iDao.insert(new BackGround(name, image));
-	            List<BackGround> background = iDao.select(new BackGround(name));
-				// 検索結果をリクエストスコープに上書きして格納する
-				System.out.println(background.get(0).getBackground_image());
-				session.setAttribute("background", background.get(0).getBackground_image());
-				if (background != null) {
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/customSet.jsp");
-					dispatcher.forward(request, response);
-				}
+
 				// 登録処理を行う
-				CustomSetListsDao bDao = new CustomSetListsDao();
-				bDao.insert(new CustomSetLists(name,CustomSetName));	// 登録成功
 
 
-				ArrayList<CustomSetLists> Custom_name = new ArrayList<>();
-				CustomSetLists CustomSet = new CustomSetLists(name, CustomSetName);
+				// メニューサーブレットにリダイレクトする
+				response.sendRedirect("/Forza/CustomSetServlet");
+
 
 				            //JavaオブジェクトからJSONに変換
-							   ObjectMapper mapper = new ObjectMapper();
-				            String testJson = mapper.writeValueAsString(CustomSet);
-				            System.out.println(testJson);
+							//   ObjectMapper mapper = new ObjectMapper();
+				           // String testJson = mapper.writeValueAsString(CustomSet);
+				            //System.out.println(testJson);
 				            //JSONの出力
-				            response.getWriter().write(testJson);
+				            //response.getWriter().write(testJson);
 
 
 

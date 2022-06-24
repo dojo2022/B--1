@@ -33,6 +33,12 @@ public class Cheer implements Serializable {
 		this.icon_image = icon_image;
 	}
 
+	public Cheer(String user_id, String cheer_image, String cheer_message) {
+	super();
+    this.user_id = user_id;
+    this.cheer_image = cheer_image;
+    this.cheer_message = cheer_message;
+	}
 
 	//引数があるコンストラクタを作成
 	public Cheer(int id, String user_id, String customset_id, String cheer_image, String cheer_message) {
