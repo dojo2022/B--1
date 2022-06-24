@@ -8,52 +8,125 @@
 	<title>Forza｜Setting</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<link rel = "stylesheet" type = "text/css" href = "/Forza/css/mypage_1.css">
+	<script type="text/javascript" src="/Forza/js/PersonalOption.js"></script>
 </head>
 <body>
 <div class="wrapper">
 <!-- ヘッダ－ -->
-		<header class="header">
-            <div class="logo">
-                <a href="/Forza/TopServlet"><img src="/Forza/images/Forza_trans.png" alt="home"></a>
+<header id="header">
+	<div class="header_logo">
+    <h1 style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;"><a href="/Forza/TopServlet">Forza</a></h1>
+	</div>
+    <div class="newsWrapper">
+        <div class="news">
+            <ul>
+				<li>お知らせ：</li>
+				<c:forEach var="n" items="${news}">
+					<li>${n.remind_name}は${n.remind_date}です。</li>
+				</c:forEach>
+				<c:forEach var="h" items="${holiday}">
+					<li>${h.dayOfWeek}は休日です。</li>
+				</c:forEach>
+                </ul>
             </div>
-            <div class="news">
-                <h3>お知らせはここに表示</h3>
-            </div>
-            <div class="myPage">
-                <input type="button" id="btn" value="myPage">
-            </div>
-		</header>
+           </div>
+    <nav style="margin-left: 0px; z-index:1; background-color:white;">
+    <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
+      <li class="has-child"><a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu"><img class="icon_image" src="${iconImage.icon_image}"></img></a>
+        <ul>
+        <li><a href="/Forza/PersonalOptionServlet">一般設定</a></li>
+        <li><a href="/Forza/CustomSetServlet">カスタマイズ</a></li>
+        <li><a href="/Forza/TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">実績</a></li>
+        <li><a href="/Forza/LogoutServlet">ログアウト</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  </header>
 <!-- メイン -->
     <main>
+    <div class = "flex">
+    <div class= "left">
+    	<br><b id="center">現在のアイコン画像</b><br><br>
         <div class="icon" style="width:100px; height:100px;">
-			<img class="icon_img" id="iconImage" alt="icon" src="${myIcon}" style="width:100px; height:100px;">
+			<img class="icon_image" id="iconImage" alt="icon" src="${iconImage.icon_image}" style="width:100px; height:100px;">
         </div>
-        <hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;"><br>
+        <hr style="border:none;border-top:dashed 1px black;height:1px;width:95%;"><br>
 
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setIcon">
+<<<<<<< Updated upstream
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
+					<canvas id="preview" ></canvas><br>
+                </div>
+				<div>
+					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
+=======
+                    <label><b>新しいアイコン画像</b></label><br>
+					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br><br>
 					<canvas id="preview" style="width:100px; height:100px;"></canvas><br>
                 </div>
 				<div>
+					<br>
 					<table align="center"><tr><td align="center"><input type="button" class="button" value="変更" onclick="newIcon()"></td></tr></table>
+>>>>>>> Stashed changes
                 </div>
 			</form>
-<hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;">
+</div>
+</div>
+
+<!-- ここで分ける -->
+
+<div class="right"><br><br><br>
 			<form action="/Forza/PersonalOptionServlet" method="post">
                 <div class="setPw">
-                    <label for="setPw">変更後パスワード:
+                    <label for="setPw"><b>変更後パスワード:</b>
                         <input type="text" id="pw" name="password" placeholder="password">
                     </label>
                 </div>
+                <br><br> <br><br>
                  <div class="setRemind">
-                    ご褒美Day(リマインダー)
+                    <b>ご褒美Day(リマインダー)</b>
                     <br>
                     <br>
+
+                        <div class="holiday">
+                            &emsp;<b>休日：</b>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="monday" name="days" value="月曜日">
+                                    <label for="monday">月</label>
+                                </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="tuesday" name="days" value="火曜日">
+                                    <label for="tuesday">火</label>
+                                </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="wednesday" name="days" value="水曜日">
+                                    <label for="wednesday">水</label>
+                                </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="thursday" name="days" value="木曜日">
+                                    <label for="thursday">木</label>
+                                </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="friday" name="days" value="金曜日">
+                                    <label for="friday">金</label>
+                                </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="saturday" name="days" value="土曜日">
+                                    <label for="saturday">土</label>
+                                </div>
+                                <div class="dayOfWeek">
+                                    <input type="checkbox" id="sunday" name="days" value="日曜日">
+                                    <label for="sunday">日</label>
+                                </div>
+
+                        </div>
                         <div class="salary">
-                            <label >&emsp;給与日：毎月
+                            <label >&emsp;<b>給与日：</b>毎月
                                 <select name="salary_day" id="salaryDay">
                                     <option value="">-</option>
                                     <option value="01">1</option>
@@ -90,40 +163,8 @@
                                 </select> 日
                             </label>
                         </div>
-                        <div class="holiday">
-                            &emsp;休日：
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="monday" name="days" value="月曜日">
-                                    <label for="monday">月</label>
-                                </div>
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="tuesday" name="days" value="火曜日">
-                                    <label for="tuesday">火</label>
-                                </div>
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="wednesday" name="days" value="水曜日">
-                                    <label for="wednesday">水</label>
-                                </div>
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="thursday" name="days" value="木曜日">
-                                    <label for="thursday">木</label>
-                                </div>
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="friday" name="days" value="金曜日">
-                                    <label for="friday">金</label>
-                                </div>
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="saturday" name="days" value="土曜日">
-                                    <label for="saturday">土</label>
-                                </div>
-                                <div class="dayOfWeek">
-                                    <input type="checkbox" id="sunday" name="days" value="日曜日">
-                                    <label for="sunday">日</label>
-                                </div>
-
-                        </div>
                         <div class="birthday">
-                            <label>&emsp;誕生日：
+                            <label>&emsp;<b>誕生日：</b>
                                 <select name="birth_month" id="birthMonth">
                                     <option value=null>-</option>
                                     <option value="01">1</option>
@@ -179,13 +220,16 @@
                     <table align="center"><tr><td align="center"><input type="button" value="更新" id="submit" onclick="update()"></td></tr></table>
                 </div>
             </form>
-        </div>
+
+      </div>
+</div>
+
     </main>
+    </div>
 <!-- フッタ－ -->
 	<footer>
         <!-- 今回は無し -->
 	</footer>
 </div>
-<script type="text/javascript" src="/Forza/js/PersonalOption.js"></script>
 </body>
 </html>

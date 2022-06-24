@@ -15,6 +15,7 @@ import dao.HolidayDao;
 import dao.IconImagesDao;
 import dao.RemindDatesDao;
 import dao.TaskCountDao;
+import dao.TaskListsDao;
 import dao.TopMemosDao;
 import dao.UsersDao;
 import model.Holiday;
@@ -71,14 +72,21 @@ public class TopServlet extends HttpServlet {
 						session.setAttribute("cardList", cardList);
 						session.setAttribute("TaskCount", count3);
 						session.setAttribute("torophy", torophy);
-						request.setAttribute("news", newsList);
-						request.setAttribute("holiday", hList);
+						session.setAttribute("news", newsList);
+						session.setAttribute("holiday", hList);
 
 				// アイコン画像の取得
 						IconImagesDao topIcon = new IconImagesDao();
 						Icon icon = topIcon.select(new Icon(memo_id));
 
 						session.setAttribute("iconImage", icon);
+
+				// 検索処理を行う
+						TaskListsDao TaskDao = new TaskListsDao();
+						List<Task> list = TaskDao.show();
+
+				// 検索結果をリクエストスコープに格納する
+						request.setAttribute("lists", list);
 
 		// トップページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/topPage.jsp");

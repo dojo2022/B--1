@@ -7,7 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/taskregister_popup.css">
-<script src="./js/TaskRegist.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/TaskRegist.js" defer></script>
 
 </head>
 <body>
@@ -71,10 +73,34 @@
             <c:forEach var="e" items="${lists}" varStatus="status">
 
             	<tr class="data_row">
-	            	<td><input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="checkedBox()" id="chk_box"></td>
+
+	            	<td><input type="hidden" name="ID" value="1">
+	            	    <input type="checkbox" name="CUSTOMSET_ID" value="1" onchange="goAjax()" id="chk_box">
+
+
+	            <div id="popWin">
+         			<!-- 紙吹雪のためのdiv -->
+            		<div id="particles-js"></div>
+					<div id="wrapper">
+        				<!-- ポップアップウィンドウ -->
+            			<div class="popwin-inside">
+	            		<h2>タスク完了！</h2>
+				        <!-- カスタムセットの画像を表示 -->
+				        <div id="cheerImage"></div>
+
+						<br>
+				    	<!-- カスタムセットのメッセージ表示 -->
+				    	<div id="cheerMessage"></div>
+				    	 <br>
+				    	 <!-- 閉じるボタン -->
+	                	<div id="popupclose" onmousedown="party.confetti(this)">閉じる</div>
+            		</div>
+        	</div>
+		</div>
+					</td>
 	            	<td><input	 type="button" name="task_name" value="${e.task_name}"  id ="click-name${status.count}">
 					</td>
-					<td>
+				<td>
 					<div class="edit-popup-wrapper" id="edit-popup-wrapper${status.count}">
 					  <div class="edit-popup-inside" id="edit-popup-inside${status.count}">
 					    <div class="edit-close" id="edit-close${status.count}">閉じる</div>
@@ -118,7 +144,7 @@
 					    </div>
 					  </div>
 					</div>
-					</td>
+				</td>
 	            	<td><form method="POST" action="/Forza/TaskUpdateDeleteServlet">
 	            		<input type="hidden" name="id" value="${e.id}">
 	            		<input type="submit" name="SUBMIT" value="削除">
@@ -130,8 +156,11 @@
 
         </table>
 
-
-
+<!-- 全面紙吹雪のjsダウンロード -->
+	<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<!-- 自作のjs読み込み
+	<script src="js/CheerPopup.js" defer></script>
+-->
 
 </body>
 </html>

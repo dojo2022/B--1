@@ -9,13 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.CheerListsDao;
+import dao.TaskListsDao;
 import model.Cheer;
+import model.Task;
 
 /**
  * Servlet implementation class CheerPopupServlet
@@ -39,12 +40,15 @@ public class CheerPopupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
 		String id = "DOJO";
+
+		TaskListsDao LDAO = new TaskListsDao();
+		LDAO.insert(new Task("","DOJO","1","1","腹筋","15回","2022-06-24","1",true));
 		//String id = (String)session.getAttribute("memo");
 		// 送信されたデータの取得
 		String data1 = request.getParameter("data1");

@@ -2,10 +2,10 @@
 
 //褒めるポップアップの「閉じる」ボタンの動き
 
-	const close = document.getElementById('close');	//id[close]が
-	close.addEventListener('click', () => {			//clickされたら
-		popWin.style.display = 'none';				//popWinのdisplayがなくなる
-	});
+	//const close = document.getElementById('close');	//id[close]が
+	//close.addEventListener('click', () => {			//clickされたら
+	//	popWin.style.display = 'none';				//popWinのdisplayがなくなる
+	//});
 
 //褒めるポップアップ表示に関する動き
 

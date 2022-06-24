@@ -99,7 +99,7 @@ public class TaskRegistServlet extends HttpServlet {
 				// 検索結果をリクエストスコープに格納する
 				request.setAttribute("lists", list);
 				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/taskList.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/topPage.jsp");
 				dispatcher.forward(request, response);
 	}
 
