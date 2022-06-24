@@ -83,7 +83,7 @@ for (let i = 1; i <= ele.length; i++) {
 
 //褒めるポップアップ表示に関する動き
 
-	function checkedBox() {
+	/*function checkedBox() {
 		const chkBox = document.getElementById('chk_box');
 		const popWin = document.getElementById('popWin');
 
@@ -91,7 +91,7 @@ for (let i = 1; i <= ele.length; i++) {
 		chkBox.addEventListener('change', () => {
 			popWin.style.display = "block";
 		});
-	}
+	}*/
 
 //チェックボックスにチェックを入れるとポップアップウィンドウが出る
 	const chk= document.getElementById("chk_box");
