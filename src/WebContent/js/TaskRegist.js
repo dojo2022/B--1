@@ -78,8 +78,10 @@ for (let i = 1; i <= ele.length; i++) {
 
 	const popupclose = document.getElementById('popupclose');	//id[popupclose]が
 	popupclose.addEventListener('click', () => {			//clickされたら
-		location.reload(true);
-		popWin.style.display = 'none';				//popWinのdisplayがなくなる
+		window.setTimeout(() => {
+		 location.reload(true);
+		 /*popWin.style.display = 'none';*/
+		},1500);				//popWinのdisplayがなくなる
 	});
 
 //褒めるポップアップ表示に関する動き
