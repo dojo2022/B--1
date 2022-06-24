@@ -72,18 +72,18 @@ public class PersonalOptionServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 
 		// 送信されたデータの取得
-		String pw = request.getParameter("Pw");
+		String pw = request.getParameter("pw");
 		String icon = request.getParameter("Icon");
-		String salary = request.getParameter("Salary");
-		String sun = request.getParameter("Sun");
-		String mon = request.getParameter("Mon");
-		String tue = request.getParameter("Tue");
-		String wed = request.getParameter("Wed");
-		String thu = request.getParameter("Thu");
-		String fri = request.getParameter("Fri");
-		String sat = request.getParameter("Sat");
-		String birthMonth = request.getParameter("BirthMonth");
-		String birthDay = request.getParameter("BirthDay");
+		String salary = request.getParameter("salaryDay");
+		String sun = request.getParameter("sunday");
+		String mon = request.getParameter("monday");
+		String tue = request.getParameter("tuesday");
+		String wed = request.getParameter("wednesday");
+		String thu = request.getParameter("thursday");
+		String fri = request.getParameter("friday");
+		String sat = request.getParameter("saturday");
+		String birthMonth = request.getParameter("birthMonth");
+		String birthDay = request.getParameter("birthDay");
 
 		// 画像の保存等
 		Part part = request.getPart("IMAGE"); // getPartで取得
@@ -146,10 +146,6 @@ public class PersonalOptionServlet extends HttpServlet {
 		if(sat != null) {
 			holiday.fight(new Holiday(id, sat, true));
 		}
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/personalOption.jsp");
-			dispatcher.forward(request, response);
-
 
 	}
 

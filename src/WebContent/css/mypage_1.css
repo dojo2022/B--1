@@ -101,9 +101,14 @@ font-size:35px;
 		 	border-radius: 50%;
 		}
 
+<<<<<<< Updated upstream
         main{background:rgba(255,255,255,0.6);
 =======
 /*         main{background:rgba(255,255,255,0.6);
+>>>>>>> Stashed changes
+=======
+        main{
+        	background:rgba(255,255,255,0.6);
 >>>>>>> Stashed changes
         	border-radius: 20px;
             text-align: left;
@@ -111,18 +116,48 @@ font-size:35px;
 			height:550px;
             margin: 30px auto;
             padding: 10px;
+<<<<<<< Updated upstream
         }*/
+=======
+        }
+        .main{
+            margin-top: 30px;
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 700px  auto;
+        }
+		.icon_setting {
+			grid-column: 1;
+            grid-row: 1 / 2;
+
+		}
+		.PerOpt_setting {
+			grid-column: 2 / 3;
+            grid-row: 1 / 2;
+
+		}
+>>>>>>> Stashed changes
         .icon {
         	text-align:center;
         	margin:  0 auto;
 
         }
         .icon_img{
+<<<<<<< Updated upstream
         	text-align:center;
         	object-fit: cover;
         	margin:  0 auto;
         	border-radius:50%;
 
+=======
+			width: 100%;
+		 	max-width: 95px;
+		 	height: 100%;
+		 	max-height: 95px;
+		 	border-radius: 10%;
+		 	text-align: center;
+>>>>>>> Stashed changes
         }
         .holiday{
             display: inline-flex;
