@@ -142,7 +142,7 @@ UPDATE remind_days set remind_date = 20220606 WHERE USER_ID ='HARU';
 CREATE TABLE TOP_MEMO (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(100) NOT NULL,
-  top_memo VARCHAR(200)
+  top_memo VARCHAR(1000)
 );
 /*TOPメモテーブルにサンプルデータを登録するSQL文*/
 INSERT INTO TOP_MEMO (user_id,top_memo) 
