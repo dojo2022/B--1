@@ -133,15 +133,12 @@ font-size:35px;
 hr{position:relative;
 		top:10px;}
 
-#preview{width: 250px;
+#preview{
+		width: 250px;
   		height: 250px;
- 		object-fit: cover;
  		margin:  0 auto;}
-img{
-  object-fit: cover;}
-.setIcon{text-align:center;
-margin:  0 auto;
-}
+
+
 
 /* ボタン */
 input[id ="submit"] {
