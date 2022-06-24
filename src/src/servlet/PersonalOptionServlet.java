@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import dao.HolidayDao;
 import dao.IconImagesDao;
 import dao.RemindDatesDao;
@@ -56,7 +53,7 @@ public class PersonalOptionServlet extends HttpServlet {
 			String iconImage = icon.getIcon_image();
 			// 検索結果をリクエストスコープに上書きして格納する
 			System.out.println(icon);
-			request.setAttribute("myIcon", iconImage);
+			session.setAttribute("myIcon", iconImage);
 		}
 
 		// 個人設定ページにフォワードする
@@ -150,26 +147,9 @@ public class PersonalOptionServlet extends HttpServlet {
 			holiday.fight(new Holiday(id, sat, true));
 		}
 
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			String json = null;
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/personalOption.jsp");
+			dispatcher.forward(request, response);
 
-		//JavaオブジェクトからJSONに変換
-		//JSONの出力
-		if(iconImage != null) {
-			json = mapper.writeValueAsString(iconImage);
-		    response.getWriter().write(json);
-		}
-
-		response.getWriter().write(json);
-
-		} catch (JsonProcessingException e) {
-		    e.printStackTrace();
-		}
-
-		response.setContentType("application/json");
-		response.setHeader("Cache-Control", "nocache");
-		response.setCharacterEncoding("utf-8");
 
 	}
 
