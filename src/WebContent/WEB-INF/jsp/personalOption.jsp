@@ -47,7 +47,7 @@
 <!-- メイン -->
     <main>
         <div class="icon" style="width:100px; height:100px;">
-			<img class="icon_img" id="iconImage" alt="icon" src="${myIcon}" style="width:100px; height:100px;">
+			<img class="icon_image" id="iconImage" alt="icon" src="${iconImage.icon_image}" style="width:100px; height:100px;">
         </div>
         <hr style="border:none;border-top:dashed 1px black;height:1px;width:450px;"><br>
 
@@ -56,7 +56,7 @@
                 <div class="setIcon">
                     <label>アイコンの画像設定</label>
 					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
-					<canvas id="preview" style="width:100px; height:100px;"></canvas><br>
+					<canvas id="preview" ></canvas><br>
                 </div>
 				<div>
 					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
