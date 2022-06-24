@@ -14,7 +14,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dao.CheerListsDao;
+import dao.TaskListsDao;
 import model.Cheer;
+import model.Task;
 
 /**
  * Servlet implementation class CheerPopupServlet
@@ -44,6 +46,9 @@ public class CheerPopupServlet extends HttpServlet {
 		response.setHeader("Cache-Control", "nocache");
 		response.setCharacterEncoding("utf-8");
 		String id = "DOJO";
+
+		TaskListsDao LDAO = new TaskListsDao();
+		LDAO.insert(new Task("","DOJO","1","1","腹筋","15回","2022-06-24","1",true));
 		//String id = (String)session.getAttribute("memo");
 		// 送信されたデータの取得
 		String data1 = request.getParameter("data1");
