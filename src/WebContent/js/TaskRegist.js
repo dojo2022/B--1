@@ -81,7 +81,7 @@ for (let i = 1; i <= ele.length; i++) {
 		window.setTimeout(() => {
 		 location.reload(true);
 		 /*popWin.style.display = 'none';*/
-		},1500);				//popWinのdisplayがなくなる
+		},1000);				//popWinのdisplayがなくなる
 	});
 
 //褒めるポップアップ表示に関する動き

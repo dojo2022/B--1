@@ -16,9 +16,9 @@
 
 
 <p id="date"></p> <!-- 「[ログインした日付]のタスク」と表示される-->
-
-
+<div class=new-add align="right" >
 <input type="button" value="+新規追加" onclick="onButtonClick()" id ="click-btn"/>
+</div>
 <div id="popup-wrapper">
   <div id="popup-inside">
     <div id="close">閉じる</div>
@@ -56,7 +56,7 @@
             <input type="hidden" name="task_id" value="100">
             <input type="hidden" name="task_judge" value="0">
             <input type="hidden" name="task_date" value="${lists[0].task_date}">
-            <input type="submit" name="REGIST" value="追加" onClick="alert('追加しました！');">
+            <input type="submit" name="REGIST" value="追加" id="addBtn" onClick="alert('追加しました！');">
             </form>
 
     </div>
@@ -68,9 +68,9 @@
 <table id="lists">
 
             <tr>
-                <th>チェックボックス</th><th>タスクの名前</th><th>削除ボタン</th> <!-- タスクリストに載せる項目（ある程度整ったら消す）-->
+                <th>　　　　　</th><th>　　　　　<br></th><th>　　　　　</th>
             </tr>
-            <c:forEach var="e" items="${lists}" varStatus="status">
+             <c:forEach var="e" items="${lists}" varStatus="status">
 
             	<tr class="data_row">
 
@@ -136,7 +136,7 @@
 					            <input type="hidden" name="task_id" value="${e.task_id}">
 					            <input type="hidden" name="task_judge" value="0">
 					            <input type="hidden" name="task_date" value="${e.task_date}">
-					            <input type="submit" name="SUBMIT" value="更新" onClick="alert('更新しました！');">
+					            <input type="submit" name="SUBMIT" value="更新" id="updateBtn" onClick="alert('更新しました！');">
 					            </form>
 
 					    </div>
