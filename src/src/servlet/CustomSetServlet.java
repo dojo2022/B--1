@@ -35,6 +35,8 @@ public class CustomSetServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// セッションスコープからUSER_IDを取得し、アイコンの選択
+					HttpSession session = request.getSession();
 
 		//画面用jsを追加
 				String js = "<script type=\"text/javascript\" src=\"/Forza/js/CustomSet.js\"></script>";
@@ -45,7 +47,7 @@ public class CustomSetServlet extends HttpServlet {
 		//getAllBookList()は「customsetlistが親、cheerが子」という階層構造を保持したままデータ取得するもの。
 		ArrayList<CustomSetLists> customsetlists = dao.getCustomTagList();
 		//リクエストスコープに取得したclicksテーブルのデータを格納
-		request.setAttribute("customsetlists", customsetlists);
+		session.setAttribute("customsetlists", customsetlists);
 
 /*
 		// カスタムセットのタグ
@@ -57,8 +59,7 @@ public class CustomSetServlet extends HttpServlet {
             CheerListsDao CustomDao = new CheerListsDao();
             List<Cheer> customList = CustomDao.show();
 */
-            // セッションスコープからUSER_IDを取得し、アイコンの選択
-			HttpSession session = request.getSession();
+
 
 //			String id = (String)session.getAttribute("memo");
 			   String id ="DOJO";
