@@ -48,31 +48,25 @@
     <main>
     <div class = "flex">
     <div class= "left">
-    	<br><b id="center">現在のアイコン画像</b><br><br>
+    	<br><b id="center">現在のアイコン画像</b><br><br><br>
         <div class="icon" style="width:100px; height:100px;">
-			<img class="icon_image" id="iconImage" alt="icon" src="${iconImage.icon_image}" style="width:100px; height:100px;">
+			<img class="icon_image" alt="icon" src="${iconImage.icon_image}" style="width:100px; height:100px;">
         </div>
-        <hr style="border:none;border-top:dashed 1px black;height:1px;width:95%;"><br>
+       <!--  <hr style="border:none;border-top:dashed 1px black;height:1px;width:95%;"><br> -->
+       <div class="triangle3"></div><br>
 
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setIcon">
-<<<<<<< Updated upstream
-                    <label>アイコンの画像設定</label>
-					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br>
-					<canvas id="preview" ></canvas><br>
                 </div>
 				<div>
-					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
-=======
-                    <label><b>新しいアイコン画像</b></label><br>
-					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br><br>
-					<canvas id="preview" style="width:100px; height:100px;"></canvas><br>
+                    <label><b>新しいアイコン画像</b></label><br><br>
+					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br><br><br>
+					<canvas id="preview" style="width:47px; height:47px;"></canvas><br><br>
                 </div>
 				<div>
 					<br>
 					<table align="center"><tr><td align="center"><input type="button" class="button" value="変更" onclick="newIcon()"></td></tr></table>
->>>>>>> Stashed changes
                 </div>
 			</form>
 </div>
@@ -123,9 +117,10 @@
                                     <input type="checkbox" id="sunday" name="days" value="日曜日">
                                     <label for="sunday">日</label>
                                 </div>
-
-                        </div>
+<br>
+                        </div><br>
                         <div class="salary">
+                        <br>
                             <label >&emsp;<b>給与日：</b>毎月
                                 <select name="salary_day" id="salaryDay">
                                     <option value="">-</option>
@@ -162,7 +157,7 @@
 
                                 </select> 日
                             </label>
-                        </div>
+                        </div><br>
                         <div class="birthday">
                             <label>&emsp;<b>誕生日：</b>
                                 <select name="birth_month" id="birthMonth">
@@ -215,6 +210,7 @@
                                 </select> 日
                             </label>
                         </div>
+                        <br>
                 </div>
                 <div>
                     <table align="center"><tr><td align="center"><input type="button" value="更新" id="submit" onclick="update()"></td></tr></table>
@@ -230,6 +226,6 @@
 	<footer>
         <!-- 今回は無し -->
 	</footer>
-</div>
+
 </body>
 </html>
