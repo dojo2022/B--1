@@ -1,6 +1,7 @@
 console.log('hello1');
 //日付を取得するJS
 
+/*
 function recalc() {
 	const now = new Date();
 	const year = now.getFullYear();
@@ -12,6 +13,7 @@ function recalc() {
 	document.getElementById('date').textContent
 		= year + '年' + month + '月' + date + '日' + 'のタスク';
 } recalc();
+*/
 
 //ポップアップ
 function onButtonClick() {

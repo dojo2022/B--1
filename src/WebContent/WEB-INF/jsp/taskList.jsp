@@ -15,7 +15,7 @@
 <body>
 
 
-<p id="date"></p> <!-- 「[ログインした日付]のタスク」と表示される-->
+<p id="date">${task_date}のタスク</p> <!-- 「[ログインした日付]のタスク」と表示される-->
 <div class=new-add align="right" >
 <input type="button" value="+新規追加" onclick="onButtonClick()" id ="click-btn"/>
 </div>
