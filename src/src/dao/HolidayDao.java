@@ -204,7 +204,7 @@ public class HolidayDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbv:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
 			// SQL文の準備
 			String sql = "update holiday set holiday = ? WHERE user_id = ? AND dayofweek = ?";

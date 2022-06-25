@@ -64,10 +64,20 @@ public class TopServlet extends HttpServlet {
 			TopMemosDao mDao = new TopMemosDao();
 			List<Memo> cardList = mDao.select(memo_id);
 
-		// 近頃のご褒美Dayの検索
+		// 日時の更新
 			RemindDatesDao news = new RemindDatesDao();
-			List<Remind> newsList = news.wow(new Remind(memo_id));
 			HolidayDao holiday = new HolidayDao();
+			List<Remind> update_remind = news.choose(new Remind(memo_id));
+			for(Remind r : update_remind) {
+				news.change(r);
+			}
+			List<Holiday> update_holiday = holiday.choose(new Holiday(memo_id));
+			for(Holiday h : update_holiday) {
+				holiday.update(h);
+			}
+
+		// 近頃のご褒美Dayの検索
+			List<Remind> newsList = news.wow(new Remind(memo_id));
 			List<Holiday> hList = holiday.niceFight(memo_id);
 
 		// 検索結果をリクエストスコープに格納する
