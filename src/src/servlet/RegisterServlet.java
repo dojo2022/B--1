@@ -45,28 +45,26 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 
+		// リクエストパラメータを取得する
+			request.setCharacterEncoding("UTF-8");
+			String id = request.getParameter("id");
+			String password = request.getParameter("password");
 
-				// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				String id = request.getParameter("id");
-				String password = request.getParameter("password");
-
-				// 登録処理を行う
-				UsersDao bDao = new UsersDao();
-				if (bDao.insert(new Users(id, password))) {	// 登録成功
-					request.setAttribute("result",
-					new Result("登録成功！", "レコードを登録しました。", "/Forza/LoginServlet"));
-					RemindDatesDao defaultRemind = new RemindDatesDao();
-					defaultRemind.insert(new Remind(id));
-				}
-				else {												// 登録失敗
-					request.setAttribute("result",
-					new Result("登録失敗！", "レコードを登録できませんでした。", "/Forza/RegisterServlet"));
-				}
-
-				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-				dispatcher.forward(request, response);
+		// 登録処理を行う
+			UsersDao bDao = new UsersDao();
+			if (bDao.insert(new Users(id, password))) {	// 登録成功
+				request.setAttribute("result",
+				new Result("登録成功！", "レコードを登録しました。", "/Forza/LoginServlet"));
+				RemindDatesDao defaultRemind = new RemindDatesDao();
+				defaultRemind.insert(new Remind(id));
 			}
-		}
+			else {												// 登録失敗
+				request.setAttribute("result",
+				new Result("登録失敗！", "レコードを登録できませんでした。", "/Forza/RegisterServlet"));
+			}
 
+		// 結果ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+			dispatcher.forward(request, response);
+	}
+}

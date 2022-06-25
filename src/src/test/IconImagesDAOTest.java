@@ -1,6 +1,4 @@
 package test;
-import java.util.List;
-
 import dao.IconImagesDao;
 import model.Icon;;
 
@@ -12,10 +10,8 @@ public class IconImagesDAOTest {
 		dao.insert(new Icon("DOJO", "Forza.png"));
 
 		System.out.println("---------- Selectのテスト ----------");
-		List<Icon> NewIcon = dao.select(new Icon("DOJO"));
-		for (Icon newIcon : NewIcon) {
-			System.out.println("USER_ID:" + newIcon.getUser_id());
-			System.out.println("ICON_IMAGE:" + newIcon.getIcon_image());
-		}
+		Icon NewIcon = dao.select(new Icon("DOJO"));
+			System.out.println("USER_ID:" + NewIcon.getUser_id());
+			System.out.println("ICON_IMAGE:" + NewIcon.getIcon_image());
 	}
 }

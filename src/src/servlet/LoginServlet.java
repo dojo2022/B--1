@@ -37,38 +37,34 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				String id = request.getParameter("ID");
-				String pw = request.getParameter("PW");
+			request.setCharacterEncoding("UTF-8");
+			String id = request.getParameter("ID");
+			String pw = request.getParameter("PW");
 
-				// ログイン処理を行う
-				UsersDao iDao = new UsersDao();
-				if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
+		// ログイン処理を行う
+			UsersDao iDao = new UsersDao();
 
-
-					Object id1 = (Object)id;
-					// セッションスコープにIDを格納する
-					HttpSession session = request.getSession();
-					session.setAttribute("id", new Login(id));
-					session.setAttribute("memo",id1);
-
-					UsersDao count = new UsersDao();
-					count.LoginDate(new Users(id));
-					LoginCount count1 = count.LoginCount(new Users(id));
-					session.setAttribute("loginCount",count1.getCount() );
-
-					// メニューサーブレットにリダイレクトする
-					response.sendRedirect("/Forza/TopServlet");
-				}
-				else {									// ログイン失敗
-					// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-					request.setAttribute("result",
-					new Result("ログイン失敗！", "ID(メールアドレス)またはPWに間違いがあります。", "/Forza/LoginServlet"));
-
-
-					// 結果ページにフォワードする
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
-					dispatcher.forward(request, response);
+			if (iDao.isLoginOK(new Users(id, pw))) {	// ログイン成功
+				Object id1 = (Object)id;
+		// セッションスコープにIDを格納する
+				HttpSession session = request.getSession();
+				session.setAttribute("id", new Login(id));
+				session.setAttribute("memo",id1);
+				UsersDao count = new UsersDao();
+				count.LoginDate(new Users(id));
+				LoginCount count1 = count.LoginCount(new Users(id));
+				session.setAttribute("loginCount",count1.getCount() );
+		// メニューサーブレットにリダイレクトする
+				response.sendRedirect("/Forza/TopServlet");
 			}
-       }
+			else {									// ログイン失敗
+		// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+				request.setAttribute("result",
+				new Result("ログイン失敗！", "ID(メールアドレス)またはPWに間違いがあります。", "/Forza/LoginServlet"));
+
+		// 結果ページにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+				dispatcher.forward(request, response);
+			}
     }
+}

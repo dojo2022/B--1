@@ -51,7 +51,7 @@ public class PersonalOptionServlet extends HttpServlet {
 			IconImagesDao iDao = new IconImagesDao();
 			Icon icon = iDao.select(new Icon(id));
 			String iconImage = icon.getIcon_image();
-			// 検索結果をリクエストスコープに上書きして格納する
+		// 検索結果をリクエストスコープに上書きして格納する
 			System.out.println(icon);
 			session.setAttribute("myIcon", iconImage);
 		}
@@ -85,29 +85,31 @@ public class PersonalOptionServlet extends HttpServlet {
 		String birthMonth = request.getParameter("BirthMonth");
 		String birthDay = request.getParameter("BirthDay");
 
+		if (request.getParameter("IMAGE") != null) {
 		// 画像の保存等
-		Part part = request.getPart("IMAGE"); // getPartで取得
+			Part part = request.getPart("IMAGE"); // getPartで取得
 
-		String image = this.getFileName(part);
-		request.setAttribute("image", image);
+			String image = this.getFileName(part);
+			request.setAttribute("image", image);
 		// サーバの指定のファイルパスへファイルを保存
         //場所はクラス名↑の上に指定してある
-		part.write(image);
+			part.write(image);
 
-		ArrayList<Icon> iconImage = new ArrayList<>();
+			ArrayList<Icon> iconImage = new ArrayList<>();
 
 		// アイコンの保存
-		if(image != null) {
-		IconImagesDao newicon = new IconImagesDao();
-		newicon.insert(new Icon(id,image));
-		Icon icon_data = newicon.select(new Icon(id));
-		iconImage.add(icon_data);
+			if(image != null) {
+				IconImagesDao newicon = new IconImagesDao();
+				newicon.insert(new Icon(id,image));
+				Icon icon_data = newicon.select(new Icon(id));
+				iconImage.add(icon_data);
+			}
 		}
 
 		// PWの変更
 		if (pw != null) {
-		UsersDao user = new UsersDao();
-		user.isChangePw(pw);
+			UsersDao user = new UsersDao();
+			user.isChangePw(pw);
 		}
 
 		// 給料日設定

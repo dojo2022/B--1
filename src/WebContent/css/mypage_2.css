@@ -91,232 +91,232 @@
              margin: 0 0 0 -96px;
          }
 
-.acd-check{
-    display: none;
-}
-.acd-label{
+		.acd-check{
+		    display: none;
+		}
+		.acd-label{
 
-    background: #f2f2f2;
-    display: block;
-    margin-bottom: 1px;
-    padding: 10px;
-    position: relative;
-}
-.acd-label:after{
-    background: #f2f2f2;
-    box-sizing: border-box;
-    content: '三';
-    display: block;
-    font-family: "Font Awesome 5 Free";
-    height: 55px;
-    padding: 20px 20px;
-    position: absolute;
-    right: 0;
-    top: 0px;
-}
-.acd-content{
-    border: 1px solid #4682B4;
-    display: block;
-    height: 0;
-    opacity: 0;
-    padding: 0 10px;
-    transition: .5s;
-    visibility: hidden;
-}
-.acd-check:checked + .acd-label:after{
-    content: '✖';
-}
-.acd-check:checked + .acd-label + .acd-content{
-    height: 25px;
-    opacity: 1;
-    padding: 10px;
-    visibility: visible;
-}
-h2 {
-	margin: 0 0 0 -260px;
-}
-
-
- /* 新規追加ボタン */
- input[name="data1"] {
-	 display: inline-block;
-  padding: 0.11em 0.125em;
-  background-color: #000080; /* 背景色 */
-  box-shadow: 0 5px 0 #000000; /* 影の太さ・色 */
-  border-radius: 60px;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
-}
-input[name="data1"]:hover {
-    box-shadow: none;
-    transform: translateY(5px);
-  }
-  .submit {
-    margin: 10px 0 0 200px;
-  }
-
-/* カスタムセット 新規追加テキスト */
-         .addnew {
-             margin: 10px 0 0 -295px;
-         }
-/* カスタムセット タグデザイン */
-.clickableTitle{
-	margin: 24px 0 -20px -160px;
-	border-bottom: 5px solid #bad9b4;
-	cursor: pointer;
-	 border: solid 4px;  /* 枠線指定 */
-    padding: 8px;      /* 余白指定 */
-    width:  300px;
-    text-align: left;
-}
+		    background: #f2f2f2;
+		    display: block;
+		    margin-bottom: 1px;
+		    padding: 10px;
+		    position: relative;
+		}
+		.acd-label:after{
+		    background: #f2f2f2;
+		    box-sizing: border-box;
+		    content: '三';
+		    display: block;
+		    font-family: "Font Awesome 5 Free";
+		    height: 55px;
+		    padding: 20px 20px;
+		    position: absolute;
+		    right: 0;
+		    top: 0px;
+		}
+		.acd-content{
+		    border: 1px solid #4682B4;
+		    display: block;
+		    height: 0;
+		    opacity: 0;
+		    padding: 0 10px;
+		    transition: .5s;
+		    visibility: hidden;
+		}
+		.acd-check:checked + .acd-label:after{
+		    content: '✖';
+		}
+		.acd-check:checked + .acd-label + .acd-content{
+		    height: 25px;
+		    opacity: 1;
+		    padding: 10px;
+		    visibility: visible;
+		}
+		h2 {
+			margin: 0 0 0 -260px;
+		}
 
 
-/* カスタムセットタグ編集ボタン */
-input[name="EDIT"] {
-  background-color: #BAD3FF; /* 背景色 */
-  margin: -80px 0 0 130px
-}
+		 /* 新規追加ボタン */
+		 input[name="data1"] {
+			 display: inline-block;
+		  padding: 0.11em 0.125em;
+		  background-color: #000080; /* 背景色 */
+		  box-shadow: 0 5px 0 #000000; /* 影の太さ・色 */
+		  border-radius: 60px;
+		  color: #fff;
+		  cursor: pointer;
+		  text-decoration: none; /* 文字の下線を消す */
+		}
+		input[name="data1"]:hover {
+		    box-shadow: none;
+		    transform: translateY(5px);
+		  }
+		  .submit {
+		    margin: 10px 0 0 200px;
+		  }
 
-/* ハンバーガーボタン */
-/* for hamburger menu */
-/* チェックボックス非表示 */
-
-.drawer-hidden {
-    display: none;
-}
-/* アイコン設置場所 */
-.drawer-open {
-    display: flex;
-    height: 60px;
-    width: 60px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 100;/* 重なり順を一番上に */
-    cursor: pointer;
-    margin: -60px 0 0 380px;
-}
+		/* カスタムセット 新規追加テキスト */
+		         .addnew {
+		             margin: 10px 0 0 -295px;
+		         }
+		/* カスタムセット タグデザイン */
+		.clickableTitle{
+			margin: 24px 0 -20px -160px;
+			border-bottom: 5px solid #bad9b4;
+			cursor: pointer;
+			 border: solid 4px;  /* 枠線指定 */
+		    padding: 8px;      /* 余白指定 */
+		    width:  300px;
+		    text-align: left;
+		}
 
 
-/* ハンバーガーメニューのアイコン */
-.drawer-open span,
-.drawer-open span:before,
-.drawer-open span:after {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 40px;
-  border-radius: 3px;
-  background: #333;
-  transition: 0.5s;
-  position: absolute;
-}
-/* 三本線のうち一番上の棒の位置調整 */
-.drawer-open span:before {
-    bottom: 8px;
-  }
-  /* 三本線のうち一番下の棒の位置調整 */
-  .drawer-open span:after {
-    top: 8px;
-  }
- /* メニューの中のリスト*/
- .drawer-item {
-    text-align: right;
- }
-  /* アイコンがクリックされたら真ん中の線を透明にする */
-#drawer-check:checked ~ .drawer-open span {
-    background: rgba(255, 255, 255, 0);
-  }
-  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
-  #drawer-check:checked ~ .drawer-open span::before {
-    bottom: 0;
-    transform: rotate(45deg);
-  }
-  #drawer-check:checked ~ .drawer-open span::after {
-    top: 0;
-    transform: rotate(-45deg);
-  }
-  /* メニューのデザイン*/
-.drawer-content {
-    width: 34%;
-    height: 100%;
-    position: fixed;
-    top: -100%;
-    bottom: 0;
-    margin: 0 0 0 -3px;
-    /* メニューを画面の外に飛ばす */
-    z-index: 99;
-    background: #FFFFFF;
-    transition: 0.7s;
-  }
-  /* アイコンがクリックされたらメニューを表示 */
-  #drawer-check:checked ~ .drawer-content {
-    top: 24%;/* メニューを画面に入れる */
-  }
-.clickableTable{
-	width: 30%;
+		/* カスタムセットタグ編集ボタン */
+		input[name="EDIT"] {
+		  background-color: #BAD3FF; /* 背景色 */
+		  margin: -80px 0 0 130px
+		}
 
-}
-.clickableTitle{
-	float: center;
-	border-bottom: 3px solid #4682B4;
-	cursor: pointer;
+		/* ハンバーガーボタン */
+		/* for hamburger menu */
+		/* チェックボックス非表示 */
 
-}
-.clickableTitle:nth-child(1){
-    background-color: #444444;
-    color: #f9fff7;
-}
-.hiddenLine{
-	display: none;
-	float: second;
-	width: 407%;
-	height: 120px;
+		.drawer-hidden {
+		    display: none;
+		}
+		/* アイコン設置場所 */
+		.drawer-open {
+		    display: flex;
+		    height: 60px;
+		    width: 60px;
+		    justify-content: center;
+		    align-items: center;
+		    position: relative;
+		    z-index: 100;/* 重なり順を一番上に */
+		    cursor: pointer;
+		    margin: -60px 0 0 380px;
+		}
 
-	background-color: #CCCCCC;
-	margin: 20px 0 40px -156px;
-}
-.hiddenLine:after{
-	clear:both;
-}
 
-.cheer-image{
-	width:35%;
-	margin: 0 200px 0 0;
-}
+		/* ハンバーガーメニューのアイコン */
+		.drawer-open span,
+		.drawer-open span:before,
+		.drawer-open span:after {
+		  content: '';
+		  display: block;
+		  height: 3px;
+		  width: 40px;
+		  border-radius: 3px;
+		  background: #333;
+		  transition: 0.5s;
+		  position: absolute;
+		}
+		/* 三本線のうち一番上の棒の位置調整 */
+		.drawer-open span:before {
+		    bottom: 8px;
+		  }
+		  /* 三本線のうち一番下の棒の位置調整 */
+		  .drawer-open span:after {
+		    top: 8px;
+		  }
+		 /* メニューの中のリスト*/
+		 .drawer-item {
+		    text-align: right;
+		 }
+		  /* アイコンがクリックされたら真ん中の線を透明にする */
+		#drawer-check:checked ~ .drawer-open span {
+		    background: rgba(255, 255, 255, 0);
+		  }
+		  /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+		  #drawer-check:checked ~ .drawer-open span::before {
+		    bottom: 0;
+		    transform: rotate(45deg);
+		  }
+		  #drawer-check:checked ~ .drawer-open span::after {
+		    top: 0;
+		    transform: rotate(-45deg);
+		  }
+		  /* メニューのデザイン*/
+		.drawer-content {
+		    width: 34%;
+		    height: 100%;
+		    position: fixed;
+		    top: -100%;
+		    bottom: 0;
+		    margin: 0 0 0 -3px;
+		    /* メニューを画面の外に飛ばす */
+		    z-index: 99;
+		    background: #FFFFFF;
+		    transition: 0.7s;
+		  }
+		  /* アイコンがクリックされたらメニューを表示 */
+		  #drawer-check:checked ~ .drawer-content {
+		    top: 24%;/* メニューを画面に入れる */
+		  }
+		.clickableTable{
+			width: 30%;
 
-.bg1 {
-	padding: 100px 0 0 -100px;
-    margin: 0 20px 10px 100px;
-    font-weight: bold;
-}
+		}
+		.clickableTitle{
+			float: center;
+			border-bottom: 3px solid #4682B4;
+			cursor: pointer;
 
-.postcenter{
-    margin: -45px 20px 0 30px;
-}
-.postRight{
-	width: 100%;
-}
-/* カスタムセットの中身　編集ボタン */
- input[name="EDITT"] {
-	 display: inline-block;
-  padding: 0.11em 0.125em;
-  background-color: #000080; /* 背景色 */
-  box-shadow: 0 5px 0 #000000; /* 影の太さ・色 */
-  border-radius: 60px;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none; /* 文字の下線を消す */
-}
-input[name="EDITT"]:hover {
-    box-shadow: none;
-    transform: translateY(5px);
-  }
-.edit {
-	margin: 0 0 0 250px;
-}
-input[name="message"] {
-	width: 100%;
-	height: 30px;
-}
+		}
+		.clickableTitle:nth-child(1){
+		    background-color: #444444;
+		    color: #f9fff7;
+		}
+		.hiddenLine{
+			display: none;
+			float: second;
+			width: 407%;
+			height: 120px;
+
+			background-color: #CCCCCC;
+			margin: 20px 0 40px -156px;
+		}
+		.hiddenLine:after{
+			clear:both;
+		}
+
+		.cheer-image{
+			width:35%;
+			margin: 0 200px 0 0;
+		}
+
+		.bg1 {
+			padding: 100px 0 0 -100px;
+		    margin: 0 20px 10px 100px;
+		    font-weight: bold;
+		}
+
+		.postcenter{
+		    margin: -45px 20px 0 30px;
+		}
+		.postRight{
+			width: 100%;
+		}
+		/* カスタムセットの中身　編集ボタン */
+		 input[name="EDITT"] {
+			 display: inline-block;
+		  padding: 0.11em 0.125em;
+		  background-color: #000080; /* 背景色 */
+		  box-shadow: 0 5px 0 #000000; /* 影の太さ・色 */
+		  border-radius: 60px;
+		  color: #fff;
+		  cursor: pointer;
+		  text-decoration: none; /* 文字の下線を消す */
+		}
+		input[name="EDITT"]:hover {
+		    box-shadow: none;
+		    transform: translateY(5px);
+		  }
+		.edit {
+			margin: 0 0 0 250px;
+		}
+		input[name="message"] {
+			width: 100%;
+			height: 30px;
+		}

@@ -219,12 +219,9 @@ public class CustomSetListsDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (card.getId() != null && !card.getId().equals("")) {
-					pStmt.setString(1, card.getId());
-				}
-				else {
-					pStmt.setString(1, null);
-				}
+
+					pStmt.setInt(1, card.getId());
+
 				if (card.getUser_id() != null && !card.getUser_id().equals("")) {
 					pStmt.setString(2, card.getUser_id());
 				}

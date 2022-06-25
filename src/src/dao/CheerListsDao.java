@@ -228,6 +228,8 @@ public class CheerListsDao {
 	    		return Custom;
 
 	    	}
+
+				// これは何に使うか分からない
 				// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 				public boolean insert(Cheer card) {
 					Connection conn = null;
@@ -252,8 +254,8 @@ public class CheerListsDao {
 							pStmt.setString(1, null);
 						}
 
-						if (card.getCustomset_name() != null && !card.getCustomset_name().equals("")) {
-							pStmt.setString(2, card.getCustomset_name());
+						if (card.getCheer_image() != null && !card.getCheer_image().equals("")) {
+							pStmt.setString(2, card.getCheer_image());
 						}
 						else {
 							pStmt.setString(2, null);
@@ -286,65 +288,64 @@ public class CheerListsDao {
 					return result;
 				}
 
-}		public List<Cheer> show() {
-	Connection conn = null;
-	ArrayList<Cheer> Custom = new ArrayList<Cheer>();
+	// これはなにに使うかわからない
+	public List<Cheer> show_another() {
+		Connection conn = null;
+		ArrayList<Cheer> Custom = new ArrayList<Cheer>();
 
-	try {
-		// JDBCドライバを読み込む
-		Class.forName("org.h2.Driver");
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
 
-		// データベースに接続する
-		conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
-		// SQL文を準備する
-		// ここでJOINを利用して2つのテーブルからデータを取得する。
-		String sql = "select id,user_id,customset_id,cheer_image,cheer_message from cheer_lists;";
-		PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を準備する
+			// ここでJOINを利用して2つのテーブルからデータを取得する。
+			String sql = "select id,user_id,customset_id,cheer_image,cheer_message from cheer_lists;";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		// SQL文を実行し、結果表を取得する
-		ResultSet rs = pStmt.executeQuery();
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
 
-		// 結果表をコレクションにコピーする
-		while (rs.next()) {
-			Cheer card = new Cheer(
-		//カスタムセットリストタグ情報
-			rs.getInt("id"),
-			rs.getString("user_id"),
-			rs.getString("customset_id"),
-            rs.getString("cheer_image"),
-            rs.getString("cheer_message")
+			// 結果表をコレクションにコピーする
+			while (rs.next()) {
+				Cheer card = new Cheer(
+			//カスタムセットリストタグ情報
+				rs.getInt("id"),
+				rs.getString("user_id"),
+				rs.getString("customset_id"),
+	            rs.getString("cheer_image"),
+	            rs.getString("cheer_message")
 
-			);
-			Custom.add(card);
-			System.out.println(rs.getString("id"));
-		}
-	}
-	catch (SQLException e) {
-		e.printStackTrace();
-		Custom = null;
-	}
-	catch (ClassNotFoundException e) {
-		e.printStackTrace();
-		Custom = null;
-	}
-	finally {
-		// データベースを切断
-		if (conn != null) {
-			try {
-				conn.close();
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-				Custom = null;
+				);
+				Custom.add(card);
+				System.out.println(rs.getString("id"));
 			}
 		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			Custom = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			Custom = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					Custom = null;
+				}
+			}
+		}
+		// 結果を返す
+		return Custom;
 	}
-
-	// 結果を返す
-	return Custom;
-
-}
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 	public boolean touroku(Cheer card) {
 		Connection conn = null;

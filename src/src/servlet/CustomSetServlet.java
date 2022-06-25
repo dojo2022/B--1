@@ -44,8 +44,10 @@ public class CustomSetServlet extends HttpServlet {
 
 		//画面表示時、customsetlistsとcheersテーブルの中身を表示する
 		CustomSetListsDao dao = new CustomSetListsDao();
+
 		//getAllBookList()は「customsetlistが親、cheerが子」という階層構造を保持したままデータ取得するもの。
 		ArrayList<CustomSetLists> customsetlists = dao.getCustomTagList();
+
 		//リクエストスコープに取得したclicksテーブルのデータを格納
 		session.setAttribute("customsetlists", customsetlists);
 
@@ -67,9 +69,8 @@ public class CustomSetServlet extends HttpServlet {
 				System.out.println(id);
 			BackGroundImagesDao iDao = new BackGroundImagesDao();
 			List<BackGround> background = iDao.select(new BackGround(id));
-			// 検索結果をリクエストスコープに上書きして格納する
 
-			System.out.println(background.get(0).getBackground_image());
+			// 検索結果をリクエストスコープに上書きして格納する
 			session.setAttribute("background", background.get(0).getBackground_image());
 
 
@@ -95,21 +96,21 @@ public class CustomSetServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		HttpSession session =request.getSession();
 
-		//idはセッションスコープから受けておる
-				String name = "DOJO";
+		//idはセッションスコープから受けとる
+		String name = "DOJO";
 
 		// 背景
 		if (  request.getPart("BACK") != null) { // getPartで取得
-		Part part = request.getPart("BACK");
-		String image = this.getFileName(part);
-		session.setAttribute("background", image);
+			Part part = request.getPart("BACK");
+			String image = this.getFileName(part);
+			session.setAttribute("background", image);
 		// サーバの指定のファイルパスへファイルを保存
         //場所はクラス名↑の上に指定してある
-		part.write(image);
-		BackGroundImagesDao iDao = new BackGroundImagesDao();
-		iDao.insert(new BackGround(name, image));
-        List<BackGround> background = iDao.select(new BackGround(name));
-        session.setAttribute("background", background.get(0).getBackground_image());
+			part.write(image);
+			BackGroundImagesDao iDao = new BackGroundImagesDao();
+			iDao.insert(new BackGround(name, image));
+	        List<BackGround> background = iDao.select(new BackGround(name));
+	        session.setAttribute("background", background.get(0).getBackground_image());
 		}
 
 		// 応援
@@ -138,49 +139,45 @@ public class CustomSetServlet extends HttpServlet {
     */
 
 
-				// リクエストパラメータを取得する
+		// リクエストパラメータを取得する
 
-				// セッションスコープからUSER_IDを取得し、アイコンの選択
-
-
-				// 登録処理を行う
+		// セッションスコープからUSER_IDを取得し、アイコンの選択
 
 
-				// メニューサーブレットにリダイレクトする
-				response.sendRedirect("/Forza/CustomSetServlet");
+		// 登録処理を行う
 
 
-				            //JavaオブジェクトからJSONに変換
-							//   ObjectMapper mapper = new ObjectMapper();
-				           // String testJson = mapper.writeValueAsString(CustomSet);
-				            //System.out.println(testJson);
-				            //JSONの出力
-				            //response.getWriter().write(testJson);
+		// メニューサーブレットにリダイレクトする
+		response.sendRedirect("/Forza/CustomSetServlet");
 
 
+		//JavaオブジェクトからJSONに変換
+		//   ObjectMapper mapper = new ObjectMapper();
+		// String testJson = mapper.writeValueAsString(CustomSet);
+        //System.out.println(testJson);
+        //JSONの出力
+        //response.getWriter().write(testJson);
 
+	   /*
+					if(session.getAttribute("id") != null) {
+		String id = (String)session.getAttribute("memo");
+			System.out.println("-----個人設定------");
+			System.out.println(id);
 
-			   /*
-							if(session.getAttribute("id") != null) {
-				String id = (String)session.getAttribute("memo");
-					System.out.println("-----個人設定------");
-					System.out.println(id);
-
-			   }
-				*/
+	   }
+		*/
 
 					}
-			//ファイルの名前を取得してくる
-			private String getFileName(Part part) {
-		        String name = null;
-		        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
-		            if (dispotion.trim().startsWith("filename")) {
-		                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
-		                name = name.substring(name.lastIndexOf("\\") + 1);
-		                break;
-		            }
-		        }		// TODO 自動生成されたメソッド・スタブ
-				return name;
-			}
+		//ファイルの名前を取得してくる
+		private String getFileName(Part part) {
+	        String name = null;
+	        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+	            if (dispotion.trim().startsWith("filename")) {
+	                name = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+	                name = name.substring(name.lastIndexOf("\\") + 1);
+	                break;
+	            }
+	        }		// TODO 自動生成されたメソッド・スタブ
+			return name;
 		}
-
+	}

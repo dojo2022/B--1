@@ -129,76 +129,75 @@
         }
 
         .CalendarWrapper{
-    margin: 0 auto;
-    color: #666;
-    text-align: center;
-    object-fit: cover;
+		    margin: 0 auto;
+		    color: #666;
+		    text-align: center;
+		    object-fit: cover;
+		}
 
-}
+		.CalendarWrapper * {
+			    object-fit: cover;
+		}
 
-.CalendarWrapper * {
-	    object-fit: cover;
-}
+		section {
+		    margin: 5px;
+		}
 
-section {
-    margin: 5px;
-}
+		table {
+			margin: 0 auto;
+		    border-spacing: 0;
+		    border-collapse: collapse;
+		}
 
-table {
-	margin: 0 auto;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
+		.calendar_table td {
+		    border: 1px solid #ddd;
+		    padding: 5px;
+		    text-align: center;
+		}
 
-.calendar_table td {
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-}
+		/*日曜*/
+		.calendar_table td:first-child {
+		    color: red;
+		}
 
-/*日曜*/
-.calendar_table td:first-child {
-    color: red;
-}
+		/*土曜*/
+		.calendar_table td:last-child {
+		    color: royalblue;
+		}
 
-/*土曜*/
-.calendar_table td:last-child {
-    color: royalblue;
-}
+		/*前後付きの日付*/
+		.calendar_table td.is-disabled {
+		    color: #ccc;
+		}
 
-/*前後付きの日付*/
-.calendar_table td.is-disabled {
-    color: #ccc;
-}
-
-/*本日*/
-.calendar_table td.today {
-    background-color: #D65E72;
-    color: #fff;
-}
-
+		/*本日*/
+		.calendar_table td.today {
+		    background-color: #D65E72;
+		    color: #fff;
+		}
 
 
 
-        /* カレンダーボタン */
-#prev {
-	font-weight: bold;
-	border: solid 2px rgb(153, 153, 153,0.6);
-    cursor: pointer;
-	background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
-	color: black;
-    margin: 15px 5px 0px 20px;
-    border-radius:10px;
 
-}
-#next {
-	font-weight: bold;
-	border: solid 2px rgb(153, 153, 153,0.6);
-    cursor: pointer;
-    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
-    color: black;
-	border-radius:10px;
-}
+		        /* カレンダーボタン */
+		#prev {
+			font-weight: bold;
+			border: solid 2px rgb(153, 153, 153,0.6);
+		    cursor: pointer;
+			background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+			color: black;
+		    margin: 15px 5px 0px 20px;
+		    border-radius:10px;
+
+		}
+		#next {
+			font-weight: bold;
+			border: solid 2px rgb(153, 153, 153,0.6);
+		    cursor: pointer;
+		    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+		    color: black;
+			border-radius:10px;
+		}
         .task{
 	        background-color: #ffffff94;
             border-radius: 10%;
@@ -263,65 +262,66 @@ table {
 
 /* トップメモのCSS　ここから */
 
-.memo { user-select:none;
-		font-family: "Meiryo UI";  font-size: 25px;   /* おそらくメモのラベルのみに適用されている */
-		/* text-shadow:1px 1px 0 #ffffff,-1px 1px 0 #ffffff,1px -1px 0 #ffffff,-1px -1px 0 #ffffff; */
-		font-weight: bold;
-  		text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
-                 	 0 -1px 4px white,                    0 1px 4px white,
-               		 1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
-}
+		.memo { user-select:none;
+				font-family: "Meiryo UI";  font-size: 25px;   /* おそらくメモのラベルのみに適用されている */
+				/* text-shadow:1px 1px 0 #ffffff,-1px 1px 0 #ffffff,1px -1px 0 #ffffff,-1px -1px 0 #ffffff; */
+				font-weight: bold;
+		  		text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+		                 	 0 -1px 4px white,                    0 1px 4px white,
+		               		 1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+		}
 
-textarea {
-	position:relative;
-	top:5px;
-	width:100%;                        /* divタグの大きさのうち何パーセントの大きさか */
-	height:100%;                       /* divタグの大きさのうち何パーセントの大きさか */
-    font-family: inherit;
-    font-size: 1rem;
-    resize: none;                 /* テキストエリアの大きさを固定(なくても行数に合わせて可変になるわけではない) */
-  	border: solid 2px rgb(153, 153, 153,0.6);         /* 枠の太さと色 */
-  	border-radius: 6px;                /* 枠の丸みの度合いを指定 */
-  	outline: 0;                        /* これが何かは忘れた　不要なら削除 */
-  	transition: 0.3s;                  /* これが何かは忘れた　不要なら削除 */
-  	-webkit-appearance: none;          /* これが何かは忘れた　不要なら削除 */
-  	background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+		textarea {
+			position:relative;
+			top:5px;
+			width:100%;                        /* divタグの大きさのうち何パーセントの大きさか */
+			height:100%;                       /* divタグの大きさのうち何パーセントの大きさか */
+		    font-family: inherit;
+		    font-size: 1rem;
+		    resize: none;                 /* テキストエリアの大きさを固定(なくても行数に合わせて可変になるわけではない) */
+		  	border: solid 2px rgb(153, 153, 153,0.6);         /* 枠の太さと色 */
+		  	border-radius: 6px;                /* 枠の丸みの度合いを指定 */
+		  	outline: 0;                        /* これが何かは忘れた　不要なら削除 */
+		  	transition: 0.3s;                  /* これが何かは忘れた　不要なら削除 */
+		  	-webkit-appearance: none;          /* これが何かは忘れた　不要なら削除 */
+		  	background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 
-}
+		}
 
-textarea:focus{border:2px solid black;
-  				box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
-                 			 0 -1px 4px white,                    0 1px 4px white,
-               				 1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
-}  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
+		textarea:focus{border:2px solid black;
+		  				box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+		                 			 0 -1px 4px white,                    0 1px 4px white,
+		               				 1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+		}
+		  /* 入力時に枠の色が変わる。枠の太さとかも変えられる　不要なら削除 */
 
 
 	/* トップメモ更新ボタンのCSS　ここから */
 
-	.submit{
-		font-weight: bold;
-		border: solid 2px rgb(153, 153, 153,0.6);
-	    padding: 4px 1px;
-	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
-	    color: black;
-	    cursor: pointer;
-	    border-radius:10px;
-	    height: 2em;
-	    width: 5em;
-		font-size:19px;
-		transition: 0.3s;
-    }
-	.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
-	    border: solid 2px black;
-	    padding: 4px 1px;
-	    cursor: pointer;
-	    border-radius:10px;
-	    background:rgba(255,255,255,0.6);
-	    box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
-                 	0 -1px 4px white,                    0 1px 4px white,
-               		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+		.submit{
+			font-weight: bold;
+			border: solid 2px rgb(153, 153, 153,0.6);
+		    padding: 4px 1px;
+		    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+		    color: black;
+		    cursor: pointer;
+		    border-radius:10px;
+		    height: 2em;
+		    width: 5em;
+			font-size:19px;
+			transition: 0.3s;
+	    }
+		.submit:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
+		    border: solid 2px black;
+		    padding: 4px 1px;
+		    cursor: pointer;
+		    border-radius:10px;
+		    background:rgba(255,255,255,0.6);
+		    box-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+	                 	0 -1px 4px white,                    0 1px 4px white,
+	               		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
 
-    }
+	    }
 
 	/* トップメモ更新ボタンのCSS　ここまで */
 
@@ -330,51 +330,52 @@ textarea:focus{border:2px solid black;
 
 /* トップページの実績欄のCSS　ここから */
 
-.midashi{font-size:20px;
-		white-space: nowrap;
-		font-weight:bold;
+		.midashi{font-size:20px;
+			white-space: nowrap;
+			font-weight:bold;
 
-		color: #000;
-		text-shadow:
-			0 0 0.05em rgb(255, 255, 255),
-			0 0 0.06em rgb(255, 255, 255),
-			0 0 0.07em rgb(255, 255, 255),
-			0 0 0.08em rgb(255, 255, 255),
-			0 0 0.09em rgb(255, 255, 255),
-			0 0 0.20em rgb(255, 255, 255),
-			0 0 0.20em rgb(255, 255, 255),
-			0 0 0.20em rgb(255, 255, 255),
-			0 0 0.50em rgb(255, 255, 255);
-}
+			color: #000;
+			text-shadow:
+				0 0 0.05em rgb(255, 255, 255),
+				0 0 0.06em rgb(255, 255, 255),
+				0 0 0.07em rgb(255, 255, 255),
+				0 0 0.08em rgb(255, 255, 255),
+				0 0 0.09em rgb(255, 255, 255),
+				0 0 0.20em rgb(255, 255, 255),
+				0 0 0.20em rgb(255, 255, 255),
+				0 0 0.20em rgb(255, 255, 255),
+				0 0 0.50em rgb(255, 255, 255);
+		}
 
 
 
-.sousuu{font-size:30px;
- 		font-weight:bold;
- 			white-space: nowrap;
-	font-weight:bold;
- 	padding: 0;
-	margin: 0;
-	background-image: linear-gradient(
-		70deg,
-		orange 45%, /* font color */
-		#FFF 50%,
-		orange 55% /* font color */
-	);
-	background-size: 400% 100%;
-	background-clip: text;
-	-webkit-background-clip: text;
-	color: transparent;
-	animation: shine 3s infinite;
-}
-@keyframes shine {
-	0% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+		.sousuu{
+			font-size:30px;
+			font-weight:bold;
+			white-space: nowrap;
+			font-weight:bold;
+		 	padding: 0;
+			margin: 0;
+			background-image: linear-gradient(
+				70deg,
+				orange 45%, /* font color */
+				#FFF 50%,
+				orange 55% /* font color */
+			);
+			background-size: 400% 100%;
+			background-clip: text;
+			-webkit-background-clip: text;
+			color: transparent;
+			animation: shine 3s infinite;
+		}
+		@keyframes shine {
+			0% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
 
 
 /* トップページの実績欄のCSS　ここまで */
@@ -383,88 +384,81 @@ textarea:focus{border:2px solid black;
 
 /* ヘッダーCSSのテスト 一応いらないものはコメントアウトしてますが邪魔なら消してください */
 
-header{width:100%;
-margin:0;
-padding:0;
-	display: inline-flex;
-		background :#fff;
-		color:#333;
-		display:flex;
-		border-bottom:solid 3px rgba(153,153,153,0.6);
-		user-select:none;
-		-webkit-user-select:none;
-		-ms-user-select: none;
-		-moz-user-select:none;
-		-khtml-user-select:none;
-		-webkit-user-drag:none;
-		-khtml-user-drag:none;
-}
+		header{width:100%;
+			margin:0;
+			padding:0;
+			display: inline-flex;
+			background :#fff;
+			color:#333;
+			display:flex;
+			border-bottom:solid 3px rgba(153,153,153,0.6);
+			user-select:none;
+			-webkit-user-select:none;
+			-ms-user-select: none;
+			-moz-user-select:none;
+			-khtml-user-select:none;
+			-webkit-user-drag:none;
+			-khtml-user-drag:none;
+		}
 
-h1{
-margin:0px 25px 0px 25px;
-padding:0px;
-position:relative;
-text-align:center;
-height:50px;
-font-size:35px;
-}
+		h1{
+			margin:0px 25px 0px 25px;
+			padding:0px;
+			position:relative;
+			text-align:center;
+			height:50px;
+			font-size:35px;
+		}
 
 /*==ナビゲーション全体の設定*/
-nav{
-  background:#fff;
-  color:#333;
-  text-align: center;
-  height:50px;
-  margin-left:auto;
-  border-left:solid 2px rgba(153,153,153,0.6);
-}
-nav:hover{
-	border-left:solid 3px rgba(153,153,153,0.6);
-	border-top:solid 3px rgba(153,153,153,0.6);
-
-}
+		nav{
+			background:#fff;
+			color:#333;
+			text-align: center;
+			height:50px;
+			margin-left:auto;
+			border-left:solid 2px rgba(153,153,153,0.6);
+		}
+		nav:hover{
+			border-left:solid 3px rgba(153,153,153,0.6);
+			border-top:solid 3px rgba(153,153,153,0.6);
+		}
 /*ナビゲーションを横並びに*/
-nav ul{
-  list-style: none;
-  display: flex;
- /*  justify-content: center; */
- padding:0;
-
-}
+		nav ul{
+			list-style: none;
+			display: flex;
+		/*  justify-content: center; */
+			padding:0;
+		}
 /*2階層目以降は横並びにしない*/
-nav ul ul{
-  display: block;
-  padding:0;
-
-}
+		nav ul ul{
+			display: block;
+			padding:0;
+		}
 
 
 /*下の階層のulや矢印の基点にするためliにrelativeを指定*/
-nav ul li{
-  position: relative;
-
-
-}
+		nav ul li{
+			position: relative;
+		}
 
 /*ナビゲーションのリンク設定*/
-nav ul li a{
+		nav ul li a{
+			display: block;
+			text-decoration: none;
+			color: #7e7e7e;
+			padding:15px 35px;
+			transition:all .1s;
+		}
 
-  display: block;
-  text-decoration: none;
-  color: #7e7e7e;
-   padding:15px 35px;
-  transition:all .1s;
-}
+
 
 /*nav ul li li a{*/
 /*   padding:10px 35px; */
-
 /* nav ul li a:hover{
   color:#fff;
 } */
-
 /*==矢印の設定*/
-
 /*2階層目を持つliの矢印の設定*/
 /* nav ul li.has-child::before{
   content:'';
@@ -477,7 +471,6 @@ nav ul li a{
     border-right:2px solid #999;
     transform: rotate(135deg);
 } */
-
 /*3階層目を持つliの矢印の設定*/
 /* nav ul ul li.has-child::before{
   content:'';
@@ -490,108 +483,100 @@ nav ul li a{
     border-right:2px solid #fff;
     transform: rotate(45deg);
 } */
-
 /*== 2・3階層目の共通設定 */
-
 /*下の階層を持っているulの指定*/
-nav li.has-child ul{
-    /*絶対配置で位置を指定*/
-   position: relative;
-  left:0;
-  top:0px;
-  z-index: 1000;
-    /*形状を指定*/
-  background:#28BFE7;
-  width:180px;
-    /*はじめは非表示*/
- visibility: hidden;
-  opacity: 0;
-    /*アニメーション設定 メモの更新ボタンと近い関係上、アニメーションがあると若干邪魔なので一旦コメントアウト*/
- /*  transition: all .1s; */
-
-}
+		nav li.has-child ul{
+		/*絶対配置で位置を指定*/
+			position: relative;
+			left:0;
+			top:0px;
+			z-index: 1000;
+		/*形状を指定*/
+			background:#28BFE7;
+			width:180px;
+		/*はじめは非表示*/
+			visibility: hidden;
+			opacity: 0;
+		/*アニメーション設定 メモの更新ボタンと近い関係上、アニメーションがあると若干邪魔なので一旦コメントアウト*/
+		/*  transition: all .1s; */
+		}
 
 /*hoverしたら表示*/
-nav li.has-child:hover > ul,
-nav li.has-child ul li:hover > ul,
-nav li.has-child:active > ul,
-nav li.has-child ul li:active > ul{
-  visibility: visible;
-  opacity: 1;
-}
+		nav li.has-child:hover > ul,
+		nav li.has-child ul li:hover > ul,
+		nav li.has-child:active > ul,
+		nav li.has-child ul li:active > ul{
+			visibility: visible;
+			opacity: 1;
+		}
 
 /*ナビゲーションaタグの形状*/
-nav li.has-child ul li a{
-  color: #fff;
-  border-bottom:solid 1px rgba(255,255,255,0.6);
-  		user-select:none;
-		-webkit-user-select:none;
-		-ms-user-select: none;
-		-moz-user-select:none;
-		-khtml-user-select:none;
-		-webkit-user-drag:none;
-		-khtml-user-drag:none;
+		nav li.has-child ul li a{
+			color: #fff;
+			border-bottom:solid 1px rgba(255,255,255,0.6);
+	  		user-select:none;
+			-webkit-user-select:none;
+			-ms-user-select: none;
+			-moz-user-select:none;
+			-khtml-user-select:none;
+			-webkit-user-drag:none;
+			-khtml-user-drag:none;
+		}
 
-}
+		nav li.has-child ul li:last-child a{
+			border-bottom:none;
+		}
 
-nav li.has-child ul li:last-child a{
-  border-bottom:none;
-}
-
-nav li.has-child ul li a:hover,
-nav li.has-child ul li a:active{
-  background:#3577CA;
-}
+		nav li.has-child ul li a:hover,
+		nav li.has-child ul li a:active{
+			background:#3577CA;
+		}
 
 
 /* /*==3階層目*/
 
 /* 3階層目の位置 */
-nav li.has-child ul ul{
-  position:relative;
-  top:50px;
-/*   left:182px; */
-  background:#66ADF5;
-}
+		nav li.has-child ul ul{
+			position:relative;
+			top:50px;
+		/*   left:182px; */
+			background:#66ADF5;
+		}
 
-nav li.has-child ul ul li a:hover,
-nav li.has-child ul ul li a:active{
-  background:#448ED3;
-} */
+		nav li.has-child ul ul li a:hover,
+		nav li.has-child ul ul li a:active{
+			background:#448ED3;
+		} */
 
 
 
 
 /*========= レイアウトのためのCSS ===============*/
 
-h1{
-  font-size:2rem;
-  text-align: center;
-
-
-}
-a .menu{height:50px;
-		font-size:36px;
-		user-select:none;
-		-webkit-user-select:none;
-		-ms-user-select: none;
-		-moz-user-select:none;
-		-khtml-user-select:none;
-		-webkit-user-drag:none;
-		-khtml-user-drag:none;
-
-}
+		h1{
+			font-size:2rem;
+			text-align: center;
+		}
+		a .menu{
+			height:50px;
+			font-size:36px;
+			user-select:none;
+			-webkit-user-select:none;
+			-ms-user-select: none;
+			-moz-user-select:none;
+			-khtml-user-select:none;
+			-webkit-user-drag:none;
+			-khtml-user-drag:none;
+		}
 
 /* h2{
   font-size:1.2rem;
   text-align: center;
   margin: 0 0 30px 0;
 } */
-
 /* p{
   margin-top:20px;
 } */
-
 /* small{
   background:#333;
   color:#fff;
@@ -599,14 +584,14 @@ a .menu{height:50px;
   text-align: center;
   padding:20px;
 } */
-
 /*
 section{
   padding:30px;
 }
  */
-section:nth-child(2n){
-  background:#f3f3f3;
-}
 
 
+
+		section:nth-child(2n){
+			background:#f3f3f3;
+		}

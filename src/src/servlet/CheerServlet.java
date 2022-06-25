@@ -58,10 +58,10 @@ public class CheerServlet extends HttpServlet {
 			System.out.println("-----個人設定------");
 			System.out.println(id);
 			IconImagesDao iDao = new IconImagesDao();
-			List<Icon> icon = iDao.select(new Icon(id));
+			Icon icon = iDao.select(new Icon(id));
 			// 検索結果をリクエストスコープに上書きして格納する
-			System.out.println(icon.get(0).getIcon_image());
-			request.setAttribute("myIcon", icon.get(0).getIcon_image());
+			System.out.println(icon);
+			request.setAttribute("myIcon", icon.getIcon_image());
 		}
 
 		// 個人設定ページにフォワードする
