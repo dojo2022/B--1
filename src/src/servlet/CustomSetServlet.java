@@ -17,9 +17,13 @@ import javax.servlet.http.Part;
 import dao.BackGroundImagesDao;
 import dao.CheerListsDao;
 import dao.CustomSetListsDao;
+import dao.HolidayDao;
+import dao.RemindDatesDao;
 import model.BackGround;
 import model.Cheer;
 import model.CustomSetLists;
+import model.Holiday;
+import model.Remind;
 
 
 /**
@@ -51,6 +55,8 @@ public class CustomSetServlet extends HttpServlet {
 		//リクエストスコープに取得したclicksテーブルのデータを格納
 		session.setAttribute("customsetlists", customsetlists);
 
+
+
 /*
 		// カスタムセットのタグ
 	        CustomSetListsDao bDao = new CustomSetListsDao();
@@ -69,6 +75,16 @@ public class CustomSetServlet extends HttpServlet {
 				System.out.println(id);
 			BackGroundImagesDao iDao = new BackGroundImagesDao();
 			List<BackGround> background = iDao.select(new BackGround(id));
+
+			// 近頃のご褒美Dayの検索
+			RemindDatesDao news = new RemindDatesDao();
+			HolidayDao holiday = new HolidayDao();
+			List<Remind> newsList = news.wow(new Remind(id));
+			List<Holiday> hList = holiday.niceFight(id);
+
+			session.setAttribute("news", newsList);
+			session.setAttribute("holiday", hList);
+
 
 			// 検索結果をリクエストスコープに上書きして格納する
 			session.setAttribute("background", background.get(0).getBackground_image());
