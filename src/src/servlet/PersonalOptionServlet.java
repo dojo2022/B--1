@@ -149,8 +149,7 @@ public class PersonalOptionServlet extends HttpServlet {
 			holiday.fight(new Holiday(id, sat, true));
 		}
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/personalOption.jsp");
-			dispatcher.forward(request, response);
+		response.sendRedirect("/Forza/CustomSetServlet");
 
 
 	}

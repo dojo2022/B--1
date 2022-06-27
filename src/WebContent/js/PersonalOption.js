@@ -23,6 +23,8 @@
 		fileReader.readAsDataURL(obj.files[0]);
 	}
 
+
+/*
 	function update(){
 				alert("updataはいったよ！");
 
@@ -76,6 +78,8 @@
 		});
 	}
 
+
+
 	function newIcon() {
 			alert("newIconはいったよ！");
 
@@ -112,6 +116,9 @@
 		});
 		return false;
 	}
+
+*/
+
 
 /*ヘッダーのテストコード*/
 //ドロップダウンの設定を関数でまとめる

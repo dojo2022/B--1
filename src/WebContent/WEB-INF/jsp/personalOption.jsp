@@ -78,7 +78,7 @@
 
 				<div>
 					<br>
-					<table align="center"><tr><td align="center"><input type="button" class="button" value="変更" onclick="newIcon()"></td></tr></table>
+					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
 
 
 
@@ -93,7 +93,7 @@
 			<form action="/Forza/PersonalOptionServlet" method="post">
                 <div class="setPw">
                     <label for="setPw"><b>変更後パスワード:</b>
-                        <input type="text" id="pw" name="password" placeholder="password">
+                        <input type="text" id="pw" name="Pw" placeholder="password">
                     </label>
                 </div>
                 <br><br> <br><br>
@@ -105,31 +105,31 @@
                         <div class="holiday">
                             &emsp;<b>休日：</b>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="monday" name="days" value="月曜日">
+                                    <input type="checkbox" id="monday" name="Mon" value="月曜日">
                                     <label for="monday">月</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="tuesday" name="days" value="火曜日">
+                                    <input type="checkbox" id="tuesday" name="Tue" value="火曜日">
                                     <label for="tuesday">火</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="wednesday" name="days" value="水曜日">
+                                    <input type="checkbox" id="wednesday" name="Wed" value="水曜日">
                                     <label for="wednesday">水</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="thursday" name="days" value="木曜日">
+                                    <input type="checkbox" id="thursday" name="Thu" value="木曜日">
                                     <label for="thursday">木</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="friday" name="days" value="金曜日">
+                                    <input type="checkbox" id="friday" name="Fri" value="金曜日">
                                     <label for="friday">金</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="saturday" name="days" value="土曜日">
+                                    <input type="checkbox" id="saturday" name="Sat" value="土曜日">
                                     <label for="saturday">土</label>
                                 </div>
                                 <div class="dayOfWeek">
-                                    <input type="checkbox" id="sunday" name="days" value="日曜日">
+                                    <input type="checkbox" id="sunday" name="Sun" value="日曜日">
                                     <label for="sunday">日</label>
                                 </div>
 <br>
@@ -137,7 +137,7 @@
                         <div class="salary">
                         <br>
                             <label >&emsp;<b>給与日：</b>毎月
-                                <select name="salary_day" id="salaryDay">
+                                <select name="Salary" id="salaryDay">
                                     <option value="">-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -175,7 +175,7 @@
                         </div><br>
                         <div class="birthday">
                             <label>&emsp;<b>誕生日：</b>
-                                <select name="birth_month" id="birthMonth">
+                                <select name="BirthMonth" id="birthMonth">
                                     <option value=null>-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -190,7 +190,7 @@
                                     <option value="11">11</option>
                                     <option value="12">12</option>
                                 </select> 月
-                                <select name="birth_day" id="birthDay">
+                                <select name="BirthDay" id="birthDay">
                                     <option value=null>-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
@@ -228,7 +228,7 @@
                         <br>
                 </div>
                 <div>
-                    <table align="center"><tr><td align="center"><input type="button" value="更新" id="submit" onclick="update()"></td></tr></table>
+                    <table align="center"><tr><td align="center"><input type="submit" value="更新" id="submit" ></td></tr></table>
                 </div>
             </form>
 

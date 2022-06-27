@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.BackGroundImagesDao;
 import dao.HolidayDao;
 import dao.IconImagesDao;
 import dao.RemindDatesDao;
@@ -20,6 +21,7 @@ import dao.TaskCountDao;
 import dao.TaskListsDao;
 import dao.TopMemosDao;
 import dao.UsersDao;
+import model.BackGround;
 import model.Holiday;
 import model.Icon;
 import model.LoginCount;
@@ -92,6 +94,14 @@ public class TopServlet extends HttpServlet {
 			Icon icon = topIcon.select(new Icon(memo_id));
 
 			session.setAttribute("iconImage", icon);
+
+		// 背景の取得
+			BackGroundImagesDao iDao = new BackGroundImagesDao();
+			List<BackGround> background = iDao.select(new BackGround(memo_id));
+			session.setAttribute("background", background.get(0).getBackground_image());
+
+
+
 
 		// タスクの検索処理を行う(デフォルト)
 			TaskListsDao TaskDao = new TaskListsDao();
