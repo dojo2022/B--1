@@ -7,28 +7,25 @@
 <link rel="stylesheet" type="text/css" href="/Forza/css/login.css">
 </head>
 <body>
-    <div class="bg">
-    <div class="rogin">
 
     <div class="titlegazou">
-        <img src="/Forza/images/Forza_trans.png" alt="home">
+        <img src="/Forza/images/ロゴ.png" alt="home" class="forzagazou">
     </div>
+
     <div class="table-center">
         <form method="POST" action="/Forza/RegisterServlet" id="login_form'">
 
-           <div class="ID1">
-                 ID(メール)
-              <label><input type="text" name="id"><br></label>
-           </div>
-           <div class="PW1">
-                 PW
-              <label><input type="password" name="password"><br></label>
-           </div>
-           <div>
-              <input type="submit" name="REGIST" value="新規登録">
-           </div>
+			<table align = "center">
+				<tr>
+					<td><label>ID</label></td>
+					<td><input type="text" name="id" class="m-form-text1"></td>
+					<td><label>PW</label></td>
+					<td><input type="password" name="password" class="m-form-text1"></td>
+				</tr>
+				<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+				<tr><td colspan="4"><input type="submit" name="REGIST" value="新規登録"></td></tr>
+			</table>
         </form>
-    </div>
-    </div>
+
     </div>
 </body>

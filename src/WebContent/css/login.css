@@ -2,8 +2,69 @@
 
 /*ログイン画面*/
 .titlegazou {
-    text-align: center;
-    margin: 100px 25px 0 0;
+    text-align:center;
+    					user-select:none;
+					-webkit-user-select:none;
+					-ms-user-select: none;
+					-moz-user-select:none;
+					-khtml-user-select:none;
+					-webkit-user-drag:none;
+					-khtml-user-drag:none;
+					user-drag:none;
+	-webkit-user-drag:none;
+
+}
+.forzagazou{width:800px;
+position:relative;
+top:95px;
+right:50px;
+					user-select:none;
+					-webkit-user-select:none;
+					-ms-user-select: none;
+					-moz-user-select:none;
+					-khtml-user-select:none;
+					-webkit-user-drag:none;
+					-khtml-user-drag:none;
+					user-drag:none;
+	-webkit-user-drag:none;
+
+}
+img{user-drag:none;
+	-webkit-user-drag:none;}
+
+
+
+.m-form-text {
+    height: 4em;
+    width: 18em;
+    padding: 30 40px;
+    border-radius: 60px;
+    border: none;
+    box-shadow: 0 0 0 1px black inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.m-form-text:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px black inset;
+}
+
+.m-form-text1 {
+    height: 4em;
+    width: 18em;
+    padding: 30 40px;
+    border: none;
+    box-shadow: 0 0 0 1px black inset;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.m-form-text1:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px black inset;
 }
 
 .bg {
@@ -23,10 +84,19 @@
 
 .table-center {
     text-align: center;
-    margin: auto;
+    position: relative;
+    top:145px;
+					user-select:none;
+					-webkit-user-select:none;
+					-ms-user-select: none;
+					-moz-user-select:none;
+					-khtml-user-select:none;
+					-webkit-user-drag:none;
+					-khtml-user-drag:none;
+
 }
 
-.ID {
+/* .ID {
     text-align: center;
     margin: 30px 80px 0 0;
 }
@@ -45,15 +115,25 @@ input[name="PW"] {
     outline:solid 2px #038003;
     border-radius: 0.55em;
 }
-.new {
-    margin: 40px 0;
-}
-.new:hover {
-        font-size: 23px;
-        font-weight: bold;
+ */.new,.new:link,.new:visited,.new:hover,.new:active {font-size: 23px;
+					font-weight: bold;
+            		text-decoration:none;
+					user-select:none;
+					-webkit-user-select:none;
+					-ms-user-select: none;
+					-moz-user-select:none;
+					-khtml-user-select:none;
+					-webkit-user-drag:none;
+					-khtml-user-drag:none;
+					color:black;
+					position:relative;
+					/* top:20px; */
 }
 
+
 input[name="LOGIN"] {
+	width:200px;
+	height:4em;
     display: inline-block;
   padding: 0.8em 1.5em;
   background-color: #e3364a; /* 背景色 */
@@ -62,6 +142,7 @@ input[name="LOGIN"] {
   color: #fff;
   cursor: pointer;
   text-decoration: none; /* 文字の下線を消す */
+    margin: 10px;
 }
 
 input[name="LOGIN"]:hover {
@@ -72,16 +153,18 @@ input[name="LOGIN"]:hover {
   /*新規登録画面*/
 
   input[name="REGIST"] {
+  	width:200px;
+	height:4em;
     display: inline-block;
-  padding: 0.8em 3em;
+  padding: 0.8em 1.5em;
   background-color: #4689FF; /* 背景色 */
   box-shadow: 0 5px 0 #005FFF; /* 影の太さ・色 */
   color: #fff;
   cursor: pointer;
   text-decoration: none; /* 文字の下線を消す */
-  margin: 30px;
+  margin: 10px;
 }
-input[name="REGIST"]:active {
+input[name="REGIST"]:hover {
     box-shadow: none;
     transform: translateY(5px);
   }
