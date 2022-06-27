@@ -514,7 +514,35 @@ h1 {
 img{user-drag:none;
 	-webkit-user-drag:none;}
 
+a {
+  			text-decoration: none;
+  			color: #000000;
+		}
+a:hover {
+  			text-decoration: none;
+  			color: #000000;
+		}
+a:visited {
+  			text-decoration: none;
+  			color: #000000;
+		}
 
+
+.header_background {
+			width: 100%;
+			height: 50px;
+			color: #ffffff;
+			z-index: 0;
+			float: left;
+		}
+
+.background{
+			position: fixed;
+		}
+
+		.background img {
+			height: 100%;
+		}
 
 /* ヘッダーのテストここから
 .gnavi__wrap {
