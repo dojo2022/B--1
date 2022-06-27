@@ -16,7 +16,7 @@
 }
 .forzagazou{width:800px;
 position:relative;
-top:95px;
+top:80px;
 right:50px;
 					user-select:none;
 					-webkit-user-select:none;
@@ -85,7 +85,7 @@ img{user-drag:none;
 .table-center {
     text-align: center;
     position: relative;
-    top:145px;
+    top:125px;
 					user-select:none;
 					-webkit-user-select:none;
 					-ms-user-select: none;
@@ -127,7 +127,7 @@ input[name="PW"] {
 					-khtml-user-drag:none;
 					color:black;
 					position:relative;
-					/* top:20px; */
+					top:15px;
 }
 
 
