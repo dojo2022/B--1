@@ -51,6 +51,12 @@
   </header>
 <!-- メイン -->
     <main>
+
+		<div class="background">
+			<img class="backgound_img" alt="background" src="${background}">
+		</div>
+
+
     <div class = "flex">
     <div class= "left">
     	<br><b id="center">現在のアイコン画像</b><br><br><br>

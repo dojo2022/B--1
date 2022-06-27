@@ -50,6 +50,14 @@
 
   </header>
 
+<main>
+
+
+		<div class="background">
+			<img class="backgound_img" alt="background" src="${background}">
+		</div>
+
+
 
 <div class="TrophyDiv">
 
@@ -225,5 +233,6 @@
 </table>
 
 </div>
+</main>
 </body>
 </html>
