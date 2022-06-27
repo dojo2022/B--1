@@ -53,9 +53,12 @@
 
   </header>
 <!-- メイン -->
-   <div class="background">
+
+
+		<div class="background">
 			<img class="backgound_img" alt="background" src="${background}">
-        </div>
+		</div>
+
 
      <div class="bg">
      <form action="/Forza/CustomSetServlet" method="post" enctype="multipart/form-data">
@@ -83,10 +86,10 @@
 			            <div class="submit">
 			             <div class="addnew">
 			              <form method="POST" action="/Forza/CustomSetServlet" id="Custom_form'" enctype="multipart/form-data">
-                             <label><input type="text" style="width: 200px; height: 30px;" name="ADDTEXT" id="DATA1">
-
-                             <input type="submit"  style="width: 70px; height: 35px;" name="data1" value="+新規追加" ></label>
-
+                             <label class="add_new_customset">
+	                             <input type="text" style="width: 200px; height: 30px;" name="ADDTEXT" id="DATA1">
+	                             <input type="submit"  style="width: 70px; height: 35px;" name="data1" value="+新規追加" >
+                             </label>
                           </form>
 
                         </div>
@@ -96,13 +99,16 @@
 	                      <div class="clickableLine">
                              <div class="clickableTitle">${e.customset_name}</div>
                              <div class="hiddenLine">
-                             <form method="POST" action="/Forza/CustomSetServlet" enctype="multipart/form-data">
-                             <div class="new_cheer">
+<!-- カスタムセット新規追加 -->
+                             <form method="POST" action="/Forza/CustomSetServlet" name="CUSTOM_CHEER" enctype="multipart/form-data">
+                             <div class="new_cheer_image">
                              	<input type="file" name="CHEER" accept="image/*" >
-                               <div class="new">
+                               <div class="new_cheer_text">
                              	<input type="text" style="width: 150px; height: 30px;" name="ADDMESSAGE" >
                              	<input type="submit" name="data" value="+新規追加" >
                                </div>
+<!-- ここまで -->
+							<hr>
                              </div>
                              </form>
                                 <c:forEach var="custom" items="${e.cheers}" >
@@ -117,7 +123,7 @@
 				                      </div>
 				                     <div class="bg1">
 				                      <div class="postcenter">
-					                   <input type="text" name="message" value="${custom.cheer_message}">
+					                   <input type="text" name="message" class="update_cheer_text" value="${custom.cheer_message}">
 				                      </div>
 				                     </div>
                                   </div>

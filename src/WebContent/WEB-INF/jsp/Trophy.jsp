@@ -12,6 +12,44 @@
 
 <!-- ヘッダーやフッターはトップページのものが完成次第コピペしてくる -->
 
+<!-- ヘッダ－ -->
+<header id="header">
+	<div class="header_logo">
+    <h1 style="padding-left: 0px;padding-bottom: 0px;padding-right: 0px;padding-top: 0px;"><a href="/Forza/TopServlet">Forza</a></h1>
+	</div>
+    <div class="newsWrapper">
+        <div class="news">
+            <br class="newsBr">
+            <ul>
+				<li>お知らせ：</li>
+				<c:forEach var="n" items="${news}">
+					<li>${n.remind_name}は${n.remind_date}です。</li>
+				</c:forEach>
+				<c:forEach var="h" items="${holiday}">
+					<li>${h.dayOfWeek}は休日です。</li>
+				</c:forEach>
+                </ul>
+            </div>
+           </div>
+    <nav style="margin-left: 0px; z-index:1; background-color:white;">
+    <ul style="height: 50px;padding-left: 0px;margin-bottom: 0px;margin-top: 0px;">
+      <li class="has-child">
+	      <a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu">
+	      <img class="icon_image" src="${iconImage.icon_image}"></img>
+	      	menu
+	      </a>
+        <ul>
+        <li><a href="/Forza/PersonalOptionServlet">一般設定</a></li>
+        <li><a href="/Forza/CustomSetServlet">カスタマイズ</a></li>
+        <li><a href="/Forza/TrophyServlet?loginCount=${loginCount}&taskCount=${TaskCount}">実績</a></li>
+        <li><a href="/Forza/LogoutServlet">ログアウト</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  </header>
+
 
 <div class="TrophyDiv">
 
