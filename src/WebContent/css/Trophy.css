@@ -537,10 +537,12 @@ a:visited {
 		}
 
 .background{
+			z-index: -100;
 			position: fixed;
 		}
 
 		.background img {
+			z-index: -100;
 			height: 100%;
 		}
 
