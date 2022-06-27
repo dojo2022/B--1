@@ -11,8 +11,9 @@
 
 
     <div class="titlegazou">
-        <img src="/Forza/images/ロゴ.png" alt="home" class="forzagazou">
+        <img src="/Forza/images/title2.png" alt="home" class="forzagazou">
     </div>
+
 
     <div class="table-center">
         <form method="POST" action="/Forza/LoginServlet" id="login_form'">

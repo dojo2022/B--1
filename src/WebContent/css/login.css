@@ -16,7 +16,7 @@
 }
 .forzagazou{width:800px;
 position:relative;
-top:80px;
+top:70px;
 right:50px;
 					user-select:none;
 					-webkit-user-select:none;
@@ -29,8 +29,11 @@ right:50px;
 	-webkit-user-drag:none;
 
 }
+
+
 img{user-drag:none;
 	-webkit-user-drag:none;}
+
 
 
 
@@ -85,7 +88,7 @@ img{user-drag:none;
 .table-center {
     text-align: center;
     position: relative;
-    top:125px;
+    top:115px;
 					user-select:none;
 					-webkit-user-select:none;
 					-ms-user-select: none;
