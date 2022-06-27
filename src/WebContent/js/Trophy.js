@@ -69,15 +69,6 @@ window.onload = function Trophy(){
 
 }
 
-//ヘッダー
-// URLSearchParamsオブジェクトを取得
-let params = url.searchParams;
-
-
-
-window.onload = function Trophy(){
-
-	}
 
 
 /*ヘッダーのテストコード*/

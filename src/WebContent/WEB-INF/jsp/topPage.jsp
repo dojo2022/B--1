@@ -51,14 +51,10 @@
 
   </header>
  <!-- メイン -->
-	<main class="main">
-
-
-		<div class="background">
+ 		<div class="background">
 			<img class="backgound_img" alt="background" src="${background}">
 		</div>
-
-
+	<main class="main">
 
         <div class="calendar">
  <!--

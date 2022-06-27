@@ -129,24 +129,38 @@ public class PersonalOptionServlet extends HttpServlet {
 
 		if(sun != null) {
 			holiday.fight(new Holiday(id, sun, true));
+		}else {
+			holiday.fight(new Holiday(id, sun, false));
 		}
 		if(mon != null) {
 			holiday.fight(new Holiday(id, mon, true));
+		}else {
+			holiday.fight(new Holiday(id, mon, false));
 		}
 		if(tue != null) {
 			holiday.fight(new Holiday(id, tue, true));
+		}else {
+			holiday.fight(new Holiday(id, tue, false));
 		}
 		if(wed != null) {
 			holiday.fight(new Holiday(id, wed, true));
+		}else {
+			holiday.fight(new Holiday(id, wed, false));
 		}
 		if(thu != null) {
 			holiday.fight(new Holiday(id, thu, true));
+		}else {
+			holiday.fight(new Holiday(id, thu, false));
 		}
 		if(fri != null) {
 			holiday.fight(new Holiday(id, fri, true));
+		}else {
+			holiday.fight(new Holiday(id, fri, false));
 		}
 		if(sat != null) {
 			holiday.fight(new Holiday(id, sat, true));
+		}else {
+			holiday.fight(new Holiday(id, sat, false));
 		}
 
 		response.sendRedirect("/Forza/CustomSetServlet");

@@ -215,7 +215,7 @@ public class HolidayDao {
 			calendar.setTime(date1);
 			calendar.add(Calendar.DATE, 7);
 			date1 = calendar.getTime();
-	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 	        String formattedDate = simpleDateFormat.format(date1);
 	        Date date2 = Date.valueOf(formattedDate);
 

@@ -96,7 +96,7 @@ public class RemindDatesDao {
 				calendar.setTime(date1);
 				calendar.add(Calendar.MONTH, 1);
 				date1 = calendar.getTime();
-		        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
 		        String formattedDate = simpleDateFormat.format(date1);
 		        Date date2 = Date.valueOf(formattedDate);
 
@@ -119,7 +119,7 @@ public class RemindDatesDao {
 				calendar2.setTime(date3);
 				calendar2.add(Calendar.YEAR, 1);
 				date3 = calendar2.getTime();
-		        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd");
+		        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyyMMdd");
 		        String formattedDate2 = simpleDateFormat2.format(date3);
 		        Date date4 = Date.valueOf(formattedDate2);
 
@@ -366,7 +366,7 @@ public class RemindDatesDao {
 		        String date1 = dateFormat.format(date);
 		        String[] date2 = date1.split("-");
 		        date2[2] = day;
-		        String date3 = String.join("-", date2);
+		        String date3 = String.join("", date2);
 		        Date date5 = Date.valueOf(date3);
 
 				pStmt.setDate(1, date5);
@@ -425,7 +425,7 @@ public class RemindDatesDao {
 		        String[] date2 = date1.split("-");
 		        date2[1] = Month;
 		        date2[2] = day;
-		        String date3 = String.join("-", date2);
+		        String date3 = String.join("", date2);
 		        Date date5 = Date.valueOf(date3);
 
 				pStmt.setDate(1, date5);

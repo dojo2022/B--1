@@ -138,7 +138,7 @@
                         <br>
                             <label >&emsp;<b>給与日：</b>毎月
                                 <select name="Salary" id="salaryDay">
-                                    <option value="">-</option>
+                                    <option >-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -176,7 +176,7 @@
                         <div class="birthday">
                             <label>&emsp;<b>誕生日：</b>
                                 <select name="BirthMonth" id="birthMonth">
-                                    <option value=null>-</option>
+                                    <option >-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -191,7 +191,7 @@
                                     <option value="12">12</option>
                                 </select> 月
                                 <select name="BirthDay" id="birthDay">
-                                    <option value=null>-</option>
+                                    <option >-</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
