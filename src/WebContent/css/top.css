@@ -4,7 +4,7 @@
             box-sizing: border-box;
         }
         body{
-            background-color:blanchedalmond;
+        	background-color:blanchedalmond;
             margin: 0 auto;
             width: 100%;
         }
@@ -104,6 +104,7 @@
 		 	border-radius: 50%;
 		}
 
+
         /* メイン */
         main{
             width: 90%;
@@ -130,7 +131,7 @@
 
         .CalendarWrapper{
 		    margin: 0 auto;
-		    color: #666;
+		    color: black;
 		    text-align: center;
 		    object-fit: cover;
 		}
@@ -153,6 +154,11 @@
 		    border: 1px solid #ddd;
 		    padding: 5px;
 		    text-align: center;
+		    cursor: pointer;
+		}
+
+		.calender_table:hober {
+			background-color:#D65E72;
 		}
 
 		/*日曜*/
@@ -171,11 +177,10 @@
 		}
 
 		/*本日*/
-		.calendar_table td.today {
+		.calendar_table td:today {
 		    background-color: #D65E72;
 		    color: #fff;
 		}
-
 
 
 
@@ -202,7 +207,7 @@
 	        background-color: #ffffff94;
             border-radius: 10%;
             grid-column: 2 / 3;
-            grid-row: auto;
+            grid-row: 1 / 3;
         }
 
         .taskList-inside {

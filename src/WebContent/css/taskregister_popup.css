@@ -1,5 +1,18 @@
 
+/*タスクリスト用CSS*/
+input[name="CUSTOMSET_ID"] {
+	border-radius: 50%;
+}
+
 /*タスク登録用ポップアップCSS*/
+
+p #date {
+	font-weight: bold;
+	text-shadow: -1px -1px 4px white, -1px 0 4px white, -1px 1px 4px white,
+		         0 -1px 4px white, 0 1px 4px white,
+		         1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
+}
+
 #click-btn {
 		font-weight: bold;
 		border: solid 2px rgb(153, 153, 153,0.6);
@@ -13,6 +26,7 @@
 		font-size:19px;
 		transition: 0.3s;
     }
+
 #click-btn:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
 	    border: solid 2px black;
 	    padding: 4px 1px;
@@ -24,6 +38,56 @@
                		1px -1px 4px white,  1px 0 4px white,  1px 1px 4px white;
 
     }
+
+input[name="task_name"] {
+		border: solid 2px rgb(153, 153, 153,0.6);
+	    padding: 4px 1px;
+	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	    color: black;
+	    cursor: pointer;
+	    border-radius:10px;
+	    height: 2em;
+	    width: 5em;
+		font-size:14px;
+		transition: 0.3s;
+}
+
+input[name="task_name"]:hover {
+	border: solid 2px black;
+	    padding: 4px 1px;
+	    cursor: pointer;
+	    border-radius:10px;
+	    background:rgba(255,255,255,0.6);
+	    box-shadow: -1px -1px 4px yellow, -1px 0 4px yellow, -1px 1px 4px yellow,
+                 	0 -1px 4px yellow,                    0 1px 4px yellow,
+               		1px -1px 4px yellow,  1px 0 4px yellow,  1px 1px 4px yellow;
+}
+
+#delete {
+		border: solid 2px rgb(153, 153, 153,0.6);
+	    padding: 4px 1px;
+	    background:rgba(255,255,255,0.6);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
+	    color: black;
+	    cursor: pointer;
+	    border-radius:10px;
+	    height: 2em;
+	    width: 5em;
+		font-size:14px;
+		transition: 0.3s;
+}
+
+#delete:hover{                        /* カーソルが乗っている時に色が変わる　不要なら　.submit:hover　は削除 */
+	    border: solid 2px black;
+	    padding: 4px 1px;
+	    cursor: pointer;
+	    border-radius:10px;
+	    background:rgba(255,255,255,0.6);
+	    box-shadow: -1px -1px 4px red, -1px 0 4px red, -1px 1px 4px red,
+                 	0 -1px 4px red,                    0 1px 4px red,
+               		1px -1px 4px red,  1px 0 4px red,  1px 1px 4px red;
+
+    }
+
  /*  display: block;
   margin: 20px auto;
   background-color: purple;
@@ -191,6 +255,7 @@
   	width: 100%;
   	height: 100%;
   	display: none;
+  	overflow: scroll;
     animation: fadeIn 0.8s ease 0.0s 1 normal;
 }
 
@@ -203,12 +268,12 @@
  	 z-index:3;
      text-align: center;
  	 width: 100%;
-	 max-width: 500px;
+	 max-width: 600px;
 	 height: 100%;
 	 max-height: 600px;
 	 background: white;
 	 margin: 10% auto;
-	 padding: 20px;
+	 padding: 10px;
 	 position: relative;
 }
 

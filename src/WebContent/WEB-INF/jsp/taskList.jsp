@@ -15,7 +15,7 @@
 <body>
 
 
-<p id="date">${task_date}のタスク</p> <!-- 「[ログインした日付]のタスク」と表示される-->
+<h2 id="date">${task_date}のタスク</h2> <!-- 「[ログインした日付]のタスク」と表示される-->
 <div class=new-add align="right" >
 <input type="button" value="+新規追加" onclick="onButtonClick()" id ="click-btn"/>
 </div>
@@ -145,7 +145,7 @@
 				</td>
 	            	<td><form method="POST" action="/Forza/TaskUpdateDeleteServlet">
 	            		<input type="hidden" name="id" value="${e.id}">
-	            		<input type="submit" name="SUBMIT" value="削除">
+	            		<input type="submit" name="SUBMIT" value="削除" id="delete">
 	            	</form>
 	            	</td>
             	</tr>
