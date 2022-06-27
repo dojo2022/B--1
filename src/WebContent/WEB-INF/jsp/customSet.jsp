@@ -39,7 +39,7 @@
       <li class="has-child">
 	      <a href="#" style="height: 50px;padding-bottom: 0px;padding-top: 0px;padding-left: 0px;padding-right: 0px;" class="menu">
 	      <img class="icon_image" src="${iconImage.icon_image}"></img>
-	      	menu
+	      <img class="menu_image" src="/Forza/images/menu47-1.png">
 	      </a>
         <ul>
         <li><a href="/Forza/PersonalOptionServlet">一般設定</a></li>
