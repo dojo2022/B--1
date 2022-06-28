@@ -163,7 +163,8 @@ public class PersonalOptionServlet extends HttpServlet {
 			holiday.fight(new Holiday(id, sat, false));
 		}
 
-		response.sendRedirect("/Forza/CustomSetServlet");
+		// データ更新のためリダイレクト
+		response.sendRedirect("/Forza/PersonalOptionServlet");
 
 
 	}

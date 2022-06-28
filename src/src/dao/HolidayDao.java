@@ -31,15 +31,12 @@ public class HolidayDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-
-					pStmt.setString(1,user_id);
-
+				pStmt.setString(1,user_id);
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
 
-				// 結果表をコレクションにコピーする ここ改造
-
+				// 結果表をコレクションにコピーする
 				while (rs.next()) {
 					Holiday day = new Holiday(
 					rs.getString("user_id"),
@@ -49,8 +46,6 @@ public class HolidayDao {
 					);
 					DayOfWeek.add(day);
 				}
-
-
 
 			}
 			catch (SQLException e) {
@@ -146,18 +141,16 @@ public class HolidayDao {
 			String sql = "select * from holiday WHERE USER_ID = ? AND holiday < ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる
-			pStmt.setString(1, choose.getUser_id());
-
-
+			// 現在時刻の取得
 	        long miliseconds = System.currentTimeMillis();
 	        Date date = new Date(miliseconds);
 
+			// SQL文を完成させる
+			pStmt.setString(1, choose.getUser_id());
 			pStmt.setDate(2, date);
 
 			// SQL分を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
-
 			while (rs.next()) {
 				Holiday day = new Holiday(
 				rs.getString("USER_ID"),
@@ -165,7 +158,6 @@ public class HolidayDao {
 				rs.getString("DAYOFWEEK"),
 				rs.getBoolean("YESNO")
 				);
-
 				holiday.add(day);
 			}
 
@@ -210,15 +202,17 @@ public class HolidayDao {
 			String sql = "update holiday set holiday = ? WHERE user_id = ? AND dayofweek = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
+			// 取得したデータから7日後に更新
 			java.util.Date date1 = update.getHoliday();
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date1);
 			calendar.add(Calendar.DATE, 7);
 			date1 = calendar.getTime();
-	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	        String formattedDate = simpleDateFormat.format(date1);
 	        Date date2 = Date.valueOf(formattedDate);
 
+			// SQL文を完成させる
 			pStmt.setDate(1, date2);
 			pStmt.setString(2, update.getUser_id());
 			pStmt.setString(3, update.getDayOfWeek());
@@ -266,21 +260,19 @@ public class HolidayDao {
 			String sql = "select * from holiday WHERE USER_ID = ? AND yesNo = true AND holiday BETWEEN ? AND ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる
-			pStmt.setString(1, user_id);
-
+			// 現在時刻と2日後の日時お取得
 	        long date = System.currentTimeMillis();
-
 	        java.sql.Date date1 = new java.sql.Date(date);
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date1);
 			calendar.add(Calendar.DATE, 2);
 			Date date2 = new Date(calendar.getTime().getTime());
-
 	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	        String formattedDate = simpleDateFormat.format(date2);
 	        Date date4 = Date.valueOf(formattedDate);
 
+			// SQL文を完成させる
+			pStmt.setString(1, user_id);
 			pStmt.setDate(2, date1);
 			pStmt.setDate(3, date4);
 
@@ -294,7 +286,6 @@ public class HolidayDao {
 				rs.getString("DAYOFWEEK"),
 				rs.getBoolean("YESNO")
 			);
-
 				holidayList.add(list);
 			}
 

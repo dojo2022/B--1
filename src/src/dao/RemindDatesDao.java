@@ -36,14 +36,12 @@ public class RemindDatesDao {
 
 			// SQL分を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
-
 			while (rs.next()) {
 				Remind list = new Remind(
 				rs.getString("USER_ID"),
 				rs.getString("REMIND_NAME"),
 				rs.getDate("REMIND_DATE")
 				);
-
 				remindList.add(list);
 			}
 
@@ -91,6 +89,7 @@ public class RemindDatesDao {
 				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '給料日'";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
+				// 一か月後に更新
 				java.util.Date date1 = change.getRemind_date();
 				Calendar calendar = Calendar.getInstance();
 				calendar.setTime(date1);
@@ -100,6 +99,7 @@ public class RemindDatesDao {
 		        String formattedDate = simpleDateFormat.format(date1);
 		        Date date2 = Date.valueOf(formattedDate);
 
+				// SQL文を完成させる
 				pStmt.setDate(1, date2);
 				pStmt.setString(2, change.getUser_id());
 
@@ -114,6 +114,7 @@ public class RemindDatesDao {
 				String sql2 = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '誕生日'";
 				PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 
+				// 一年後に更新
 				java.util.Date date3 = change.getRemind_date();
 				Calendar calendar2 = Calendar.getInstance();
 				calendar2.setTime(date3);
@@ -123,6 +124,7 @@ public class RemindDatesDao {
 		        String formattedDate2 = simpleDateFormat2.format(date3);
 		        Date date4 = Date.valueOf(formattedDate2);
 
+				// SQL文を完成させる
 				pStmt2.setDate(1, date4);
 				pStmt2.setString(2, change.getUser_id());
 
@@ -176,25 +178,22 @@ public class RemindDatesDao {
 			String sql = "select * from Remind_days WHERE USER_ID = ? AND REMIND_DATE < ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる
-			pStmt.setString(1, choose.getUser_id());
-
-
-	        long miliseconds = System.currentTimeMillis();
+			// 現在時刻の取得
+			long miliseconds = System.currentTimeMillis();
 	        Date date = new Date(miliseconds);
 
+			// SQL文を完成させる
+			pStmt.setString(1, choose.getUser_id());
 			pStmt.setDate(2, date);
 
 			// SQL分を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
-
 			while (rs.next()) {
 				Remind list = new Remind(
 				rs.getString("USER_ID"),
 				rs.getString("REMIND_NAME"),
 				rs.getDate("REMIND_DATE")
 				);
-
 				remindList.add(list);
 			}
 
@@ -239,34 +238,30 @@ public class RemindDatesDao {
 			String sql = "select * from Remind_days WHERE USER_ID = ? AND REMIND_DATE BETWEEN ? AND ? ORDER BY ID";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// SQL文を完成させる
-			pStmt.setString(1, wow.getUser_id());
-
+			// 現在時刻と2日後の取得
 	        long date = System.currentTimeMillis();
-
 	        java.sql.Date date1 = new java.sql.Date(date);
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date1);
 			calendar.add(Calendar.DATE, 2);
 			Date date2 = new Date(calendar.getTime().getTime());
-
 	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	        String formattedDate = simpleDateFormat.format(date2);
 	        Date date4 = Date.valueOf(formattedDate);
 
+			// SQL文を完成させる
+			pStmt.setString(1, wow.getUser_id());
 			pStmt.setDate(2, date1);
 			pStmt.setDate(3, date4);
 
 			// SQL分を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
-
 			while (rs.next()) {
 				Remind list = new Remind(
 				rs.getString("USER_ID"),
 				rs.getString("REMIND_NAME"),
 				rs.getDate("REMIND_DATE")
 				);
-
 				remindList.add(list);
 			}
 
@@ -311,15 +306,15 @@ public class RemindDatesDao {
 			String sql = "insert into remind_days (user_id, remind_date) values (?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
+			// 現在時刻の取得
+			long miliseconds = System.currentTimeMillis();
+	        Date date = new Date(miliseconds);
+
 			// SQL文を完成させる
-				pStmt.setString(1, insert.getUser_id());
+			pStmt.setString(1, insert.getUser_id());
+			pStmt.setDate(2, date);
 
-				long miliseconds = System.currentTimeMillis();
-		        Date date = new Date(miliseconds);
-
-				pStmt.setDate(2, date);
-
-				result = true;
+			result = true;
 
 		}
 		catch (SQLException e) {
@@ -356,24 +351,25 @@ public class RemindDatesDao {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6Data/dojo6Data", "sa", "");
 
-				// SQL文を準備する
-				String sql = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '給料日'";
-				PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を準備する
+			String sql = "update Remind_days set Remind_date = ? where USER_ID = ? AND REMIND_NAME = '給料日'";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		        long miliseconds = System.currentTimeMillis();
-		        Date date = new Date(miliseconds);
-		        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		        String date1 = dateFormat.format(date);
-		        String[] date2 = date1.split("-");
-		        date2[2] = day;
-		        String date3 = String.join("", date2);
-		        Date date5 = Date.valueOf(date3);
+			// 現在時刻の取得
+			long miliseconds = System.currentTimeMillis();
+	        Date date = new Date(miliseconds);
+	        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	        String date1 = dateFormat.format(date);
+	        String[] date2 = date1.split("-");
+	        date2[2] = day;
+	        String date3 = String.join("", date2);
+	        Date date5 = Date.valueOf(date3);
 
-				pStmt.setDate(1, date5);
-				pStmt.setString(2, user_id);
+			pStmt.setDate(1, date5);
+			pStmt.setString(2, user_id);
 
-				// SQL文を実行する
-				pStmt.executeUpdate();
+			// SQL文を実行する
+			pStmt.executeUpdate();
 
 
 			result = true;

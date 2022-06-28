@@ -50,12 +50,10 @@
 
   </header>
 <!-- メイン -->
-    <main>
-
+<main>
 		<div class="background">
 			<img class="backgound_img" alt="background" src="${background}">
 		</div>
-
 
     <div class = "flex">
     <div class= "left">
@@ -66,30 +64,25 @@
        <!--  <hr style="border:none;border-top:dashed 1px black;height:1px;width:95%;"><br> -->
        <div class="triangle3"></div><br>
 
+
         <div class="setting">
             <form action="/Forza/PersonalOptionServlet" method="post" enctype="multipart/form-data">
                 <div class="setIcon">
-
-                </div>
-
-                    <label><b>新しいアイコン画像</b></label><br><br>
-					<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br><br><br>
-					<canvas id="preview" style="width:47px; height:47px;"></canvas><br><br>
-
+		        </div>
+                <label><b>新しいアイコン画像</b></label><br><br>
+				<input type="file" name="IMAGE" id="img" accept="image/*" onchange="previewImage(this);"><br><br><br>
+				<canvas id="preview" style="width:47px; height:47px;"></canvas><br><br>
 				<div>
 					<br>
 					<table align="center"><tr><td align="center"><input type="submit" class="button" value="変更" ></td></tr></table>
-
-
-
                 </div>
 			</form>
-</div>
-</div>
+		</div>
+	</div>
 
 <!-- ここで分ける -->
 
-<div class="right"><br><br><br>
+	<div class="right"><br><br><br>
 			<form action="/Forza/PersonalOptionServlet" method="post">
                 <div class="setPw">
                     <label for="setPw"><b>変更後パスワード:</b>
@@ -231,12 +224,10 @@
                     <table align="center"><tr><td align="center"><input type="submit" value="更新" id="submit" ></td></tr></table>
                 </div>
             </form>
-
-      </div>
-</div>
-
-    </main>
     </div>
+	</div>
+</main>
+</div>
 <!-- フッタ－ -->
 	<footer>
         <!-- 今回は無し -->
