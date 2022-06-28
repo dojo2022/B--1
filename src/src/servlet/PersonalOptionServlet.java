@@ -67,9 +67,6 @@ public class PersonalOptionServlet extends HttpServlet {
 		String id = (String)session.getAttribute("memo");
 
 		request.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-		response.setHeader("Cache-Control", "nocache");
-		response.setCharacterEncoding("utf-8");
 
 		// 送信されたデータの取得
 		String pw = request.getParameter("Pw");
@@ -84,6 +81,7 @@ public class PersonalOptionServlet extends HttpServlet {
 		String sat = request.getParameter("Sat");
 		String birthMonth = request.getParameter("BirthMonth");
 		String birthDay = request.getParameter("BirthDay");
+		String image_src = request.getParameter("IMAGE");
 
 		if (request.getParameter("IMAGE") != null) {
 		// 画像の保存等

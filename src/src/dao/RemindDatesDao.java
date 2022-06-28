@@ -362,7 +362,7 @@ public class RemindDatesDao {
 	        String date1 = dateFormat.format(date);
 	        String[] date2 = date1.split("-");
 	        date2[2] = day;
-	        String date3 = String.join("", date2);
+	        String date3 = String.join("-", date2);
 	        Date date5 = Date.valueOf(date3);
 
 			pStmt.setDate(1, date5);
@@ -421,7 +421,7 @@ public class RemindDatesDao {
 		        String[] date2 = date1.split("-");
 		        date2[1] = Month;
 		        date2[2] = day;
-		        String date3 = String.join("", date2);
+		        String date3 = String.join("-", date2);
 		        Date date5 = Date.valueOf(date3);
 
 				pStmt.setDate(1, date5);
