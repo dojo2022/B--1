@@ -20,9 +20,9 @@
 
            <table align = "center">
            	<tr>
-           		<td><label>ID</label></td>
+           		<td><label><b class="idpw">ID</b></label></td>
            		<td><input type="text" name="ID" class="m-form-text"></td>
-           		<td><label>PW</label></td>
+           		<td><label><b class="idpw">PW</b></label></td>
            		<td><input type="password" name="PW" class="m-form-text"></td>
            </tr>
            <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
