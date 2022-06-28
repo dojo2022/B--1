@@ -322,7 +322,7 @@ body{
 
 /* 枠みたいな部分 */
 .TrophyDiv{width:1200px; /* %でもいいけどどうせトロフィー画像たちは縮まないので固定にした */
-			height:80%;
+			height:90%;
 			background:rgba(240,248,255,0.5);   /* 前3つの数字は色コード。背景画像が入るから白系のほうがいいかも。最後の0.5が透け方の程度を調整している */
 			margin: 0 auto;
 			position:relative;
@@ -352,9 +352,9 @@ body{
 .TrophyDiv::after {
     content: '';
     position: absolute;
-    top: -20px;
+    top: -30px;
     left: -300px;
-    width: 110px;
+    width: 100px;
     height: 500px;
     background-image: linear-gradient(100deg,  rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 1) 100%, rgba(255, 255, 255, 0) 0%);
 
