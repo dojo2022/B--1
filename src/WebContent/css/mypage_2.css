@@ -608,7 +608,7 @@ section{
 		    pointer-events: none;
 		    /* メニューを画面の外に飛ばす */
 		    z-index: 100;
-		    background: #ffffff95;
+		    background: #ffffff;
 		    transition: 0.7s;
 		    border: 1px solid #000000;
 		  }
